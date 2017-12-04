@@ -18,7 +18,11 @@ class Sidedish {
         Sidedish();
         Sidedish(string name, int price);
 
+        void write(ofstream& fout) const;
+        void read(ifstream& fin);
+
         friend ostream& operator << (ostream& out, const Sidedish& sidedish);
+
         int getPrice();
         string getName();
 };

@@ -5,6 +5,13 @@ Pizza::Pizza() {
     price = 0;
 }
 
+Pizza::Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price) {
+    this->name = name;
+    this->toppings = toppings;
+    this->crust = crust;
+    this->price = price;
+}
+
 /*Topping Pizza::addTopping() {
     Topping topping;
     string choose = " ";

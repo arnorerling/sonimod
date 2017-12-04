@@ -25,15 +25,15 @@ void SalesUI::startUI() {
 
         switch(select){
             case 'p': {
-
+                getPizza();
                 break;
             }
             case 's': {
-
+                getSidedish();
                 break;
             }
             case 'd': {
-
+                getDrink();
                 break;
             }
             case 'o': {
@@ -51,4 +51,17 @@ void SalesUI::startUI() {
         }
     }
 
+}
+
+void SalesUI::getPizza(){
+    cout << endl;
+}
+
+void SalesUI::getDrink() {
+    cout << "Drinkslist" << endl;
+    salesDomain.getDrink();
+}
+
+void SalesUI::getSidedish() {
+    cout << endl;
 }

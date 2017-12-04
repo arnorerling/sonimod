@@ -3,7 +3,10 @@
 #include "Topping.h"
 #include "Drink.h"
 #include "Sidedish.h"
+#include "Branch.h"
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 ManagerUI::ManagerUI()
@@ -19,7 +22,7 @@ void ManagerUI::startUI() {
         cout << "-----Choose an action-----" << endl;
         cout << "c: Add new pizza crust" << endl;
         cout << "t: Add new topping" << endl;
-        cout << "m: Add new menu option" << endl;
+        cout << "m: Add new pizza to menu" << endl;
         cout << "d: Add new drink" << endl;
         cout << "s: Add new sidedish" << endl;
         cout << "b: Add new branch" << endl;
@@ -33,7 +36,7 @@ void ManagerUI::startUI() {
             break;
             case 't': addTopping();
             break;
-            case 'm': addMenu();
+            case 'm': addPizza();
             break;
             case 'd': addDrink();
             break;
@@ -45,10 +48,12 @@ void ManagerUI::startUI() {
 }
 
 void ManagerUI::addCrust() {
+    bool valid = false;
     string name;
     int inches;
     int price;
 
+    while (!valid) {
     cout << "----Add Crust----" << endl;
     cout << "Name: ";
     cin >> ws;
@@ -60,12 +65,16 @@ void ManagerUI::addCrust() {
 
     Crust crust(name, price, inches);
     cout << crust << endl;
+    valid = managerDomain.addCrust(crust);
+    }
 }
 
 void ManagerUI::addTopping() {
+    bool valid = false;
     string name;
     int price;
 
+    while (!valid) {
     cout << "----Add Topping----" << endl;
     cout << "Name: ";
     cin >> ws;
@@ -75,51 +84,71 @@ void ManagerUI::addTopping() {
 
     Topping topping(name, price);
     cout << topping << endl;
+    valid = managerDomain.addTopping(topping);
+    }
 }
 
-void ManagerUI::addMenu() {
-   // Menu menu;
-    //cout << "----Add Menu----" << endl;
-    //cin >> menu;
+void ManagerUI::addPizza() {
+    bool valid = false;
+    string name;
+    vector<Topping> toppings;
+    int price;
+    cout << "Coming Soon" << endl;
 }
 
 void ManagerUI::addDrink() {
+    bool valid = false;
     string name;
-    int liters;
+    int liter;
     int price;
 
+    while (!valid) {
     cout << "----Add Drink----" << endl;
     cout << "Name: ";
     cin >> ws;
     getline(cin, name);
     cout << "Liters: ";
-    cin >> liters;
+    cin >> liter;
     cout << "Price: ";
     cin >> price;
 
-    Drink drink(name, price, liters);
+    Drink drink(name, liter, price);
     cout << drink << endl;
+    valid = managerDomain.addDrink(drink);
+    }
 }
 
 void ManagerUI::addSide() {
+    bool valid = false;
     string name;
     int price;
 
-    cout << "----Add Sidedish----" << endl;
+    while (!valid) {
+    cout << "----Add Drink----" << endl;
     cout << "Name: ";
     cin >> ws;
     getline(cin, name);
     cout << "Price: ";
     cin >> price;
+
     Sidedish sidedish(name, price);
     cout << sidedish << endl;
+    valid = managerDomain.addSidedish(sidedish);
+    }
 }
 
 void ManagerUI::addBranch() {
+    bool valid = false;
     string name;
-    //Branch branch;
+
+    while (!valid) {
     cout << "----Add Branch----" << endl;
     cout << "Name: ";
     cin >> ws;
     getline(cin, name);
+
+    Branch branch(name);
+    cout << branch << endl;
+    valid = managerDomain.addBranch(branch);
+    }
 }

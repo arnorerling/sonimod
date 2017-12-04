@@ -10,6 +10,7 @@
 class Pizza {
 
     private:
+        string name;
         vector<Topping> toppings;
         Crust crust;
         int price;
@@ -17,8 +18,9 @@ class Pizza {
     public:
         Pizza();
         ///Basic constructor, sets all variables to 0
+        Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price);
 
-        Topping addTopping();
+        /*Topping addTopping();
         ///Sets 'toppings[currentToppingNum]' to be the parameter 'topping'
 
         Crust addCrust();
@@ -34,9 +36,9 @@ class Pizza {
         ///it then calls 'void initialize' with the input as a parameter.
         ///Then it loops 'toppingCount' times and requests input of each topping and it's price
 
-        int getPrice();
+        void addPizza();*/
 
-        void addPizza();
+
 };
 
 #endif // PIZZA_H

@@ -31,9 +31,6 @@ class Crust {
 		friend ostream& operator << (ostream& out, const Crust& crust);
 		///Overloads the '<<' operator to print the name and the price of a topping
 
-		friend istream& operator >> (istream& in, Crust& crust);
-		///Overloads the '>>' operator to request input of the name and price of a topping
-
         string getName();
         ///get name of crust
 

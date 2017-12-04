@@ -11,6 +11,29 @@ Sidedish::Sidedish(string name, int price) {
     this->price = price;
 }
 
+void Sidedish::write(ofstream& fout) const {
+
+    int strLen = name.length() + 1;
+
+    fout.write((char*)(&strLen), sizeof(int));
+    fout.write(name.c_str(), strLen);
+    fout.write((char*)(&price), sizeof(int));
+
+}
+void Sidedish::read(ifstream& fin) {
+
+    int strLen = name.length();
+
+    fin.read((char*)(&strLen), sizeof(int));
+    char *str = new char[strLen];
+    fin.read(str, strLen);
+    name = str;
+
+    fin.read((char*)(&price), sizeof(int));
+
+    delete[] str;
+}
+
 ostream& operator << (ostream& out, const Sidedish& sidedish) {
 
     out << "Name: " << sidedish.name << " ";
