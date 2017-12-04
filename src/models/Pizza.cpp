@@ -53,86 +53,29 @@ void Pizza::read(ifstream& fin) {
     delete[] str;
 }
 
-/*Topping Pizza::addTopping() {
-    Topping topping;
-    string choose = " ";
+ostream& operator << (ostream& out,const Pizza& pizza) {
+    out << endl << "Pizza with " << pizza.toppings.size() << " toppings:" << endl;
+    out << "Crust type: " << endl;
+    out << pizza.crust << endl;
 
-    cout << "------Topping List------" << endl;
-    ifstream fin;
-    fin.open("Toppings_Binary.dat", ios::binary);
-    while(!fin.eof()) {
-        topping.read(fin);
-        if(!fin.eof()) {
-        cout << topping;
-        }
+    out << "Toppings:" << endl;
+
+    for(unsigned int i = 0; i < pizza.toppings.size(); i++) {
+        out << pizza.toppings[i] << endl;
     }
-    cout << "-----------------------" << endl;
-    fin.close();
-
-    while (choose != topping.getName()) {
-        cout << "Choose a topping" << endl;
-        cin >> ws;
-        getline(cin, choose);
-
-        fin.open("Toppings_Binary.dat", ios::binary);
-        while(!fin.eof()) {
-            topping.read(fin);
-            if(choose == topping.getName()){
-                fin.close();
-                return topping;
-            }
-        }
-        cout << "This topping is not avalible" << endl;
-        fin.close();
-    }
+    return out;
 }
 
-Crust Pizza::addCrust() {
-    Crust crust;
-    string choose = " ";
-    int inches = 0;
-
-    cout << "------Crust List------" << endl;
-    ifstream fin;
-    fin.open("Crusts_Binary.dat", ios::binary);
-    while(!fin.eof()) {
-        crust.read(fin);
-        if(!fin.eof()) {
-        cout << crust << endl;
-        }
-    }
-    cout << "-----------------------" << endl;
-    fin.close();
-
-    while (choose != crust.getName() && inches != crust.getInches()) {
-        cout << "Choose a crust" << endl;
-        cin >> ws;
-        getline(cin, choose);
-        cout << "Choose size" << endl;
-        cin >> inches;
-
-        fin.open("Crusts_Binary.dat", ios::binary);
-        while(!fin.eof()) {
-            crust.read(fin);
-            if(choose == crust.getName() && inches == crust.getInches()){
-                fin.close();
-                return crust;
-            }
-        }
-        cout << "This crust is not avalible" << endl;
-        fin.close();
-    }
-
+void Pizza::addTopping(Topping topping) {
+    this->toppings.push_back(topping);
 }
 
-void Pizza::displayPizza(Pizza& pizza) {
-    cout << pizza;
-=======
->>>>>>> afdc87cafd30aff0bb023ca10c658deeb2b6737d
-}*/
+void Pizza::addCrust(Crust crust) {
+    this->crust = crust;
+}
 
 void Pizza::setPrice(){
-    for(unsigned int i = 0;this->toppings.size(); i++){
+    for(unsigned int i = 0;i < this->toppings.size(); i++){
         this->price += this->toppings[i].getPrice();
     }
     this->price += this->crust.getPrice();

@@ -5,6 +5,12 @@ Topping::Topping(){
 	this->price = 0;
 }
 
+Topping::Topping(string name){
+
+	this->name = name;
+	this->price = 0;
+}
+
 Topping::Topping(string name, int price){
 
 	this->name = name;
@@ -41,10 +47,14 @@ ostream& operator << (ostream& out, const Topping& topping){
 
 }
 
-string Topping::getName() {
+string Topping::getName() const {
     return this->name;
 }
 
-int Topping::getPrice(){
+int Topping::getPrice() const {
 	return this->price;
+}
+
+void Topping::setPrice(int price){
+    this->price = price;
 }

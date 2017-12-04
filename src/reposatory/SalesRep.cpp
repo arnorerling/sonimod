@@ -50,3 +50,33 @@ void SalesRep::getSidedishes(vector<Sidedish>& sidedishes) {
         fin.close();
     }
 }
+
+void SalesRep::getToppings(vector<Topping>& toppings) {
+    Topping currTopping;
+    ifstream fin;
+    fin.open("Topping_Binary.dat", ios::binary);
+    if(fin.is_open()) {
+        while(!fin.eof()){
+            currTopping.read(fin);
+            if(!fin.eof()){
+                toppings.push_back(currTopping);
+            }
+        }
+        fin.close();
+    }
+}
+
+void SalesRep::getCrust(vector<Crust>& crusts) {
+    Crust currCrust;
+    ifstream fin;
+    fin.open("Crust_Binary.dat", ios::binary);
+    if(fin.is_open()) {
+        while(!fin.eof()){
+            currCrust.read(fin);
+            if(!fin.eof()){
+                crusts.push_back(currCrust);
+            }
+        }
+        fin.close();
+    }
+}

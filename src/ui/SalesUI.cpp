@@ -9,6 +9,8 @@ void SalesUI::startUI() {
     salesDomain.getDrinks(this->avaliableDrinks);
     salesDomain.getSidedishes(this->avaliableSidedishes);
     salesDomain.getPizzas(this->avaliablePizzas);
+    salesDomain.getCrusts(this->avaliableCrusts);
+    salesDomain.getToppings(this->avaliableToppings);
     char select = '\0';
     while (select != 'q') {
         select = '\0';
@@ -46,7 +48,7 @@ void SalesUI::startUI() {
                 break;
             }
             case 't': {
-
+                cout << "Order total: "<< order.getTotal();
                 break;
             }
             case 'f': {
@@ -78,8 +80,18 @@ void SalesUI::printSidedishes() {
     }
 }
 
-void SalesUI::addPizza(){
-    cout << "Here we are adding pizzas to your order!" << endl;
+void SalesUI::printToppings(){
+    cout << "Toppingslist" << endl;
+    for(unsigned int i = 0; i < this->avaliableToppings.size(); i++){
+        cout << avaliableToppings[i];
+    }
+}
+
+void SalesUI::printCrusts(){
+    cout << "Crustslist" << endl;
+    for(unsigned int i = 0; i < this->avaliableCrusts.size(); i++){
+        cout << avaliableCrusts[i];
+    }
 }
 
 void SalesUI::addDrink(){
@@ -88,7 +100,8 @@ void SalesUI::addDrink(){
     int size = 0;
     while(!avaliable){
         cout << "Enter name of drink: ";
-        cin >> name;
+        cin >> ws;
+        getline(cin, name);
         cout << "Enter size of drink: ";
         cin >> size;
         Drink drink(name,size);
@@ -113,6 +126,45 @@ void SalesUI::addSidedish(){
             this->order.addSideDish(sidedish);
         }
     }
+}
 
+void SalesUI::addPizza(){
+    Pizza pizza;
+    bool avaliable = false;
+    string name;
+    int size;
+    char anotherTopping = 'y';
 
+    printCrusts();
+    while(!avaliable) {
+        cout << "Enter crust name: ";
+        cin >> name;
+        cout << "Enter Size: ";
+        cin >> size;
+        Crust crust(name,size);
+        avaliable = salesDomain.checkCrustAvaliability(this->avaliableCrusts, crust);
+        if(avaliable){
+            pizza.addCrust(crust);
+        }
+        else{
+            cout << "Crust not avaliable!" << endl;
+        }
+    }
+    printToppings();
+    while(anotherTopping == 'y'){
+        cout << "Enter topping name: ";
+        cin >> name;
+        Topping topping(name);
+        avaliable = salesDomain.checkToppingAvaliability(this->avaliableToppings, topping);
+        if(avaliable) {
+            pizza.addTopping(topping);
+            cout << "Do you want another topping?(y/n): ";
+            cin >> anotherTopping;
+        }
+        else {
+            cout << "Topping not avaliable!" << endl;
+        }
+    }
+    pizza.setPrice();
+    order.addPizza(pizza);
 }

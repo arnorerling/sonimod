@@ -16,6 +16,14 @@ void SalesDomain::getPizzas(vector<Pizza>& pizzas) {
     salesRep.getPizzas(pizzas);
 }
 
+void SalesDomain::getToppings(vector<Topping>& toppings){
+    salesRep.getToppings(toppings);
+}
+
+void SalesDomain::getCrusts(vector<Crust>& crusts){
+    salesRep.getCrust(crusts);
+}
+
 bool SalesDomain::checkDrinkAvaliability(const vector<Drink>& drinks, Drink& drink){
     for(unsigned int i = 0; i < drinks.size(); i++){
         if(drinks[i].getName() == drink.getName() && drinks[i].getLiter() == drink.getLiter()){
@@ -30,6 +38,26 @@ bool SalesDomain::checkSidedishAvaliability(const vector<Sidedish>& sidedishes, 
     for(unsigned int i = 0; i < sidedishes.size(); i++){
         if(sidedishes[i].getName() == sidedish.getName()){
             sidedish.setPrice(sidedishes[i].getPrice());
+            return true;
+        }
+    }
+    return false;
+}
+
+bool SalesDomain::checkToppingAvaliability(const vector<Topping>& toppings, Topping& topping){
+    for(unsigned int i = 0; i < toppings.size(); i++){
+        if(toppings[i].getName() == topping.getName()){
+            topping.setPrice(toppings[i].getPrice());
+            return true;
+        }
+    }
+    return false;
+}
+
+bool SalesDomain::checkCrustAvaliability(const vector<Crust>& crusts, Crust& crust){
+    for(unsigned int i = 0; i < crusts.size(); i++){
+        if(crusts[i].getName() == crust.getName() && crusts[i].getInches() == crust.getInches()){
+            crust.setPrice(crusts[i].getPrice());
             return true;
         }
     }

@@ -7,6 +7,12 @@ Crust::Crust() {
 	this->inches = 0;
 }
 
+Crust::Crust(string name, int inches){
+	this->name = name;
+	this->inches = inches;
+	this->price = 0;
+}
+
 Crust::Crust(string name, int inches, int price) {
 
 	this->name = name;
@@ -43,18 +49,22 @@ ostream& operator << (ostream& out, const Crust& crust) {
 
     out << "Name: " << crust.name << " ";
     out << "Inches: " << crust.inches << " ";
-    out << "Price: " << crust.price;
+    out << "Price: " << crust.price << endl;
 	return out;
 }
 
-string Crust::getName() {
+string Crust::getName() const {
     return this->name;
 }
 
-int Crust::getInches() {
+int Crust::getInches() const {
     return this->inches;
 }
 
-int Crust::getPrice() {
+int Crust::getPrice() const {
     return this->price;
+}
+
+void Crust::setPrice(int price){
+    this->price = price;
 }

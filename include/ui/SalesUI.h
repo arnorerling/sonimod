@@ -16,6 +16,8 @@ class SalesUI {
         vector<Pizza> avaliablePizzas;
         vector<Sidedish> avaliableSidedishes;
         vector<Drink> avaliableDrinks;
+        vector<Topping> avaliableToppings;
+        vector<Crust> avaliableCrusts;
 
 
     public:
@@ -25,6 +27,8 @@ class SalesUI {
         void printPizzas();
         void printSidedishes();
         void printDrinks();
+        void printToppings();
+        void printCrusts();
 
         void addPizza();
         void addSidedish();

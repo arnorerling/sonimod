@@ -16,6 +16,7 @@ class Topping {
 
 	public:
 		Topping();
+		Topping(string name);
 		///Basic constructor that sets all variables to 0 and 'verbose' to false
 
 		Topping(string name, int price);
@@ -31,8 +32,10 @@ class Topping {
 		friend istream& operator >> (istream& in, Topping& topping);
 		///Overloads the '>>' operator to request input of the name and price of a topping
 
-        string getName();
-		int getPrice();
+        string getName() const;
+		int getPrice() const;
+
+		void setPrice(int price);
 		///Returns the price of a topping
 
 };

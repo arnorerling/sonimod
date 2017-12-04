@@ -23,10 +23,10 @@ class Pizza {
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 
-        /*Topping addTopping();
+        void addTopping(Topping topping);
         ///Sets 'toppings[currentToppingNum]' to be the parameter 'topping'
 
-        Crust addCrust();
+        void addCrust(Crust crust);
 
         void displayPizza(Pizza& pizza);
 
@@ -34,12 +34,7 @@ class Pizza {
         ///Overloads the '<<' operator to print the number of toppings, followed by
         ///a list of the pizzas topping (and their corresponding prices)
 
-        friend istream& operator >> (istream& in, Pizza& pizza);
-        ///Overloads the '>>' operator to request input of the number of toppings,
-        ///it then calls 'void initialize' with the input as a parameter.
-        ///Then it loops 'toppingCount' times and requests input of each topping and it's price
-
-        void addPizza();*/
+        void addPizza();
 
         void setPrice();
         int getPrice();

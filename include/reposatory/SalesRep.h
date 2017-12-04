@@ -21,6 +21,8 @@ class SalesRep
         void getDrinks(vector<Drink>& drinks);
         void getSidedishes(vector<Sidedish>& sidedishes);
         void getPizzas(vector<Pizza>& pizzas);
+        void getToppings(vector<Topping>& toppings);
+        void getCrust(vector<Crust>& crusts);
 
 };
 

@@ -19,7 +19,7 @@ void Order::addDrink(Drink& drink){
 ostream& operator << (ostream& out, Order& order){
     out << endl << "Pizzas in order: " << endl;
     for(unsigned int i = 0; i < order.pizzas.size(); i++){
-       // out << order.pizzas[i] << endl;
+        out << order.pizzas[i] << endl;
     }
     out << endl << "Sidedishes in order: " << endl;
     for(unsigned int i = 0; i < order.sideDishes.size(); i++){
@@ -29,11 +29,10 @@ ostream& operator << (ostream& out, Order& order){
     for(unsigned int i = 0; i < order.drinks.size(); i++){
         out << order.drinks[i] << endl;
     }
-    order.getTotal();
+    out << "Order total: " << order.getTotal() << endl << endl;
     return out;
 }
 int Order::getTotal(){
-    cout << endl << "Order total: ";
     int total = 0;
     for(unsigned int i = 0; i < this->pizzas.size(); i++){
         total += this->pizzas[i].getPrice();
