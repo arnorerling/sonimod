@@ -19,12 +19,9 @@ class Drink
         Drink(string name, int price, int size);
 
         friend ostream& operator << (ostream& out, const Drink& drink);
-<<<<<<< HEAD
 
         void write(ofstream& fout) const;
         void read(ifstream& fin);
-=======
->>>>>>> afdc87cafd30aff0bb023ca10c658deeb2b6737d
 
         string getName();
         int getPrice();

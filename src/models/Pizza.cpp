@@ -4,12 +4,7 @@ using namespace std;
 Pizza::Pizza() {
     price = 0;
 }
-Pizza::Pizza(vector<Topping> toppings, Crust crust){
-    this->toppings = toppings;
-    this->crust = crust;
-    setPrice();
 
-<<<<<<< HEAD
 Pizza::Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price) {
     this->name = name;
     this->toppings = toppings;
@@ -93,7 +88,8 @@ void Pizza::displayPizza(Pizza& pizza) {
     cout << pizza;
 =======
 >>>>>>> afdc87cafd30aff0bb023ca10c658deeb2b6737d
-}
+}*/
+
 void Pizza::setPrice(){
     for(unsigned int i = 0;this->toppings.size(); i++){
         this->price += this->toppings[i].getPrice();

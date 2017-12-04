@@ -17,7 +17,6 @@ class Pizza {
 
     public:
         Pizza();
-<<<<<<< HEAD
         ///Basic constructor, sets all variables to 0
         Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price);
 
@@ -39,14 +38,8 @@ class Pizza {
 
         void addPizza();*/
 
-
-=======
-        Pizza(vector<Topping> toppings, Crust crust);
         void setPrice();
         int getPrice();
-
-
->>>>>>> afdc87cafd30aff0bb023ca10c658deeb2b6737d
 };
 
 #endif // PIZZA_H
