@@ -21,6 +21,8 @@ class ManagerDomain
         bool addSidedish(const Sidedish &sidedish);
         bool addBranch(const Branch &branch);
 
+        void printDrinks();
+
 };
 
 #endif // MANAGERDOMAIN_H

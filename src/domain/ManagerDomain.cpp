@@ -29,3 +29,8 @@ bool ManagerDomain::addSidedish(const Sidedish &sidedish) {
     managerRep.addBranch(branch);
     return true;
  }
+
+
+ void ManagerDomain::printDrinks() {
+    managerRep.printDrinks();
+ }

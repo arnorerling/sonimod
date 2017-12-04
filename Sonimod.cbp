@@ -15,6 +15,8 @@
 					<Add option="-g" />
 					<Add directory="include/ui" />
 					<Add directory="include/models" />
+					<Add directory="include/reposatory" />
+					<Add directory="include/domain" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +28,8 @@
 					<Add option="-O2" />
 					<Add directory="include/ui" />
 					<Add directory="include/models" />
+					<Add directory="include/domain" />
+					<Add directory="include/reposatory" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,24 +40,34 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/domain/ManagerDomain.h" />
+		<Unit filename="include/domain/SalesDomain.h" />
+		<Unit filename="include/models/Branch.h" />
 		<Unit filename="include/models/Crust.h" />
 		<Unit filename="include/models/Drink.h" />
 		<Unit filename="include/models/Order.h" />
 		<Unit filename="include/models/Pizza.h" />
 		<Unit filename="include/models/Sidedish.h" />
 		<Unit filename="include/models/Topping.h" />
+		<Unit filename="include/reposatory/ManagerRep.h" />
+		<Unit filename="include/reposatory/SalesRep.h" />
 		<Unit filename="include/ui/BakerUI.h" />
 		<Unit filename="include/ui/DeliveryUI.h" />
 		<Unit filename="include/ui/MainUI.h" />
 		<Unit filename="include/ui/ManagerUI.h" />
 		<Unit filename="include/ui/SalesUI.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/domain/ManagerDomain.cpp" />
+		<Unit filename="src/domain/SalesDomain.cpp" />
+		<Unit filename="src/models/Branch.cpp" />
 		<Unit filename="src/models/Crust.cpp" />
 		<Unit filename="src/models/Drink.cpp" />
 		<Unit filename="src/models/Order.cpp" />
 		<Unit filename="src/models/Pizza.cpp" />
 		<Unit filename="src/models/Sidedish.cpp" />
 		<Unit filename="src/models/Topping.cpp" />
+		<Unit filename="src/reposatory/ManagerRep.cpp" />
+		<Unit filename="src/reposatory/SalesRep.cpp" />
 		<Unit filename="src/ui/BakerUI.cpp" />
 		<Unit filename="src/ui/DeliveryUI.cpp" />
 		<Unit filename="src/ui/MainUI.cpp" />

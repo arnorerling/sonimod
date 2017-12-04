@@ -113,9 +113,9 @@ void ManagerUI::addDrink() {
     cin >> price;
 
     Drink drink(name, liter, price);
-    cout << drink << endl;
     valid = managerDomain.addDrink(drink);
     }
+    printDrinks();
 }
 
 void ManagerUI::addSide() {
@@ -151,4 +151,9 @@ void ManagerUI::addBranch() {
     cout << branch << endl;
     valid = managerDomain.addBranch(branch);
     }
+}
+
+
+void ManagerUI::printDrinks() {
+    managerDomain.printDrinks();
 }
