@@ -20,6 +20,9 @@ class Pizza {
         ///Basic constructor, sets all variables to 0
         Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price);
 
+        void write(ofstream& fout) const;
+        void read(ifstream& fin);
+
         /*Topping addTopping();
         ///Sets 'toppings[currentToppingNum]' to be the parameter 'topping'
 

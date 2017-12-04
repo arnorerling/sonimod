@@ -12,6 +12,47 @@ Pizza::Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price) 
     this->price = price;
 }
 
+void Pizza::write(ofstream& fout) const {
+
+    int strLen = name.length() + 1;
+    fout.write((char*)(&strLen), sizeof(int));
+    fout.write(name.c_str(), strLen);
+
+    int tCount = toppings.size();
+    fout.write((char*)(&tCount), sizeof(int));
+
+    for (int i = 0; i < tCount; i++) {
+        fout.write((char*)(&toppings[i]), sizeof(Topping));
+    }
+
+    fout.write((char*)(&crust), sizeof(Crust));
+
+    fout.write((char*)(&price), sizeof(int));
+}
+
+void Pizza::read(ifstream& fin) {
+
+    int strLen = name.length();
+
+    fin.read((char*)(&strLen), sizeof(int));
+    char *str = new char[strLen];
+    fin.read(str, strLen);
+    name = str;
+
+    int tCount;
+    fin.read((char*)(&tCount), sizeof(int));
+
+    Topping topping;
+    for (int i = 0; i < tCount; i++) {
+        fin.read((char*)(&topping), sizeof(Topping));
+        toppings.push_back(topping);
+    }
+    fin.read((char*)(&crust), sizeof(Crust));
+    fin.read((char*)(&price), sizeof(int));
+
+    delete[] str;
+}
+
 /*Topping Pizza::addTopping() {
     Topping topping;
     string choose = " ";
