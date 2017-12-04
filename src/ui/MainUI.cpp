@@ -34,8 +34,8 @@ void MainUI::start() {
                 break;
                 }
             case 's': {
-                //OrderUI orderui;
-               // orderui.startUI();
+                SalesUI salesui;
+                salesui.startUI();
                 break;
             }
             case 'b': {
