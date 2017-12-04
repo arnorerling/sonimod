@@ -4,46 +4,50 @@
 SalesUI::SalesUI(){
 
 }
-void SalesUI::StartUI() {
+void SalesUI::startUI() {
     Order order;
 
     char select = '\0';
+    while (select != 'q') {
 
-    cout << "Sales Menu" << endl;
-    cout << "Choose an action" << endl;
-    cout << "------------------" << endl;
-    cout << "p: Add Pizza" << endl;
-    cout << "s: Add Sidedish" << endl;
-    cout << "d: Add drink" << endl;
-    cout << "o: Print order" << endl;
-    cout << "t: Get order total" << endl;
-    cout << "f: File order" << endl;
-    cout << "------------------" << endl;
+        cout << "Sales Menu" << endl;
+        cout << "Choose an action" << endl;
+        cout << "------------------" << endl;
+        cout << "p: Add Pizza" << endl;
+        cout << "s: Add Sidedish" << endl;
+        cout << "d: Add drink" << endl;
+        cout << "o: Print order" << endl;
+        cout << "t: Get order total" << endl;
+        cout << "f: File order" << endl;
+        cout << "------------------" << endl;
 
-    switch(select){
-        case 'p': {
+        cin >> select;
 
-            break;
-        }
-        case 's': {
+        switch(select){
+            case 'p': {
 
-            break;
-        }
-        case 'd': {
+                break;
+            }
+            case 's': {
 
-            break;
-        }
-        case 'o': {
+                break;
+            }
+            case 'd': {
 
-            break;
-        }
-        case 't': {
+                break;
+            }
+            case 'o': {
 
-            break;
-        }
-        case 'f': {
+                break;
+            }
+            case 't': {
 
-            break;
+                break;
+            }
+            case 'f': {
+
+                break;
+            }
         }
     }
 

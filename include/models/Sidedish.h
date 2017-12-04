@@ -8,21 +8,17 @@
 using namespace std;
 
 
-class SideDish {
+class Sidedish {
 
     private:
         string name;
         int price;
 
     public:
-        SideDish();
+        Sidedish();
+        Sidedish(string name, int price);
 
-        void write(ofstream& fout) const;
-        void read(ifstream& fin);
-
-        friend ostream& operator << (ostream& out, const SideDish& sidedish);
-        friend istream& operator >> (istream& in, SideDish& sidedish);
-
+        friend ostream& operator << (ostream& out, const Sidedish& sidedish);
         int getPrice();
         string getName();
 };

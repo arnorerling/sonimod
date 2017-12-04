@@ -12,7 +12,7 @@ class SalesUI {
 
     public:
         SalesUI();
-        void StartUI();
+        void startUI();
 
 };
 
