@@ -1,4 +1,8 @@
 #include "ManagerUI.h"
+#include "Crust.h"
+#include "Topping.h"
+#include "Drink.h"
+#include "Sidedish.h"
 #include <iostream>
 using namespace std;
 
@@ -41,7 +45,6 @@ void ManagerUI::startUI() {
 }
 
 void ManagerUI::addCrust() {
-    //Crust crust;
     string name;
     int inches;
     int price;
@@ -54,10 +57,12 @@ void ManagerUI::addCrust() {
     cin >> inches;
     cout << "Price: ";
     cin >> price;
+
+    Crust crust(name, price, inches);
+    cout << crust << endl;
 }
 
 void ManagerUI::addTopping() {
-    //Topping topping;
     string name;
     int price;
 
@@ -67,6 +72,9 @@ void ManagerUI::addTopping() {
     getline(cin, name);
     cout << "Price: ";
     cin >> price;
+
+    Topping topping(name, price);
+    cout << topping << endl;
 }
 
 void ManagerUI::addMenu() {
@@ -76,7 +84,6 @@ void ManagerUI::addMenu() {
 }
 
 void ManagerUI::addDrink() {
-    //Drink drink;
     string name;
     int liters;
     int price;
@@ -89,10 +96,12 @@ void ManagerUI::addDrink() {
     cin >> liters;
     cout << "Price: ";
     cin >> price;
+
+    Drink drink(name, price, liters);
+    cout << drink << endl;
 }
 
 void ManagerUI::addSide() {
-    //Sidedish sidedish;
     string name;
     int price;
 
@@ -102,6 +111,8 @@ void ManagerUI::addSide() {
     getline(cin, name);
     cout << "Price: ";
     cin >> price;
+    Sidedish sidedish(name, price);
+    cout << sidedish << endl;
 }
 
 void ManagerUI::addBranch() {
