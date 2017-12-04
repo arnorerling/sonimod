@@ -4,12 +4,19 @@
 
 class ManagerUI
 {
+    private:
+
     public:
         ManagerUI();
 
-    protected:
+        void startUI();
 
-    private:
+        void addCrust();
+        void addTopping();
+        void addMenu();
+        void addDrink();
+        void addSide();
+        void addBranch();
 };
 
 #endif // MANAGERUI_H
