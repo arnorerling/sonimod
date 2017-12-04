@@ -13,7 +13,7 @@ void ManagerUI::startUI() {
 
     while (select != 'q') {
         cout << "-----Choose an action-----" << endl;
-        cout << "p: Add new pizza crust" << endl;
+        cout << "c: Add new pizza crust" << endl;
         cout << "t: Add new topping" << endl;
         cout << "m: Add new menu option" << endl;
         cout << "d: Add new drink" << endl;
@@ -25,7 +25,7 @@ void ManagerUI::startUI() {
         cin >> select;
 
         switch(select){
-            case 'p': addCrust();
+            case 'c': addCrust();
             break;
             case 't': addTopping();
             break;
@@ -42,14 +42,31 @@ void ManagerUI::startUI() {
 
 void ManagerUI::addCrust() {
     //Crust crust;
-    //cout << "----Add Crust----" << endl;
-    //cin >> crust;
+    string name;
+    int inches;
+    int price;
+
+    cout << "----Add Crust----" << endl;
+    cout << "Name: ";
+    cin >> ws;
+    getline(cin, name);
+    cout << "Inches: ";
+    cin >> inches;
+    cout << "Price: ";
+    cin >> price;
 }
 
 void ManagerUI::addTopping() {
     //Topping topping;
-    //cout << "----Add Topping----" << endl;
-    //cin >> topping;
+    string name;
+    int price;
+
+    cout << "----Add Topping----" << endl;
+    cout << "Name: ";
+    cin >> ws;
+    getline(cin, name);
+    cout << "Price: ";
+    cin >> price;
 }
 
 void ManagerUI::addMenu() {
@@ -60,18 +77,38 @@ void ManagerUI::addMenu() {
 
 void ManagerUI::addDrink() {
     //Drink drink;
-    //cout << "----Add Drink----" << endl;
-    //cin >> drink;
+    string name;
+    int liters;
+    int price;
+
+    cout << "----Add Drink----" << endl;
+    cout << "Name: ";
+    cin >> ws;
+    getline(cin, name);
+    cout << "Liters: ";
+    cin >> liters;
+    cout << "Price: ";
+    cin >> price;
 }
 
 void ManagerUI::addSide() {
     //Sidedish sidedish;
-    //cout << "----Add Sidedish----" << endl;
-    //cin >> sidedish;;
+    string name;
+    int price;
+
+    cout << "----Add Sidedish----" << endl;
+    cout << "Name: ";
+    cin >> ws;
+    getline(cin, name);
+    cout << "Price: ";
+    cin >> price;
 }
 
 void ManagerUI::addBranch() {
+    string name;
     //Branch branch;
-    //cout << "----Add Branch----" << endl;
-    //cin >> branch;
+    cout << "----Add Branch----" << endl;
+    cout << "Name: ";
+    cin >> ws;
+    getline(cin, name);
 }
