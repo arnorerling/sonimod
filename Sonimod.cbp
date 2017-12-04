@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Sonimod" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Sonimod" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include/ui" />
+					<Add directory="include/models" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Sonimod" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include/ui" />
+					<Add directory="include/models" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/models/Crust.h" />
+		<Unit filename="include/models/Drink.h" />
+		<Unit filename="include/models/Pizza.h" />
+		<Unit filename="include/models/Sidedish.h" />
+		<Unit filename="include/models/Topping.h" />
+		<Unit filename="include/ui/BakerUI.h" />
+		<Unit filename="include/ui/DeliveryUI.h" />
+		<Unit filename="include/ui/MainUI.h" />
+		<Unit filename="include/ui/ManagerUI.h" />
+		<Unit filename="include/ui/SalesUI.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/models/Crust.cpp" />
+		<Unit filename="src/models/Drink.cpp" />
+		<Unit filename="src/models/Pizza.cpp" />
+		<Unit filename="src/models/Sidedish.cpp" />
+		<Unit filename="src/models/Topping.cpp" />
+		<Unit filename="src/ui/BakerUI.cpp" />
+		<Unit filename="src/ui/DeliveryUI.cpp" />
+		<Unit filename="src/ui/MainUI.cpp" />
+		<Unit filename="src/ui/ManagerUI.cpp" />
+		<Unit filename="src/ui/SalesUI.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,106 @@
+# depslib dependency file v1.0
+1512394926 source:c:\users\mustard\documents\sonimod\main.cpp
+	<iostream>
+	"MainUI.h"
+
+1512394957 source:c:\users\mustard\documents\sonimod\src\ui\mainui.cpp
+	"MainUI.h"
+	<iostream>
+
+1512394885 c:\users\mustard\documents\sonimod\include\ui\mainui.h
+
+1512394634 source:c:\users\mustard\documents\sonimod\src\ui\managerui.cpp
+	"ManagerUI.h"
+
+1512394634 c:\users\mustard\documents\sonimod\include\ui\managerui.h
+
+1512394670 source:c:\users\mustard\documents\sonimod\src\ui\bakerui.cpp
+	"BakerUI.h"
+
+1512394670 c:\users\mustard\documents\sonimod\include\ui\bakerui.h
+
+1512394704 source:c:\users\mustard\documents\sonimod\src\ui\salesui.cpp
+	"SalesUI.h"
+
+1512394704 c:\users\mustard\documents\sonimod\include\ui\salesui.h
+
+1512394739 source:c:\users\mustard\documents\sonimod\src\ui\deliveryui.cpp
+	"DeliveryUI.h"
+
+1512394739 c:\users\mustard\documents\sonimod\include\ui\deliveryui.h
+
+1512395039 source:c:\users\mustard\documents\sonimod\src\models\crust.cpp
+	"Crust.h"
+
+1512395039 c:\users\mustard\documents\sonimod\include\models\crust.h
+
+1512395006 source:c:\users\mustard\documents\sonimod\src\models\pizza.cpp
+	"Pizza.h"
+
+1512395006 c:\users\mustard\documents\sonimod\include\models\pizza.h
+
+1512395135 source:c:\users\mustard\documents\sonimod\src\models\sidedish.cpp
+	"Sidedish.h"
+
+1512395135 c:\users\mustard\documents\sonimod\include\models\sidedish.h
+
+1512395096 source:c:\users\mustard\documents\sonimod\src\models\topping.cpp
+	"Topping.h"
+
+1512395096 c:\users\mustard\documents\sonimod\include\models\topping.h
+
+1512394926 source:c:\users\mustard\desktop\verklegt1\sonimod\main.cpp
+	<iostream>
+	"MainUI.h"
+
+1512394885 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\mainui.h
+
+1512395039 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\crust.cpp
+	"Crust.h"
+
+1512395039 c:\users\mustard\desktop\verklegt1\sonimod\include\models\crust.h
+
+1512395162 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
+	"Drink.h"
+
+1512395162 c:\users\mustard\desktop\verklegt1\sonimod\include\models\drink.h
+
+1512395006 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\pizza.cpp
+	"Pizza.h"
+
+1512395006 c:\users\mustard\desktop\verklegt1\sonimod\include\models\pizza.h
+
+1512395135 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\sidedish.cpp
+	"Sidedish.h"
+
+1512395135 c:\users\mustard\desktop\verklegt1\sonimod\include\models\sidedish.h
+
+1512395096 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\topping.cpp
+	"Topping.h"
+
+1512395096 c:\users\mustard\desktop\verklegt1\sonimod\include\models\topping.h
+
+1512394670 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
+	"BakerUI.h"
+
+1512394670 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\bakerui.h
+
+1512394739 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\deliveryui.cpp
+	"DeliveryUI.h"
+
+1512394739 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\deliveryui.h
+
+1512394957 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
+	"MainUI.h"
+	<iostream>
+
+1512394634 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+	"ManagerUI.h"
+
+1512394634 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
+
+1512394704 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
+	"SalesUI.h"
+
+1512394704 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\salesui.h
+
