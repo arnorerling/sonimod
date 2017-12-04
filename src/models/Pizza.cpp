@@ -5,7 +5,7 @@ Pizza::Pizza() {
     price = 0;
 }
 
-Topping Pizza::addTopping() {
+/*Topping Pizza::addTopping() {
     Topping topping;
     string choose = " ";
 
@@ -99,7 +99,7 @@ ostream& operator << (ostream& out,const Pizza& pizza) {
 
 
     return in;
-}*/
+}
 
 int Pizza::getPrice(){
     return this->price;
@@ -121,3 +121,4 @@ void Pizza::addPizza(){
     }
 }
 
+*/
