@@ -1,14 +1,17 @@
 #include "SalesUI.h"
-#include "Order.h"
+
 
 SalesUI::SalesUI(){
 
 }
 void SalesUI::startUI() {
     Order order;
-
+    salesDomain.getDrinks(this->avaliableDrinks);
+    salesDomain.getSidedishes(this->avaliableSidedishes);
+    salesDomain.getPizzas(this->avaliablePizzas);
     char select = '\0';
     while (select != 'q') {
+        select = '\0';
 
         cout << "Sales Menu" << endl;
         cout << "Choose an action" << endl;
@@ -25,19 +28,21 @@ void SalesUI::startUI() {
 
         switch(select){
             case 'p': {
-                getPizza();
+                addPizza();
                 break;
             }
             case 's': {
-                getSidedish();
+                printSidedishes();
+                addSidedish();
                 break;
             }
             case 'd': {
-                getDrink();
+                printDrinks();
+                addDrink();
                 break;
             }
             case 'o': {
-
+                cout << this->order;
                 break;
             }
             case 't': {
@@ -53,15 +58,61 @@ void SalesUI::startUI() {
 
 }
 
-void SalesUI::getPizza(){
+void SalesUI::printPizzas(){
     cout << endl;
 }
 
-void SalesUI::getDrink() {
+void SalesUI::printDrinks() {
+
     cout << "Drinkslist" << endl;
-    salesDomain.getDrink();
+    for(unsigned int i = 0; i < this->avaliableDrinks.size(); i++){
+        cout << avaliableDrinks[i];
+    }
+
 }
 
-void SalesUI::getSidedish() {
-    cout << endl;
+void SalesUI::printSidedishes() {
+    cout << "Sidedishlist" << endl;
+    for(unsigned int i = 0; i < this->avaliableSidedishes.size(); i++){
+        cout << avaliableSidedishes[i];
+    }
+}
+
+void SalesUI::addPizza(){
+    cout << "Here we are adding pizzas to your order!" << endl;
+}
+
+void SalesUI::addDrink(){
+    bool avaliable = false;
+    string name;
+    int size = 0;
+    while(!avaliable){
+        cout << "Enter name of drink: ";
+        cin >> name;
+        cout << "Enter size of drink: ";
+        cin >> size;
+        Drink drink(name,size);
+        avaliable = salesDomain.checkDrinkAvaliability(this->avaliableDrinks, drink);
+        if(avaliable){
+            this->order.addDrink(drink);
+        }
+    }
+
+
+}
+
+void SalesUI::addSidedish(){
+    bool avaliable = false;
+    string name;
+    while(!avaliable){
+        cout << "Enter name of sidedish: ";
+        cin >> name;
+        Sidedish sidedish(name);
+        avaliable = salesDomain.checkSidedishAvaliability(this->avaliableSidedishes, sidedish);
+        if(avaliable){
+            this->order.addSideDish(sidedish);
+        }
+    }
+
+
 }

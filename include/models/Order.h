@@ -11,17 +11,17 @@ using namespace std;
 
 class Order {
     private:
-        //vector<Pizza> pizzas;
-        //vector<Drink> drinks;
-        //vector<Sidedish> sideDishes;
+        vector<Pizza> pizzas;
+        vector<Drink> drinks;
+        vector<Sidedish> sideDishes;
         int totalPrice;
     public:
-        /*Order();
+        Order();
         void addPizza(Pizza& pizza);
-        void addSideDish(SideDish& sidedish);
+        void addSideDish(Sidedish& sidedish);
         void addDrink(Drink& drink);
         friend ostream& operator << (ostream& out, Order& order);
-        void printTotal();*/
+        int getTotal();
 
 
 };

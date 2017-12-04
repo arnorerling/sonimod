@@ -1,6 +1,6 @@
 #include "Order.h"
 #include "Sidedish.h"
-/*
+
 Order::Order()
 {
 //ctor
@@ -9,7 +9,7 @@ void Order::addPizza(Pizza& pizza){
     this->pizzas.push_back(pizza);
 }
 
-void Order::addSideDish(SideDish& sidedish){
+void Order::addSideDish(Sidedish& sidedish){
     this->sideDishes.push_back(sidedish);
 }
 
@@ -19,7 +19,7 @@ void Order::addDrink(Drink& drink){
 ostream& operator << (ostream& out, Order& order){
     out << endl << "Pizzas in order: " << endl;
     for(unsigned int i = 0; i < order.pizzas.size(); i++){
-        out << order.pizzas[i] << endl;
+       // out << order.pizzas[i] << endl;
     }
     out << endl << "Sidedishes in order: " << endl;
     for(unsigned int i = 0; i < order.sideDishes.size(); i++){
@@ -29,7 +29,7 @@ ostream& operator << (ostream& out, Order& order){
     for(unsigned int i = 0; i < order.drinks.size(); i++){
         out << order.drinks[i] << endl;
     }
-    order.printTotal();
+    order.getTotal();
     return out;
 }
 int Order::getTotal(){
@@ -46,4 +46,3 @@ int Order::getTotal(){
     }
     return total;
 }
-*/

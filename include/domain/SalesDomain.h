@@ -8,11 +8,16 @@ using namespace std;
 class SalesDomain
 {
     private:
-    SalesRep salesRep;
+        SalesRep salesRep;
 
     public:
         SalesDomain();
-        void getDrink();
+        void getDrinks(vector<Drink>& drinks);
+        void getSidedishes(vector<Sidedish>& sidedishes);
+        void getPizzas(vector<Pizza>& pizzas);
+
+        bool checkDrinkAvaliability(const vector<Drink>& drinks, Drink& drink);
+        bool checkSidedishAvaliability(const vector<Sidedish>& sidedishes, Sidedish& sidedish);
 };
 
 #endif // SALESDOMAIN_H

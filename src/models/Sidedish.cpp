@@ -6,6 +6,12 @@ Sidedish::Sidedish()
     price = 0;
 }
 
+Sidedish::Sidedish(string name) {
+    this->name = name;
+    this->price = 0;
+}
+
+
 Sidedish::Sidedish(string name, int price) {
     this->name = name;
     this->price = price;
@@ -41,10 +47,14 @@ ostream& operator << (ostream& out, const Sidedish& sidedish) {
     return out;
 }
 
-int Sidedish::getPrice(){
+int Sidedish::getPrice() const {
     return this->price;
 }
 
-string Sidedish::getName(){
+string Sidedish::getName() const {
     return this->name;
+}
+
+void Sidedish::setPrice(int price){
+    this->price = price;
 }

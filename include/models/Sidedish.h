@@ -16,6 +16,7 @@ class Sidedish {
 
     public:
         Sidedish();
+        Sidedish(string name);
         Sidedish(string name, int price);
 
         void write(ofstream& fout) const;
@@ -23,8 +24,10 @@ class Sidedish {
 
         friend ostream& operator << (ostream& out, const Sidedish& sidedish);
 
-        int getPrice();
-        string getName();
+        int getPrice() const;
+        string getName() const;
+
+        void setPrice(int price);
 };
 
 #endif // SIDEDISH_H

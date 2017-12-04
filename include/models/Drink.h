@@ -16,6 +16,7 @@ class Drink
 
     public:
         Drink();
+        Drink(string name, int price);
         Drink(string name, int price, int size);
 
         friend ostream& operator << (ostream& out, const Drink& drink);
@@ -23,9 +24,11 @@ class Drink
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 
-        string getName();
-        int getPrice();
-        int getLiter();
+        string getName() const;
+        int getPrice() const;
+        int getLiter() const;
+
+        void setPrice(int price);
 };
 
 #endif // DRINK_H

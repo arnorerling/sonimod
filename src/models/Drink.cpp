@@ -6,6 +6,13 @@ Drink::Drink(){
 	this->price = 0;
 	this->liter = 0;
 }
+Drink::Drink(string name, int size){
+
+	this->name = name;
+	this->liter = size;
+	this->price = 0;
+
+}
 
 Drink::Drink(string name, int size, int price){
 
@@ -48,14 +55,18 @@ ostream& operator << (ostream& out, const Drink& drink){
     return out;
 }
 
-string Drink::getName() {
+string Drink::getName() const {
     return this->name;
 }
 
-int Drink::getPrice(){
+int Drink::getPrice() const {
     return this->price;
 }
 
-int Drink::getLiter() {
+int Drink::getLiter() const {
     return this->liter;
+}
+
+void Drink::setPrice(int price){
+    this->price = price;
 }
