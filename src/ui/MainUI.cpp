@@ -44,8 +44,9 @@ void MainUI::start() {
                 break;
                 }
             case 'd': {
-                cout << "Coming Soon" << endl;
-                }
+                DeliveryUI deliveryui;
+                deliveryui.startUI();
+            }
         }
     }
 }
