@@ -63,7 +63,7 @@ void ManagerUI::addCrust() {
     cout << "Price: ";
     cin >> price;
 
-    Crust crust(name, price, inches);
+    Crust crust(name, inches, price);
     cout << crust << endl;
     valid = managerDomain.addCrust(crust);
     }
