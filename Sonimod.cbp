@@ -40,6 +40,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/domain/BakerDomain.h" />
 		<Unit filename="include/domain/ManagerDomain.h" />
 		<Unit filename="include/domain/SalesDomain.h" />
 		<Unit filename="include/models/Branch.h" />
@@ -49,6 +50,7 @@
 		<Unit filename="include/models/Pizza.h" />
 		<Unit filename="include/models/Sidedish.h" />
 		<Unit filename="include/models/Topping.h" />
+		<Unit filename="include/reposatory/BakerRep.h" />
 		<Unit filename="include/reposatory/ManagerRep.h" />
 		<Unit filename="include/reposatory/SalesRep.h" />
 		<Unit filename="include/ui/BakerUI.h" />
@@ -57,6 +59,7 @@
 		<Unit filename="include/ui/ManagerUI.h" />
 		<Unit filename="include/ui/SalesUI.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/domain/BakerDomain.cpp" />
 		<Unit filename="src/domain/ManagerDomain.cpp" />
 		<Unit filename="src/domain/SalesDomain.cpp" />
 		<Unit filename="src/models/Branch.cpp" />
@@ -66,6 +69,7 @@
 		<Unit filename="src/models/Pizza.cpp" />
 		<Unit filename="src/models/Sidedish.cpp" />
 		<Unit filename="src/models/Topping.cpp" />
+		<Unit filename="src/reposatory/BakerRep.cpp" />
 		<Unit filename="src/reposatory/ManagerRep.cpp" />
 		<Unit filename="src/reposatory/SalesRep.cpp" />
 		<Unit filename="src/ui/BakerUI.cpp" />

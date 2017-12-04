@@ -39,8 +39,8 @@ void MainUI::start() {
                 break;
             }
             case 'b': {
-                //Baker bakerui;
-                //bakerui.startUI();
+                BakerUI bakerui;
+                bakerui.startUI();
                 break;
                 }
             case 'd': {

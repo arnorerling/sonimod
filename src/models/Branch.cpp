@@ -37,6 +37,6 @@ ostream &operator <<(ostream &out, Branch &branch) {
     return out;
 }
 
-string Branch::getname() {
-    return name;
+string Branch::getName(){
+    return this->name;
 }

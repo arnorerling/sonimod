@@ -18,7 +18,7 @@ class Branch
         void read(ifstream& fin);
 
         friend ostream& operator <<(ostream& out, Branch& branch);
-        string getname();
+        string getName();
 };
 
 #endif // BRANCH_H
