@@ -38,6 +38,7 @@
 		</Compiler>
 		<Unit filename="include/models/Crust.h" />
 		<Unit filename="include/models/Drink.h" />
+		<Unit filename="include/models/Order.h" />
 		<Unit filename="include/models/Pizza.h" />
 		<Unit filename="include/models/Sidedish.h" />
 		<Unit filename="include/models/Topping.h" />
@@ -49,6 +50,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/models/Crust.cpp" />
 		<Unit filename="src/models/Drink.cpp" />
+		<Unit filename="src/models/Order.cpp" />
 		<Unit filename="src/models/Pizza.cpp" />
 		<Unit filename="src/models/Sidedish.cpp" />
 		<Unit filename="src/models/Topping.cpp" />

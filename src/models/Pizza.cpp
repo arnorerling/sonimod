@@ -4,7 +4,12 @@ using namespace std;
 Pizza::Pizza() {
     price = 0;
 }
+Pizza::Pizza(vector<Topping> toppings, Crust crust){
+    this->toppings = toppings;
+    this->crust = crust;
+    setPrice();
 
+<<<<<<< HEAD
 Pizza::Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price) {
     this->name = name;
     this->toppings = toppings;
@@ -86,46 +91,18 @@ Crust Pizza::addCrust() {
 
 void Pizza::displayPizza(Pizza& pizza) {
     cout << pizza;
+=======
+>>>>>>> afdc87cafd30aff0bb023ca10c658deeb2b6737d
 }
-
-ostream& operator << (ostream& out,const Pizza& pizza) {
-    out << endl << "Pizza with " << pizza.toppings.size() << " toppings:" << endl;
-    out << "Crust type: " << endl;
-    out << pizza.crust << endl;
-
-    out << "Toppings:" << endl;
-
-    for(unsigned int i = 0; i < pizza.toppings.size(); i++) {
-        out << pizza.toppings[i] << endl;
+void Pizza::setPrice(){
+    for(unsigned int i = 0;this->toppings.size(); i++){
+        this->price += this->toppings[i].getPrice();
     }
-    return out;
-}
-
-/*istream& operator >> (istream& in, Pizza& pizza) {
-
-
-
-    return in;
+    this->price += this->crust.getPrice();
 }
 
 int Pizza::getPrice(){
     return this->price;
 }
 
-void Pizza::addPizza(){
 
-    this->crust = addCrust();
-    this->price += crust.getPrice();
-
-
-    char anotherTopping = 'y';
-    while(anotherTopping != 'n'){
-        Topping topping = addTopping();
-        this->price += topping.getPrice();
-        this->toppings.push_back(topping);
-        cout << "Do you want another topping? (y/n): ";
-        cin >> anotherTopping;
-    }
-}
-
-*/
