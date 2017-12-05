@@ -13,6 +13,8 @@ void SalesUI::startUI() {
     salesDomain.getCrusts(this->avaliableCrusts);
     salesDomain.getToppings(this->avaliableToppings);
 
+    addCustomer();
+
     char select = '\0';
     while (select != 'q') {
         select = '\0';
@@ -61,7 +63,40 @@ void SalesUI::startUI() {
     }
 
 }
+void SalesUI::addCustomer(){
+    bool allowed = false;
+    string name;
+    string phoneNumber;
 
+
+    do{
+        cout << "Enter customer name: ";
+        cin >> ws;
+        getline(cin, name);
+        try{
+            allowed = salesDomain.isValidName(name);
+            order.addCustomerName(name);
+
+        }
+        catch(InvalidNameException){
+            cout << "Invalid name!" << endl;
+        }
+    }while(!allowed);
+    do{
+        cout << "Enter customer phone number: ";
+        cin >> ws;
+        getline(cin, phoneNumber);
+        try{
+            allowed = salesDomain.isValidPhoneNumber(phoneNumber);
+            order.addCustomerPhoneNum(phoneNumber);
+
+        }
+        catch(InvalidPhoneNumberException){
+            cout << "Invalid number!" << endl;
+            allowed = false;
+        }
+    }while(!allowed);
+}
 void SalesUI::printPizzas(){
     cout << endl;
 }
@@ -107,9 +142,15 @@ void SalesUI::addDrink(){
         cout << "Enter size of drink: ";
         cin >> size;
         Drink drink(name,size);
-        avaliable = salesDomain.checkDrinkAvaliability(this->avaliableDrinks, drink);
-        if(avaliable){
+        try{
+            avaliable = salesDomain.checkDrinkAvaliability(this->avaliableDrinks, drink);
             this->order.addDrink(drink);
+        }
+        catch(DrinkNotAvaliableException){
+            cout << "Drink not avaliable!" << endl;
+        }
+        catch(SizeNotAvaliableException){
+            cout << "Size not avaliable!" << endl;
         }
     }
 
@@ -123,9 +164,12 @@ void SalesUI::addSidedish(){
         cout << "Enter name of sidedish: ";
         cin >> name;
         Sidedish sidedish(name);
-        avaliable = salesDomain.checkSidedishAvaliability(this->avaliableSidedishes, sidedish);
-        if(avaliable){
+        try{
+            avaliable = salesDomain.checkSidedishAvaliability(this->avaliableSidedishes, sidedish);
             this->order.addSideDish(sidedish);
+        }
+        catch(SideDishNotAvailableException){
+            cout << "Sidesish not avaliable!" << endl;
         }
     }
 }
@@ -144,11 +188,11 @@ void SalesUI::addPizza(){
         cout << "Enter Size: ";
         cin >> size;
         Crust crust(name,size);
-        avaliable = salesDomain.checkCrustAvaliability(this->avaliableCrusts, crust);
-        if(avaliable){
+        try{
+            avaliable = salesDomain.checkCrustAvaliability(this->avaliableCrusts, crust);
             pizza.addCrust(crust);
         }
-        else{
+        catch(CrustNotAvailableException){
             cout << "Crust not avaliable!" << endl;
         }
     }
@@ -157,15 +201,15 @@ void SalesUI::addPizza(){
         cout << "Enter topping name: ";
         cin >> name;
         Topping topping(name);
-        avaliable = salesDomain.checkToppingAvaliability(this->avaliableToppings, topping);
-        if(avaliable) {
+        try{
+            avaliable = salesDomain.checkToppingAvaliability(this->avaliableToppings, topping);
             pizza.addTopping(topping);
-            cout << "Do you want another topping?(y/n): ";
-            cin >> anotherTopping;
         }
-        else {
+        catch(ToppingNotAvailableException){
             cout << "Topping not avaliable!" << endl;
         }
+        cout << "another topping? (y/n): ";
+        cin >> anotherTopping;
     }
     pizza.setPrice();
     order.addPizza(pizza);

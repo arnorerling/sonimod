@@ -23,6 +23,7 @@ class SalesUI {
     public:
         SalesUI();
         void startUI();
+        void addCustomer();
 
         void printPizzas();
         void printSidedishes();

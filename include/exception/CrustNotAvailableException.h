@@ -1,0 +1,10 @@
+#ifndef CRUSTNOTAVAILABLEEXCEPTION_H
+#define CRUSTNOTAVAILABLEEXCEPTION_H
+
+
+class CrustNotAvailableException
+{
+
+};
+
+#endif // CRUSTNOTAVAILABLEEXCEPTION_H

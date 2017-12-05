@@ -1,0 +1,10 @@
+#ifndef SIZENOTAVALIABLEEXCEPTION_H
+#define SIZENOTAVALIABLEEXCEPTION_H
+
+
+class SizeNotAvaliableException
+{
+
+};
+
+#endif // SIZENOTAVALIABLEEXCEPTION_H

@@ -5,6 +5,7 @@ Order::Order()
 {
 //ctor
 }
+
 void Order::addPizza(Pizza& pizza){
     this->pizzas.push_back(pizza);
 }
@@ -16,7 +17,24 @@ void Order::addSideDish(Sidedish& sidedish){
 void Order::addDrink(Drink& drink){
     this->drinks.push_back(drink);
 }
+
+void Order::addCustomerName(string name){
+    this->custumerName = name;
+}
+
+void Order::addCustomerPhoneNum(string num){
+    this->phoneNumber = num;
+}
+string Order::getCustomerName(){
+    return this->custumerName;
+}
+string Order::getCustomerPhoneNumber(){
+    return this->phoneNumber;
+}
+
 ostream& operator << (ostream& out, Order& order){
+    out << endl << "Customer Name: " << order.getCustomerName() << endl;
+    out << "Customer number: " << order.getCustomerPhoneNumber();
     out << endl << "Pizzas in order: " << endl;
     for(unsigned int i = 0; i < order.pizzas.size(); i++){
         out << order.pizzas[i] << endl;
@@ -32,6 +50,7 @@ ostream& operator << (ostream& out, Order& order){
     out << "Order total: " << order.getTotal() << endl << endl;
     return out;
 }
+
 int Order::getTotal(){
     int total = 0;
     for(unsigned int i = 0; i < this->pizzas.size(); i++){

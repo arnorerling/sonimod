@@ -1,0 +1,10 @@
+#ifndef INVALIDPHONENUMBEREXEPTION_H
+#define INVALIDPHONENUMBEREXEPTION_H
+
+
+class InvalidPhoneNumberExeption
+{
+
+};
+
+#endif // INVALIDPHONENUMBEREXEPTION_H
