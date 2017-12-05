@@ -16,8 +16,8 @@ class Drink
 
     public:
         Drink();
-        Drink(string name, int price);
-        Drink(string name, int price, int size);
+        Drink(string name, int liter);
+        Drink(string name, int liter, int price);
 
         friend ostream& operator << (ostream& out, const Drink& drink);
 

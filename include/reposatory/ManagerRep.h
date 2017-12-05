@@ -5,6 +5,7 @@
 #include "Topping.h"
 #include "Sidedish.h"
 #include "Branch.h"
+#include <vector>
 
 class ManagerRep
 {
@@ -15,6 +16,14 @@ class ManagerRep
         void addDrink(const Drink &drink);
         void addSidedish(const Sidedish &sidedish);
         void addBranch(const Branch &branch);
+
+        vector<Drink> getDrink();
+        vector<Sidedish> getSidedish();
+        vector<Branch> getBranch();
+
+        void changeSidedishList(vector<Sidedish> &sidedishes);
+        void changeDrinkList(vector<Drink> &drinks);
+        void changeBranchList(vector<Branch> &branch);
 
     protected:
 

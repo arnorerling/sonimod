@@ -1,0 +1,9 @@
+#ifndef DRINKCHANGEDEXCEPTION_H
+#define DRINKCHANGEDEXCEPTION_H
+
+
+class DrinkChangedException
+{
+};
+
+#endif // DRINKCHANGEDEXCEPTION_H
