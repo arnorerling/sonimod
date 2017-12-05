@@ -1,0 +1,10 @@
+#ifndef SIDEDISHCHANGEDEXCEPTION_H
+#define SIDEDISHCHANGEDEXCEPTION_H
+
+
+class SidedishChangedException
+{
+
+};
+
+#endif // SIDEDISHCHANGEDEXCEPTION_H

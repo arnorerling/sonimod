@@ -100,12 +100,10 @@ void ManagerUI::addPizza() {
 }
 
 void ManagerUI::addDrink() {
-    bool valid = false;
     string name;
     int liter;
     int price;
 
-    while (!valid) {
     cout << "----Add Drink----" << endl;
     cout << "Name: ";
     cin >> ws;
@@ -115,44 +113,52 @@ void ManagerUI::addDrink() {
     cout << "Price: ";
     cin >> price;
 
+    managerDomain.toLowerCase(name);
     Drink drink(name, liter, price);
-    valid = managerDomain.addDrink(drink);
+
+    try {
+        managerDomain.addDrink(drink);
     }
+    catch(DrinkChangedException) {
+        cout << "price of drink \"" << drink.getName() << "\" has been changed" << endl;
+    }
+    cout << endl;
 }
 
 void ManagerUI::addSide() {
-    bool valid = false;
     string name;
     int price;
 
-    while (!valid) {
-    cout << "----Add Drink----" << endl;
+    cout << "----Add Sidedish----" << endl;
     cout << "Name: ";
     cin >> ws;
     getline(cin, name);
     cout << "Price: ";
     cin >> price;
-
     managerDomain.toLowerCase(name);
     Sidedish sidedish(name, price);
-    cout << sidedish << endl;
-
-    valid = managerDomain.addSidedish(sidedish);
+    try {
+        managerDomain.addSidedish(sidedish);
     }
+    catch(SidedishChangedException) {
+        cout << "price of sidedish \"" << sidedish.getName() << "\" has been changed" << endl;
+    }
+    cout << endl;
 }
 
 void ManagerUI::addBranch() {
-    bool valid = false;
     string name;
 
-    while (!valid) {
     cout << "----Add Branch----" << endl;
     cout << "Name: ";
     cin >> ws;
     getline(cin, name);
     managerDomain.toLowerCase(name);
     Branch branch(name);
-    cout << branch << endl;
-    managerDomain.addBranch(branch);
+    try {
+        managerDomain.addBranch(branch);
+    }
+    catch(BranchExistsException) {
+        cout << "Branch already exists" << endl;
     }
 }

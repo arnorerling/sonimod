@@ -1,6 +1,10 @@
 #ifndef MANAGERDOMAIN_H
 #define MANAGERDOMAIN_H
 
+#include "BranchExistsException.h"
+#include "SidedishChangedException.h"
+#include "DrinkChangedException.h"
+
 #include "ManagerRep.h"
 #include "Crust.h"
 #include "Drink.h"
@@ -8,6 +12,7 @@
 #include "Sidedish.h"
 #include "Branch.h"
 #include <string>
+#include <vector>
 using namespace std;
 
 class ManagerDomain
@@ -21,7 +26,7 @@ class ManagerDomain
         bool addTopping(const Topping &topping);
         bool addDrink(const Drink &drink);
         bool addSidedish(const Sidedish &sidedish);
-        bool addBranch(const Branch &branch);
+        bool addBranch(Branch &branch);
 
         void toLowerCase(string &name);
 
