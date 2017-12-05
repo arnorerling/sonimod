@@ -16,7 +16,6 @@ class ManagerRep
         void addSidedish(const Sidedish &sidedish);
         void addBranch(const Branch &branch);
 
-        void printDrinks();
     protected:
 
     private:

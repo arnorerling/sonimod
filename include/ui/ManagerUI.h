@@ -19,7 +19,6 @@ class ManagerUI
         void addSide();
         void addBranch();
 
-        void printDrinks();
 };
 
 #endif // MANAGERUI_H

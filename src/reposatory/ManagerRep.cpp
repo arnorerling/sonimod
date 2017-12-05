@@ -64,18 +64,3 @@ void ManagerRep::addBranch(const Branch &branch) {
         cout << "File did not open" << endl;
     }
 }
-
-void ManagerRep::printDrinks() {
-    Drink drink;
-    ifstream fin;
-    fin.open("Drink_Binary.dat", ios::binary);
-    if(fin.is_open()) {
-        while(!fin.eof()){
-            drink.read(fin);
-            if(!fin.eof()){
-                cout << drink << endl;
-            }
-        }
-        fin.close();
-    }
-}

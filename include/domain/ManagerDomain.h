@@ -7,6 +7,8 @@
 #include "Topping.h"
 #include "Sidedish.h"
 #include "Branch.h"
+#include <string>
+using namespace std;
 
 class ManagerDomain
 {
@@ -21,7 +23,7 @@ class ManagerDomain
         bool addSidedish(const Sidedish &sidedish);
         bool addBranch(const Branch &branch);
 
-        void printDrinks();
+        void toLowerCase(string &name);
 
 };
 

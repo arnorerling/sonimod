@@ -6,11 +6,13 @@ SalesUI::SalesUI(){
 }
 void SalesUI::startUI() {
     Order order;
+
     salesDomain.getDrinks(this->avaliableDrinks);
     salesDomain.getSidedishes(this->avaliableSidedishes);
     salesDomain.getPizzas(this->avaliablePizzas);
     salesDomain.getCrusts(this->avaliableCrusts);
     salesDomain.getToppings(this->avaliableToppings);
+
     char select = '\0';
     while (select != 'q') {
         select = '\0';

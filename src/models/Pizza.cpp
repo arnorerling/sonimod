@@ -17,7 +17,6 @@ void Pizza::write(ofstream& fout) const {
     int strLen = name.length() + 1;
     fout.write((char*)(&strLen), sizeof(int));
     fout.write(name.c_str(), strLen);
-
     int tCount = toppings.size();
     fout.write((char*)(&tCount), sizeof(int));
 

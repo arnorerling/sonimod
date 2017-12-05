@@ -14,7 +14,7 @@ void BakerRep::getBranch(vector<Branch> &branch) {
         while(!fin.eof()){
             currBranch.read(fin);
             if(!fin.eof()){
-                branch.push_back(currBranch);
+            branch.push_back(currBranch);
             }
         }
         fin.close();

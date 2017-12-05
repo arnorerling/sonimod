@@ -22,7 +22,7 @@ void ManagerUI::startUI() {
         cout << "-----Choose an action-----" << endl;
         cout << "c: Add new pizza crust" << endl;
         cout << "t: Add new topping" << endl;
-        cout << "m: Add new pizza to menu" << endl;
+        cout << "p: Add new pizza to menu" << endl;
         cout << "d: Add new drink" << endl;
         cout << "s: Add new sidedish" << endl;
         cout << "b: Add new branch" << endl;
@@ -36,7 +36,7 @@ void ManagerUI::startUI() {
             break;
             case 't': addTopping();
             break;
-            case 'm': addPizza();
+            case 'p': addPizza();
             break;
             case 'd': addDrink();
             break;
@@ -89,10 +89,13 @@ void ManagerUI::addTopping() {
 }
 
 void ManagerUI::addPizza() {
-    bool valid = false;
     string name;
     vector<Topping> toppings;
+    Crust crust;
     int price;
+    bool valid = false;
+
+    cout << "----Add Pizza----" << endl;
     cout << "Coming Soon" << endl;
 }
 
@@ -115,7 +118,6 @@ void ManagerUI::addDrink() {
     Drink drink(name, liter, price);
     valid = managerDomain.addDrink(drink);
     }
-    printDrinks();
 }
 
 void ManagerUI::addSide() {
@@ -131,8 +133,10 @@ void ManagerUI::addSide() {
     cout << "Price: ";
     cin >> price;
 
+    managerDomain.toLowerCase(name);
     Sidedish sidedish(name, price);
     cout << sidedish << endl;
+
     valid = managerDomain.addSidedish(sidedish);
     }
 }
@@ -146,14 +150,9 @@ void ManagerUI::addBranch() {
     cout << "Name: ";
     cin >> ws;
     getline(cin, name);
-
+    managerDomain.toLowerCase(name);
     Branch branch(name);
     cout << branch << endl;
-    valid = managerDomain.addBranch(branch);
+    managerDomain.addBranch(branch);
     }
-}
-
-
-void ManagerUI::printDrinks() {
-    managerDomain.printDrinks();
 }

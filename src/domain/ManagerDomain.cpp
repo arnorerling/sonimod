@@ -25,12 +25,17 @@ bool ManagerDomain::addSidedish(const Sidedish &sidedish) {
     return true;
 }
 
- bool ManagerDomain::addBranch(const Branch &branch) {
+bool ManagerDomain::addBranch(const Branch &branch) {
+    isValid(branch);
     managerRep.addBranch(branch);
     return true;
  }
 
+void ManagerDomain::toLowerCase(string &name) {
 
- void ManagerDomain::printDrinks() {
-    managerRep.printDrinks();
- }
+    for (unsigned int i = 0; i < name.length(); i++) {
+        if(name[i] != ' ' && isupper(name[i])) {
+            name[i] = tolower(name[i]);
+        }
+    }
+}
