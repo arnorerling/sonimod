@@ -16,6 +16,7 @@ class BakerUI
         void startUI();
         void printRestaurants();
         void chooseRestaurant();
+        void printOrders();
 
 };
 

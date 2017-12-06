@@ -2,8 +2,8 @@
 #define SALESDOMAIN_H
 
 #include "SalesRep.h"
-#include "DrinkNotAvaliableException.h"
-#include "SizeNotAvaliableException.h"
+#include "DrinkNotAvailableException.h"
+#include "SizeNotAvailableException.h"
 #include "SideDishNotAvailableException.h"
 #include "ToppingNotAvailableException.h"
 #include "CrustNotAvailableException.h"
@@ -13,8 +13,7 @@
 
 using namespace std;
 
-class SalesDomain
-{
+class SalesDomain {
     private:
         SalesRep salesRep;
 
@@ -29,10 +28,12 @@ class SalesDomain
         bool isValidName(string name);
         bool isValidPhoneNumber(string num);
 
-        bool checkDrinkAvaliability(const vector<Drink>& drinks, Drink& drink);
-        bool checkSidedishAvaliability(const vector<Sidedish>& sidedishes, Sidedish& sidedish);
-        bool checkToppingAvaliability(const vector<Topping>& toppings, Topping& topping);
-        bool checkCrustAvaliability(const vector<Crust>& crusts, Crust& crust);
+        bool checkDrinkAvailability(Drink& drink);
+        bool checkSidedishAvailability(Sidedish& sidedish);
+        bool checkToppingAvailability(Topping& topping);
+        bool checkCrustAvailability(Crust& crust);
+
+        void fileOrder(Order &order);
 
 };
 

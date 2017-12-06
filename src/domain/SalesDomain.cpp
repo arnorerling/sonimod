@@ -39,7 +39,9 @@ bool SalesDomain::isValidPhoneNumber(string num){
     }
     return true;
 }
-bool SalesDomain::checkDrinkAvaliability(const vector<Drink>& drinks, Drink& drink){
+bool SalesDomain::checkDrinkAvailability(Drink& drink){
+    vector<Drink> drinks;
+    getDrinks(drinks);
     for(unsigned int i = 0; i < drinks.size(); i++){
         if(drinks[i].getName() == drink.getName()){
             for(unsigned int i = 0; i < drinks.size(); i++){
@@ -48,13 +50,15 @@ bool SalesDomain::checkDrinkAvaliability(const vector<Drink>& drinks, Drink& dri
                     return true;
                 }
             }
-            throw SizeNotAvaliableException();
+            throw SizeNotAvailableException();
         }
     }
-    throw DrinkNotAvaliableException();
+    throw DrinkNotAvailableException();
 }
 
-bool SalesDomain::checkSidedishAvaliability(const vector<Sidedish>& sidedishes, Sidedish& sidedish){
+bool SalesDomain::checkSidedishAvailability(Sidedish& sidedish){
+    vector<Sidedish> sidedishes;
+    getSidedishes(sidedishes);
     for(unsigned int i = 0; i < sidedishes.size(); i++){
         if(sidedishes[i].getName() == sidedish.getName()){
             sidedish.setPrice(sidedishes[i].getPrice());
@@ -64,7 +68,9 @@ bool SalesDomain::checkSidedishAvaliability(const vector<Sidedish>& sidedishes, 
     throw SideDishNotAvailableException();
 }
 
-bool SalesDomain::checkToppingAvaliability(const vector<Topping>& toppings, Topping& topping){
+bool SalesDomain::checkToppingAvailability(Topping& topping){
+    vector<Topping> toppings;
+    getToppings(toppings);
     for(unsigned int i = 0; i < toppings.size(); i++){
         if(toppings[i].getName() == topping.getName()){
             topping.setPrice(toppings[i].getPrice());
@@ -74,7 +80,9 @@ bool SalesDomain::checkToppingAvaliability(const vector<Topping>& toppings, Topp
     throw ToppingNotAvailableException();
 }
 
-bool SalesDomain::checkCrustAvaliability(const vector<Crust>& crusts, Crust& crust){
+bool SalesDomain::checkCrustAvailability(Crust& crust){
+    vector<Crust> crusts;
+    getCrusts(crusts);
     for(unsigned int i = 0; i < crusts.size(); i++){
         if(crusts[i].getName() == crust.getName() && crusts[i].getInches() == crust.getInches()){
             crust.setPrice(crusts[i].getPrice());
@@ -82,5 +90,9 @@ bool SalesDomain::checkCrustAvaliability(const vector<Crust>& crusts, Crust& cru
         }
     }
     throw CrustNotAvailableException();
+}
+
+void SalesDomain::fileOrder(Order &order){
+    salesRep.fileOrder(order);
 }
 

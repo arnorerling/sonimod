@@ -80,3 +80,16 @@ void SalesRep::getCrust(vector<Crust>& crusts) {
         fin.close();
     }
 }
+
+void SalesRep::fileOrder(Order& order){
+
+    ofstream fout;
+    fout.open("Order_Binary.dat", ios::binary|ios::app);
+    if(fout.is_open()) {
+        order.write(fout);
+        fout.close();
+    }
+    else {
+        cout << "File did not open" << endl;
+    }
+}
