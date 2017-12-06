@@ -45,8 +45,8 @@ bool ManagerDomain::addTopping(const Topping &topping) {
 }
 
 bool ManagerDomain::addPizza(const Pizza &pizza) {
-    //vector<Pizza> pizzas = managerRep.getPizza();
-    /*for (int i = 0; i < pizzas.size(); i++){
+    /*vector<Pizza> pizzas = managerRep.getPizza();
+    for (int i = 0; i < pizzas.size(); i++){
         if (drinks[i].getName() == drink.getName()) {
             if (drinks[i].getLiter() == drink.getLiter()){
                 drinks[i] = drink;

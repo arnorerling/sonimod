@@ -103,7 +103,7 @@ void ManagerUI::removeFromMenu() {
                 removeTopping();
                 break;
             case 'p':
-                printPizza();
+                //printPizza();
                 removePizza();
                 break;
             case 'd':
@@ -173,7 +173,7 @@ void ManagerUI::addTopping() {
 void ManagerUI::addPizza() {
     string name;
     string toppingName;
-    vector<Topping> toppings;
+
     int price;
     char anotherTopping = 'y';
 
@@ -182,6 +182,7 @@ void ManagerUI::addPizza() {
     cin >> ws;
     getline(cin, name);
     managerDomain.toLowerCase(name);
+    Pizza pizza(name);
 
     printTopping();
     while(anotherTopping == 'y'){
@@ -193,7 +194,7 @@ void ManagerUI::addPizza() {
         Topping topping(toppingName);
         try{
             managerDomain.checkToppingAvaliability(topping);
-            toppings.push_back(topping);
+            pizza.addTopping(topping);
             cout << "another topping? (y/n): ";
         }
         catch(ToppingNotAvailableException){
@@ -204,8 +205,7 @@ void ManagerUI::addPizza() {
     }
     cout << "Price: ";
     cin >> price;
-
-    Pizza pizza(name, toppings, price);
+    pizza.setFixedPrice(price);
     cout << pizza << endl;
     managerDomain.addPizza(pizza);
 }

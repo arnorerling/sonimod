@@ -128,6 +128,8 @@ vector<Pizza> ManagerRep::getPizza() {
             }
         }
         fin.close();
+    }else{
+    cout << "file not open" << endl;
     }
     return pizzas;
 }

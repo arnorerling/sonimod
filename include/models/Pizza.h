@@ -18,7 +18,7 @@ class Pizza {
     public:
         Pizza();
         ///Basic constructor, sets all variables to 0
-        Pizza(string &name, vector<Topping> &toppings, int &price);
+        Pizza(string &name);
         Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price);
 
         void write(ofstream& fout) const;
@@ -39,6 +39,7 @@ class Pizza {
         void addPizza();
 
         void setPrice();
+        void setFixedPrice(int price);
         int getPrice();
 
         string getName();

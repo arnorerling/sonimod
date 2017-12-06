@@ -5,10 +5,9 @@ Pizza::Pizza() {
     price = 0;
 }
 
-Pizza::Pizza(string &name, vector<Topping> &toppings, int &price){
+Pizza::Pizza(string &name){
     this->name = name;
-    this->toppings = toppings;
-    this->price = price;
+    this->price = 0;
 }
 
 Pizza::Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price) {
@@ -26,17 +25,19 @@ void Pizza::write(ofstream& fout) const {
 
     int tCount = toppings.size();
     fout.write((char*)(&tCount), sizeof(int));
+
+    Topping topping;
     for (int i = 0; i < tCount; i++) {
-        fout.write((char*)(&toppings[i]), sizeof(Topping));
+        toppings[i].write(fout);
     }
 
-    //fout.write((char*)(&crust), sizeof(Crust));
+    crust.write(fout);
     fout.write((char*)(&price), sizeof(int));
 }
 
 void Pizza::read(ifstream& fin) {
 
-    int strLen = name.length();
+    int strLen;
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
@@ -44,14 +45,14 @@ void Pizza::read(ifstream& fin) {
 
     int tCount;
     fin.read((char*)(&tCount), sizeof(int));
-
+    Topping topping;
     for (int i = 0; i < tCount; i++) {
-        Topping topping;
-        fin.read((char*)(&topping), sizeof(Topping));
+
+        topping.read(fin);
         toppings.push_back(topping);
     }
 
-    //fin.read((char*)(&crust), sizeof(Crust));
+    crust.read(fin);
     fin.read((char*)(&price), sizeof(int));
 
     delete[] str;
@@ -94,7 +95,9 @@ void Pizza::setPrice(){
     }
     this->price += this->crust.getPrice();
 }
-
+void Pizza::setFixedPrice(int price){
+    this->price = price;
+}
 int Pizza::getPrice(){
     return this->price;
 }

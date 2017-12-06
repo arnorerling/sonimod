@@ -84,21 +84,21 @@ void Order::write(ofstream& fout) const {
     fout.write((char*)(&tCount), sizeof(int));
 
     for (int i = 0; i < tCount; i++) {
-        fout.write((char*)(&pizzas[i]), sizeof(pizzas));
+        pizzas[i].write(fout);
     }
 
     int tCount1 = drinks.size();
     fout.write((char*)(&tCount1), sizeof(int));
 
     for (int i = 0; i < tCount1; i++) {
-        fout.write((char*)(&drinks[i]), sizeof(drinks));
+        drinks[i].write(fout);
     }
 
     int tCount2 = sideDishes.size();
     fout.write((char*)(&tCount2), sizeof(int));
 
     for (int i = 0; i < tCount2; i++) {
-        fout.write((char*)(&sideDishes[i]), sizeof(sideDishes));
+        sideDishes[i].write(fout);
     }
 
     fout.write((char*)(&totalPrice), sizeof(int));
@@ -113,10 +113,9 @@ void Order::write(ofstream& fout) const {
 
 void Order::read(ifstream& fin) {
 
-    int strLen = custumerName.length();
-    int strLen1 = phoneNumber.length();
-    int strLen2 = branch.length();
-
+    int strLen;
+    int strLen1;
+    int strLen2;
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
@@ -137,7 +136,7 @@ void Order::read(ifstream& fin) {
 
     Pizza pizza;
     for (int i = 0; i < tCount; i++) {
-        fin.read((char*)(&pizza), sizeof(Pizza));
+        pizza.read(fin);
         pizzas.push_back(pizza);
     }
 
@@ -146,7 +145,7 @@ void Order::read(ifstream& fin) {
 
     Drink drink;
     for (int i = 0; i < tCount1; i++) {
-        fin.read((char*)(&drink), sizeof(Drink));
+        drink.read(fin);
         drinks.push_back(drink);
     }
 
@@ -155,7 +154,7 @@ void Order::read(ifstream& fin) {
 
     Sidedish sidedish;
     for (int i = 0; i < tCount2; i++) {
-        fin.read((char*)(&sidedish), sizeof(Sidedish));
+        sidedish.read(fin);
         sideDishes.push_back(sidedish);
     }
 
