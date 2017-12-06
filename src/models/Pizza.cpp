@@ -5,6 +5,12 @@ Pizza::Pizza() {
     price = 0;
 }
 
+Pizza::Pizza(string &name, vector<Topping> &toppings, int &price){
+    this->name = name;
+    this->toppings = toppings;
+    this->price = price;
+}
+
 Pizza::Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price) {
     this->name = name;
     this->toppings = toppings;
@@ -17,22 +23,20 @@ void Pizza::write(ofstream& fout) const {
     int strLen = name.length() + 1;
     fout.write((char*)(&strLen), sizeof(int));
     fout.write(name.c_str(), strLen);
+
     int tCount = toppings.size();
     fout.write((char*)(&tCount), sizeof(int));
-
     for (int i = 0; i < tCount; i++) {
         fout.write((char*)(&toppings[i]), sizeof(Topping));
     }
 
-    fout.write((char*)(&crust), sizeof(Crust));
-
+    //fout.write((char*)(&crust), sizeof(Crust));
     fout.write((char*)(&price), sizeof(int));
 }
 
 void Pizza::read(ifstream& fin) {
 
     int strLen = name.length();
-
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
@@ -41,18 +45,20 @@ void Pizza::read(ifstream& fin) {
     int tCount;
     fin.read((char*)(&tCount), sizeof(int));
 
-    Topping topping;
     for (int i = 0; i < tCount; i++) {
+        Topping topping;
         fin.read((char*)(&topping), sizeof(Topping));
         toppings.push_back(topping);
     }
-    fin.read((char*)(&crust), sizeof(Crust));
+
+    //fin.read((char*)(&crust), sizeof(Crust));
     fin.read((char*)(&price), sizeof(int));
 
     delete[] str;
 }
 
 ostream& operator << (ostream& out,const Pizza& pizza) {
+    out << pizza.name << endl;
     out << endl << "Pizza with " << pizza.toppings.size() << " toppings:" << endl;
     out << "Crust type: " << endl;
     out << pizza.crust << endl;
@@ -63,6 +69,15 @@ ostream& operator << (ostream& out,const Pizza& pizza) {
         out << pizza.toppings[i] << endl;
     }
     return out;
+}
+
+bool operator == (const Pizza &left_pizza, const Pizza &right_pizza) {
+    if (left_pizza.name == right_pizza.name) {
+        if (left_pizza.toppings == right_pizza.toppings) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void Pizza::addTopping(Topping topping) {
@@ -84,4 +99,6 @@ int Pizza::getPrice(){
     return this->price;
 }
 
-
+string Pizza::getName() {
+    return this->name;
+}

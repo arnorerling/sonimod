@@ -60,6 +60,7 @@
 		<Unit filename="include/exceptions/BranchExistsException.h" />
 		<Unit filename="include/exceptions/CrustChangedException.h" />
 		<Unit filename="include/exceptions/DrinkChangedException.h" />
+		<Unit filename="include/exceptions/PizzaChangedException.h" />
 		<Unit filename="include/exceptions/SidedishChangedException.h" />
 		<Unit filename="include/exceptions/ToppingChangedException.h" />
 		<Unit filename="include/models/Branch.h" />
@@ -95,6 +96,7 @@
 		<Unit filename="src/exceptions/BranchExistsException.cpp" />
 		<Unit filename="src/exceptions/CrustChangedException.cpp" />
 		<Unit filename="src/exceptions/DrinkChangedException.cpp" />
+		<Unit filename="src/exceptions/PizzaChangedException.cpp" />
 		<Unit filename="src/exceptions/SidedishChangedException.cpp" />
 		<Unit filename="src/exceptions/ToppingChangedException.cpp" />
 		<Unit filename="src/models/Branch.cpp" />

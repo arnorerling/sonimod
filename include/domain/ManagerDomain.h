@@ -6,6 +6,7 @@
 #include "DrinkChangedException.h"
 #include "ToppingChangedException.h"
 #include "CrustChangedException.h"
+#include "PizzaChangedException.h"
 #include "CrustNotAvailableException.h"
 #include "ToppingNotAvailableException.h"
 #include "DrinkNotAvaliableException.h"
@@ -34,12 +35,14 @@ class ManagerDomain
 
         bool addCrust(const Crust &crust);
         bool addTopping(const Topping &topping);
+        bool addPizza(const Pizza &pizza);
         bool addDrink(const Drink &drink);
         bool addSidedish(const Sidedish &sidedish);
         bool addBranch(Branch &branch);
 
         vector<Crust> printCrust();
         vector<Topping> printTopping();
+        vector<Pizza> printPizza();
         vector<Drink> printDrink();
         vector<Sidedish> printSidedish();
         vector<Branch> printBranch();
@@ -49,6 +52,8 @@ class ManagerDomain
         bool removeDrink(const Drink &drink);
         bool removeSidedish(const Sidedish &sidedish);
         bool removeBranch(const Branch &branch);
+
+        bool checkToppingAvaliability(const Topping &topping);
 
 };
 

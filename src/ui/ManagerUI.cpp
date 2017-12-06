@@ -1,13 +1,4 @@
 #include "ManagerUI.h"
-#include "Crust.h"
-#include "Topping.h"
-#include "Drink.h"
-#include "Sidedish.h"
-#include "Branch.h"
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
 
 ManagerUI::ManagerUI()
 {
@@ -15,7 +6,7 @@ ManagerUI::ManagerUI()
 }
 
 void ManagerUI::startUI() {
-
+    system("CLS");
     cout << "Welcome Manager" << endl;
     cout << "What would you like to do?" << endl;
     char select = '\0';
@@ -39,6 +30,7 @@ void ManagerUI::startUI() {
 }
 
 void ManagerUI::addChangeMenu() {
+    system("CLS");
     char select = '\0';
     while (select != 'q') {
         cout << "-----Add/Change-----" << endl;
@@ -53,22 +45,41 @@ void ManagerUI::addChangeMenu() {
         cin >> select;
 
         switch(select){
-            case 'c': addCrust();
-            break;
-            case 't': addTopping();
-            break;
-            case 'p': addPizza();
-            break;
-            case 'd': addDrink();
-            break;
-            case 's': addSide();
-            break;
-            case 'b': addBranch();
+            case 'c': {
+                printCrust();
+                addCrust();
+                break;
+            }
+            case 't': {
+                printTopping();
+                addTopping();
+                break;
+            }
+            case 'p': {
+                printPizza();
+                addPizza();
+                break;
+            }
+            case 'd': {
+                printDrink();
+                addDrink();
+                break;
+            }
+            case 's': {
+                printSide();
+                addSide();
+                break;
+            }
+            case 'b': {
+                printBranch();
+                addBranch();
+            }
         }
     }
 }
 
 void ManagerUI::removeFromMenu() {
+    system("CLS");
     char select = '\0';
     while (select != 'q') {
         cout << "-----Remove-----" << endl;
@@ -161,13 +172,42 @@ void ManagerUI::addTopping() {
 
 void ManagerUI::addPizza() {
     string name;
+    string toppingName;
     vector<Topping> toppings;
-    Crust crust;
     int price;
-    bool valid = false;
+    char anotherTopping = 'y';
 
     cout << "----Add Pizza----" << endl;
-    cout << "Coming Soon" << endl;
+    cout << "Name :";
+    cin >> ws;
+    getline(cin, name);
+    managerDomain.toLowerCase(name);
+
+    printTopping();
+    while(anotherTopping == 'y'){
+        cout << "Enter topping: ";
+        cin >> ws;
+        getline(cin, toppingName);
+        managerDomain.toLowerCase(toppingName);
+
+        Topping topping(toppingName);
+        try{
+            managerDomain.checkToppingAvaliability(topping);
+            toppings.push_back(topping);
+            cout << "another topping? (y/n): ";
+        }
+        catch(ToppingNotAvailableException){
+            cout << "Topping not avaliable!" << endl;
+            cout << "Try another topping? (y/n): ";
+        }
+        cin >> anotherTopping;
+    }
+    cout << "Price: ";
+    cin >> price;
+
+    Pizza pizza(name, toppings, price);
+    cout << pizza << endl;
+    managerDomain.addPizza(pizza);
 }
 
 void ManagerUI::addDrink() {
@@ -234,7 +274,6 @@ void ManagerUI::addBranch() {
     }
 }
 
-
 void ManagerUI::printCrust() {
     cout << "----Crusts List----" << endl;
     vector<Crust> crusts = managerDomain.printCrust();
@@ -254,7 +293,11 @@ void ManagerUI::printTopping() {
 }
 void ManagerUI::printPizza() {
     cout << "----Pizza List----" << endl;
-    cout << "Coming soon" << endl;
+    vector<Pizza> pizzas = managerDomain.printPizza();
+    for (int i = 0; i < pizzas.size(); i++) {
+        cout << pizzas[i];
+    }
+    cout << "-------------------" << endl;
 }
 
 void ManagerUI::printDrink() {

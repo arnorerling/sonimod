@@ -1,6 +1,17 @@
 #ifndef MANAGERUI_H
 #define MANAGERUI_H
 #include "ManagerDomain.h"
+#include "ManagerUI.h"
+#include "Crust.h"
+#include "Topping.h"
+#include "Drink.h"
+#include "Sidedish.h"
+#include "Branch.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstdlib>
+using namespace std;
 
 class ManagerUI
 {
@@ -34,6 +45,8 @@ class ManagerUI
         void removeDrink();
         void removeSide();
         void removeBranch();
+
+
 };
 
 #endif // MANAGERUI_H
