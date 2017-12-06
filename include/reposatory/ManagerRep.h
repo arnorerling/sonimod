@@ -17,10 +17,14 @@ class ManagerRep
         void addSidedish(const Sidedish &sidedish);
         void addBranch(const Branch &branch);
 
+        vector<Crust> getCrust();
+        vector<Topping> getTopping();
         vector<Drink> getDrink();
         vector<Sidedish> getSidedish();
         vector<Branch> getBranch();
 
+        void changeCrustList(vector<Crust> &crusts);
+        void changeToppingList(vector<Topping> &toppings);
         void changeSidedishList(vector<Sidedish> &sidedishes);
         void changeDrinkList(vector<Drink> &drinks);
         void changeBranchList(vector<Branch> &branch);

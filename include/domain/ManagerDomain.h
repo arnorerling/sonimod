@@ -4,6 +4,13 @@
 #include "BranchExistsException.h"
 #include "SidedishChangedException.h"
 #include "DrinkChangedException.h"
+#include "ToppingChangedException.h"
+#include "CrustChangedException.h"
+#include "CrustNotAvailableException.h"
+#include "ToppingNotAvailableException.h"
+#include "DrinkNotAvaliableException.h"
+#include "SideDishNotAvailableException.h"
+#include "BranchNotAvailableException.h"
 
 #include "ManagerRep.h"
 #include "Crust.h"
@@ -22,13 +29,26 @@ class ManagerDomain
 
     public:
         ManagerDomain();
+
+        void toLowerCase(string &name);
+
         bool addCrust(const Crust &crust);
         bool addTopping(const Topping &topping);
         bool addDrink(const Drink &drink);
         bool addSidedish(const Sidedish &sidedish);
         bool addBranch(Branch &branch);
 
-        void toLowerCase(string &name);
+        vector<Crust> printCrust();
+        vector<Topping> printTopping();
+        vector<Drink> printDrink();
+        vector<Sidedish> printSidedish();
+        vector<Branch> printBranch();
+
+        bool removeCrust(const Crust &crust);
+        bool removeTopping(const Topping &topping);
+        bool removeDrink(const Drink &drink);
+        bool removeSidedish(const Sidedish &sidedish);
+        bool removeBranch(const Branch &branch);
 
 };
 

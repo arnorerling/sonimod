@@ -12,13 +12,13 @@ class Crust {
 
 	private:
 		string name;
-		int price;
 		int inches;
+		int price;
 
 	public:
 		Crust();
 		///Basic constructor that sets all variables to 0
-		Crust(string name, int price);
+		Crust(string name, int inches);
 
 		Crust(string name, int price, int inches);
 		///constructor that sets the name and the price to be equal to the parameters
@@ -31,6 +31,8 @@ class Crust {
 
 		friend ostream& operator << (ostream& out, const Crust& crust);
 		///Overloads the '<<' operator to print the name and the price of a topping
+
+		friend bool operator == (const Crust &right_crust, const Crust &left_crust);
 
         string getName() const;
         ///get name of crust

@@ -37,6 +37,13 @@ ostream &operator <<(ostream &out, Branch &branch) {
     return out;
 }
 
-string Branch::getName(){
+bool operator == (const Branch &left_branch, const Branch &right_branch) {
+    if (left_branch.name == right_branch.name) {
+        return true;
+    }
+    return false;
+}
+
+string Branch::getName()const {
     return this->name;
 }

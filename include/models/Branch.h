@@ -18,7 +18,8 @@ class Branch
         void read(ifstream& fin);
 
         friend ostream& operator <<(ostream& out, Branch& branch);
-        string getName();
+        friend bool operator == (const Branch &left_branch, const Branch &right_branch);
+        string getName() const;
 };
 
 #endif // BRANCH_H

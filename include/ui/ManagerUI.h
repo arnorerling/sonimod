@@ -11,6 +11,8 @@ class ManagerUI
         ManagerUI();
 
         void startUI();
+        void addChangeMenu();
+        void removeFromMenu();
 
         void addCrust();
         void addTopping();
@@ -19,6 +21,19 @@ class ManagerUI
         void addSide();
         void addBranch();
 
+        void printCrust();
+        void printTopping();
+        void printPizza();
+        void printDrink();
+        void printSide();
+        void printBranch();
+
+        void removeCrust();
+        void removeTopping();
+        void removePizza();
+        void removeDrink();
+        void removeSide();
+        void removeBranch();
 };
 
 #endif // MANAGERUI_H

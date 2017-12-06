@@ -1,0 +1,9 @@
+#ifndef TOPPINGCHANGEDEXCEPTION_H
+#define TOPPINGCHANGEDEXCEPTION_H
+
+
+class ToppingChangedException
+{
+};
+
+#endif // TOPPINGCHANGEDEXCEPTION_H

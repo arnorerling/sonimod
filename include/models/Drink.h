@@ -11,8 +11,8 @@ class Drink
 {
     private:
         string name;
-        int price;
         int liter;
+        int price;
 
     public:
         Drink();
@@ -20,6 +20,7 @@ class Drink
         Drink(string name, int liter, int price);
 
         friend ostream& operator << (ostream& out, const Drink& drink);
+        friend bool operator == (const Drink &left_drink, const Drink &right_drink);
 
         void write(ofstream& fout) const;
         void read(ifstream& fin);

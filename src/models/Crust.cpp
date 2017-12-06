@@ -3,8 +3,8 @@
 
 Crust::Crust() {
 	this->name = "";
-	this->price = 0;
 	this->inches = 0;
+	this->price = 0;
 }
 
 Crust::Crust(string name, int inches){
@@ -51,6 +51,16 @@ ostream& operator << (ostream& out, const Crust& crust) {
     out << "Inches: " << crust.inches << " ";
     out << "Price: " << crust.price << endl;
 	return out;
+}
+
+bool operator == (const Crust &right_crust, const Crust &left_crust) {
+
+    if (right_crust.name == left_crust.name) {
+        if(right_crust.inches == left_crust.inches) {
+            return true;
+        }
+    }
+    return false;
 }
 
 string Crust::getName() const {

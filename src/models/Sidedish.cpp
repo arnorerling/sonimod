@@ -47,6 +47,13 @@ ostream& operator << (ostream& out, const Sidedish& sidedish) {
     return out;
 }
 
+bool operator == (const Sidedish &left_side, const Sidedish &right_side) {
+    if (left_side.name == right_side.name) {
+        return true;
+    }
+    return false;
+}
+
 int Sidedish::getPrice() const {
     return this->price;
 }

@@ -29,8 +29,7 @@ class Topping {
 		friend ostream& operator << (ostream& out, const Topping& topping);
 		///Overloads the '<<' operator to print the name and the price of a topping
 
-		friend istream& operator >> (istream& in, Topping& topping);
-		///Overloads the '>>' operator to request input of the name and price of a topping
+		friend bool operator ==(const Topping &right_top, const Topping &left_top);
 
         string getName() const;
 		int getPrice() const;

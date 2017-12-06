@@ -65,6 +65,41 @@ void ManagerRep::addBranch(const Branch &branch) {
     }
 }
 
+vector<Crust> ManagerRep::getCrust() {
+    vector <Crust> crusts;
+    ifstream fin;
+    fin.open("Crust_Binary.dat", ios::binary);
+    if(fin.is_open()) {
+        Crust crust;
+        while(!fin.eof()){
+            crust.read(fin);
+            if(!fin.eof()){
+                crusts.push_back(crust);
+            }
+        }
+        fin.close();
+    }
+    return crusts;
+
+}
+
+vector<Topping> ManagerRep::getTopping() {
+    vector <Topping> toppings;
+    ifstream fin;
+    fin.open("Topping_Binary.dat", ios::binary);
+    if(fin.is_open()) {
+        Topping topping;
+        while(!fin.eof()){
+            topping.read(fin);
+            if(!fin.eof()){
+                toppings.push_back(topping);
+            }
+        }
+        fin.close();
+    }
+    return toppings;
+}
+
 vector<Drink> ManagerRep::getDrink() {
     vector <Drink> drinks;
     ifstream fin;
@@ -115,6 +150,36 @@ vector<Branch> ManagerRep::getBranch() {
     }
     return branches;
 }
+
+void ManagerRep::changeCrustList(vector<Crust> &crusts) {
+
+    ofstream fout;
+    fout.open("Crust_Binary.dat", ios::binary);
+    if(fout.is_open()) {
+        for (int i = 0; i < crusts.size(); i++) {
+            crusts[i].write(fout);
+        }
+        fout.close();
+    }
+    else {
+        cout << "File did not open" << endl;
+    }
+}
+
+void ManagerRep::changeToppingList(vector<Topping> &toppings) {
+
+    ofstream fout;
+    fout.open("Topping_Binary.dat", ios::binary);
+    if(fout.is_open()) {
+        for (int i = 0; i < toppings.size(); i++) {
+            toppings[i].write(fout);
+        }
+        fout.close();
+    }
+    else {
+        cout << "File did not open" << endl;
+    }
+ }
 
 void ManagerRep::changeDrinkList(vector<Drink> &drinks) {
 

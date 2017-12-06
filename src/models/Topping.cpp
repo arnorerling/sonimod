@@ -47,6 +47,13 @@ ostream& operator << (ostream& out, const Topping& topping){
 
 }
 
+bool operator ==(const Topping &right_top, const Topping &left_top) {
+    if(right_top.name == left_top.name) {
+        return true;
+    }
+    return false;
+}
+
 string Topping::getName() const {
     return this->name;
 }

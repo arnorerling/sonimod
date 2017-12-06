@@ -23,6 +23,7 @@ class Sidedish {
         void read(ifstream& fin);
 
         friend ostream& operator << (ostream& out, const Sidedish& sidedish);
+        friend bool operator == (const Sidedish &left_side, const Sidedish &right_side);
 
         int getPrice() const;
         string getName() const;

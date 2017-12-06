@@ -3,8 +3,8 @@
 Drink::Drink(){
 
 	this->name = "";
-	this->price = 0;
 	this->liter = 0;
+	this->price = 0;
 }
 Drink::Drink(string name, int liter){
 
@@ -53,6 +53,15 @@ ostream& operator << (ostream& out, const Drink& drink){
     out << "Size: " << drink.liter << " ";
     out << "Price: " << drink.price << endl;
     return out;
+}
+
+bool operator == (const Drink &left_drink, const Drink &right_drink) {
+    if (left_drink.name == right_drink.name) {
+        if (left_drink.liter == right_drink.liter) {
+            return true;
+        }
+    }
+    return false;
 }
 
 string Drink::getName() const {

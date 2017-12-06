@@ -17,6 +17,8 @@
 					<Add directory="include/models" />
 					<Add directory="include/reposatory" />
 					<Add directory="include/domain" />
+					<Add directory="include/exceptions" />
+					<Add directory="include/exception" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -30,6 +32,8 @@
 					<Add directory="include/models" />
 					<Add directory="include/domain" />
 					<Add directory="include/reposatory" />
+					<Add directory="include/exceptions" />
+					<Add directory="include/exception" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -44,6 +48,20 @@
 		<Unit filename="include/domain/DeliveryDomain.h" />
 		<Unit filename="include/domain/ManagerDomain.h" />
 		<Unit filename="include/domain/SalesDomain.h" />
+		<Unit filename="include/exception/BranchNotAvailableException.h" />
+		<Unit filename="include/exception/CrustNotAvailableException.h" />
+		<Unit filename="include/exception/DrinkNotAvaliableException.h" />
+		<Unit filename="include/exception/InvalidNameException.h" />
+		<Unit filename="include/exception/InvalidPhoneNumberException.h" />
+		<Unit filename="include/exception/SideDishNotAvailableException.h" />
+		<Unit filename="include/exception/SizeNotAvaliableException.h" />
+		<Unit filename="include/exception/ToppingNotAvailableException.h" />
+		<Unit filename="include/exception/invalidPhoneNumberExeption.h" />
+		<Unit filename="include/exceptions/BranchExistsException.h" />
+		<Unit filename="include/exceptions/CrustChangedException.h" />
+		<Unit filename="include/exceptions/DrinkChangedException.h" />
+		<Unit filename="include/exceptions/SidedishChangedException.h" />
+		<Unit filename="include/exceptions/ToppingChangedException.h" />
 		<Unit filename="include/models/Branch.h" />
 		<Unit filename="include/models/Crust.h" />
 		<Unit filename="include/models/Drink.h" />
@@ -65,6 +83,20 @@
 		<Unit filename="src/domain/DeliveryDomain.cpp" />
 		<Unit filename="src/domain/ManagerDomain.cpp" />
 		<Unit filename="src/domain/SalesDomain.cpp" />
+		<Unit filename="src/exception/BranchNotAvailableException.cpp" />
+		<Unit filename="src/exception/CrustNotAvailableException.cpp" />
+		<Unit filename="src/exception/DrinkNotAvaliableException.cpp" />
+		<Unit filename="src/exception/InvalidNameException.cpp" />
+		<Unit filename="src/exception/InvalidPhoneNumberException.cpp" />
+		<Unit filename="src/exception/SideDishNotAvailableException.cpp" />
+		<Unit filename="src/exception/SizeNotAvaliableException.cpp" />
+		<Unit filename="src/exception/ToppingNotAvailableException.cpp" />
+		<Unit filename="src/exception/invalidPhoneNumberExeption.cpp" />
+		<Unit filename="src/exceptions/BranchExistsException.cpp" />
+		<Unit filename="src/exceptions/CrustChangedException.cpp" />
+		<Unit filename="src/exceptions/DrinkChangedException.cpp" />
+		<Unit filename="src/exceptions/SidedishChangedException.cpp" />
+		<Unit filename="src/exceptions/ToppingChangedException.cpp" />
 		<Unit filename="src/models/Branch.cpp" />
 		<Unit filename="src/models/Crust.cpp" />
 		<Unit filename="src/models/Drink.cpp" />
