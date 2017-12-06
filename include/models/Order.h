@@ -14,7 +14,7 @@ class Order {
     private:
         string custumerName;
         string phoneNumber;
-        Branch branch;
+        string branch;
 
         vector<Pizza> pizzas;
         vector<Drink> drinks;
@@ -25,6 +25,7 @@ class Order {
         bool ready;
         bool deliverd;
 
+
     public:
         Order();
         string getCustomerName();
@@ -34,8 +35,12 @@ class Order {
         void addDrink(Drink& drink);
         void addCustomerName(string name);
         void addCustomerPhoneNum(string num);
+        void addBranch(string branch);
         friend ostream& operator << (ostream& out, Order& order);
         int getTotal();
+        void write(ofstream& fout) const;
+        void read(ifstream& fin);
+
 
 
 };

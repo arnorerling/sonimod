@@ -8,6 +8,7 @@
 #include "Drink.h"
 #include "Sidedish.h"
 #include "Pizza.h"
+#include "Order.h"
 
 using namespace std;
 
@@ -23,6 +24,8 @@ class SalesRep
         void getPizzas(vector<Pizza>& pizzas);
         void getToppings(vector<Topping>& toppings);
         void getCrust(vector<Crust>& crusts);
+
+        void fileOrder(Order& order);
 
 };
 

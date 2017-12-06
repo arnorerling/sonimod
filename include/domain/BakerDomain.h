@@ -13,6 +13,7 @@ class BakerDomain
     public:
         BakerDomain();
         void getBranch(vector<Branch> &branch);
+        void getOrder(vector<Order> &order);
         bool checkBranchAvaliability(vector<Branch> &branchList, Branch &branch);
 };
 

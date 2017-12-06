@@ -9,6 +9,9 @@ BakerDomain::BakerDomain()
 void BakerDomain::getBranch(vector<Branch> &branch) {
     bakerRep.getBranch(branch);
 }
+void BakerDomain::getOrder(vector<Order> &order) {
+    bakerRep.getOrder(order);
+}
 
 bool BakerDomain::checkBranchAvaliability(vector<Branch> &branchList, Branch &branch) {
     for(unsigned int i = 0; i < branchList.size(); i++){

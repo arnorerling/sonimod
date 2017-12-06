@@ -1,6 +1,7 @@
 #ifndef BAKERREP_H
 #define BAKERREP_H
 #include "Branch.h"
+#include "Order.h"
 #include <fstream>
 #include <vector>
 
@@ -11,6 +12,7 @@ class BakerRep
     public:
         BakerRep();
         void getBranch(vector<Branch> &branch);
+        void getOrder(vector<Order> &order);
 
 };
 

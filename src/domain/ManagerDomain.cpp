@@ -44,6 +44,21 @@ bool ManagerDomain::addTopping(const Topping &topping) {
     return true;
 }
 
+bool ManagerDomain::addPizza(const Pizza &pizza) {
+    //vector<Pizza> pizzas = managerRep.getPizza();
+    /*for (int i = 0; i < pizzas.size(); i++){
+        if (drinks[i].getName() == drink.getName()) {
+            if (drinks[i].getLiter() == drink.getLiter()){
+                drinks[i] = drink;
+                managerRep.changeDrinkList(drinks);
+                throw DrinkChangedException();
+            }
+        }
+    }*/
+    managerRep.addPizza(pizza);
+    return true;
+}
+
 bool ManagerDomain::addDrink(const Drink &drink) {
     vector<Drink>drinks = managerRep.getDrink();
 
@@ -93,6 +108,11 @@ vector<Crust> ManagerDomain::printCrust() {
 vector<Topping> ManagerDomain::printTopping() {
     vector<Topping>toppings = managerRep.getTopping();
     return toppings;
+}
+
+vector<Pizza> ManagerDomain::printPizza() {
+    vector<Pizza>pizzas = managerRep.getPizza();
+    return pizzas;
 }
 
 vector<Drink> ManagerDomain::printDrink() {
@@ -201,4 +221,15 @@ bool ManagerDomain::removeBranch(const Branch &branch) {
         managerRep.changeBranchList(newBranches);
         return true;
     }
+}
+
+bool ManagerDomain::checkToppingAvaliability(const Topping &topping) {
+    vector<Topping> toppings = managerRep.getTopping();
+
+    for (int i = 0; i < toppings.size(); i++) {
+        if (toppings[i].getName() == topping.getName()) {
+            return true;
+        }
+    }
+    throw ToppingNotAvailableException();
 }

@@ -13,12 +13,6 @@ class SalesUI {
     private:
         SalesDomain salesDomain;
         Order order;
-        vector<Pizza> avaliablePizzas;
-        vector<Sidedish> avaliableSidedishes;
-        vector<Drink> avaliableDrinks;
-        vector<Topping> avaliableToppings;
-        vector<Crust> avaliableCrusts;
-
 
     public:
         SalesUI();
@@ -34,6 +28,8 @@ class SalesUI {
         void addPizza();
         void addSidedish();
         void addDrink();
+
+        void fileOrder();
 };
 
 #endif // SALESUI_H

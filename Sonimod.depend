@@ -1,117 +1,164 @@
 # depslib dependency file v1.0
-1512394926 source:c:\users\mustard\documents\sonimod\main.cpp
-	<iostream>
-	"MainUI.h"
-
-1512394957 source:c:\users\mustard\documents\sonimod\src\ui\mainui.cpp
-	"MainUI.h"
-	<iostream>
-
-1512394885 c:\users\mustard\documents\sonimod\include\ui\mainui.h
-
-1512394634 source:c:\users\mustard\documents\sonimod\src\ui\managerui.cpp
-	"ManagerUI.h"
-
-1512394634 c:\users\mustard\documents\sonimod\include\ui\managerui.h
-
-1512394670 source:c:\users\mustard\documents\sonimod\src\ui\bakerui.cpp
-	"BakerUI.h"
-
-1512394670 c:\users\mustard\documents\sonimod\include\ui\bakerui.h
-
-1512394704 source:c:\users\mustard\documents\sonimod\src\ui\salesui.cpp
-	"SalesUI.h"
-
-1512394704 c:\users\mustard\documents\sonimod\include\ui\salesui.h
-
-1512394739 source:c:\users\mustard\documents\sonimod\src\ui\deliveryui.cpp
-	"DeliveryUI.h"
-
-1512394739 c:\users\mustard\documents\sonimod\include\ui\deliveryui.h
-
-1512395039 source:c:\users\mustard\documents\sonimod\src\models\crust.cpp
-	"Crust.h"
-
-1512395039 c:\users\mustard\documents\sonimod\include\models\crust.h
-
-1512395006 source:c:\users\mustard\documents\sonimod\src\models\pizza.cpp
-	"Pizza.h"
-
-1512395006 c:\users\mustard\documents\sonimod\include\models\pizza.h
-
-1512395135 source:c:\users\mustard\documents\sonimod\src\models\sidedish.cpp
-	"Sidedish.h"
-
-1512395135 c:\users\mustard\documents\sonimod\include\models\sidedish.h
-
-1512395096 source:c:\users\mustard\documents\sonimod\src\models\topping.cpp
-	"Topping.h"
-
-1512395096 c:\users\mustard\documents\sonimod\include\models\topping.h
-
-1512394926 source:c:\users\mustard\desktop\verklegt1\sonimod\main.cpp
+1512526951 source:c:\users\mustard\desktop\verklegt1\sonimod\main.cpp
 	<iostream>
 	"MainUI.h"
 
 1512394885 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\mainui.h
 
-1512404969 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\crust.cpp
-	"Crust.h"
+1512582718 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
+	"ManagerDomain.h"
 
-1512404969 c:\users\mustard\desktop\verklegt1\sonimod\include\models\crust.h
+1512579119 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
+	"BranchExistsException.h"
+	"SidedishChangedException.h"
+	"DrinkChangedException.h"
+	"ToppingChangedException.h"
+	"CrustChangedException.h"
+	"PizzaChangedException.h"
+	"CrustNotAvailableException.h"
+	"ToppingNotAvailableException.h"
+	"DrinkNotAvaliableException.h"
+	"SideDishNotAvailableException.h"
+	"BranchNotAvailableException.h"
+	"ManagerRep.h"
+	"Crust.h"
+	"Drink.h"
+	"Topping.h"
+	"Sidedish.h"
+	"Branch.h"
+	<string>
+	<vector>
+
+1512577362 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\managerrep.h
+	"Crust.h"
+	"Drink.h"
+	"Pizza.h"
+	"Topping.h"
+	"Sidedish.h"
+	"Branch.h"
+	<vector>
+
+1512523267 c:\users\mustard\desktop\verklegt1\sonimod\include\models\crust.h
 	<string.h>
 	<iostream>
 	<fstream>
 	<string>
 
-1512405445 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
-	"Drink.h"
-
-1512405445 c:\users\mustard\desktop\verklegt1\sonimod\include\models\drink.h
+1512524903 c:\users\mustard\desktop\verklegt1\sonimod\include\models\drink.h
 	<iostream>
 	<string>
 	<fstream>
 	<string>
 
-1512410368 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\pizza.cpp
+1512523979 c:\users\mustard\desktop\verklegt1\sonimod\include\models\topping.h
+	<string.h>
+	<iostream>
+	<fstream>
+	<string>
+
+1512525495 c:\users\mustard\desktop\verklegt1\sonimod\include\models\sidedish.h
+	<iostream>
+	<iostream>
+	<fstream>
+	<string>
+
+1512526007 c:\users\mustard\desktop\verklegt1\sonimod\include\models\branch.h
+	<string>
+	<iostream>
+	<fstream>
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\salesdomain.cpp
+	"SalesDomain.h"
+
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\salesdomain.h
+	"SalesRep.h"
+	"DrinkNotAvaliableException.h"
+	"SizeNotAvaliableException.h"
+	"SideDishNotAvailableException.h"
+	"ToppingNotAvailableException.h"
+	"CrustNotAvailableException.h"
+	"InvalidNameException.h"
+	"InvalidPhoneNumberException.h"
+	<iostream>
+
+1512481767 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\salesrep.h
+	<fstream>
+	<iostream>
+	<vector>
+	<string>
+	"Drink.h"
+	"Sidedish.h"
 	"Pizza.h"
 
-1512410381 c:\users\mustard\desktop\verklegt1\sonimod\include\models\pizza.h
+1512577718 c:\users\mustard\desktop\verklegt1\sonimod\include\models\pizza.h
 	"Topping.h"
 	"Crust.h"
 	<iostream>
 	<vector>
 	<string>
 
-1512407829 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\sidedish.cpp
+1512526034 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\branch.cpp
+	"Branch.h"
+
+1512524063 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\crust.cpp
+	"Crust.h"
+
+1512524957 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
+	"Drink.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
+	"Order.h"
 	"Sidedish.h"
 
-1512408441 c:\users\mustard\desktop\verklegt1\sonimod\include\models\sidedish.h
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
+	<vector>
 	<iostream>
-	<iostream>
-	<fstream>
-	<string>
+	"Pizza.h"
+	"Drink.h"
+	"Sidedish.h"
+	"Branch.h"
 
-1512405749 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\topping.cpp
+1512588038 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\pizza.cpp
+	"Pizza.h"
+
+1512525488 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\sidedish.cpp
+	"Sidedish.h"
+
+1512523979 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\topping.cpp
 	"Topping.h"
 
-1512400239 c:\users\mustard\desktop\verklegt1\sonimod\include\models\topping.h
-	<string.h>
-	<iostream>
-	<fstream>
-	<string>
+1512588822 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\managerrep.cpp
+	"ManagerRep.h"
 
-1512394670 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
+1512481767 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\salesrep.cpp
+	"SalesRep.h"
+
+1512427581 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
 	"BakerUI.h"
+	<iostream>
 
-1512394670 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\bakerui.h
+1512426998 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\bakerui.h
+	"BakerDomain.h"
+	"Branch.h"
+	<vector>
 
-1512394739 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\deliveryui.cpp
+1512428734 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\bakerdomain.h
+	<iostream>
+	"BakerRep.h"
+	"Branch.h"
+
+1512426166 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\bakerrep.h
+	"Branch.h"
+	<fstream>
+	<vector>
+
+1512428816 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 
-1512394739 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\deliveryui.h
+1512428794 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\deliveryui.h
+	"DeliveryDomain.h"
 
-1512400239 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
+1512428870 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
 	"MainUI.h"
 	"ManagerUI.h"
 	"SalesUI.h"
@@ -119,7 +166,8 @@
 	"DeliveryUI.h"
 	<iostream>
 
-1512410707 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+1512575760 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
+	"ManagerDomain.h"
 	"ManagerUI.h"
 	"Crust.h"
 	"Topping.h"
@@ -129,69 +177,114 @@
 	<iostream>
 	<vector>
 	<string>
+	<cstdlib>
 
-1512410263 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
-	"ManagerDomain.h"
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\salesui.h
+	"SalesDomain.h"
+	<iostream>
+	"Order.h"
 
-1512411655 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
+1512586201 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+	"ManagerUI.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
 	"SalesUI.h"
-	"Order.h"
 
-1512410082 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\salesui.h
-	"SalesDomain.h"
-	<iostream>
-
-1512408728 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
-	"ManagerDomain.h"
-
-1512408728 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
-	"ManagerRep.h"
-	"Crust.h"
-	"Drink.h"
-	"Topping.h"
-	"Sidedish.h"
+1512428731 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
+	"BakerDomain.h"
 	"Branch.h"
 
-1512400239 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
+1512487677 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\bakerrep.cpp
+	"BakerRep.h"
+
+1512428778 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\deliverydomain.cpp
+	"DeliveryDomain.h"
+
+1512428756 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\deliverydomain.h
+	<iostream>
+	"DeliveryRep.h"
+	"Branch.h"
+
+1512428770 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\deliveryrep.h
+	"Branch.h"
+	<fstream>
 	<vector>
-	<iostream>
-	<Pizza.h>
-	<Drink.h>
-	<Sidedish.h>
 
-1512408782 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\managerrep.h
-	"Crust.h"
-	"Drink.h"
-	"Topping.h"
-	"Sidedish.h"
-	"Branch.h"
+1512428740 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\deliveryrep.cpp
+	"DeliveryRep.h"
 
-1512408771 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\managerrep.cpp
-	"ManagerRep.h"
+1512491884 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\branchexistsexception.h
 
-1512400239 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
-	"Order.h"
-	"Sidedish.h"
+1512491884 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\branchexistsexception.cpp
+	"BranchExistsException.h"
 
-1512408555 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\branch.cpp
-	"Branch.h"
+1512495184 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\sidedishchangedexception.h
 
-1512408555 c:\users\mustard\desktop\verklegt1\sonimod\include\models\branch.h
-	<string>
-	<iostream>
-	<fstream>
+1512495184 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\sidedishchangedexception.cpp
+	"SidedishChangedException.h"
 
-1512411765 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\salesdomain.h
-	"SalesRep.h"
-	<iostream>
+1512495184 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\drinkchangedexception.h
 
-1512411946 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\salesdomain.cpp
-	"SalesDomain.h"
+1512495184 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\drinkchangedexception.cpp
+	"DrinkChangedException.h"
 
-1512411916 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\salesrep.cpp
-	"SalesRep.h"
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\drinknotavaliableexception.h
 
-1512411896 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\salesrep.h
-	<fstream>
-	<iostream>
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\sizenotavaliableexception.h
+
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\sidedishnotavailableexception.h
+
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\toppingnotavailableexception.h
+
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\crustnotavailableexception.h
+
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\invalidnameexception.h
+
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\invalidphonenumberexception.h
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\crustnotavailableexception.cpp
+	"CrustNotAvailableException.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\drinknotavaliableexception.cpp
+	"DrinkNotAvaliableException.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\invalidnameexception.cpp
+	"InvalidNameException.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\invalidphonenumberexception.cpp
+	"InvalidPhoneNumberException.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\invalidphonenumberexeption.cpp
+	"invalidPhoneNumberExeption.h"
+
+1512514430 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\invalidphonenumberexeption.h
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\sidedishnotavailableexception.cpp
+	"SideDishNotAvailableException.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\sizenotavaliableexception.cpp
+	"SizeNotAvaliableException.h"
+
+1512514430 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\toppingnotavailableexception.cpp
+	"ToppingNotAvailableException.h"
+
+1512515111 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\toppingchangedexception.h
+
+1512515107 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\toppingchangedexception.cpp
+	"ToppingChangedException.h"
+
+1512516157 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\crustchangedexception.h
+
+1512516161 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\crustchangedexception.cpp
+	"CrustChangedException.h"
+
+1512525669 c:\users\mustard\desktop\verklegt1\sonimod\include\exception\branchnotavailableexception.h
+
+1512525672 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exception\branchnotavailableexception.cpp
+	"BranchNotAvailableException.h"
+
+1512576669 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\pizzachangedexception.h
+
+1512576672 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\pizzachangedexception.cpp
+	"PizzaChangedException.h"
 

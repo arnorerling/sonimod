@@ -11,6 +11,7 @@ void BakerUI::startUI() {
 
     printRestaurants();
     chooseRestaurant();
+    printOrders();
 }
 
 void BakerUI::printRestaurants() {
@@ -42,4 +43,13 @@ void BakerUI::chooseRestaurant() {
         }
     }
 }
+void BakerUI::printOrders() {
 
+    vector<Order> orders;
+    cout << "----Order list----" << endl;
+    bakerDomain.getOrder(orders);
+    for(unsigned int i = 0; i < orders.size(); i++){
+        cout << orders[i];
+    }
+    cout << "-----------------------" << endl;
+}
