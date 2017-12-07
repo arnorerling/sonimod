@@ -1,0 +1,7 @@
+#ifndef LENGTHNOTRIGHTEXCEPTION_H
+#define LENGTHNOTRIGHTEXCEPTION_H
+
+
+class LengthNotRightException { };
+
+#endif // LENGTHNOTRIGHTEXCEPTION_H
