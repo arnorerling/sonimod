@@ -288,3 +288,644 @@
 1512576672 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\pizzachangedexception.cpp
 	"PizzaChangedException.h"
 
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/main.cpp
+	<iostream>
+	"MainUI.h"
+
+1512395484 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/ui/MainUI.h
+
+1512578891 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/domain/BakerDomain.cpp
+	"BakerDomain.h"
+	"Branch.h"
+
+1512578891 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/domain/BakerDomain.h
+	<iostream>
+	"BakerRep.h"
+	"Branch.h"
+
+1512578891 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/reposatory/BakerRep.h
+	"Branch.h"
+	"Order.h"
+	<fstream>
+	<vector>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/models/Branch.h
+	<string>
+	<iostream>
+	<fstream>
+
+1512577257 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/models/Order.h
+	<vector>
+	<iostream>
+	"Pizza.h"
+	"Drink.h"
+	"Sidedish.h"
+	"Branch.h"
+
+1512590715 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/models/Pizza.h
+	"Topping.h"
+	"Crust.h"
+	<iostream>
+	<vector>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/models/Topping.h
+	<string.h>
+	<iostream>
+	<fstream>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/models/Crust.h
+	<string.h>
+	<iostream>
+	<fstream>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/models/Drink.h
+	<iostream>
+	<string>
+	<fstream>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/models/Sidedish.h
+	<iostream>
+	<iostream>
+	<fstream>
+	<string>
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/domain/DeliveryDomain.cpp
+	"DeliveryDomain.h"
+
+1512429392 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/domain/DeliveryDomain.h
+	<iostream>
+	"DeliveryRep.h"
+	"Branch.h"
+
+1512429392 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/reposatory/DeliveryRep.h
+	"Branch.h"
+	<fstream>
+	<vector>
+
+1512578281 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/domain/SalesDomain.cpp
+	"SalesDomain.h"
+
+1512578281 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/domain/SalesDomain.h
+	"SalesRep.h"
+	"DrinkNotAvailableException.h"
+	"SizeNotAvailableException.h"
+	"SideDishNotAvailableException.h"
+	"ToppingNotAvailableException.h"
+	"CrustNotAvailableException.h"
+	"InvalidNameException.h"
+	"InvalidPhoneNumberException.h"
+	<iostream>
+
+1512577668 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/reposatory/SalesRep.h
+	<fstream>
+	<iostream>
+	<vector>
+	<string>
+	"Drink.h"
+	"Sidedish.h"
+	"Pizza.h"
+	"Order.h"
+
+1512572032 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/DrinkNotAvailableException.h
+
+1512572100 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/SizeNotAvailableException.h
+
+1512492789 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/SideDishNotAvailableException.h
+
+1512493834 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/ToppingNotAvailableException.h
+
+1512493736 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/CrustNotAvailableException.h
+
+1512495784 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/InvalidNameException.h
+
+1512497059 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/InvalidPhoneNumberException.h
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/BranchNotAvailableException.cpp
+	"BranchNotAvailableException.h"
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/BranchNotAvailableException.h
+
+1512493736 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/CrustNotAvailableException.cpp
+	"CrustNotAvailableException.h"
+
+1512490880 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/DrinkNotAvaliableException.cpp
+	"DrinkNotAvaliableException.h"
+
+1512490880 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/DrinkNotAvaliableException.h
+
+1512495784 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/InvalidNameException.cpp
+	"InvalidNameException.h"
+
+1512497059 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/InvalidPhoneNumberException.cpp
+	"InvalidPhoneNumberException.h"
+
+1512496687 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/invalidPhoneNumberExeption.cpp
+	"invalidPhoneNumberExeption.h"
+
+1512496687 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/invalidPhoneNumberExeption.h
+
+1512492789 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/SideDishNotAvailableException.cpp
+	"SideDishNotAvailableException.h"
+
+1512492170 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/SizeNotAvaliableException.cpp
+	"SizeNotAvaliableException.h"
+
+1512492170 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exception/SizeNotAvaliableException.h
+
+1512493736 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exception/ToppingNotAvailableException.cpp
+	"ToppingNotAvailableException.h"
+
+1512498546 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/BranchExistsException.cpp
+	"BranchExistsException.h"
+
+1512498546 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/BranchExistsException.h
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/CrustChangedException.cpp
+	"CrustChangedException.h"
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/CrustChangedException.h
+
+1512498546 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/DrinkChangedException.cpp
+	"DrinkChangedException.h"
+
+1512498546 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/DrinkChangedException.h
+
+1512572032 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/DrinkNotAvailableException.cpp
+	"DrinkNotAvailableException.h"
+
+1512498546 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/SidedishChangedException.cpp
+	"SidedishChangedException.h"
+
+1512498546 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/SidedishChangedException.h
+
+1512572101 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/SizeNotAvailableException.cpp
+	"SizeNotAvailableException.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/ToppingChangedException.cpp
+	"ToppingChangedException.h"
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/ToppingChangedException.h
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/models/Branch.cpp
+	"Branch.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/models/Crust.cpp
+	"Crust.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/models/Drink.cpp
+	"Drink.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/models/Sidedish.cpp
+	"Sidedish.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/models/Topping.cpp
+	"Topping.h"
+
+1512578899 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/reposatory/BakerRep.cpp
+	"BakerRep.h"
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/reposatory/DeliveryRep.cpp
+	"DeliveryRep.h"
+
+1512578605 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/reposatory/SalesRep.cpp
+	"SalesRep.h"
+
+1512579101 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/ui/BakerUI.cpp
+	"BakerUI.h"
+	<iostream>
+
+1512579059 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/ui/BakerUI.h
+	"BakerDomain.h"
+	"Branch.h"
+	<vector>
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/ui/DeliveryUI.cpp
+	"DeliveryUI.h"
+
+1512429392 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/ui/DeliveryUI.h
+	"DeliveryDomain.h"
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/ui/MainUI.cpp
+	"MainUI.h"
+	"ManagerUI.h"
+	"SalesUI.h"
+	"BakerUI.h"
+	"DeliveryUI.h"
+	<iostream>
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/ui/ManagerUI.h
+	"ManagerDomain.h"
+	"ManagerUI.h"
+	"Crust.h"
+	"Topping.h"
+	"Drink.h"
+	"Sidedish.h"
+	"Branch.h"
+	<iostream>
+	<vector>
+	<string>
+	<cstdlib>
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/domain/ManagerDomain.h
+	"BranchExistsException.h"
+	"SidedishChangedException.h"
+	"DrinkChangedException.h"
+	"ToppingChangedException.h"
+	"CrustChangedException.h"
+	"PizzaChangedException.h"
+	"CrustNotAvailableException.h"
+	"ToppingNotAvailableException.h"
+	"DrinkNotAvaliableException.h"
+	"SideDishNotAvailableException.h"
+	"BranchNotAvailableException.h"
+	"ManagerRep.h"
+	"Crust.h"
+	"Drink.h"
+	"Topping.h"
+	"Sidedish.h"
+	"Branch.h"
+	<string>
+	<vector>
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/PizzaChangedException.h
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/reposatory/ManagerRep.h
+	"Crust.h"
+	"Drink.h"
+	"Pizza.h"
+	"Topping.h"
+	"Sidedish.h"
+	"Branch.h"
+	<vector>
+
+1512577356 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/ui/SalesUI.h
+	"SalesDomain.h"
+	<iostream>
+	"Order.h"
+
+1512578554 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/ui/SalesUI.cpp
+	"SalesUI.h"
+
+1512590284 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/domain/ManagerDomain.cpp
+	"ManagerDomain.h"
+
+1512600505 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/models/Order.cpp
+	"Order.h"
+	"Sidedish.h"
+
+1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/models/Pizza.cpp
+	"Pizza.h"
+
+1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/reposatory/ManagerRep.cpp
+	"ManagerRep.h"
+
+1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/ui/ManagerUI.cpp
+	"ManagerUI.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/main.cpp
+	<iostream>
+	"MainUI.h"
+
+1512395484 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/MainUI.h
+
+1512578891 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/BakerDomain.cpp
+	"BakerDomain.h"
+	"Branch.h"
+
+1512578891 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/BakerDomain.h
+	<iostream>
+	"BakerRep.h"
+	"Branch.h"
+
+1512578891 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/BakerRep.h
+	"Branch.h"
+	"Order.h"
+	<fstream>
+	<vector>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Branch.h
+	<string>
+	<iostream>
+	<fstream>
+
+1512577257 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Order.h
+	<vector>
+	<iostream>
+	"Pizza.h"
+	"Drink.h"
+	"Sidedish.h"
+	"Branch.h"
+
+1512590715 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Pizza.h
+	"Topping.h"
+	"Crust.h"
+	<iostream>
+	<vector>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Topping.h
+	<string.h>
+	<iostream>
+	<fstream>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Crust.h
+	<string.h>
+	<iostream>
+	<fstream>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Drink.h
+	<iostream>
+	<string>
+	<fstream>
+	<string>
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Sidedish.h
+	<iostream>
+	<iostream>
+	<fstream>
+	<string>
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/DeliveryDomain.cpp
+	"DeliveryDomain.h"
+
+1512429392 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/DeliveryDomain.h
+	<iostream>
+	"DeliveryRep.h"
+	"Branch.h"
+
+1512429392 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/DeliveryRep.h
+	"Branch.h"
+	<fstream>
+	<vector>
+
+1512590284 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/ManagerDomain.cpp
+	"ManagerDomain.h"
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/ManagerDomain.h
+	"BranchExistsException.h"
+	"SidedishChangedException.h"
+	"DrinkChangedException.h"
+	"ToppingChangedException.h"
+	"CrustChangedException.h"
+	"PizzaChangedException.h"
+	"CrustNotAvailableException.h"
+	"ToppingNotAvailableException.h"
+	"DrinkNotAvaliableException.h"
+	"SideDishNotAvailableException.h"
+	"BranchNotAvailableException.h"
+	"ManagerRep.h"
+	"Crust.h"
+	"Drink.h"
+	"Topping.h"
+	"Sidedish.h"
+	"Branch.h"
+	<string>
+	<vector>
+
+1512498546 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/BranchExistsException.h
+
+1512498546 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/SidedishChangedException.h
+
+1512498546 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/DrinkChangedException.h
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/ToppingChangedException.h
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/CrustChangedException.h
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/PizzaChangedException.h
+
+1512493736 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/CrustNotAvailableException.h
+
+1512493834 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/ToppingNotAvailableException.h
+
+1512490880 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/DrinkNotAvaliableException.h
+
+1512492789 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/SideDishNotAvailableException.h
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/BranchNotAvailableException.h
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/ManagerRep.h
+	"Crust.h"
+	"Drink.h"
+	"Pizza.h"
+	"Topping.h"
+	"Sidedish.h"
+	"Branch.h"
+	<vector>
+
+1512578281 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/SalesDomain.cpp
+	"SalesDomain.h"
+
+1512578281 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/SalesDomain.h
+	"SalesRep.h"
+	"DrinkNotAvailableException.h"
+	"SizeNotAvailableException.h"
+	"SideDishNotAvailableException.h"
+	"ToppingNotAvailableException.h"
+	"CrustNotAvailableException.h"
+	"InvalidNameException.h"
+	"InvalidPhoneNumberException.h"
+	<iostream>
+
+1512577668 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/SalesRep.h
+	<fstream>
+	<iostream>
+	<vector>
+	<string>
+	"Drink.h"
+	"Sidedish.h"
+	"Pizza.h"
+	"Order.h"
+
+1512572032 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/DrinkNotAvailableException.h
+
+1512572100 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/SizeNotAvailableException.h
+
+1512495784 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/InvalidNameException.h
+
+1512497059 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/InvalidPhoneNumberException.h
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/BranchNotAvailableException.cpp
+	"BranchNotAvailableException.h"
+
+1512493736 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/CrustNotAvailableException.cpp
+	"CrustNotAvailableException.h"
+
+1512490880 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/DrinkNotAvaliableException.cpp
+	"DrinkNotAvaliableException.h"
+
+1512495784 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/InvalidNameException.cpp
+	"InvalidNameException.h"
+
+1512497059 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/InvalidPhoneNumberException.cpp
+	"InvalidPhoneNumberException.h"
+
+1512496687 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/invalidPhoneNumberExeption.cpp
+	"invalidPhoneNumberExeption.h"
+
+1512496687 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/invalidPhoneNumberExeption.h
+
+1512492789 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/SideDishNotAvailableException.cpp
+	"SideDishNotAvailableException.h"
+
+1512492170 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/SizeNotAvaliableException.cpp
+	"SizeNotAvaliableException.h"
+
+1512492170 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/SizeNotAvaliableException.h
+
+1512493736 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exception/ToppingNotAvailableException.cpp
+	"ToppingNotAvailableException.h"
+
+1512498546 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/BranchExistsException.cpp
+	"BranchExistsException.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/CrustChangedException.cpp
+	"CrustChangedException.h"
+
+1512498546 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/DrinkChangedException.cpp
+	"DrinkChangedException.h"
+
+1512572032 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/DrinkNotAvailableException.cpp
+	"DrinkNotAvailableException.h"
+
+1512498546 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/SidedishChangedException.cpp
+	"SidedishChangedException.h"
+
+1512572101 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/SizeNotAvailableException.cpp
+	"SizeNotAvailableException.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/ToppingChangedException.cpp
+	"ToppingChangedException.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Branch.cpp
+	"Branch.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Crust.cpp
+	"Crust.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Drink.cpp
+	"Drink.h"
+
+1512600505 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Order.cpp
+	"Order.h"
+	"Sidedish.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Sidedish.cpp
+	"Sidedish.h"
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Topping.cpp
+	"Topping.h"
+
+1512578899 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/BakerRep.cpp
+	"BakerRep.h"
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/DeliveryRep.cpp
+	"DeliveryRep.h"
+
+1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/ManagerRep.cpp
+	"ManagerRep.h"
+
+1512578605 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/SalesRep.cpp
+	"SalesRep.h"
+
+1512579101 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/BakerUI.cpp
+	"BakerUI.h"
+	<iostream>
+
+1512579059 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/BakerUI.h
+	"BakerDomain.h"
+	"Branch.h"
+	<vector>
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/DeliveryUI.cpp
+	"DeliveryUI.h"
+
+1512429392 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/DeliveryUI.h
+	"DeliveryDomain.h"
+
+1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/MainUI.cpp
+	"MainUI.h"
+	"ManagerUI.h"
+	"SalesUI.h"
+	"BakerUI.h"
+	"DeliveryUI.h"
+	<iostream>
+
+1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/ManagerUI.h
+	"ManagerDomain.h"
+	"ManagerUI.h"
+	"Crust.h"
+	"Topping.h"
+	"Drink.h"
+	"Sidedish.h"
+	"Branch.h"
+	<iostream>
+	<vector>
+	<string>
+	<cstdlib>
+
+1512577356 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/SalesUI.h
+	"SalesDomain.h"
+	<iostream>
+	"Order.h"
+
+1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/ManagerUI.cpp
+	"ManagerUI.h"
+
+1512578554 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/SalesUI.cpp
+	"SalesUI.h"
+
+1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Pizza.cpp
+	"Pizza.h"
+
+1512493736 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/CrustNotAvailableException.h
+
+1512493834 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/ToppingNotAvailableException.h
+
+1512490880 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/DrinkNotAvaliableException.h
+
+1512492789 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/SideDishNotAvailableException.h
+
+1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/BranchNotAvailableException.h
+
+1512495784 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/InvalidNameException.h
+
+1512497059 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/InvalidPhoneNumberException.h
+
+1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/BranchNotAvailableException.cpp
+	"BranchNotAvailableException.h"
+
+1512493736 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/CrustNotAvailableException.cpp
+	"CrustNotAvailableException.h"
+
+1512490880 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/DrinkNotAvaliableException.cpp
+	"DrinkNotAvaliableException.h"
+
+1512495784 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/InvalidNameException.cpp
+	"InvalidNameException.h"
+
+1512497059 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/InvalidPhoneNumberException.cpp
+	"InvalidPhoneNumberException.h"
+
+1512496687 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/invalidPhoneNumberExeption.cpp
+	"invalidPhoneNumberExeption.h"
+
+1512496687 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/invalidPhoneNumberExeption.h
+
+1512492789 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/SideDishNotAvailableException.cpp
+	"SideDishNotAvailableException.h"
+
+1512492170 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/SizeNotAvaliableException.cpp
+	"SizeNotAvaliableException.h"
+
+1512492170 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/SizeNotAvaliableException.h
+
+1512493736 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/exceptions/ToppingNotAvailableException.cpp
+	"ToppingNotAvailableException.h"
+
