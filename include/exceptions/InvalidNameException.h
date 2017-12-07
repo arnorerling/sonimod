@@ -4,7 +4,6 @@
 
 class InvalidNameException
 {
-
 };
 
 #endif // INVALIDNAMEEXCEPTION_H

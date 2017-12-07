@@ -11,6 +11,9 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <stdio.h>
+#include <string.h>
+#include <cstring>
 using namespace std;
 
 class ManagerUI
@@ -45,6 +48,9 @@ class ManagerUI
         void removeDrink();
         void removeSide();
         void removeBranch();
+
+        string checkName();
+        int checkPrice();
 
 
 };

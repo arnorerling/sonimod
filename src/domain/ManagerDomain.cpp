@@ -258,3 +258,29 @@ bool ManagerDomain::checkToppingAvaliability(const Topping &topping) {
     }
     throw ToppingNotAvailableException();
 }
+
+
+bool ManagerDomain::checkValidName(string &name) {
+
+    for(unsigned int i = 0; i < name.length(); i++){
+        if(isdigit(name[i])){
+             throw InvalidNameException();
+        }
+    }
+    return true;
+}
+
+int ManagerDomain::checkValidPrice(string &price) {
+    int price1 = 0;
+    for(unsigned int i = 0; i < price.length(); i++){
+        if(isalpha(price[i])){
+            throw InvalidPriceException();
+        }
+    }
+    price1 = atoi(price.c_str());
+
+    if(price1 < 0){
+        throw InvalidPriceException();
+    }
+    return price1;
+}

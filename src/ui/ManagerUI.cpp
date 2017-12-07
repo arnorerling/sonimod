@@ -122,27 +122,23 @@ void ManagerUI::removeFromMenu() {
 }
 
 void ManagerUI::addCrust() {
-    string name;
-    int inches;
-    int price;
-
+    int inches[3]= {14, 16, 18};
     cout << "----Add Crust----" << endl;
-    cout << "Name: ";
-    cin >> ws;
-    getline(cin, name);
-    cout << "Inches: ";
-    cin >> inches;
-    cout << "Price: ";
-    cin >> price;
-    managerDomain.toLowerCase(name);
-    Crust crust(name, inches, price);
+    string name = checkName();
 
-    try {
+    for (int i = 0; i < 3; i++) {
+        cout << "Price for " << inches[i] << "\": ";
+        int price = checkPrice();
+        Crust crust(name, inches[i], price);
+         try {
         managerDomain.addCrust(crust);
+        }
+        catch(CrustChangedException) {
+            cout << "price of crust \"" << crust.getName() << "\" of size " << crust.getInches() << " has been changed" << endl;
+        }
     }
-    catch(CrustChangedException) {
-        cout << "price of crust \"" << crust.getName() << "\" of size " << crust.getInches() << " has been changed" << endl;
-    }
+
+
 
 
 }
@@ -412,4 +408,44 @@ void ManagerUI::removeBranch() {
     catch(BranchNotAvailableException) {
         cout << "This restaurant branch \"" << branch.getName() << "\" is not on the list" << endl;
     }
+}
+
+
+string ManagerUI::checkName() {
+    string name = "";
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Name: ";
+        cin >> ws;
+        getline(cin, name);
+        managerDomain.toLowerCase(name);
+        try{
+            allowed = managerDomain.checkValidName(name);
+        }
+        catch(InvalidNameException){
+            cout << "Name cant include numbers" << endl;
+        }
+    }
+    return name;
+}
+
+int ManagerUI::checkPrice() {
+    string price = "";
+    int price1 = 0;
+    bool allowed = false;
+
+    while(!allowed){
+        cin >> ws;
+        getline(cin, price);
+        try{
+            price1 = managerDomain.checkValidPrice(price);
+            allowed = true;
+        }
+        catch(InvalidPriceException){
+            cout << "Invalid price, try again" << endl;
+            cout << "Price: ";
+        }
+    }
+    return price1;
 }
