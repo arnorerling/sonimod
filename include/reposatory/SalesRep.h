@@ -24,6 +24,7 @@ class SalesRep
         void getPizzas(vector<Pizza>& pizzas);
         void getToppings(vector<Topping>& toppings);
         void getCrust(vector<Crust>& crusts);
+        void getBranches(vector<Branch>& branches);
 
         void fileOrder(Order& order);
 

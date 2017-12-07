@@ -81,6 +81,21 @@ void SalesRep::getCrust(vector<Crust>& crusts) {
     }
 }
 
+void SalesRep::getBranches(vector<Branch>& Branches) {
+    Branch currBranch;
+    ifstream fin;
+    fin.open("Branch_Binary.dat", ios::binary);
+    if(fin.is_open()) {
+        while(!fin.eof()){
+            currBranch.read(fin);
+            if(!fin.eof()){
+                Branches.push_back(currBranch);
+            }
+        }
+        fin.close();
+    }
+}
+
 void SalesRep::fileOrder(Order& order){
 
     ofstream fout;

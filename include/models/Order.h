@@ -39,6 +39,7 @@ class Order {
         void addCustomerPhoneNum(string num);
         void addBranch(string branch);
         void setReady(bool ready);
+        void setAddress(string address);
         friend ostream& operator << (ostream& out, Order& order);
         int getTotal();
         void write(ofstream& fout) const;

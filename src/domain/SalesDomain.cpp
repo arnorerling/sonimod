@@ -23,6 +23,11 @@ void SalesDomain::getToppings(vector<Topping>& toppings){
 void SalesDomain::getCrusts(vector<Crust>& crusts){
     salesRep.getCrust(crusts);
 }
+
+void SalesDomain::getBranches(vector<Branch>& branches){
+    salesRep.getBranches(branches);
+}
+
 bool SalesDomain::isValidName(string name){
     for(unsigned int i = 0; i < name.length(); i++){
         if(isdigit(name[i])){
@@ -68,16 +73,19 @@ bool SalesDomain::checkSidedishAvailability(Sidedish& sidedish){
     throw SideDishNotAvailableException();
 }
 
-bool SalesDomain::checkToppingAvailability(Topping& topping){
+void SalesDomain::checkToppingAvailability(Topping& topping){
+    bool available = false;
     vector<Topping> toppings;
     getToppings(toppings);
     for(unsigned int i = 0; i < toppings.size(); i++){
         if(toppings[i].getName() == topping.getName()){
             topping.setPrice(toppings[i].getPrice());
-            return true;
+            available = true;
         }
     }
-    throw ToppingNotAvailableException();
+    if(!available){
+        throw ToppingNotAvailableException();
+    }
 }
 
 bool SalesDomain::checkCrustAvailability(Crust& crust){
@@ -92,7 +100,27 @@ bool SalesDomain::checkCrustAvailability(Crust& crust){
     throw CrustNotAvailableException();
 }
 
+bool SalesDomain::checkBranchAvailability(string branch){
+    vector<Branch> branches;
+    getBranches(branches);
+    for(unsigned int i = 0; i < branches.size(); i++){
+        if(branches[i].getName() == branch){
+            return true;
+        }
+    }
+    throw NotFoundException();
+}
+
 void SalesDomain::fileOrder(Order &order){
     salesRep.fileOrder(order);
+}
+
+void SalesDomain::checkYesOrNo(string check){
+    if(check.length() != 1){
+        throw LengthNotRightException();
+    }
+    if(check != "y" && check != "n"){
+        throw NotAllowedYesOrNoException();
+    }
 }
 

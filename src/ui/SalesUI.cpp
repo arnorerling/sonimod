@@ -177,11 +177,16 @@ void SalesUI::addSidedish(){
 
 void SalesUI::addPizza(){
     Pizza pizza;
+
+    this->addCrust(pizza);
+    this->addToppings(pizza);
+    pizza.setPrice();
+    order.addPizza(pizza);
+}
+void SalesUI::addCrust(Pizza &pizza){
     bool available = false;
     string name;
     int size;
-    char anotherTopping = 'y';
-
     printCrusts();
     while(!available) {
         cout << "Enter crust name: ";
@@ -197,32 +202,65 @@ void SalesUI::addPizza(){
             cout << "Crust not available!" << endl;
         }
     }
+}
+
+void SalesUI::addToppings(Pizza &pizza){
+    string name;
     printToppings();
-    while(anotherTopping == 'y'){
+    string anotherTopping = "y";
+    char anotherToppingChar = 'y';
+    while(anotherToppingChar == 'y'){
         cout << "Enter topping name: ";
         cin >> ws;
         getline(cin, name);
         Topping topping(name);
         try{
-            available = salesDomain.checkToppingAvailability(topping);
+            salesDomain.checkToppingAvailability(topping);
             pizza.addTopping(topping);
         }
         catch(ToppingNotAvailableException){
             cout << "Topping not avaliable!" << endl;
         }
-        cout << "another topping? (y/n): ";
-        cin >> anotherTopping;
+        bool allowed = false;
+        while(!allowed){
+            cout << "another topping? (y/n): ";
+            cin >> anotherTopping;
+            try{
+            salesDomain.checkYesOrNo(anotherTopping);
+            allowed = true;
+            anotherToppingChar = anotherTopping[0];
+            }
+            catch(NotAllowedYesOrNoException){
+                cout << "Only 'y' or 'n' accepted. please try again! " << endl;
+            }
+            catch(LengthNotRightException){
+                cout << "Only one character accepted! please try again!" << endl;
+            }
+        }
+
     }
-    pizza.setPrice();
-    order.addPizza(pizza);
+}
+void SalesUI::addBranch(Order &order){
+    bool found = false;
+    while(!found){
+        cout << "Enter branch name: ";
+        string branch;
+        cin >> ws;
+        getline(cin,branch);
+        try{
+        salesDomain.checkBranchAvailability(branch);
+        order.addBranch(branch);
+        found = true;
+        }
+        catch(NotFoundException){
+            cout << "Branch not found" << endl;
+        }
+    }
 }
 void SalesUI::fileOrder(){
-    cout << "Enter branch name: ";
-    string branch;
-    cin >> ws;
-    getline(cin,branch);
-    order.addBranch(branch);
-    salesDomain.fileOrder(order);
+
+    addBranch(this->order);
+    salesDomain.fileOrder(this->order);
     cout << "Order filed!" << endl;
 
 }

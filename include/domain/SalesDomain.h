@@ -9,6 +9,9 @@
 #include "CrustNotAvailableException.h"
 #include "InvalidNameException.h"
 #include "InvalidPhoneNumberException.h"
+#include "LengthNotRightException.h"
+#include "NotAllowedYesOrNoException.h"
+#include "NotFoundException.h"
 #include <iostream>
 
 using namespace std;
@@ -24,14 +27,18 @@ class SalesDomain {
         void getPizzas(vector<Pizza>& pizzas);
         void getToppings(vector<Topping>& toppings);
         void getCrusts(vector<Crust>& crusts);
+        void getBranches(vector<Branch>& branches);
 
         bool isValidName(string name);
         bool isValidPhoneNumber(string num);
 
         bool checkDrinkAvailability(Drink& drink);
         bool checkSidedishAvailability(Sidedish& sidedish);
-        bool checkToppingAvailability(Topping& topping);
+        void checkToppingAvailability(Topping& topping);
         bool checkCrustAvailability(Crust& crust);
+        bool checkBranchAvailability(string branch);
+
+        void checkYesOrNo(string check);
 
         void fileOrder(Order &order);
 

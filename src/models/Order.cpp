@@ -3,7 +3,7 @@
 
 Order::Order()
 {
-//ctor
+    this->customerAddress="";
 }
 
 void Order::addPizza(Pizza& pizza){
@@ -30,6 +30,10 @@ void Order::addCustomerPhoneNum(string num){
 }
 void Order::setReady(bool ready) {
     this->ready = ready;
+}
+
+void Order::setAddress(string address){
+    this->customerAddress = address;
 }
 string Order::getCustomerName(){
     return this->customerName;
