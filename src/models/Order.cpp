@@ -36,21 +36,31 @@ string Order::getCustomerPhoneNumber(){
 }
 
 ostream& operator << (ostream& out, Order& order){
-    out << endl << "Customer Name: " << order.getCustomerName() << endl;
-    out << "Customer number: " << order.getCustomerPhoneNumber();
-    out << endl << "Pizzas in order: " << endl;
-    for(unsigned int i = 0; i < order.pizzas.size(); i++){
-        out << order.pizzas[i] << endl;
+    out << "------------------------------------------------------" << endl;
+    out << "Customer Name: " << order.getCustomerName() << endl;
+    out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
+
+    if (order.pizzas.size() > 0) {
+        out << "Pizzas: " << endl;
+        for(unsigned int i = 0; i < order.pizzas.size(); i++){
+            out << order.pizzas[i] << endl;
+        }
     }
-    out << endl << "Sidedishes in order: " << endl;
-    for(unsigned int i = 0; i < order.sideDishes.size(); i++){
-        out << order.sideDishes[i] << endl;
+
+    if (order.sideDishes.size() > 0) {
+        out << "Sidedishes: " << endl;
+        for(unsigned int i = 0; i < order.sideDishes.size(); i++){
+            out << order.sideDishes[i].getName() << endl;
+        }
     }
-    out << endl << "Drinks in order: " << endl;
-    for(unsigned int i = 0; i < order.drinks.size(); i++){
-        out << order.drinks[i] << endl;
+    if (order.drinks.size() > 0) {
+        out << "Drinks: " << endl;
+        for(unsigned int i = 0; i < order.drinks.size(); i++){
+            out << order.drinks[i].getName() << endl;
+        }
     }
-    out << "Order total: " << order.getTotal() << endl << endl;
+
+    out << "Order total: " << order.getTotal() << endl;
     return out;
 }
 

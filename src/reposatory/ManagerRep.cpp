@@ -115,7 +115,6 @@ vector<Topping> ManagerRep::getTopping() {
 }
 
 vector<Pizza> ManagerRep::getPizza() {
-
     vector <Pizza> pizzas;
     ifstream fin;
     fin.open("Pizzas_Binary.dat", ios::binary);

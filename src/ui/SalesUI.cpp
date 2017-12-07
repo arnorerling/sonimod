@@ -45,7 +45,7 @@ void SalesUI::startUI() {
                 break;
             }
             case 't': {
-                cout << "Order total: "<< order.getTotal();
+                cout << "Order total: "<< this->order.getTotal() << endl;
                 break;
             }
             case 'f': {

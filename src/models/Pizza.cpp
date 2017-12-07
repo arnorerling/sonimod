@@ -2,7 +2,8 @@
 using namespace std;
 
 Pizza::Pizza() {
-    price = 0;
+    this->name = "custom";
+    this->price = 0;
 }
 
 Pizza::Pizza(string &name){
@@ -36,15 +37,14 @@ void Pizza::write(ofstream& fout) const {
 }
 
 void Pizza::read(ifstream& fin) {
-
-    int strLen;
+    int strLen = 0;
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
     name = str;
     delete[] str;
 
-    int tCount;
+    int tCount = 0;
     fin.read((char*)(&tCount), sizeof(int));
     Topping topping;
     for (int i = 0; i < tCount; i++) {
@@ -58,16 +58,12 @@ void Pizza::read(ifstream& fin) {
 }
 
 ostream& operator << (ostream& out,const Pizza& pizza) {
-    out << pizza.name << endl;
-    out << endl << "Pizza with " << pizza.toppings.size() << " toppings:" << endl;
-    out << "Crust type: " << endl;
-    out << pizza.crust << endl;
 
-    out << "Toppings:" << endl;
-
+    out << pizza.name << ": ";
     for(unsigned int i = 0; i < pizza.toppings.size(); i++) {
-        out << pizza.toppings[i] << endl;
+        out << pizza.toppings[i].getName() << ", ";
     }
+    out << pizza.crust.getName() << " " << pizza.price << "kr" << endl;
     return out;
 }
 
