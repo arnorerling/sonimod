@@ -14,8 +14,24 @@ void ManagerDomain::toLowerCase(string &name) {
     }
 }
 
+bool ManagerDomain::addPizza(const Pizza &pizza) {
+    vector<Pizza> pizzas = managerRep.getPizza();
+
+    for (int i = 0; i < pizzas.size(); i++){
+        if (pizzas[i].getName() == pizza.getName()) {
+            {
+                pizzas[i] = pizza;
+                managerRep.changePizzaList(pizzas);
+                throw PizzaChangedException();
+            }
+        }
+    }
+    managerRep.addPizza(pizza);
+    return true;
+}
+
 bool ManagerDomain::addCrust(const Crust &crust) {
-      vector<Crust>crusts = managerRep.getCrust();
+    vector<Crust>crusts = managerRep.getCrust();
 
     for (int i = 0; i < crusts.size(); i++){
         if (crusts[i].getName() == crust.getName()) {
@@ -41,21 +57,6 @@ bool ManagerDomain::addTopping(const Topping &topping) {
         }
     }
     managerRep.addTopping(topping);
-    return true;
-}
-
-bool ManagerDomain::addPizza(const Pizza &pizza) {
-    /*vector<Pizza> pizzas = managerRep.getPizza();
-    for (int i = 0; i < pizzas.size(); i++){
-        if (drinks[i].getName() == drink.getName()) {
-            if (drinks[i].getLiter() == drink.getLiter()){
-                drinks[i] = drink;
-                managerRep.changeDrinkList(drinks);
-                throw DrinkChangedException();
-            }
-        }
-    }*/
-    managerRep.addPizza(pizza);
     return true;
 }
 
@@ -89,7 +90,7 @@ bool ManagerDomain::addSidedish(const Sidedish &sidedish) {
     return true;
 }
 
-bool ManagerDomain::addBranch(Branch &branch) {
+bool ManagerDomain::addBranch(const Branch &branch) {
     vector<Branch> branches = managerRep.getBranch();
     for (int i = 0; i < branches.size(); i++) {
         if (branches[i].getName() == branch.getName()) {
@@ -100,6 +101,12 @@ bool ManagerDomain::addBranch(Branch &branch) {
     return true;
  }
 
+
+vector<Pizza> ManagerDomain::printPizza() {
+    vector<Pizza>pizzas = managerRep.getPizza();
+    return pizzas;
+}
+
 vector<Crust> ManagerDomain::printCrust() {
     vector<Crust>crusts = managerRep.getCrust();
     return crusts;
@@ -108,11 +115,6 @@ vector<Crust> ManagerDomain::printCrust() {
 vector<Topping> ManagerDomain::printTopping() {
     vector<Topping>toppings = managerRep.getTopping();
     return toppings;
-}
-
-vector<Pizza> ManagerDomain::printPizza() {
-    vector<Pizza>pizzas = managerRep.getPizza();
-    return pizzas;
 }
 
 vector<Drink> ManagerDomain::printDrink() {
@@ -128,6 +130,28 @@ vector<Sidedish> ManagerDomain::printSidedish() {
 vector<Branch> ManagerDomain::printBranch() {
     vector<Branch>branches = managerRep.getBranch();
     return branches;
+}
+
+
+
+bool ManagerDomain::removePizza(const Pizza &pizza) {
+    vector<Pizza>pizzas = managerRep.getPizza();
+    vector<Pizza>newPizzas;
+
+    for (int i = 0; i < pizzas.size(); i++){
+        if (pizzas[i].getName() != pizza.getName()) {
+            newPizzas.push_back(pizzas[i]);
+        }
+    }
+
+    if (pizzas == newPizzas) {
+        throw PizzaNotAvailableException();
+    }
+
+    else {
+        managerRep.changePizzaList(newPizzas);
+        return true;
+    }
 }
 
 bool ManagerDomain::removeCrust(const Crust &crust) {
@@ -222,6 +246,7 @@ bool ManagerDomain::removeBranch(const Branch &branch) {
         return true;
     }
 }
+
 
 bool ManagerDomain::checkToppingAvaliability(const Topping &topping) {
     vector<Topping> toppings = managerRep.getTopping();

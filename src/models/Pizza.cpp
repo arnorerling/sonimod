@@ -97,6 +97,6 @@ int Pizza::getPrice(){
     return this->price;
 }
 
-string Pizza::getName() {
+string Pizza::getName() const{
     return this->name;
 }
