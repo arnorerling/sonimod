@@ -103,6 +103,6 @@ void BakerUI::orderOptions() {
             totalOrderNumber++;
         }
         orders[totalOrderNumber - 1].setReady(true);
-        bakerDomain.bakerRep.ChangeOrderList(orders);
+        //bakerDomain.bakerRep.ChangeOrderList(orders);
     }
 }

@@ -18,6 +18,7 @@
 
 #include "InvalidNameException.h"
 #include "InvalidPriceException.h"
+#include "InvalidAnswerException.h"
 
 #include "Pizza.h"
 #include "Crust.h"
@@ -62,8 +63,9 @@ class ManagerDomain
         bool removeBranch(const Branch &branch);
 
         bool checkToppingAvaliability(const Topping &topping);
-        bool checkValidName(string &name);
-        int checkValidPrice(string &price);
+        bool checkValidName(const string &name);
+        int  checkValidPrice(const string &price);
+        bool checkValidAnswer(const string &answer);
 
 };
 

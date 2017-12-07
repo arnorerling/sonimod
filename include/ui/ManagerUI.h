@@ -51,6 +51,7 @@ class ManagerUI
 
         string checkName();
         int checkPrice();
+        char checkAnswer();
 
 
 };

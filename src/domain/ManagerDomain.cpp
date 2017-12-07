@@ -18,7 +18,7 @@ bool ManagerDomain::addPizza(const Pizza &pizza) {
     vector<Pizza> pizzas = managerRep.getPizza();
 
     for (int i = 0; i < pizzas.size(); i++){
-        if (pizzas[i].getName() == pizza.getName()) {
+        if (pizzas[i].getName() == pizza.getName() && pizzas[i].getCrustSize() == pizza.getCrustSize()) {
             {
                 pizzas[i] = pizza;
                 managerRep.changePizzaList(pizzas);
@@ -159,7 +159,7 @@ bool ManagerDomain::removeCrust(const Crust &crust) {
     vector<Crust>newCrusts;
 
     for (int i = 0; i < crusts.size(); i++){
-        if (crusts[i].getName() != crust.getName() || crusts[i].getInches() != crust.getInches()) {
+        if (crusts[i].getName() != crust.getName()) {
             newCrusts.push_back(crusts[i]);
         }
     }
@@ -198,7 +198,7 @@ bool ManagerDomain::removeDrink(const Drink &drink) {
     vector<Drink>newDrinks;
 
     for (int i = 0; i < drinks.size(); i++){
-        if (drinks[i].getName() != drink.getName() || drinks[i].getLiter() != drink.getLiter()) {
+        if (drinks[i].getName() != drink.getName()) {
             newDrinks.push_back(drinks[i]);
         }
     }
@@ -260,7 +260,7 @@ bool ManagerDomain::checkToppingAvaliability(const Topping &topping) {
 }
 
 
-bool ManagerDomain::checkValidName(string &name) {
+bool ManagerDomain::checkValidName(const string &name) {
 
     for(unsigned int i = 0; i < name.length(); i++){
         if(isdigit(name[i])){
@@ -270,7 +270,7 @@ bool ManagerDomain::checkValidName(string &name) {
     return true;
 }
 
-int ManagerDomain::checkValidPrice(string &price) {
+int ManagerDomain::checkValidPrice(const string &price) {
     int price1 = 0;
     for(unsigned int i = 0; i < price.length(); i++){
         if(isalpha(price[i])){
@@ -283,4 +283,13 @@ int ManagerDomain::checkValidPrice(string &price) {
         throw InvalidPriceException();
     }
     return price1;
+}
+
+bool ManagerDomain::checkValidAnswer(const string &answer) {
+    char answer1 = '\0';
+    if(answer == "y" || answer == "n"){
+        return true;
+    }
+    throw InvalidAnswerException();
+    return false;
 }

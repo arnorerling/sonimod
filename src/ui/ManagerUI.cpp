@@ -103,7 +103,7 @@ void ManagerUI::removeFromMenu() {
                 removeTopping();
                 break;
             case 'p':
-                //printPizza();
+                printPizza();
                 removePizza();
                 break;
             case 'd':
@@ -127,140 +127,117 @@ void ManagerUI::addCrust() {
     string name = checkName();
 
     for (int i = 0; i < 3; i++) {
-        cout << "Price for " << inches[i] << "\": ";
+        cout<< inches[i] << "\" ";
         int price = checkPrice();
         Crust crust(name, inches[i], price);
          try {
         managerDomain.addCrust(crust);
         }
         catch(CrustChangedException) {
-            cout << "price of crust \"" << crust.getName() << "\" of size " << crust.getInches() << " has been changed" << endl;
+            cout << "price of crust \"" << crust.getName();
+            cout << "\" of size " << crust.getInches();
+            cout << " has been changed" << endl;
         }
     }
-
-
-
-
 }
 
 void ManagerUI::addTopping() {
-
-    string name;
-    int price;
-
     cout << "----Add Topping----" << endl;
-    cout << "Name: ";
-    cin >> ws;
-    getline(cin, name);
-    cout << "Price: ";
-    cin >> price;
-
-    managerDomain.toLowerCase(name);
+    string name = checkName();
+    int price = checkPrice();
     Topping topping(name, price);
 
     try {
         managerDomain.addTopping(topping);
     }
     catch(ToppingChangedException) {
-        cout << "price of topping \"" << topping.getName() << "\" has been changed" << endl;
+        cout << "price of topping \"" << topping.getName();
+        cout << "\" has been changed" << endl;
+
     }
 }
 
 void ManagerUI::addPizza() {
-    string name = "";
-    string toppingName = "";
-
-    int price = 0;
-    char anotherTopping = 'y';
-
     cout << "----Add Pizza----" << endl;
-    cout << "Name :";
-    cin >> ws;
-    getline(cin, name);
-    managerDomain.toLowerCase(name);
+    int inches[3]= {14, 16, 18};
+    string name = checkName();
+    int price = 0;
     Pizza pizza(name);
 
-    printTopping();
-    while(anotherTopping == 'y'){
-        cout << "Enter topping: ";
-        cin >> ws;
-        getline(cin, toppingName);
-        managerDomain.toLowerCase(toppingName);
-
+    cout << "Would you like to add a topping? (y/n) :";
+    char addTopping = checkAnswer();
+    if(addTopping == 'y') {
+        printTopping();
+    }
+    while(addTopping == 'y'){
+        string toppingName = checkName();
         Topping topping(toppingName);
         try{
             managerDomain.checkToppingAvaliability(topping);
             pizza.addTopping(topping);
-            cout << "another topping? (y/n): ";
+            cout << "Add another topping? (y/n): ";
         }
         catch(ToppingNotAvailableException){
             cout << "Topping not avaliable!" << endl;
             cout << "Try another topping? (y/n): ";
         }
-        cin >> anotherTopping;
+        addTopping = checkAnswer();
     }
-    cout << "Price: ";
-    cin >> price;
-    pizza.setFixedPrice(price);
-    cout << pizza << endl;
-    managerDomain.addPizza(pizza);
+    for (int i = 0; i < 3; i++) {
+        cout << inches[i] << "\" ";
+        price = checkPrice();
+        pizza.setFixedPrice(price);
+        Crust crust(inches[i]);
+        pizza.addCrust(crust);
+        try {
+            managerDomain.addPizza(pizza);
+        }
+        catch(PizzaChangedException) {
+            cout << "price of pizza \"" << pizza.getName();
+            cout << "\" of size " << pizza.getCrustSize();
+            cout << " has been changed" << endl;
+        }
+    }
 }
 
 void ManagerUI::addDrink() {
-    string name;
-    int liter;
-    int price;
-
     cout << "----Add Drink----" << endl;
-    cout << "Name: ";
-    cin >> ws;
-    getline(cin, name);
-    cout << "Liters: ";
-    cin >> liter;
-    cout << "Price: ";
-    cin >> price;
+    string name = checkName();
+    int liter[2] = {1,2};
+    for (int i = 0; i < 2; i++) {
+        cout << liter[i] << "L ";
+        int price = checkPrice();
+        Drink drink(name, liter[i], price);
 
-    managerDomain.toLowerCase(name);
-    Drink drink(name, liter, price);
-
-    try {
-        managerDomain.addDrink(drink);
+        try {
+            managerDomain.addDrink(drink);
+        }
+        catch(DrinkChangedException) {
+            cout << "price of drink \"" << drink.getName();
+            cout << "\" of size " << drink.getLiter();
+            cout << " has been changed" << endl;
+        }
     }
-    catch(DrinkChangedException) {
-        cout << "price of drink \"" << drink.getName() << "\" has been changed" << endl;
-    }
-    cout << endl;
 }
 
 void ManagerUI::addSide() {
-    string name;
-    int price;
-
     cout << "----Add Sidedish----" << endl;
-    cout << "Name: ";
-    cin >> ws;
-    getline(cin, name);
-    cout << "Price: ";
-    cin >> price;
-    managerDomain.toLowerCase(name);
+    string name = checkName();
+    int price = checkPrice();
     Sidedish sidedish(name, price);
     try {
         managerDomain.addSidedish(sidedish);
     }
     catch(SidedishChangedException) {
-        cout << "price of sidedish \"" << sidedish.getName() << "\" has been changed" << endl;
+        cout << "price of sidedish \"" << sidedish.getName();
+        cout << "\" has been changed" << endl;
     }
     cout << endl;
 }
 
 void ManagerUI::addBranch() {
-    string name;
-
     cout << "----Add Branch----" << endl;
-    cout << "Name: ";
-    cin >> ws;
-    getline(cin, name);
-    managerDomain.toLowerCase(name);
+    string name = checkName();
     Branch branch(name);
     try {
         managerDomain.addBranch(branch);
@@ -324,89 +301,93 @@ void ManagerUI::printBranch() {
 }
 
 void ManagerUI::removeCrust() {
-    string name;
-    int inches;
-    cout << "What crust would you like to remove? ";
-    cin >> ws;
-    getline(cin,name);
-    cout << "What size? ";
-    cin >> inches;
-    managerDomain.toLowerCase(name);
-    Crust crust(name, inches);
+    cout << "-----Remove Crust-----" << endl;
+    string name = checkName();
+    Crust crust(name);
 
     try {
         managerDomain.removeCrust(crust);
+        cout << "\"" << crust.getName() << "\" crust was removed" << endl;
     }
     catch(CrustNotAvailableException) {
-        cout << "This crust \"" << crust.getName() << "\" of size " << crust.getInches() << " is not on the list" << endl;
+        cout << "This crust \"" << crust.getName();
+        cout << "\" is not on the list" << endl;
     }
 }
 
 void ManagerUI::removeTopping() {
-    string name;
-    cout << "What topping would you like to remove? ";
-    cin >> ws;
-    getline(cin, name);
-    managerDomain.toLowerCase(name);
+    cout << "-----Remove Topping-----" << endl;
+    string name = checkName();
     Topping topping(name);
 
     try {
         managerDomain.removeTopping(topping);
+        cout << "\"" << topping.getName() << "\" topping was removed" << endl;
     }
     catch(ToppingNotAvailableException) {
-        cout << "This topping \"" << topping.getName() << "\" is not on the list" << endl;
+        cout << "This topping \"" << topping.getName();
+        cout << "\" is not on the list" << endl;
     }
 }
 
 void ManagerUI::removePizza() {
-    cout << "Coming soon" << endl;
+    cout << "-----Remove Pizza-----" << endl;
+    string name = checkName();
+    Pizza pizza(name);
+
+    try {
+        managerDomain.removePizza(pizza);
+        cout << "\"" << pizza.getName();
+        cout << "\" pizza was removed" << endl;
+    }
+    catch(PizzaNotAvailableException) {
+        cout << "This pizza \"" << pizza.getName();
+        cout << "\" is not on the list" << endl;
+    }
+
 }
 void ManagerUI::removeDrink() {
-    string name;
-    int liter;
-    cout << "What drink would you like to remove? ";
-    cin >> ws;
-    getline(cin, name);
-    cout << "what liter size?" << endl;
-    cin >> liter;
-    managerDomain.toLowerCase(name);
-    Drink drink(name, liter);
+    cout << "-----Remove Drink-----" << endl;
+    string name = checkName();
+    Drink drink(name);
 
     try {
         managerDomain.removeDrink(drink);
+        cout << "\"" << drink.getName();
+        cout << "\" drink was removed" << endl;
     }
     catch(DrinkNotAvaliableException) {
-        cout << "This drink \"" << drink.getName() << "\" of size " << drink.getLiter() << "L is not on the list" << endl;
+        cout << "This drink \"" << drink.getName();
+        cout << "\" is not on the list" << endl;
     }
 }
 void ManagerUI::removeSide() {
-    string name;
-    cout << "What sidedish would you like to remove? ";
-    cin >> ws;
-    getline(cin, name);
-    managerDomain.toLowerCase(name);
+    cout << "-----Remove Sidedish-----" << endl;
+    string name = checkName();
     Sidedish sidedish(name);
-
     try {
         managerDomain.removeSidedish(sidedish);
+        cout << "\"" << sidedish.getName();
+        cout << "\" sidedish was removed" << endl;
     }
     catch(SideDishNotAvailableException) {
-        cout << "This sidedish \"" << sidedish.getName() << "\" is not on the list" << endl;
+        cout << "This sidedish \"" << sidedish.getName();
+        cout << "\" is not on the list" << endl;
     }
 }
 void ManagerUI::removeBranch() {
-    string name;
-    cout << "What restaurant branch would you like to remove? ";
-    cin >> ws;
-    getline(cin, name);
-    managerDomain.toLowerCase(name);
+    cout << "-----Remove Branch-----" << endl;
+    string name = checkName();
     Branch branch(name);
 
     try {
         managerDomain.removeBranch(branch);
+        cout << "Restaurant at \"" << branch.getName();
+        cout << "\" was removed" << endl;
     }
     catch(BranchNotAvailableException) {
-        cout << "This restaurant branch \"" << branch.getName() << "\" is not on the list" << endl;
+        cout << "Restaurant at \"" << branch.getName();
+        cout << "\" is not on the list" << endl;
     }
 }
 
@@ -436,6 +417,7 @@ int ManagerUI::checkPrice() {
     bool allowed = false;
 
     while(!allowed){
+        cout << "Price: ";
         cin >> ws;
         getline(cin, price);
         try{
@@ -444,8 +426,26 @@ int ManagerUI::checkPrice() {
         }
         catch(InvalidPriceException){
             cout << "Invalid price, try again" << endl;
-            cout << "Price: ";
         }
     }
     return price1;
+}
+
+char ManagerUI::checkAnswer() {
+    string answer = "";
+    char answer1 = '\0';
+    bool allowed = false;
+
+    while(!allowed){
+        cin >> ws;
+        getline(cin, answer);
+        try{
+            allowed = managerDomain.checkValidAnswer(answer);
+            answer1 = answer[0];
+        }
+        catch(InvalidAnswerException){
+            cout << "Invalid answer, please answer \'y\' or \'n\'" << endl;
+        }
+    }
+    return answer1;
 }

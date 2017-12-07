@@ -19,6 +19,8 @@ class Crust {
 		Crust();
 		///Basic constructor that sets all variables to 0
 		Crust(string name, int inches);
+		Crust(int inches);
+		Crust(string name);
 
 		Crust(string name, int price, int inches);
 		///constructor that sets the name and the price to be equal to the parameters

@@ -6,6 +6,13 @@ Drink::Drink(){
 	this->liter = 0;
 	this->price = 0;
 }
+
+Drink::Drink(string name) {
+    this->name = name;
+	this->liter = 0;
+	this->price = 0;
+}
+
 Drink::Drink(string name, int liter){
 
 	this->name = name;

@@ -16,6 +16,7 @@ class Drink
 
     public:
         Drink();
+        Drink(string name);
         Drink(string name, int liter);
         Drink(string name, int liter, int price);
 

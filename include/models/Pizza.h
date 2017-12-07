@@ -27,9 +27,7 @@ class Pizza {
         void addTopping(Topping topping);
         ///Sets 'toppings[currentToppingNum]' to be the parameter 'topping'
 
-        void addCrust(Crust crust);
-
-        void displayPizza(Pizza& pizza);
+        void addCrust(const Crust &crust);
 
         friend ostream& operator << (ostream& out, const Pizza& pizza);
         ///Overloads the '<<' operator to print the number of toppings, followed by
@@ -41,6 +39,7 @@ class Pizza {
         void setPrice();
         void setFixedPrice(int price);
         int getPrice();
+        int getCrustSize() const;
 
         string getName() const;
 };

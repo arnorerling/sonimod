@@ -10,7 +10,6 @@ void ManagerRep::addPizza(const Pizza &pizza) {
     ofstream fout;
     fout.open("Pizzas_Binary.dat", ios::binary|ios::app);
     if(fout.is_open()) {
-        cout << "Pizza is written in Rep" << endl;
         pizza.write(fout);
         fout.close();
     }

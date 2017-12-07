@@ -1,0 +1,9 @@
+#ifndef INVALIDANSWEREXCEPTION_H
+#define INVALIDANSWEREXCEPTION_H
+
+
+class InvalidAnswerException
+{
+};
+
+#endif // INVALIDANSWEREXCEPTION_H

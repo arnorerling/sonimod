@@ -59,11 +59,14 @@ void Pizza::read(ifstream& fin) {
 
 ostream& operator << (ostream& out,const Pizza& pizza) {
 
-    out << pizza.name << ": ";
+    out << pizza.getCrustSize() << "\" ";
+    out << pizza.name << ": cheese, ";
     for(unsigned int i = 0; i < pizza.toppings.size(); i++) {
         out << pizza.toppings[i].getName() << ", ";
     }
-    out << pizza.crust.getName() << " " << pizza.price << "kr" << endl;
+    out << pizza.crust.getName();
+    out << pizza.price << "kr" << endl;
+
     return out;
 }
 
@@ -80,7 +83,7 @@ void Pizza::addTopping(Topping topping) {
     this->toppings.push_back(topping);
 }
 
-void Pizza::addCrust(Crust crust) {
+void Pizza::addCrust(const Crust &crust) {
     this->crust = crust;
 }
 
@@ -90,6 +93,7 @@ void Pizza::setPrice(){
     }
     this->price += this->crust.getPrice();
 }
+
 void Pizza::setFixedPrice(int price){
     this->price = price;
 }
@@ -99,5 +103,9 @@ int Pizza::getPrice(){
 
 string Pizza::getName() const{
     return this->name;
+}
+
+int Pizza::getCrustSize() const {
+    return crust.getInches();
 }
 
