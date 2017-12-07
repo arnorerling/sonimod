@@ -19,7 +19,7 @@ void Order::addDrink(Drink& drink){
 }
 
 void Order::addCustomerName(string name){
-    this->custumerName = name;
+    this->customerName = name;
 }
 void Order::addBranch(string branch){
     this->branch = branch;
@@ -28,8 +28,12 @@ void Order::addBranch(string branch){
 void Order::addCustomerPhoneNum(string num){
     this->phoneNumber = num;
 }
+
+void Order::setReady(bool ready) {
+    this->ready = ready;
+}
 string Order::getCustomerName(){
-    return this->custumerName;
+    return this->customerName;
 }
 string Order::getCustomerPhoneNumber(){
     return this->phoneNumber;
@@ -83,9 +87,9 @@ int Order::getTotal(){
 
 void Order::write(ofstream& fout) const {
 
-    int strLen = custumerName.length() + 1;
+    int strLen = customerName.length() + 1;
     fout.write((char*)(&strLen), sizeof(int));
-    fout.write(custumerName.c_str(), strLen);
+    fout.write(customerName.c_str(), strLen);
     int strLen1 = phoneNumber.length() + 1;
     fout.write((char*)(&strLen1), sizeof(int));
     fout.write(phoneNumber.c_str(), strLen1);
@@ -132,7 +136,7 @@ void Order::read(ifstream& fin) {
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
-    custumerName = str;
+    customerName = str;
 
     fin.read((char*)(&strLen1), sizeof(int));
     char *str1 = new char[strLen1];

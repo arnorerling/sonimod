@@ -12,8 +12,9 @@ using namespace std;
 
 class Order {
     private:
-        string custumerName;
+        string customerName;
         string phoneNumber;
+        string customerAddress;
         string branch;
 
         vector<Pizza> pizzas;
@@ -37,6 +38,7 @@ class Order {
         void addCustomerName(string name);
         void addCustomerPhoneNum(string num);
         void addBranch(string branch);
+        void setReady(bool ready);
         friend ostream& operator << (ostream& out, Order& order);
         int getTotal();
         void write(ofstream& fout) const;
