@@ -30,6 +30,7 @@ class Order {
         Order();
         string getCustomerName();
         string getCustomerPhoneNumber();
+        string getBranch();
         void addPizza(Pizza& pizza);
         void addSideDish(Sidedish& sidedish);
         void addDrink(Drink& drink);

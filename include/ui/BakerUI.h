@@ -9,7 +9,7 @@ class BakerUI
 {
     private:
     BakerDomain bakerDomain;
-    vector<Branch> branchList;
+    Branch branch;
 
     public:
         BakerUI();

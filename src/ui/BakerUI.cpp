@@ -17,9 +17,10 @@ void BakerUI::startUI() {
 void BakerUI::printRestaurants() {
 
   cout << "----Restaurant list----" << endl;
-    bakerDomain.getBranch(this->branchList);
-    for(unsigned int i = 0; i < this->branchList.size(); i++){
-        cout << branchList[i];
+    vector<Branch> branches;
+    bakerDomain.getBranch(branches);
+    for(unsigned int i = 0; i < branches.size(); i++){
+        cout << branches[i];
     }
     cout << "-----------------------" << endl;
 }
@@ -27,18 +28,18 @@ void BakerUI::printRestaurants() {
 void BakerUI::chooseRestaurant() {
     bool avaliable = false;
     string name;
-    int size = 0;
     while(!avaliable){
         cout << "What restaurant would you like to choose? ";
         cin >> ws;
         getline(cin, name);
 
-        Branch branch(name);
-        avaliable = bakerDomain.checkBranchAvaliability(this->branchList, branch);
-        if(avaliable){
+        this->branch.setName(name);
+
+        try{
+            avaliable = bakerDomain.checkBranchAvaliability(branch);
             cout << "This restaurant is available" << endl;
         }
-        else {
+        catch(ResturantNotAvailableException){
             cout << "This restaurant is not available" << endl;
         }
     }
@@ -49,7 +50,9 @@ void BakerUI::printOrders() {
     cout << "----Order list----" << endl;
     bakerDomain.getOrder(orders);
     for(unsigned int i = 0; i < orders.size(); i++){
-        cout << orders[i];
+        if(orders[i].getBranch() == branch.getName()){
+            cout << orders[i];
+        }
     }
     cout << "-----------------------" << endl;
 }

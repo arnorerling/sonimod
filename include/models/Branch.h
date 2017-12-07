@@ -20,6 +20,7 @@ class Branch
         friend ostream& operator <<(ostream& out, Branch& branch);
         friend bool operator == (const Branch &left_branch, const Branch &right_branch);
         string getName() const;
+        void setName(string name);
 };
 
 #endif // BRANCH_H
