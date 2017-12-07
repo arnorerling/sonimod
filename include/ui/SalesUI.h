@@ -26,8 +26,11 @@ class SalesUI {
         void printCrusts();
 
         void addPizza();
+        void addCrust(Pizza &pizza);
+        void addToppings(Pizza &pizza);
         void addSidedish();
         void addDrink();
+        void addBranch(Order &order);
 
         void fileOrder();
 };
