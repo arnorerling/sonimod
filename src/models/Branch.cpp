@@ -47,3 +47,7 @@ bool operator == (const Branch &left_branch, const Branch &right_branch) {
 string Branch::getName()const {
     return this->name;
 }
+
+void Branch::setName(string name) {
+    this->name = name;
+}

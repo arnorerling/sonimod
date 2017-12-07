@@ -34,6 +34,9 @@ string Order::getCustomerName(){
 string Order::getCustomerPhoneNumber(){
     return this->phoneNumber;
 }
+string Order::getBranch(){
+    return this->branch;
+}
 
 ostream& operator << (ostream& out, Order& order){
     out << "------------------------------------------------------" << endl;
@@ -123,9 +126,9 @@ void Order::write(ofstream& fout) const {
 
 void Order::read(ifstream& fin) {
 
-    int strLen;
-    int strLen1;
-    int strLen2;
+    int strLen = 0;
+    int strLen1 = 0;
+    int strLen2 = 0;
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
@@ -141,7 +144,7 @@ void Order::read(ifstream& fin) {
     fin.read(str2, strLen2);
     branch = str2;
 
-    int tCount;
+    int tCount = 0;
     fin.read((char*)(&tCount), sizeof(int));
 
     Pizza pizza;
@@ -150,7 +153,7 @@ void Order::read(ifstream& fin) {
         pizzas.push_back(pizza);
     }
 
-    int tCount1;
+    int tCount1 = 0;
     fin.read((char*)(&tCount1), sizeof(int));
 
     Drink drink;
@@ -159,7 +162,7 @@ void Order::read(ifstream& fin) {
         drinks.push_back(drink);
     }
 
-    int tCount2;
+    int tCount2 = 0;
     fin.read((char*)(&tCount2), sizeof(int));
 
     Sidedish sidedish;

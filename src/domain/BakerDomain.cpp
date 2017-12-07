@@ -13,12 +13,14 @@ void BakerDomain::getOrder(vector<Order> &order) {
     bakerRep.getOrder(order);
 }
 
-bool BakerDomain::checkBranchAvaliability(vector<Branch> &branchList, Branch &branch) {
-    for(unsigned int i = 0; i < branchList.size(); i++){
-        if(branchList[i].getName() == branch.getName()) {
+bool BakerDomain::checkBranchAvaliability(Branch &branch) {
+    vector<Branch> branches;
+    this->getBranch(branches);
+    for(unsigned int i = 0; i < branches.size(); i++){
+        if(branches[i].getName() == branch.getName()) {
             return true;
         }
     }
-    return false;
+    throw ResturantNotAvailableException();
 }
 

@@ -3,6 +3,8 @@
 #include <iostream>
 #include "BakerRep.h"
 #include "Branch.h"
+#include "ResturantNotAvailableException.h"
+
 using namespace std;
 
 class BakerDomain
@@ -14,7 +16,7 @@ class BakerDomain
         BakerDomain();
         void getBranch(vector<Branch> &branch);
         void getOrder(vector<Order> &order);
-        bool checkBranchAvaliability(vector<Branch> &branchList, Branch &branch);
+        bool checkBranchAvaliability(Branch &branch);
 };
 
 #endif // BAKERDOMAIN_H
