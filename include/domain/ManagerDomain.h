@@ -16,6 +16,9 @@
 #include "SideDishNotAvailableException.h"
 #include "BranchNotAvailableException.h"
 
+#include "InvalidNameException.h"
+#include "InvalidPriceException.h"
+
 #include "Pizza.h"
 #include "Crust.h"
 #include "Topping.h"
@@ -24,6 +27,7 @@
 #include "Branch.h"
 #include <string>
 #include <vector>
+#include <stdlib.h>
 using namespace std;
 
 class ManagerDomain
@@ -58,6 +62,8 @@ class ManagerDomain
         bool removeBranch(const Branch &branch);
 
         bool checkToppingAvaliability(const Topping &topping);
+        bool checkValidName(string &name);
+        int checkValidPrice(string &price);
 
 };
 
