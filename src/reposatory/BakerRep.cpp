@@ -36,3 +36,18 @@ void BakerRep::getOrder(vector<Order> &order) {
         fin.close();
     }
 }
+
+void BakerRep::ChangeOrderList(vector<Order> &orders) {
+
+    ofstream fout;
+    fout.open("Order_Binary.dat", ios::binary);
+    if(fout.is_open()) {
+        for (int i = 0; i < orders.size(); i++) {
+            orders[i].write(fout);
+        }
+        fout.close();
+    }
+    else {
+        cout << "File did not open" << endl;
+    }
+}

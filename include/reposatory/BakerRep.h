@@ -13,6 +13,7 @@ class BakerRep
         BakerRep();
         void getBranch(vector<Branch> &branch);
         void getOrder(vector<Order> &order);
+        void ChangeOrderList(vector<Order> &orders);
 
 };
 

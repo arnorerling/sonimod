@@ -24,3 +24,8 @@ bool BakerDomain::checkBranchAvaliability(Branch &branch) {
     throw ResturantNotAvailableException();
 }
 
+void BakerDomain::overWriteOrder(vector<Order> &order) {
+    bakerRep.ChangeOrderList(order);
+}
+
+

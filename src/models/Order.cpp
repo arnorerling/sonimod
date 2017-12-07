@@ -28,7 +28,6 @@ void Order::addBranch(string branch){
 void Order::addCustomerPhoneNum(string num){
     this->phoneNumber = num;
 }
-
 void Order::setReady(bool ready) {
     this->ready = ready;
 }
