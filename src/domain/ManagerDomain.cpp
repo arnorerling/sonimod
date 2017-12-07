@@ -285,8 +285,15 @@ int ManagerDomain::checkValidPrice(const string &price) {
     return price1;
 }
 
+bool ManagerDomain::checkValidInput(const string &input) {
+    if (input.length() == 1) {
+      return true;
+    }
+    throw InvalidInputException();
+    return false;
+}
+
 bool ManagerDomain::checkValidAnswer(const string &answer) {
-    char answer1 = '\0';
     if(answer == "y" || answer == "n"){
         return true;
     }

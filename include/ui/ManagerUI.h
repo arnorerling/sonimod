@@ -52,8 +52,9 @@ class ManagerUI
         string checkName();
         int checkPrice();
         char checkAnswer();
+        char checkInput();
 
-
+        void printManLogo();
 };
 
 #endif // MANAGERUI_H

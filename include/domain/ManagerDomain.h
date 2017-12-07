@@ -19,6 +19,7 @@
 #include "InvalidNameException.h"
 #include "InvalidPriceException.h"
 #include "InvalidAnswerException.h"
+#include "InvalidInputException.h"
 
 #include "Pizza.h"
 #include "Crust.h"
@@ -65,6 +66,7 @@ class ManagerDomain
         bool checkToppingAvaliability(const Topping &topping);
         bool checkValidName(const string &name);
         int  checkValidPrice(const string &price);
+        bool checkValidInput(const string &input);
         bool checkValidAnswer(const string &answer);
 
 };

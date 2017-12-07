@@ -7,22 +7,20 @@ ManagerUI::ManagerUI()
 
 void ManagerUI::startUI() {
     system("CLS");
-    cout << "Welcome Manager" << endl;
-    cout << "What would you like to do?" << endl;
+    printManLogo();
     char select = '\0';
     while (select != '3') {
-        cout << "--------------------------" << endl;
         cout << "1: Add/Change menu" << endl;
         cout << "2: Remove from menu" << endl;
         cout << "3: Quit" << endl;
-        cin >> select;
+        select = checkInput();
 
         switch(select) {
             case '1': addChangeMenu();
             break;
             case '2': removeFromMenu();
             break;
-            case '3': cout << endl;
+            case '3': cout << "GoodBye" << endl;
             break;
             default: cout << "Invalid input" << endl;
         }
@@ -30,50 +28,50 @@ void ManagerUI::startUI() {
 }
 
 void ManagerUI::addChangeMenu() {
-    system("CLS");
     char select = '\0';
-    while (select != 'q') {
+    system("CLS");
+    while (select != '7') {
+        cout << endl;
         cout << "-----Add/Change-----" << endl;
-        cout << "c: Pizza crust" << endl;
-        cout << "t: Pizza topping" << endl;
-        cout << "p: Pizza menu" << endl;
-        cout << "d: Drink" << endl;
-        cout << "s: Sidedish" << endl;
-        cout << "b: Branch" << endl;
-        cout << "q: Quit" << endl;
-        cout << "--------------------------" << endl;
-        cin >> select;
+        cout << "1: Pizza crust" << endl;
+        cout << "2: Pizza topping" << endl;
+        cout << "3: Pizza menu" << endl;
+        cout << "4: Drink" << endl;
+        cout << "5: Sidedish" << endl;
+        cout << "6: Branch" << endl;
+        cout << "7: Quit" << endl;
+        cout << "--------------------" << endl;
 
+        select = checkInput();
         switch(select){
-            case 'c': {
+            case '1':
                 printCrust();
                 addCrust();
                 break;
-            }
-            case 't': {
+            case '2':
                 printTopping();
                 addTopping();
                 break;
-            }
-            case 'p': {
+            case '3':
                 printPizza();
                 addPizza();
                 break;
-            }
-            case 'd': {
+            case '4':
                 printDrink();
                 addDrink();
                 break;
-            }
-            case 's': {
+            case '5':
                 printSide();
                 addSide();
                 break;
-            }
-            case 'b': {
+            case '6':
                 printBranch();
                 addBranch();
-            }
+                break;
+            case '7':
+                break;
+            default:
+                cout << "Invalid input" << endl;
         }
     }
 }
@@ -81,79 +79,48 @@ void ManagerUI::addChangeMenu() {
 void ManagerUI::removeFromMenu() {
     system("CLS");
     char select = '\0';
-    while (select != 'q') {
+    while (select != '7') {
+        cout << endl;
         cout << "-----Remove-----" << endl;
-        cout << "c: Pizza crust" << endl;
-        cout << "t: Pizza topping" << endl;
-        cout << "p: Pizza menu" << endl;
-        cout << "d: Drink" << endl;
-        cout << "s: Sidedish" << endl;
-        cout << "b: Branch" << endl;
-        cout << "q: Quit" << endl;
+        cout << "1: Pizza crust" << endl;
+        cout << "2: Pizza topping" << endl;
+        cout << "3: Pizza menu" << endl;
+        cout << "4: Drink" << endl;
+        cout << "5: Sidedish" << endl;
+        cout << "6: Branch" << endl;
+        cout << "7: Quit" << endl;
         cout << "--------------------------" << endl;
-        cin >> select;
-
+        select = checkInput();
         switch(select){
-            case 'c':
+            case '1':
                 printCrust();
                 removeCrust();
                 break;
-            case 't':
+            case '2':
                 printTopping();
                 removeTopping();
                 break;
-            case 'p':
+            case '3':
                 printPizza();
                 removePizza();
                 break;
-            case 'd':
+            case '4':
                 printDrink();
                 removeDrink();
                 break;
-            case 's':
+            case '5':
                 printSide();
                 removeSide();
                 break;
-            case 'b':
+            case '6':
                 printBranch();
                 removeBranch();
+                break;
+            case '7':
+                break;
+            default:
+                cout << "Invalid input" << endl;
         }
-    }
-}
-
-void ManagerUI::addCrust() {
-    int inches[3]= {14, 16, 18};
-    cout << "----Add Crust----" << endl;
-    string name = checkName();
-
-    for (int i = 0; i < 3; i++) {
-        cout<< inches[i] << "\" ";
-        int price = checkPrice();
-        Crust crust(name, inches[i], price);
-         try {
-        managerDomain.addCrust(crust);
-        }
-        catch(CrustChangedException) {
-            cout << "price of crust \"" << crust.getName();
-            cout << "\" of size " << crust.getInches();
-            cout << " has been changed" << endl;
-        }
-    }
-}
-
-void ManagerUI::addTopping() {
-    cout << "----Add Topping----" << endl;
-    string name = checkName();
-    int price = checkPrice();
-    Topping topping(name, price);
-
-    try {
-        managerDomain.addTopping(topping);
-    }
-    catch(ToppingChangedException) {
-        cout << "price of topping \"" << topping.getName();
-        cout << "\" has been changed" << endl;
-
     }
 }
 
@@ -197,6 +164,42 @@ void ManagerUI::addPizza() {
             cout << "\" of size " << pizza.getCrustSize();
             cout << " has been changed" << endl;
         }
+    }
+}
+
+void ManagerUI::addCrust() {
+    int inches[3]= {14, 16, 18};
+    cout << "----Add Crust----" << endl;
+    string name = checkName();
+
+    for (int i = 0; i < 3; i++) {
+        cout<< inches[i] << "\" ";
+        int price = checkPrice();
+        Crust crust(name, inches[i], price);
+        try {
+        managerDomain.addCrust(crust);
+        }
+        catch(CrustChangedException) {
+            cout << "price of crust \"" << crust.getName();
+            cout << "\" of size " << crust.getInches();
+            cout << " has been changed" << endl;
+        }
+    }
+}
+
+void ManagerUI::addTopping() {
+    cout << "----Add Topping----" << endl;
+    string name = checkName();
+    int price = checkPrice();
+    Topping topping(name, price);
+
+    try {
+        managerDomain.addTopping(topping);
+    }
+    catch(ToppingChangedException) {
+        cout << "price of topping \"" << topping.getName();
+        cout << "\" has been changed" << endl;
+
     }
 }
 
@@ -431,6 +434,25 @@ int ManagerUI::checkPrice() {
     return price1;
 }
 
+char ManagerUI::checkInput() {
+    string input = "";
+    char input1 = '\0';
+    bool allowed = false;
+
+    while(!allowed){
+        cin >> ws;
+        getline(cin, input);
+        try{
+            allowed = managerDomain.checkValidInput(input);
+            input1 = input[0];
+        }
+        catch(InvalidInputException){
+            cout << "Invalid input" << endl;
+        }
+    }
+    return input1;
+}
+
 char ManagerUI::checkAnswer() {
     string answer = "";
     char answer1 = '\0';
@@ -448,4 +470,11 @@ char ManagerUI::checkAnswer() {
         }
     }
     return answer1;
+}
+
+void ManagerUI::printManLogo(){
+cout << "_  _ ____ _  _ ____ ____ ____ ____" << endl;
+cout << "|\\/| |__| |\\ | |__| | __ |___ |__/" << endl;
+cout << "|  | |  | | \\| |  | |__] |___ |  \\" << endl;
+cout << "-----------------------------------" << endl;
 }
