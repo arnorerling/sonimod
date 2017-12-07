@@ -42,7 +42,7 @@ class Pizza {
         void setFixedPrice(int price);
         int getPrice();
 
-        string getName();
+        string getName() const;
 };
 
 #endif // PIZZA_H
