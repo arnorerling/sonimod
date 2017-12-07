@@ -171,10 +171,10 @@ void ManagerUI::addTopping() {
 }
 
 void ManagerUI::addPizza() {
-    string name;
-    string toppingName;
+    string name = "";
+    string toppingName = "";
 
-    int price;
+    int price = 0;
     char anotherTopping = 'y';
 
     cout << "----Add Pizza----" << endl;

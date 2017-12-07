@@ -42,6 +42,7 @@ void Pizza::read(ifstream& fin) {
     char *str = new char[strLen];
     fin.read(str, strLen);
     name = str;
+    delete[] str;
 
     int tCount;
     fin.read((char*)(&tCount), sizeof(int));
@@ -54,8 +55,6 @@ void Pizza::read(ifstream& fin) {
 
     crust.read(fin);
     fin.read((char*)(&price), sizeof(int));
-
-    delete[] str;
 }
 
 ostream& operator << (ostream& out,const Pizza& pizza) {
