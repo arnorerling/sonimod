@@ -28,4 +28,8 @@ void BakerDomain::overWriteOrder(vector<Order> &order) {
     bakerRep.ChangeOrderList(order);
 }
 
+void BakerDomain::markOrderAsReady(Order &order) {
+    bakerRep.addReadyOrder(order);
+}
+
 

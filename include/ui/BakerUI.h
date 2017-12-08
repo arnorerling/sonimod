@@ -9,19 +9,21 @@ class BakerUI
 {
     private:
 
-    BakerDomain bakerDomain;
+        BakerDomain bakerDomain;
 
-    Branch branch;
+        Branch branch;
 
-    vector<Order> orders;
+        vector<Order> orders;
 
-    int ordersInBranch;
+        int ordersInBranch;
 
     public:
 
         BakerUI();
 
         void startUI();
+
+        void initOrdersInBranch();
 
         void printRestaurants();
 
@@ -31,11 +33,13 @@ class BakerUI
 
         void bakerChoices();
 
-        void printOrders();
-
         void printOrderOptions();
 
         void orderOptions();
+
+        void printOrders();
+
+        void printOverwriteConfirmation(int orderNumber);
 
 };
 

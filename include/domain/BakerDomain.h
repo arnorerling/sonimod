@@ -17,6 +17,7 @@ class BakerDomain
         void getBranch(vector<Branch> &branch);
         void getOrder(vector<Order> &order);
         void overWriteOrder(vector<Order> &order);
+        void markOrderAsReady(Order &order);
         bool checkBranchAvaliability(Branch &branch);
 };
 

@@ -2,9 +2,8 @@
 #include <iostream>
 using namespace std;
 
-BakerUI::BakerUI()
-{
-    ordersInBranch = 0;
+BakerUI::BakerUI() {
+
 }
 
 void BakerUI::startUI() {
@@ -12,6 +11,16 @@ void BakerUI::startUI() {
     printRestaurants();
     chooseRestaurant();
     bakerChoices();
+}
+
+void BakerUI::initOrdersInBranch() {
+    ordersInBranch = 0;
+    bakerDomain.getOrder(orders);
+    for(unsigned int i = 0; i < orders.size(); i++){
+        if(orders[i].getBranch() == branch.getName()){
+            ordersInBranch++;
+        }
+    }
 }
 
 void BakerUI::printRestaurants() {
@@ -43,18 +52,6 @@ void BakerUI::chooseRestaurant() {
         }
     }
 }
-void BakerUI::printOrders() {
-
-    cout << "----Order list----" << endl;
-    bakerDomain.getOrder(orders);
-    for(unsigned int i = 0; i < orders.size(); i++){
-        if(orders[i].getBranch() == branch.getName()){
-            ordersInBranch++;
-            cout << orders[i];
-        }
-    }
-    cout << "-----------------------" << endl;
-}
 
 void BakerUI::printChoices() {
     cout << "What would you like to do?" << endl;
@@ -64,16 +61,21 @@ void BakerUI::printChoices() {
 
 }
 
-
 void BakerUI::bakerChoices() {
+    initOrdersInBranch();
     char choice;
-    while(choice != 2) {
+    while(choice != '2') {
         printChoices();
         cin >> choice;
         switch(choice) {
         case '1':
-            printOrders();
-            orderOptions();
+            if(ordersInBranch > 0) {
+                printOrders();
+                orderOptions();
+            }
+            else {
+                cout << "No orders" << endl;
+            }
             break;
         case '2':
             break;
@@ -89,20 +91,45 @@ void BakerUI::printOrderOptions() {
 }
 
 void BakerUI::orderOptions() {
-    char orderOptionChoice;
+    int orderOptionChoice = 0;
     while(orderOptionChoice != (ordersInBranch + 1) ) {
         printOrderOptions();
         cin >> orderOptionChoice;
 
-        int branchOrderCount = 0;
-        int totalOrderNumber = 0;
-        while(branchOrderCount < ordersInBranch) {
-            if(orders[totalOrderNumber].getBranch() == branch.getName()) {
-                branchOrderCount++;
+        if(orderOptionChoice != (ordersInBranch + 1) ) {
+            if(orderOptionChoice > 0 && orderOptionChoice <= ordersInBranch) {
+                int branchOrderCount = 0;
+                int totalOrderNumber = 0;
+                while(branchOrderCount < orderOptionChoice) {
+                    if(orders[totalOrderNumber].getBranch() == branch.getName()) {
+                        branchOrderCount++;
+                    }
+                    totalOrderNumber++;
+                }
+                orders[totalOrderNumber - 1].setReady(true);
+                bakerDomain.markOrderAsReady(orders[totalOrderNumber - 1]);
+                orders.erase(orders.begin() + totalOrderNumber);
+                bakerDomain.overWriteOrder(orders);
+                printOverwriteConfirmation(orderOptionChoice);
             }
-            totalOrderNumber++;
+            else {
+                cout << "Invalid input" << endl;
+            }
         }
-        orders[totalOrderNumber - 1].setReady(true);
-        //bakerDomain.bakerRep.ChangeOrderList(orders);
     }
+}
+
+void BakerUI::printOrders() {
+
+    cout << "----Order list----" << endl;
+    for(unsigned int i = 0; i < orders.size(); i++){
+        if(orders[i].getBranch() == branch.getName()){
+            cout << orders[i];
+        }
+    }
+    cout << "-----------------------" << endl;
+}
+
+void BakerUI::printOverwriteConfirmation(int orderNumber) {
+    cout << "Order no. " << orderNumber << " overwritten" << endl;
 }
