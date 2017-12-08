@@ -27,7 +27,7 @@ class ManagerRep
         vector<Drink> getDrink();
         vector<Sidedish> getSidedish();
         vector<Branch> getBranch();
-        vector<User> getUsers();
+        vector<User> getUser();
 
         void changePizzaList(vector<Pizza> &pizzas);
         void changeCrustList(vector<Crust> &crusts);

@@ -11,6 +11,12 @@ User::User(string username, string password, char jobNumber) {
     this->jobNumber = jobNumber;
 }
 
+User::User(string username) {
+    this->username = username;
+    this->password = "";
+    this->jobNumber = '\0';
+}
+
 void User::write(ofstream& fout) const {
 
     int strLen = username.length() + 1;
@@ -54,4 +60,31 @@ string User::getPassword() const {
 
 char User::getJobNumber() const {
     return this->jobNumber;
+}
+
+string User::getJob(char &jobNumber) const{
+    switch(jobNumber) {
+        case '1': return "Mananger";
+        break;
+        case '2': return "Sales";
+        break;
+        case '3': return "Baker";
+        break;
+        case '4': return "Delivery";
+        break;
+        default: return "Invalid job";
+    }
+}
+
+ostream& operator << (ostream &out, User &user) {
+    out << "Username: " << user.username;
+    out << " Job: " << user.getJob(user.jobNumber) << endl;
+    return out;
+}
+
+bool operator == (const User &left_user, const User &right_user) {
+    if (left_user.username == right_user.username) {
+        return true;
+    }
+    return false;
 }

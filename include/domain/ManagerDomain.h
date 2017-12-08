@@ -44,6 +44,7 @@ class ManagerDomain
         vector<Drink> printDrink();
         vector<Sidedish> printSidedish();
         vector<Branch> printBranch();
+        vector<User> printUser();
 
         bool removePizza(const Pizza &pizza);
         bool removeCrust(const Crust &crust);
@@ -51,6 +52,7 @@ class ManagerDomain
         bool removeDrink(const Drink &drink);
         bool removeSidedish(const Sidedish &sidedish);
         bool removeBranch(const Branch &branch);
+        bool removeUser(const User &user);
 
         bool checkToppingAvaliability(const Topping &topping);
         bool checkValidName(const string &name);
