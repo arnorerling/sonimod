@@ -4,13 +4,9 @@
 
 #include "ItemChangedException.h"
 #include "NotFoundException.h"
-
-#include "BranchExistsException.h"
-
-#include "InvalidNameException.h"
-#include "InvalidPriceException.h"
-#include "InvalidAnswerException.h"
+#include "ItemExistsException.h"
 #include "InvalidInputException.h"
+
 
 #include "Pizza.h"
 #include "Crust.h"
@@ -40,7 +36,7 @@ class ManagerDomain
         bool addDrink(const Drink &drink);
         bool addSidedish(const Sidedish &sidedish);
         bool addBranch(const Branch &branch);
-        bool addUser(const Username &user);
+        bool addUser(const User &user);
 
         vector<Pizza> printPizza();
         vector<Crust> printCrust();

@@ -1,9 +1,0 @@
-#ifndef BRANCHEXISTSEXCEPTION_H
-#define BRANCHEXISTSEXCEPTION_H
-
-
-class BranchExistsException
-{
-};
-
-#endif // BRANCHEXISTSEXCEPTION_H

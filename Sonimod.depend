@@ -594,33 +594,37 @@
 1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/src/ui/ManagerUI.cpp
 	"ManagerUI.h"
 
-1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/main.cpp
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/main.cpp
 	<iostream>
 	"MainUI.h"
+	"ManagerUI.h"
 
-1512395484 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/MainUI.h
+1512740908 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/MainUI.h
+	"MainDomain.h"
+	"Username.h"
 
-1512578891 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/BakerDomain.cpp
+1512740345 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/BakerDomain.cpp
 	"BakerDomain.h"
 	"Branch.h"
 
-1512578891 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/BakerDomain.h
+1512740335 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/BakerDomain.h
 	<iostream>
 	"BakerRep.h"
 	"Branch.h"
+	"NotFoundException.h"
 
-1512578891 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/BakerRep.h
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/BakerRep.h
 	"Branch.h"
 	"Order.h"
 	<fstream>
 	<vector>
 
-1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Branch.h
+1512655696 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Branch.h
 	<string>
 	<iostream>
 	<fstream>
 
-1512577257 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Order.h
+1512664405 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Order.h
 	<vector>
 	<iostream>
 	"Pizza.h"
@@ -628,7 +632,7 @@
 	"Sidedish.h"
 	"Branch.h"
 
-1512590715 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Pizza.h
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Pizza.h
 	"Topping.h"
 	"Crust.h"
 	<iostream>
@@ -641,13 +645,13 @@
 	<fstream>
 	<string>
 
-1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Crust.h
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Crust.h
 	<string.h>
 	<iostream>
 	<fstream>
 	<string>
 
-1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Drink.h
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Drink.h
 	<iostream>
 	<string>
 	<fstream>
@@ -672,29 +676,25 @@
 	<fstream>
 	<vector>
 
-1512590284 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/ManagerDomain.cpp
+1512740957 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/ManagerDomain.cpp
 	"ManagerDomain.h"
 
-1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/ManagerDomain.h
-	"BranchExistsException.h"
-	"SidedishChangedException.h"
-	"DrinkChangedException.h"
-	"ToppingChangedException.h"
-	"CrustChangedException.h"
-	"PizzaChangedException.h"
-	"CrustNotAvailableException.h"
-	"ToppingNotAvailableException.h"
-	"DrinkNotAvaliableException.h"
-	"SideDishNotAvailableException.h"
-	"BranchNotAvailableException.h"
+1512740933 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/ManagerDomain.h
 	"ManagerRep.h"
+	"ItemChangedException.h"
+	"NotFoundException.h"
+	"ItemExistsException.h"
+	"InvalidInputException.h"
+	"Pizza.h"
 	"Crust.h"
-	"Drink.h"
 	"Topping.h"
+	"Drink.h"
 	"Sidedish.h"
 	"Branch.h"
+	"Username.h"
 	<string>
 	<vector>
+	<stdlib.h>
 
 1512498546 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/BranchExistsException.h
 
@@ -718,30 +718,27 @@
 
 1512562936 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exception/BranchNotAvailableException.h
 
-1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/ManagerRep.h
+1512740942 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/ManagerRep.h
 	"Crust.h"
 	"Drink.h"
 	"Pizza.h"
 	"Topping.h"
 	"Sidedish.h"
 	"Branch.h"
+	"User.h"
 	<vector>
 
-1512578281 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/SalesDomain.cpp
+1512740314 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/SalesDomain.cpp
 	"SalesDomain.h"
 
-1512578281 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/SalesDomain.h
+1512740294 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/SalesDomain.h
 	"SalesRep.h"
-	"DrinkNotAvailableException.h"
-	"SizeNotAvailableException.h"
-	"SideDishNotAvailableException.h"
-	"ToppingNotAvailableException.h"
-	"CrustNotAvailableException.h"
-	"InvalidNameException.h"
-	"InvalidPhoneNumberException.h"
+	"LengthNotRightException.h"
+	"NotFoundException.h"
+	"InvalidInputException.h"
 	<iostream>
 
-1512577668 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/SalesRep.h
+1512666285 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/SalesRep.h
 	<fstream>
 	<iostream>
 	<vector>
@@ -811,16 +808,16 @@
 1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/ToppingChangedException.cpp
 	"ToppingChangedException.h"
 
-1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Branch.cpp
+1512655696 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Branch.cpp
 	"Branch.h"
 
-1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Crust.cpp
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Crust.cpp
 	"Crust.h"
 
-1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Drink.cpp
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Drink.cpp
 	"Drink.h"
 
-1512600505 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Order.cpp
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Order.cpp
 	"Order.h"
 	"Sidedish.h"
 
@@ -830,23 +827,23 @@
 1512562936 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Topping.cpp
 	"Topping.h"
 
-1512578899 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/BakerRep.cpp
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/BakerRep.cpp
 	"BakerRep.h"
 
 1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/DeliveryRep.cpp
 	"DeliveryRep.h"
 
-1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/ManagerRep.cpp
+1512741015 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/ManagerRep.cpp
 	"ManagerRep.h"
 
-1512578605 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/SalesRep.cpp
+1512666281 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/SalesRep.cpp
 	"SalesRep.h"
 
-1512579101 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/BakerUI.cpp
+1512740356 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/BakerUI.cpp
 	"BakerUI.h"
 	<iostream>
 
-1512579059 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/BakerUI.h
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/BakerUI.h
 	"BakerDomain.h"
 	"Branch.h"
 	<vector>
@@ -857,7 +854,7 @@
 1512429392 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/DeliveryUI.h
 	"DeliveryDomain.h"
 
-1512429392 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/MainUI.cpp
+1512741031 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/MainUI.cpp
 	"MainUI.h"
 	"ManagerUI.h"
 	"SalesUI.h"
@@ -865,7 +862,7 @@
 	"DeliveryUI.h"
 	<iostream>
 
-1512589410 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/ManagerUI.h
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/ManagerUI.h
 	"ManagerDomain.h"
 	"ManagerUI.h"
 	"Crust.h"
@@ -877,19 +874,22 @@
 	<vector>
 	<string>
 	<cstdlib>
+	<stdio.h>
+	<string.h>
+	<cstring>
 
-1512577356 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/SalesUI.h
+1512664882 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/ui/SalesUI.h
 	"SalesDomain.h"
 	<iostream>
 	"Order.h"
 
-1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/ManagerUI.cpp
+1512741035 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/ManagerUI.cpp
 	"ManagerUI.h"
 
-1512578554 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/SalesUI.cpp
+1512740429 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/ui/SalesUI.cpp
 	"SalesUI.h"
 
-1512606426 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Pizza.cpp
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/Pizza.cpp
 	"Pizza.h"
 
 1512493736 /home/arnorerling/Documents/VLN1new/sonimod/sonimod (copy)/include/exceptions/CrustNotAvailableException.h
@@ -1063,4 +1063,102 @@
 
 1512737512 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\notfoundexception.cpp
 	"NotFoundException.h"
+
+1512664236 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/InvalidNameException.cpp
+	"InvalidNameException.h"
+
+1512664236 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/InvalidNameException.h
+
+1512497059 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/InvalidPhoneNumberException.cpp
+	"InvalidPhoneNumberException.h"
+
+1512497059 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/InvalidPhoneNumberException.h
+
+1512661363 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/LengthNotRightException.cpp
+	"LengthNotRightException.h"
+
+1512661363 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/LengthNotRightException.h
+
+1512661461 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/NotAllowedYesOrNoException.cpp
+	"NotAllowedYesOrNoException.h"
+
+1512661461 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/NotAllowedYesOrNoException.h
+
+1512740752 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/domain/MainDomain.h
+	"MainRep.h"
+	"InvalidInputException.h"
+	"NotFoundException.h"
+	<string>
+	"User.h"
+
+1512740876 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/reposatory/MainRep.h
+	"NotFoundException.h"
+	"MainRep.h"
+	"User.h"
+	<vector>
+	<string>
+
+1512492789 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/SideDishNotAvailableException.h
+
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/Username.h
+	<string>
+	<iostream>
+	<fstream>
+
+1512739910 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/InvalidInputException.h
+
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/NotFoundException.h
+
+1512739981 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/ItemChangedException.h
+
+1512664236 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/InvalidPriceException.h
+
+1512738622 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/InvalidAnswerException.h
+
+1512656775 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/ResturantNotAvailableException.h
+
+1512740735 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/domain/MainDomain.cpp
+	"MainDomain.h"
+
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/InvalidAnswerException.cpp
+	"InvalidAnswerException.h"
+
+1512739910 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/InvalidInputException.cpp
+	"InvalidInputException.h"
+
+1512496808 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/InvalidPhoneNumberExeption.cpp
+	"InvalidPhoneNumberExeption.h"
+
+1512496808 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/InvalidPhoneNumberExeption.h
+
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/invalidPhoneNumberExeption.cpp
+	"InvalidPhoneNumberExeption.h"
+
+1512664236 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/InvalidPriceException.cpp
+	"InvalidPriceException.h"
+
+1512740876 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/reposatory/MainRep.cpp
+	"MainRep.h"
+
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/Username.cpp
+	"Username.h"
+
+1512738622 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/NotFoundException.cpp
+	"NotFoundException.h"
+
+1512740098 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/exceptions/ItemExistsException.h
+
+1512739981 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/ItemChangedException.cpp
+	"ItemChangedException.h"
+
+1512740098 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/exceptions/ItemExistsException.cpp
+	"ItemExistsException.h"
+
+1512740689 source:/home/arnorerling/Documents/VLN1new/sonimod/sonimod/src/models/User.cpp
+	"User.h"
+
+1512740697 /home/arnorerling/Documents/VLN1new/sonimod/sonimod/include/models/User.h
+	<string>
+	<iostream>
+	<fstream>
 

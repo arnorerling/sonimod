@@ -4,19 +4,19 @@ MainRep::MainRep() {
 
 }
 
-vector<Username> MainRep::getUsers() {
-    vector <Username> usernames;
+vector<User> MainRep::getUsers() {
+    vector <User> users;
     ifstream fin;
     fin.open("Users_Binary.dat", ios::binary);
     if(fin.is_open()) {
-        Username username;
+        User user;
         while(!fin.eof()){
-            username.read(fin);
+            user.read(fin);
             if(!fin.eof()){
-                usernames.push_back(username);
+                users.push_back(user);
             }
         }
         fin.close();
     }
-    return usernames;
+    return users;
 }

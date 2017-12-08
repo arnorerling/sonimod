@@ -13,13 +13,13 @@ bool MainDomain::checkValidInput(string &select) {
     return false;
 }
 
-Username MainDomain::checkUser(string &name, string &password) {
-    vector<Username> userList = mainRep.getUsers();
+User MainDomain::checkUser(string &name, string &password) {
+    vector<User> userList = mainRep.getUsers();
 
     for (int i = 0; i < userList.size(); i++){
         if (userList[i].getName() == name && userList[i].getPassword() == password) {
             return userList[i];
         }
     }
-    throw SideDishNotAvailableException();
+    throw NotFoundException();
 }

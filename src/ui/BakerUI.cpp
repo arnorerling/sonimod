@@ -38,7 +38,7 @@ void BakerUI::chooseRestaurant() {
         try{
             available = bakerDomain.checkBranchAvaliability(branch);
         }
-        catch(ResturantNotAvailableException){
+        catch(NotFoundException){
             cout << "This restaurant is not available" << endl;
         }
     }

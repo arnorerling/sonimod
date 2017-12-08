@@ -21,7 +21,7 @@ bool BakerDomain::checkBranchAvaliability(Branch &branch) {
             return true;
         }
     }
-    throw ResturantNotAvailableException();
+    throw NotFoundException();
 }
 
 void BakerDomain::overWriteOrder(vector<Order> &order) {

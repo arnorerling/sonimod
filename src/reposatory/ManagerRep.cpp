@@ -78,7 +78,7 @@ void ManagerRep::addBranch(const Branch &branch) {
     }
 }
 
-void ManagerRep::addUser(const Username &user) {
+void ManagerRep::addUser(const User &user) {
     ofstream fout;
     fout.open("Users_Binary.dat", ios::binary|ios::app);
     if(fout.is_open()) {
@@ -195,21 +195,21 @@ vector<Branch> ManagerRep::getBranch() {
     return branches;
 }
 
-vector<Username> ManagerRep::getUsers() {
-    vector <Username> usernames;
+vector<User> ManagerRep::getUsers() {
+    vector <User> users;
     ifstream fin;
     fin.open("Users_Binary.dat", ios::binary);
     if(fin.is_open()) {
-        Username username;
+        User user;
         while(!fin.eof()){
-            username.read(fin);
+            user.read(fin);
             if(!fin.eof()){
-                usernames.push_back(username);
+                users.push_back(user);
             }
         }
         fin.close();
     }
-    return usernames;
+    return users;
 }
 
 void ManagerRep::changePizzaList(vector<Pizza> &pizzas) {
@@ -302,7 +302,7 @@ void ManagerRep::changeSidedishList(vector<Sidedish> &sidedishes) {
     }
  }
 
-void ManagerRep::changeUsersList(vector<Username> &users) {
+void ManagerRep::changeUsersList(vector<User> &users) {
 
     ofstream fout;
     fout.open("Users_Binary.dat", ios::binary);

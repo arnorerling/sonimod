@@ -3,7 +3,7 @@
 #include <iostream>
 #include "BakerRep.h"
 #include "Branch.h"
-#include "ResturantNotAvailableException.h"
+#include "NotFoundException.h"
 
 using namespace std;
 

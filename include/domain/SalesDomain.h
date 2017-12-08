@@ -1,14 +1,11 @@
 #ifndef SALESDOMAIN_H
 #define SALESDOMAIN_H
 
-#include "NotFoundException.h"
 
 #include "SalesRep.h"
-#include "InvalidNameException.h"
-#include "InvalidPhoneNumberException.h"
 #include "LengthNotRightException.h"
-#include "NotAllowedYesOrNoException.h"
 #include "NotFoundException.h"
+#include "InvalidInputException.h"
 #include <iostream>
 
 using namespace std;

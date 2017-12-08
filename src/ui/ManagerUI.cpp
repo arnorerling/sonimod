@@ -247,7 +247,7 @@ void ManagerUI::addBranch() {
     try {
         managerDomain.addBranch(branch);
     }
-    catch(BranchExistsException) {
+    catch(ItemChangedException) {
         cout << "Branch already exists" << endl;
     }
 }
@@ -259,7 +259,7 @@ void ManagerUI::addUser() {
     char jobNumber = checkJob();
 
 
-    Username user(username, password, jobNumber);
+    User user(username, password, jobNumber);
     try {
         managerDomain.addUser(user);
     }
@@ -271,7 +271,7 @@ void ManagerUI::addUser() {
 void ManagerUI::printCrust() {
     cout << "----Crusts List----" << endl;
     vector<Crust> crusts = managerDomain.printCrust();
-    for (int i = 0; i < crusts.size(); i++) {
+    for (unsigned int i = 0; i < crusts.size(); i++) {
         cout << crusts[i];
     }
     cout << "-------------------" << endl;
@@ -280,7 +280,7 @@ void ManagerUI::printCrust() {
 void ManagerUI::printTopping() {
     cout << "----Toppings List----" << endl;
     vector<Topping> toppings = managerDomain.printTopping();
-    for (int i = 0; i < toppings.size(); i++) {
+    for (unsigned int i = 0; i < toppings.size(); i++) {
         cout << toppings[i];
     }
     cout << "---------------------" << endl;
@@ -288,7 +288,7 @@ void ManagerUI::printTopping() {
 void ManagerUI::printPizza() {
     cout << "----Pizza List----" << endl;
     vector<Pizza> pizzas = managerDomain.printPizza();
-    for (int i = 0; i < pizzas.size(); i++) {
+    for (unsigned int i = 0; i < pizzas.size(); i++) {
         cout << pizzas[i];
     }
     cout << "-------------------" << endl;
@@ -297,7 +297,7 @@ void ManagerUI::printPizza() {
 void ManagerUI::printDrink() {
     cout << "----Drinks List----" << endl;
     vector<Drink> drinks = managerDomain.printDrink();
-    for (int i = 0; i < drinks.size(); i++) {
+    for (unsigned int i = 0; i < drinks.size(); i++) {
         cout << drinks[i];
     }
     cout << "-------------------" << endl;
@@ -306,7 +306,7 @@ void ManagerUI::printDrink() {
 void ManagerUI::printSide() {
     cout << "----Sidedish List----" << endl;
     vector<Sidedish> sidedishes = managerDomain.printSidedish();
-     for (int i = 0; i < sidedishes.size(); i++) {
+     for (unsigned int i = 0; i < sidedishes.size(); i++) {
         cout << sidedishes[i];
     }
     cout << "---------------------" << endl;
@@ -315,7 +315,7 @@ void ManagerUI::printSide() {
 void ManagerUI::printBranch() {
     cout << "----Branch List----" << endl;
     vector<Branch> branches = managerDomain.printBranch();
-     for (int i = 0; i < branches.size(); i++) {
+     for (unsigned int i = 0; i < branches.size(); i++) {
         cout << branches[i];
     }
     cout << "-------------------" << endl;
@@ -425,7 +425,7 @@ string ManagerUI::checkName() {
         try{
             allowed = managerDomain.checkValidName(name);
         }
-        catch(InvalidNameException){
+        catch(InvalidInputException){
             cout << "Name cant include numbers" << endl;
         }
     }
@@ -445,7 +445,7 @@ int ManagerUI::checkPrice() {
             price1 = managerDomain.checkValidPrice(price);
             allowed = true;
         }
-        catch(InvalidPriceException){
+        catch(InvalidInputException){
             cout << "Invalid price, try again" << endl;
         }
     }
@@ -483,7 +483,7 @@ char ManagerUI::checkAnswer() {
             allowed = managerDomain.checkValidAnswer(answer);
             answer1 = answer[0];
         }
-        catch(InvalidAnswerException){
+        catch(InvalidInputException){
             cout << "Invalid answer, please answer \'y\' or \'n\'" << endl;
         }
     }
@@ -501,7 +501,7 @@ string ManagerUI::checkUsername() {
         try{
             allowed = managerDomain.checkValidUsername(username);
         }
-        catch(InvalidNameException){
+        catch(InvalidInputException){
             cout << "Username must be one word" << endl;
         }
     }
@@ -519,7 +519,7 @@ string ManagerUI::checkPassword() {
         try{
             allowed = managerDomain.checkValidPassword(pw);
         }
-        catch(InvalidNameException){
+        catch(InvalidInputException){
             cout << "Password must be one word and include at least 2 numbers" << endl;
         }
     }

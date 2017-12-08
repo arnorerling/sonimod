@@ -31,7 +31,7 @@ void SalesDomain::getBranches(vector<Branch>& branches){
 bool SalesDomain::isValidName(string name){
     for(unsigned int i = 0; i < name.length(); i++){
         if(isdigit(name[i])){
-             throw InvalidNameException();
+             throw InvalidInputException();
         }
     }
     return true;
@@ -39,7 +39,7 @@ bool SalesDomain::isValidName(string name){
 bool SalesDomain::isValidPhoneNumber(string num){
     for(unsigned int i = 0; i < num.length(); i++){
         if(!isdigit(num[i]) || num.length() != 7){
-             throw InvalidPhoneNumberException();
+             throw InvalidInputException();
         }
     }
     return true;
@@ -120,7 +120,7 @@ void SalesDomain::checkYesOrNo(string check){
         throw LengthNotRightException();
     }
     if(check != "y" && check != "n"){
-        throw NotAllowedYesOrNoException();
+        throw InvalidInputException();
     }
 }
 

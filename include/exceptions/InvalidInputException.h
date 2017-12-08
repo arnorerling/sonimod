@@ -2,14 +2,6 @@
 #define INVALIDINPUTEXCEPTION_H
 
 
-class InvalidInputException
-{
-    public:
-        InvalidInputException();
-
-    protected:
-
-    private:
-};
+class InvalidInputException { };
 
 #endif // INVALIDINPUTEXCEPTION_H

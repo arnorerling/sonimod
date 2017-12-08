@@ -72,7 +72,7 @@ void SalesUI::addCustomer(){
             order.addCustomerName(name);
 
         }
-        catch(InvalidNameException){
+        catch(InvalidInputException){
             cout << "Invalid name!" << endl;
         }
     }while(!allowed);
@@ -85,7 +85,7 @@ void SalesUI::addCustomer(){
             order.addCustomerPhoneNum(phoneNumber);
 
         }
-        catch(InvalidPhoneNumberException){
+        catch(InvalidInputException){
             cout << "Invalid number!" << endl;
             allowed = false;
         }
@@ -147,7 +147,7 @@ void SalesUI::addDrink(){
             available = salesDomain.checkDrinkAvailability(drink);
             this->order.addDrink(drink);
         }
-        catch(NotFoundException){
+       catch(NotFoundException){
             cout << "Drink not available!" << endl;
         }
         catch(NotFoundException){
@@ -230,7 +230,7 @@ void SalesUI::addToppings(Pizza &pizza){
             allowed = true;
             anotherToppingChar = anotherTopping[0];
             }
-            catch(NotAllowedYesOrNoException){
+            catch(InvalidInputException){
                 cout << "Only 'y' or 'n' accepted. please try again! " << endl;
             }
             catch(LengthNotRightException){

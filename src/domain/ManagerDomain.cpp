@@ -94,15 +94,15 @@ bool ManagerDomain::addBranch(const Branch &branch) {
     vector<Branch> branches = managerRep.getBranch();
     for (int i = 0; i < branches.size(); i++) {
         if (branches[i].getName() == branch.getName()) {
-            throw BranchExistsException();
+            throw ItemExistsException();
         }
     }
     managerRep.addBranch(branch);
     return true;
  }
 
-bool ManagerDomain::addUser(const Username &user) {
-    vector<Username> users = managerRep.getUsers();
+bool ManagerDomain::addUser(const User &user) {
+    vector<User> users = managerRep.getUsers();
 
     for (int i = 0; i < users.size(); i++){
         if (users[i].getName() == user.getName()) {
@@ -278,7 +278,7 @@ bool ManagerDomain::checkValidName(const string &name) {
 
     for(unsigned int i = 0; i < name.length(); i++){
         if(isdigit(name[i])){
-             throw InvalidNameException();
+             throw InvalidInputException();
         }
     }
     return true;
@@ -288,13 +288,13 @@ int ManagerDomain::checkValidPrice(const string &price) {
     int price1 = 0;
     for(unsigned int i = 0; i < price.length(); i++){
         if(isalpha(price[i])){
-            throw InvalidPriceException();
+            throw InvalidInputException();
         }
     }
     price1 = atoi(price.c_str());
 
     if(price1 < 0){
-        throw InvalidPriceException();
+        throw InvalidInputException();
     }
     return price1;
 }
@@ -311,7 +311,7 @@ bool ManagerDomain::checkValidAnswer(const string &answer) {
     if(answer == "y" || answer == "n"){
         return true;
     }
-    throw InvalidAnswerException();
+    throw InvalidInputException();
     return false;
 }
 
@@ -319,7 +319,7 @@ bool ManagerDomain::checkValidUsername(const string &username) {
 
     for(unsigned int i = 0; i < username.length(); i++){
         if(username[i] == ' '){
-             throw InvalidNameException();
+             throw InvalidInputException();
         }
     }
     return true;
@@ -330,7 +330,7 @@ bool ManagerDomain::checkValidPassword(const string &password) {
     int cDigit = 0;
     for(unsigned int i = 0; i < password.length(); i++){
         if(password[i] == ' '){
-             throw InvalidNameException();
+             throw InvalidInputException();
         }
         if(isdigit(password[i])) {
             cDigit ++;
@@ -338,7 +338,7 @@ bool ManagerDomain::checkValidPassword(const string &password) {
     }
 
     if (cDigit < 2) {
-        throw InvalidNameException();
+        throw InvalidInputException();
     }
     return true;
 }

@@ -13,7 +13,7 @@ class MainUI
         void login();
 
         char checkInput();
-        Username checkUser();
+        User checkUser();
 };
 
 #endif // MAINUI_H

@@ -1,9 +1,0 @@
-#ifndef PIZZANOTAVAILABLEEXCEPTION_H
-#define PIZZANOTAVAILABLEEXCEPTION_H
-
-
-class PizzaNotAvailableException
-{
-};
-
-#endif // PIZZANOTAVAILABLEEXCEPTION_H

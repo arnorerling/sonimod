@@ -1,15 +1,15 @@
 #ifndef MAINREP_H
 #define MAINREP_H
-#include "SideDishNotAvailableException.h"
+#include "NotFoundException.h"
 #include "MainRep.h"
-#include "Username.h"
+#include "User.h"
 #include <vector>
 #include <string>
 class MainRep
 {
     public:
         MainRep();
-        vector<Username> getUsers();
+        vector<User> getUsers();
 
     protected:
 

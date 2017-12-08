@@ -2,8 +2,9 @@
 #define MAINDOMAIN_H
 #include "MainRep.h"
 #include "InvalidInputException.h"
+#include "NotFoundException.h"
 #include <string>
-#include "Username.h"
+#include "User.h"
 using namespace std;
 
 class MainDomain
@@ -14,7 +15,7 @@ class MainDomain
     public:
         MainDomain();
         bool checkValidInput(string &select);
-        Username checkUser(string &name, string &password);
+        User checkUser(string &name, string &password);
 };
 
 #endif // MAINDOMAIN_H

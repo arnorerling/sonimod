@@ -2,8 +2,6 @@
 #define ITEMCHANGEDEXCEPTION_H
 
 
-class ItemChangedException
-{
-};
+class ItemChangedException { };
 
 #endif // ITEMCHANGEDEXCEPTION_H

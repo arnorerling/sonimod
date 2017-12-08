@@ -32,7 +32,7 @@ void MainUI::start() {
 
 void MainUI::login() {
 
-    Username user = checkUser();
+    User user = checkUser();
 
 
    char answer = '\0';
@@ -77,8 +77,8 @@ void MainUI::login() {
     }
 }
 
-Username MainUI::checkUser() {
-    Username user;
+User MainUI::checkUser() {
+    User user;
     string name = "";
     string password = "";
     bool allowed = false;
@@ -94,7 +94,7 @@ Username MainUI::checkUser() {
             user = mainDomain.checkUser(name, password);
             allowed = true;
         }
-        catch(SideDishNotAvailableException){
+        catch(NotFoundException){
             cout << "wrong password" << endl;
         }
     }
