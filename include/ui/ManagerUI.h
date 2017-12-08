@@ -54,8 +54,8 @@ class ManagerUI
 
         string checkName();
         int checkPrice();
-        char checkAnswer();
         char checkInput();
+        char checkAnswer();
         string checkUsername();
         string checkPassword();
         char checkJob();

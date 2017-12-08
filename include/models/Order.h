@@ -26,7 +26,6 @@ class Order {
         bool ready;
         bool deliverd;
 
-
     public:
         Order();
         string getCustomerName();

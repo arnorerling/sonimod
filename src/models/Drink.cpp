@@ -83,6 +83,6 @@ int Drink::getLiter() const {
     return this->liter;
 }
 
-void Drink::setPrice(int price){
+void Drink::setPrice(const int price){
     this->price = price;
 }

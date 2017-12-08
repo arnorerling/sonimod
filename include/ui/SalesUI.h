@@ -17,14 +17,8 @@ class SalesUI {
     public:
         SalesUI();
         void startUI();
+
         void addCustomer();
-
-        void printPizzas();
-        void printSidedishes();
-        void printDrinks();
-        void printToppings();
-        void printCrusts();
-
         void addPizza();
         void addCrust(Pizza &pizza);
         void addToppings(Pizza &pizza);
@@ -32,7 +26,21 @@ class SalesUI {
         void addDrink();
         void addBranch(Order &order);
 
+        void printPizzas();
+        void printCrusts();
+        void printToppings();
+        void printSidedishes();
+        void printDrinks();
+
         void fileOrder();
+
+        string validName();
+        string validPhoneNumber();
+        int validNumber();
+        char validAnswer();
+
+        void printLogo();
+
 };
 
 #endif // SALESUI_H
