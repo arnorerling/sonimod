@@ -102,7 +102,7 @@ bool ManagerDomain::addBranch(const Branch &branch) {
  }
 
 bool ManagerDomain::addUser(const User &user) {
-    vector<User> users = managerRep.getUsers();
+    vector<User> users = managerRep.getUser();
 
     for (int i = 0; i < users.size(); i++){
         if (users[i].getName() == user.getName()) {
@@ -146,7 +146,10 @@ vector<Branch> ManagerDomain::printBranch() {
     return branches;
 }
 
-
+vector<User> ManagerDomain::printUser() {
+    vector<User>users = managerRep.getUser();
+    return users;
+}
 
 bool ManagerDomain::removePizza(const Pizza &pizza) {
     vector<Pizza>pizzas = managerRep.getPizza();
@@ -257,6 +260,24 @@ bool ManagerDomain::removeBranch(const Branch &branch) {
     }
     else {
         managerRep.changeBranchList(newBranches);
+        return true;
+    }
+}
+
+bool ManagerDomain::removeUser(const User &user) {
+    vector<User>users = managerRep.getUser();
+    vector<User>newUsers;
+
+    for (int i = 0; i < users.size(); i++){
+        if (users[i].getName() != user.getName()) {
+            newUsers.push_back(users[i]);
+        }
+    }
+    if (users == newUsers) {
+        throw NotFoundException();
+    }
+    else {
+        managerRep.changeUsersList(newUsers);
         return true;
     }
 }

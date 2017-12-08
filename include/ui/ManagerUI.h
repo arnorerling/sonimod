@@ -42,6 +42,7 @@ class ManagerUI
         void printDrink();
         void printSide();
         void printBranch();
+        void printUser();
 
         void removeCrust();
         void removeTopping();
@@ -49,11 +50,12 @@ class ManagerUI
         void removeDrink();
         void removeSide();
         void removeBranch();
+        void removeUser();
 
         string checkName();
         int checkPrice();
-        char checkAnswer();
         char checkInput();
+        char checkAnswer();
         string checkUsername();
         string checkPassword();
         char checkJob();

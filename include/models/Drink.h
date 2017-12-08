@@ -30,7 +30,7 @@ class Drink
         int getPrice() const;
         int getLiter() const;
 
-        void setPrice(int price);
+        void setPrice(const int price);
 };
 
 #endif // DRINK_H

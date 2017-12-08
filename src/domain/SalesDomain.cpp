@@ -100,7 +100,7 @@ bool SalesDomain::checkCrustAvailability(Crust& crust){
     throw NotFoundException();
 }
 
-bool SalesDomain::checkBranchAvailability(string branch){
+bool SalesDomain::checkBranchAvailability(const string &branch){
     vector<Branch> branches;
     getBranches(branches);
     for(unsigned int i = 0; i < branches.size(); i++){
@@ -122,5 +122,31 @@ void SalesDomain::checkYesOrNo(string check){
     if(check != "y" && check != "n"){
         throw InvalidInputException();
     }
+}
+
+int SalesDomain::isValidNumber(string &number) {
+    for (int i = 0; i < number.length(); i++) {
+        if(!isdigit(number[i])) {
+            throw InvalidInputException();
+        }
+    }
+    int number1 = atoi(number.c_str());
+    return number1;
+}
+
+void SalesDomain::toLowerCase(string &str) {
+    for (unsigned int i = 0; i < str.length(); i++) {
+        if(str[i] != ' ' && isupper(str[i])) {
+            str[i] = tolower(str[i]);
+        }
+    }
+}
+
+bool SalesDomain::checkValidAnswer(const string &answer) {
+    if(answer == "y" || answer == "n"){
+        return true;
+    }
+    throw InvalidInputException();
+    return false;
 }
 

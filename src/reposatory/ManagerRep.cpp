@@ -195,7 +195,7 @@ vector<Branch> ManagerRep::getBranch() {
     return branches;
 }
 
-vector<User> ManagerRep::getUsers() {
+vector<User> ManagerRep::getUser() {
     vector <User> users;
     ifstream fin;
     fin.open("Users_Binary.dat", ios::binary);

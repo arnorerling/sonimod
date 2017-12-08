@@ -7,6 +7,7 @@
 #include "NotFoundException.h"
 #include "InvalidInputException.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -30,11 +31,14 @@ class SalesDomain {
         bool checkSidedishAvailability(Sidedish& sidedish);
         void checkToppingAvailability(Topping& topping);
         bool checkCrustAvailability(Crust& crust);
-        bool checkBranchAvailability(string branch);
+        bool checkBranchAvailability(const string &branch);
 
         void checkYesOrNo(string check);
 
         void fileOrder(Order &order);
+        int isValidNumber(string &number);
+        void toLowerCase(string &str);
+        bool checkValidAnswer(const string &answer);
 
 };
 

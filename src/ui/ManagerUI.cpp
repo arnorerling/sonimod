@@ -40,7 +40,7 @@ void ManagerUI::addChangeMenu() {
         cout << "5: Sidedish" << endl;
         cout << "6: Branch" << endl;
         cout << "7: User" << endl;
-        cout << "7: Quit" << endl;
+        cout << "8: Quit" << endl;
         cout << "--------------------" << endl;
 
         select = checkInput();
@@ -70,7 +70,11 @@ void ManagerUI::addChangeMenu() {
                 addBranch();
                 break;
             case '7':
+                printUser();
                 addUser();
+                break;
+            case '8':
+                cout << endl;
                 break;
             default:
                 cout << "Invalid input" << endl;
@@ -90,7 +94,8 @@ void ManagerUI::removeFromMenu() {
         cout << "4: Drink" << endl;
         cout << "5: Sidedish" << endl;
         cout << "6: Branch" << endl;
-        cout << "7: Quit" << endl;
+        cout << "7: User" << endl;
+        cout << "8: Quit" << endl;
         cout << "--------------------------" << endl;
         select = checkInput();
         switch(select){
@@ -119,6 +124,11 @@ void ManagerUI::removeFromMenu() {
                 removeBranch();
                 break;
             case '7':
+                printUser();
+                removeUser();
+                break;
+            case '8':
+                cout << endl;
                 break;
             default:
                 cout << "Invalid input" << endl;
@@ -321,6 +331,15 @@ void ManagerUI::printBranch() {
     cout << "-------------------" << endl;
 }
 
+void ManagerUI::printUser() {
+    cout << "----Branch List----" << endl;
+    vector<User> users = managerDomain.printUser();
+     for (unsigned int i = 0; i < users.size(); i++) {
+        cout << users[i];
+    }
+    cout << "-------------------" << endl;
+}
+
 void ManagerUI::removeCrust() {
     cout << "-----Remove Crust-----" << endl;
     string name = checkName();
@@ -408,6 +427,22 @@ void ManagerUI::removeBranch() {
     }
     catch(NotFoundException) {
         cout << "Restaurant at \"" << branch.getName();
+        cout << "\" is not on the list" << endl;
+    }
+}
+
+void ManagerUI::removeUser() {
+    cout << "-----Remove User-----" << endl;
+    string name = checkName();
+    User user(name);
+
+    try {
+        managerDomain.removeUser(user);
+        cout << "User \"" << user.getName();
+        cout << "\" was removed" << endl;
+    }
+    catch(NotFoundException) {
+        cout << "User \"" << user.getName();
         cout << "\" is not on the list" << endl;
     }
 }

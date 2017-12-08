@@ -11,8 +11,6 @@ MainUI::MainUI()
     //ctor
 }
 
-
-
 void MainUI::start() {
     char answer = '\0';
     while (answer != 2) {
@@ -32,10 +30,10 @@ void MainUI::start() {
 
 void MainUI::login() {
 
-    User user = checkUser();
-
-
-   char answer = '\0';
+    //User user = checkUser();
+    char answer = '\0';
+    while (answer != '5') {
+        char answer = '\0';
         cout << "------Main Menu------" << endl;
         cout << "1: Mananger" << endl;
         cout << "2: Sales" << endl;
@@ -43,8 +41,6 @@ void MainUI::login() {
         cout << "4: delivery" << endl;
         cout << "5: quit" << endl;
         cout << "---------------------" << endl;
-
-    while (answer != '5') {
         answer = checkInput();
 
         switch(answer) {

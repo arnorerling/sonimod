@@ -5,94 +5,193 @@ SalesUI::SalesUI(){
 
 }
 void SalesUI::startUI() {
+    printLogo();
     Order order;
     addCustomer();
 
     char select = '\0';
-    while (select != 'q') {
+    while (select != '7') {
         select = '\0';
-
-        cout << "Sales Menu" << endl;
-        cout << "Choose an action" << endl;
         cout << "------------------" << endl;
-        cout << "p: Add Pizza" << endl;
-        cout << "s: Add Sidedish" << endl;
-        cout << "d: Add drink" << endl;
-        cout << "o: Print order" << endl;
-        cout << "t: Get order total" << endl;
-        cout << "f: File order" << endl;
+        cout << "1: Add Pizza" << endl;
+        cout << "2: Add Sidedish" << endl;
+        cout << "3: Add drink" << endl;
+        cout << "4: Print order" << endl;
+        cout << "5: Get order total" << endl;
+        cout << "6: File order" << endl;
+        cout << "7: Quit" << endl;
         cout << "------------------" << endl;
-
         cin >> select;
 
         switch(select){
-            case 'p': {
+            case '1': {
                 addPizza();
                 break;
             }
-            case 's': {
+            case '2': {
                 printSidedishes();
                 addSidedish();
                 break;
             }
-            case 'd': {
+            case '3': {
                 printDrinks();
                 addDrink();
                 break;
             }
-            case 'o': {
+            case '4': {
                 cout << this->order;
                 break;
             }
-            case 't': {
+            case '5': {
                 cout << "Order total: "<< this->order.getTotal() << endl;
                 break;
             }
-            case 'f': {
+            case '6': {
                 fileOrder();
-                select = 'q';
+                select = '7';
+                break;
+            }
+            case '7': {
+                cout << endl;
                 break;
             }
         }
     }
-
 }
+
 void SalesUI::addCustomer(){
     bool allowed = false;
-    string name;
-    string phoneNumber;
-
-
-    do{
-        cout << "Enter customer name: ";
-        cin >> ws;
-        getline(cin, name);
-        try{
-            allowed = salesDomain.isValidName(name);
-            order.addCustomerName(name);
-
-        }
-        catch(InvalidInputException){
-            cout << "Invalid name!" << endl;
-        }
-    }while(!allowed);
-    do{
-        cout << "Enter customer phone number: ";
-        cin >> ws;
-        getline(cin, phoneNumber);
-        try{
-            allowed = salesDomain.isValidPhoneNumber(phoneNumber);
-            order.addCustomerPhoneNum(phoneNumber);
-
-        }
-        catch(InvalidInputException){
-            cout << "Invalid number!" << endl;
-            allowed = false;
-        }
-    }while(!allowed);
+    cout << "Customers's name: ";
+    string name = validName();
+    cout << "Customers's number: ";
+    string phoneNumber = validPhoneNumber();
+    order.addCustomerName(name);
+    order.addCustomerPhoneNum(phoneNumber);
 }
+
+void SalesUI::addPizza(){
+    Pizza pizza;
+
+    this->addCrust(pizza);
+    this->addToppings(pizza);
+    pizza.setPrice();
+    order.addPizza(pizza);
+}
+
+void SalesUI::addCrust(Pizza &pizza){
+    printCrusts();
+    bool available = false;
+    while(!available) {
+        cout << "Crust name: ";
+        string name = validName();
+        cout << "Crust size: ";
+        int size = validNumber();
+        Crust crust(name,size);
+        try{
+            available = salesDomain.checkCrustAvailability(crust);
+            pizza.addCrust(crust);
+        }
+        catch(NotFoundException){
+            cout << "Crust not available!" << endl;
+        }
+    }
+}
+
+void SalesUI::addToppings(Pizza &pizza){
+    printToppings();
+    string name;
+    char addTopping = 'y';
+    while(addTopping == 'y'){
+        cout << "Topping name: ";
+        string name = validName();
+        Topping topping(name);
+        try{
+            salesDomain.checkToppingAvailability(topping);
+            pizza.addTopping(topping);
+            cout << "Add another topping?" << endl;
+        }
+        catch(NotFoundException){
+            cout << "Topping not avaliable!" << endl;
+            cout << "Try another topping? " << endl;
+        }
+    addTopping = validAnswer();
+    }
+}
+
+void SalesUI::addDrink(){
+    bool available = false;
+    string name;
+    int size = 0;
+    while(!available){
+        cout << "Drink name: ";
+        string name = validName();
+        cout << "Size: ";
+        int size = validNumber();
+        Drink drink(name, size);
+        try{
+            available = salesDomain.checkDrinkAvailability(drink);
+            this->order.addDrink(drink);
+        }
+        catch(NotFoundException){
+            cout << "Drink not available!" << endl;
+        }
+        catch(NotFoundException){
+            cout << "Size not available!" << endl;
+        }
+    }
+}
+
+void SalesUI::addSidedish(){
+    bool available = false;
+    while(!available){
+        cout << "Sidedish name: ";
+        string name = validName();
+        Sidedish sidedish(name);
+        try{
+            available = salesDomain.checkSidedishAvailability(sidedish);
+            this->order.addSideDish(sidedish);
+        }
+        catch(NotFoundException){
+            cout << "Sidesish not available!" << endl;
+        }
+    }
+}
+
+void SalesUI::addBranch(Order &order){
+    bool found = false;
+    while(!found){
+        cout << "Restaurant name: ";
+        string branch = validName();
+        try{
+        found = salesDomain.checkBranchAvailability(branch);
+        order.addBranch(branch);
+        }
+        catch(NotFoundException){
+            cout << "Branch not found" << endl;
+        }
+    }
+}
+
 void SalesUI::printPizzas(){
     cout << endl;
+}
+
+void SalesUI::printCrusts(){
+    vector<Crust> crusts;
+    salesDomain.getCrusts(crusts);
+    cout << "Crustslist" << endl;
+    for(unsigned int i = 0; i < crusts.size(); i++){
+        cout << crusts[i];
+    }
+}
+
+void SalesUI::printToppings(){
+    vector<Topping> toppings;
+    salesDomain.getToppings(toppings);
+    cout << "Toppingslist" << endl;
+    for(unsigned int i = 0; i < toppings.size(); i++){
+        cout << toppings[i];
+    }
 }
 
 void SalesUI::printDrinks() {
@@ -114,154 +213,89 @@ void SalesUI::printSidedishes() {
     }
 }
 
-void SalesUI::printToppings(){
-    vector<Topping> toppings;
-    salesDomain.getToppings(toppings);
-    cout << "Toppingslist" << endl;
-    for(unsigned int i = 0; i < toppings.size(); i++){
-        cout << toppings[i];
-    }
-}
-
-void SalesUI::printCrusts(){
-    vector<Crust> crusts;
-    salesDomain.getCrusts(crusts);
-    cout << "Crustslist" << endl;
-    for(unsigned int i = 0; i < crusts.size(); i++){
-        cout << crusts[i];
-    }
-}
-
-void SalesUI::addDrink(){
-    bool available = false;
-    string name;
-    int size = 0;
-    while(!available){
-        cout << "Enter name of drink: ";
-        cin >> ws;
-        getline(cin, name);
-        cout << "Enter size of drink: ";
-        cin >> size;
-        Drink drink(name,size);
-        try{
-            available = salesDomain.checkDrinkAvailability(drink);
-            this->order.addDrink(drink);
-        }
-       catch(NotFoundException){
-            cout << "Drink not available!" << endl;
-        }
-        catch(NotFoundException){
-            cout << "Size not available!" << endl;
-        }
-    }
-
-
-}
-
-void SalesUI::addSidedish(){
-    bool available = false;
-    string name;
-    while(!available){
-        cout << "Enter name of sidedish: ";
-        cin >> name;
-        Sidedish sidedish(name);
-        try{
-            available = salesDomain.checkSidedishAvailability(sidedish);
-            this->order.addSideDish(sidedish);
-        }
-        catch(NotFoundException){
-            cout << "Sidesish not available!" << endl;
-        }
-    }
-}
-
-void SalesUI::addPizza(){
-    Pizza pizza;
-
-    this->addCrust(pizza);
-    this->addToppings(pizza);
-    pizza.setPrice();
-    order.addPizza(pizza);
-}
-void SalesUI::addCrust(Pizza &pizza){
-    bool available = false;
-    string name;
-    int size;
-    printCrusts();
-    while(!available) {
-        cout << "Enter crust name: ";
-        cin >> name;
-        cout << "Enter Size: ";
-        cin >> size;
-        Crust crust(name,size);
-        try{
-            available = salesDomain.checkCrustAvailability(crust);
-            pizza.addCrust(crust);
-        }
-        catch(NotFoundException){
-            cout << "Crust not available!" << endl;
-        }
-    }
-}
-
-void SalesUI::addToppings(Pizza &pizza){
-    string name;
-    printToppings();
-    string anotherTopping = "y";
-    char anotherToppingChar = 'y';
-    while(anotherToppingChar == 'y'){
-        cout << "Enter topping name: ";
-        cin >> ws;
-        getline(cin, name);
-        Topping topping(name);
-        try{
-            salesDomain.checkToppingAvailability(topping);
-            pizza.addTopping(topping);
-        }
-        catch(NotFoundException){
-            cout << "Topping not avaliable!" << endl;
-        }
-        bool allowed = false;
-        while(!allowed){
-            cout << "another topping? (y/n): ";
-            cin >> anotherTopping;
-            try{
-            salesDomain.checkYesOrNo(anotherTopping);
-            allowed = true;
-            anotherToppingChar = anotherTopping[0];
-            }
-            catch(InvalidInputException){
-                cout << "Only 'y' or 'n' accepted. please try again! " << endl;
-            }
-            catch(LengthNotRightException){
-                cout << "Only one character accepted! please try again!" << endl;
-            }
-        }
-
-    }
-}
-void SalesUI::addBranch(Order &order){
-    bool found = false;
-    while(!found){
-        cout << "Enter branch name: ";
-        string branch;
-        cin >> ws;
-        getline(cin,branch);
-        try{
-        salesDomain.checkBranchAvailability(branch);
-        order.addBranch(branch);
-        found = true;
-        }
-        catch(NotFoundException){
-            cout << "Branch not found" << endl;
-        }
-    }
-}
 void SalesUI::fileOrder(){
-
     addBranch(this->order);
     salesDomain.fileOrder(this->order);
     cout << "Order filed!" << endl;
 
 }
 
+string SalesUI::validName() {
+    string name = "";
+    bool allowed = false;
+
+    while(!allowed) {
+        cin >> ws;
+        getline(cin, name);
+        salesDomain.toLowerCase(name);
+        try{
+            allowed = salesDomain.isValidName(name);
+        }
+        catch(InvalidInputException){
+            cout << "Invalid name, try again!" << endl;
+        }
+    }
+    return name;
+}
+
+string SalesUI::validPhoneNumber() {
+    string phoneNumber = "";
+    bool allowed = false;
+
+    while(!allowed) {
+        cin >> ws;
+        getline(cin, phoneNumber);
+        try{
+            allowed = salesDomain.isValidPhoneNumber(phoneNumber);
+        }
+        catch(InvalidInputException){
+            cout << "Invalid phonenumber, try again!" << endl;
+        }
+    }
+    return phoneNumber;
+}
+
+int SalesUI::validNumber() {
+    string number = "";
+    int number1 = 0;
+    bool allowed = false;
+
+    while(!allowed) {
+        cin >> ws;
+        getline(cin, number);
+        try{
+            number1 = salesDomain.isValidNumber(number);
+            allowed = true;
+        }
+        catch(InvalidInputException){
+            cout << "Invalid number, try again!" << endl;
+        }
+    }
+    return number1;
+
+}
+
+char SalesUI::validAnswer() {
+    string answer = "";
+    char answer1 = '\0';
+    bool allowed = false;
+
+    while(!allowed){
+        cin >> ws;
+        getline(cin, answer);
+        try{
+            allowed = salesDomain.checkValidAnswer(answer);
+            answer1 = answer[0];
+        }
+        catch(InvalidInputException){
+            cout << "Invalid answer, please answer \'y\' or \'n\'" << endl;
+        }
+    }
+    return answer1;
+}
+
+void SalesUI::printLogo() {
+cout <<" ___ ____ _    ____  ___ " << endl;
+cout <<"[__  |__| |    |___ [__  " << endl;
+cout <<"___] |  | |___ |___ ___] " << endl;
+}
