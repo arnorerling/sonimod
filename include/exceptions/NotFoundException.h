@@ -2,6 +2,8 @@
 #define NOTFOUNDEXCEPTION_H
 
 
-class NotFoundException { };
+class NotFoundException
+{
+};
 
 #endif // NOTFOUNDEXCEPTION_H

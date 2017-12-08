@@ -22,7 +22,7 @@ bool ManagerDomain::addPizza(const Pizza &pizza) {
             {
                 pizzas[i] = pizza;
                 managerRep.changePizzaList(pizzas);
-                throw PizzaChangedException();
+                throw ItemChangedException();
             }
         }
     }
@@ -38,7 +38,7 @@ bool ManagerDomain::addCrust(const Crust &crust) {
             if(crusts[i].getInches() == crust.getInches()) {
                 crusts[i] = crust;
                 managerRep.changeCrustList(crusts);
-                throw CrustChangedException();
+                throw ItemChangedException();
             }
         }
     }
@@ -53,7 +53,7 @@ bool ManagerDomain::addTopping(const Topping &topping) {
         if (toppings[i].getName() == topping.getName()) {
             toppings[i] = topping;
             managerRep.changeToppingList(toppings);
-            throw ToppingChangedException();
+            throw ItemChangedException();
         }
     }
     managerRep.addTopping(topping);
@@ -68,7 +68,7 @@ bool ManagerDomain::addDrink(const Drink &drink) {
             if (drinks[i].getLiter() == drink.getLiter()){
                 drinks[i] = drink;
                 managerRep.changeDrinkList(drinks);
-                throw DrinkChangedException();
+                throw ItemChangedException();
             }
         }
     }
@@ -83,7 +83,7 @@ bool ManagerDomain::addSidedish(const Sidedish &sidedish) {
         if (sidedishes[i].getName() == sidedish.getName()) {
             sidedishes[i] = sidedish;
             managerRep.changeSidedishList(sidedishes);
-            throw SidedishChangedException();
+            throw ItemChangedException();
         }
     }
     managerRep.addSidedish(sidedish);
@@ -100,6 +100,20 @@ bool ManagerDomain::addBranch(const Branch &branch) {
     managerRep.addBranch(branch);
     return true;
  }
+
+bool ManagerDomain::addUser(const Username &user) {
+    vector<Username> users = managerRep.getUsers();
+
+    for (int i = 0; i < users.size(); i++){
+        if (users[i].getName() == user.getName()) {
+            users[i] = user;
+            managerRep.changeUsersList(users);
+            throw ItemChangedException();
+        }
+    }
+    managerRep.addUser(user);
+    return true;
+}
 
 
 vector<Pizza> ManagerDomain::printPizza() {
@@ -145,7 +159,7 @@ bool ManagerDomain::removePizza(const Pizza &pizza) {
     }
 
     if (pizzas == newPizzas) {
-        throw PizzaNotAvailableException();
+        throw NotFoundException();
     }
 
     else {
@@ -165,7 +179,7 @@ bool ManagerDomain::removeCrust(const Crust &crust) {
     }
 
     if (crusts == newCrusts) {
-        throw CrustNotAvailableException();
+        throw NotFoundException();
     }
 
     else {
@@ -185,7 +199,7 @@ bool ManagerDomain::removeTopping(const Topping &topping) {
     }
 
     if (toppings == newToppings) {
-        throw ToppingNotAvailableException();
+        throw NotFoundException();
     }
     else {
         managerRep.changeToppingList(newToppings);
@@ -203,7 +217,7 @@ bool ManagerDomain::removeDrink(const Drink &drink) {
         }
     }
     if (drinks == newDrinks) {
-        throw DrinkNotAvaliableException();
+        throw NotFoundException();
     }
     else {
         managerRep.changeDrinkList(newDrinks);
@@ -221,7 +235,7 @@ bool ManagerDomain::removeSidedish(const Sidedish &sidedish) {
         }
     }
     if (sidedishes == newSidedishes) {
-        throw SideDishNotAvailableException();
+        throw NotFoundException();
     }
     else {
         managerRep.changeSidedishList(newSidedishes);
@@ -239,7 +253,7 @@ bool ManagerDomain::removeBranch(const Branch &branch) {
         }
     }
     if (branches == newBranches) {
-        throw BranchNotAvailableException();
+        throw NotFoundException();
     }
     else {
         managerRep.changeBranchList(newBranches);
@@ -256,7 +270,7 @@ bool ManagerDomain::checkToppingAvaliability(const Topping &topping) {
             return true;
         }
     }
-    throw ToppingNotAvailableException();
+    throw NotFoundException();
 }
 
 
@@ -298,5 +312,42 @@ bool ManagerDomain::checkValidAnswer(const string &answer) {
         return true;
     }
     throw InvalidAnswerException();
+    return false;
+}
+
+bool ManagerDomain::checkValidUsername(const string &username) {
+
+    for(unsigned int i = 0; i < username.length(); i++){
+        if(username[i] == ' '){
+             throw InvalidNameException();
+        }
+    }
+    return true;
+}
+
+bool ManagerDomain::checkValidPassword(const string &password) {
+
+    int cDigit = 0;
+    for(unsigned int i = 0; i < password.length(); i++){
+        if(password[i] == ' '){
+             throw InvalidNameException();
+        }
+        if(isdigit(password[i])) {
+            cDigit ++;
+        }
+    }
+
+    if (cDigit < 2) {
+        throw InvalidNameException();
+    }
+    return true;
+}
+
+bool ManagerDomain::checkValidJob(const string &job) {
+     if (job == "1" || job == "2" || job == "3" || job == "4"){
+        return true;
+    }
+
+    throw InvalidInputException();
     return false;
 }

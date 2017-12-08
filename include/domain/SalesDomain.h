@@ -1,12 +1,9 @@
 #ifndef SALESDOMAIN_H
 #define SALESDOMAIN_H
 
+#include "NotFoundException.h"
+
 #include "SalesRep.h"
-#include "DrinkNotAvailableException.h"
-#include "SizeNotAvailableException.h"
-#include "SideDishNotAvailableException.h"
-#include "ToppingNotAvailableException.h"
-#include "CrustNotAvailableException.h"
 #include "InvalidNameException.h"
 #include "InvalidPhoneNumberException.h"
 #include "LengthNotRightException.h"

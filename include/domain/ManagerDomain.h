@@ -2,19 +2,10 @@
 #define MANAGERDOMAIN_H
 #include "ManagerRep.h"
 
-#include "PizzaChangedException.h"
-#include "CrustChangedException.h"
-#include "ToppingChangedException.h"
-#include "SidedishChangedException.h"
-#include "DrinkChangedException.h"
-#include "BranchExistsException.h"
+#include "ItemChangedException.h"
+#include "NotFoundException.h"
 
-#include "PizzaNotAvailableException.h"
-#include "CrustNotAvailableException.h"
-#include "ToppingNotAvailableException.h"
-#include "DrinkNotAvaliableException.h"
-#include "SideDishNotAvailableException.h"
-#include "BranchNotAvailableException.h"
+#include "BranchExistsException.h"
 
 #include "InvalidNameException.h"
 #include "InvalidPriceException.h"
@@ -27,6 +18,7 @@
 #include "Drink.h"
 #include "Sidedish.h"
 #include "Branch.h"
+#include "Username.h"
 #include <string>
 #include <vector>
 #include <stdlib.h>
@@ -48,6 +40,7 @@ class ManagerDomain
         bool addDrink(const Drink &drink);
         bool addSidedish(const Sidedish &sidedish);
         bool addBranch(const Branch &branch);
+        bool addUser(const Username &user);
 
         vector<Pizza> printPizza();
         vector<Crust> printCrust();
@@ -68,6 +61,9 @@ class ManagerDomain
         int  checkValidPrice(const string &price);
         bool checkValidInput(const string &input);
         bool checkValidAnswer(const string &answer);
+        bool checkValidUsername(const string &username);
+        bool checkValidPassword(const string &password);
+        bool checkValidJob(const string &job);
 
 };
 

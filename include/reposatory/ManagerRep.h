@@ -6,6 +6,7 @@
 #include "Topping.h"
 #include "Sidedish.h"
 #include "Branch.h"
+#include "Username.h"
 #include <vector>
 
 class ManagerRep
@@ -18,6 +19,7 @@ class ManagerRep
         void addDrink(const Drink &drink);
         void addSidedish(const Sidedish &sidedish);
         void addBranch(const Branch &branch);
+        void addUser(const Username &user);
 
         vector<Pizza> getPizza();
         vector<Crust> getCrust();
@@ -25,6 +27,7 @@ class ManagerRep
         vector<Drink> getDrink();
         vector<Sidedish> getSidedish();
         vector<Branch> getBranch();
+        vector<Username> getUsers();
 
         void changePizzaList(vector<Pizza> &pizzas);
         void changeCrustList(vector<Crust> &crusts);
@@ -32,6 +35,7 @@ class ManagerRep
         void changeSidedishList(vector<Sidedish> &sidedishes);
         void changeDrinkList(vector<Drink> &drinks);
         void changeBranchList(vector<Branch> &branch);
+        void changeUsersList(vector<Username> &users);
 };
 
 #endif // MANAGERREP_H

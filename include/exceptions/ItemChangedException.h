@@ -1,0 +1,9 @@
+#ifndef ITEMCHANGEDEXCEPTION_H
+#define ITEMCHANGEDEXCEPTION_H
+
+
+class ItemChangedException
+{
+};
+
+#endif // ITEMCHANGEDEXCEPTION_H

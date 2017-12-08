@@ -1,6 +1,7 @@
 #ifndef MAINUI_H
 #define MAINUI_H
 #include "MainDomain.h"
+#include "Username.h"
 
 class MainUI
 {
@@ -9,8 +10,10 @@ class MainUI
     public:
         MainUI();
         void start();
+        void login();
 
         char checkInput();
+        Username checkUser();
 };
 
 #endif // MAINUI_H

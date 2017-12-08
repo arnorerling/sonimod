@@ -55,10 +55,10 @@ bool SalesDomain::checkDrinkAvailability(Drink& drink){
                     return true;
                 }
             }
-            throw SizeNotAvailableException();
+            throw NotFoundException();
         }
     }
-    throw DrinkNotAvailableException();
+    throw NotFoundException();
 }
 
 bool SalesDomain::checkSidedishAvailability(Sidedish& sidedish){
@@ -70,7 +70,7 @@ bool SalesDomain::checkSidedishAvailability(Sidedish& sidedish){
             return true;
         }
     }
-    throw SideDishNotAvailableException();
+    throw NotFoundException();
 }
 
 void SalesDomain::checkToppingAvailability(Topping& topping){
@@ -84,7 +84,7 @@ void SalesDomain::checkToppingAvailability(Topping& topping){
         }
     }
     if(!available){
-        throw ToppingNotAvailableException();
+        throw NotFoundException();
     }
 }
 
@@ -97,7 +97,7 @@ bool SalesDomain::checkCrustAvailability(Crust& crust){
             return true;
         }
     }
-    throw CrustNotAvailableException();
+    throw NotFoundException();
 }
 
 bool SalesDomain::checkBranchAvailability(string branch){

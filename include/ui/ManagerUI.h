@@ -34,6 +34,7 @@ class ManagerUI
         void addDrink();
         void addSide();
         void addBranch();
+        void addUser();
 
         void printCrust();
         void printTopping();
@@ -53,6 +54,9 @@ class ManagerUI
         int checkPrice();
         char checkAnswer();
         char checkInput();
+        string checkUsername();
+        string checkPassword();
+        char checkJob();
 
         void printManLogo();
 };

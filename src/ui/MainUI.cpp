@@ -11,7 +11,29 @@ MainUI::MainUI()
     //ctor
 }
 
+
+
 void MainUI::start() {
+    char answer = '\0';
+    while (answer != 2) {
+        cout << "1: Login" << endl;
+        cout << "2: Quit" << endl;
+        answer = checkInput();
+
+        switch (answer) {
+            case '1': login();
+            break;
+            case '2':
+            break;
+            default: cout << "Invalid input" << endl;
+        }
+    }
+}
+
+void MainUI::login() {
+
+    Username user = checkUser();
+
 
    char answer = '\0';
         cout << "------Main Menu------" << endl;
@@ -53,6 +75,32 @@ void MainUI::start() {
             default: cout << "Invalid input" << endl;
         }
     }
+}
+
+Username MainUI::checkUser() {
+    Username user;
+    string name = "";
+    string password = "";
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Username: " << endl;
+        cin >> ws;
+        getline(cin, name);
+        cout << "Password: " << endl;
+        cin >> ws;
+        getline(cin, password);
+        try{
+            user = mainDomain.checkUser(name, password);
+            allowed = true;
+        }
+        catch(SideDishNotAvailableException){
+            cout << "wrong password" << endl;
+        }
+    }
+    return user;
+
+
 }
 
 char MainUI::checkInput() {

@@ -73,8 +73,10 @@
 		<Unit filename="include/models/Pizza.h" />
 		<Unit filename="include/models/Sidedish.h" />
 		<Unit filename="include/models/Topping.h" />
+		<Unit filename="include/models/Username.h" />
 		<Unit filename="include/reposatory/BakerRep.h" />
 		<Unit filename="include/reposatory/DeliveryRep.h" />
+		<Unit filename="include/reposatory/MainRep.h" />
 		<Unit filename="include/reposatory/ManagerRep.h" />
 		<Unit filename="include/reposatory/SalesRep.h" />
 		<Unit filename="include/ui/BakerUI.h" />
@@ -83,6 +85,7 @@
 		<Unit filename="include/ui/ManagerUI.h" />
 		<Unit filename="include/ui/SalesUI.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Username.cpp" />
 		<Unit filename="src/domain/BakerDomain.cpp" />
 		<Unit filename="src/domain/DeliveryDomain.cpp" />
 		<Unit filename="src/domain/MainDomain.cpp" />
@@ -122,6 +125,7 @@
 		<Unit filename="src/models/Topping.cpp" />
 		<Unit filename="src/reposatory/BakerRep.cpp" />
 		<Unit filename="src/reposatory/DeliveryRep.cpp" />
+		<Unit filename="src/reposatory/MainRep.cpp" />
 		<Unit filename="src/reposatory/ManagerRep.cpp" />
 		<Unit filename="src/reposatory/SalesRep.cpp" />
 		<Unit filename="src/ui/BakerUI.cpp" />

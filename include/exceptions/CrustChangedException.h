@@ -1,9 +1,0 @@
-#ifndef CRUSTCHANGEDEXCEPTION_H
-#define CRUSTCHANGEDEXCEPTION_H
-
-
-class CrustChangedException
-{
-};
-
-#endif // CRUSTCHANGEDEXCEPTION_H

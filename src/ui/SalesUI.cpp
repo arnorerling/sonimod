@@ -147,10 +147,10 @@ void SalesUI::addDrink(){
             available = salesDomain.checkDrinkAvailability(drink);
             this->order.addDrink(drink);
         }
-        catch(DrinkNotAvailableException){
+        catch(NotFoundException){
             cout << "Drink not available!" << endl;
         }
-        catch(SizeNotAvailableException){
+        catch(NotFoundException){
             cout << "Size not available!" << endl;
         }
     }
@@ -169,7 +169,7 @@ void SalesUI::addSidedish(){
             available = salesDomain.checkSidedishAvailability(sidedish);
             this->order.addSideDish(sidedish);
         }
-        catch(SideDishNotAvailableException){
+        catch(NotFoundException){
             cout << "Sidesish not available!" << endl;
         }
     }
@@ -198,7 +198,7 @@ void SalesUI::addCrust(Pizza &pizza){
             available = salesDomain.checkCrustAvailability(crust);
             pizza.addCrust(crust);
         }
-        catch(CrustNotAvailableException){
+        catch(NotFoundException){
             cout << "Crust not available!" << endl;
         }
     }
@@ -218,7 +218,7 @@ void SalesUI::addToppings(Pizza &pizza){
             salesDomain.checkToppingAvailability(topping);
             pizza.addTopping(topping);
         }
-        catch(ToppingNotAvailableException){
+        catch(NotFoundException){
             cout << "Topping not avaliable!" << endl;
         }
         bool allowed = false;

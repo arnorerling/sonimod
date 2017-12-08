@@ -1,9 +1,0 @@
-#ifndef PIZZACHANGEDEXCEPTION_H
-#define PIZZACHANGEDEXCEPTION_H
-
-
-class PizzaChangedException
-{
-};
-
-#endif // PIZZACHANGEDEXCEPTION_H

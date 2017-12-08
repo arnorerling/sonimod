@@ -39,6 +39,7 @@ void ManagerUI::addChangeMenu() {
         cout << "4: Drink" << endl;
         cout << "5: Sidedish" << endl;
         cout << "6: Branch" << endl;
+        cout << "7: User" << endl;
         cout << "7: Quit" << endl;
         cout << "--------------------" << endl;
 
@@ -69,6 +70,7 @@ void ManagerUI::addChangeMenu() {
                 addBranch();
                 break;
             case '7':
+                addUser();
                 break;
             default:
                 cout << "Invalid input" << endl;
@@ -144,7 +146,7 @@ void ManagerUI::addPizza() {
             pizza.addTopping(topping);
             cout << "Add another topping? (y/n): ";
         }
-        catch(ToppingNotAvailableException){
+        catch(NotFoundException){
             cout << "Topping not avaliable!" << endl;
             cout << "Try another topping? (y/n): ";
         }
@@ -159,7 +161,7 @@ void ManagerUI::addPizza() {
         try {
             managerDomain.addPizza(pizza);
         }
-        catch(PizzaChangedException) {
+        catch(ItemChangedException) {
             cout << "price of pizza \"" << pizza.getName();
             cout << "\" of size " << pizza.getCrustSize();
             cout << " has been changed" << endl;
@@ -179,7 +181,7 @@ void ManagerUI::addCrust() {
         try {
         managerDomain.addCrust(crust);
         }
-        catch(CrustChangedException) {
+        catch(ItemChangedException) {
             cout << "price of crust \"" << crust.getName();
             cout << "\" of size " << crust.getInches();
             cout << " has been changed" << endl;
@@ -196,7 +198,7 @@ void ManagerUI::addTopping() {
     try {
         managerDomain.addTopping(topping);
     }
-    catch(ToppingChangedException) {
+    catch(ItemChangedException) {
         cout << "price of topping \"" << topping.getName();
         cout << "\" has been changed" << endl;
 
@@ -215,7 +217,7 @@ void ManagerUI::addDrink() {
         try {
             managerDomain.addDrink(drink);
         }
-        catch(DrinkChangedException) {
+        catch(ItemChangedException) {
             cout << "price of drink \"" << drink.getName();
             cout << "\" of size " << drink.getLiter();
             cout << " has been changed" << endl;
@@ -231,7 +233,7 @@ void ManagerUI::addSide() {
     try {
         managerDomain.addSidedish(sidedish);
     }
-    catch(SidedishChangedException) {
+    catch(ItemChangedException) {
         cout << "price of sidedish \"" << sidedish.getName();
         cout << "\" has been changed" << endl;
     }
@@ -247,6 +249,22 @@ void ManagerUI::addBranch() {
     }
     catch(BranchExistsException) {
         cout << "Branch already exists" << endl;
+    }
+}
+
+void ManagerUI::addUser() {
+    cout << "----Add Employee----" << endl;
+    string username = checkUsername();
+    string password = checkPassword();
+    char jobNumber = checkJob();
+
+
+    Username user(username, password, jobNumber);
+    try {
+        managerDomain.addUser(user);
+    }
+    catch(ItemChangedException) {
+        cout << "User's password/job has been changed" << endl;
     }
 }
 
@@ -312,7 +330,7 @@ void ManagerUI::removeCrust() {
         managerDomain.removeCrust(crust);
         cout << "\"" << crust.getName() << "\" crust was removed" << endl;
     }
-    catch(CrustNotAvailableException) {
+    catch(NotFoundException) {
         cout << "This crust \"" << crust.getName();
         cout << "\" is not on the list" << endl;
     }
@@ -327,7 +345,7 @@ void ManagerUI::removeTopping() {
         managerDomain.removeTopping(topping);
         cout << "\"" << topping.getName() << "\" topping was removed" << endl;
     }
-    catch(ToppingNotAvailableException) {
+    catch(NotFoundException) {
         cout << "This topping \"" << topping.getName();
         cout << "\" is not on the list" << endl;
     }
@@ -343,7 +361,7 @@ void ManagerUI::removePizza() {
         cout << "\"" << pizza.getName();
         cout << "\" pizza was removed" << endl;
     }
-    catch(PizzaNotAvailableException) {
+    catch(NotFoundException) {
         cout << "This pizza \"" << pizza.getName();
         cout << "\" is not on the list" << endl;
     }
@@ -359,7 +377,7 @@ void ManagerUI::removeDrink() {
         cout << "\"" << drink.getName();
         cout << "\" drink was removed" << endl;
     }
-    catch(DrinkNotAvaliableException) {
+    catch(NotFoundException) {
         cout << "This drink \"" << drink.getName();
         cout << "\" is not on the list" << endl;
     }
@@ -373,7 +391,7 @@ void ManagerUI::removeSide() {
         cout << "\"" << sidedish.getName();
         cout << "\" sidedish was removed" << endl;
     }
-    catch(SideDishNotAvailableException) {
+    catch(NotFoundException) {
         cout << "This sidedish \"" << sidedish.getName();
         cout << "\" is not on the list" << endl;
     }
@@ -388,7 +406,7 @@ void ManagerUI::removeBranch() {
         cout << "Restaurant at \"" << branch.getName();
         cout << "\" was removed" << endl;
     }
-    catch(BranchNotAvailableException) {
+    catch(NotFoundException) {
         cout << "Restaurant at \"" << branch.getName();
         cout << "\" is not on the list" << endl;
     }
@@ -470,6 +488,65 @@ char ManagerUI::checkAnswer() {
         }
     }
     return answer1;
+}
+
+string ManagerUI::checkUsername() {
+    string username = "";
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Username: ";
+        cin >> ws;
+        getline(cin, username);
+        try{
+            allowed = managerDomain.checkValidUsername(username);
+        }
+        catch(InvalidNameException){
+            cout << "Username must be one word" << endl;
+        }
+    }
+    return username;
+}
+
+string ManagerUI::checkPassword() {
+    string pw = "";
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Password: ";
+        cin >> ws;
+        getline(cin, pw);
+        try{
+            allowed = managerDomain.checkValidPassword(pw);
+        }
+        catch(InvalidNameException){
+            cout << "Password must be one word and include at least 2 numbers" << endl;
+        }
+    }
+    return pw;
+}
+
+char ManagerUI::checkJob() {
+    string job = "";
+    char job1 = '\0';
+    bool allowed = false;
+    cout << "---Choose Job----" << endl;
+    cout << "1: Manager" << endl;
+    cout << "2: Sales" << endl;
+    cout << "3: Baker" << endl;
+    cout << "4: Delivery" << endl;
+    while(!allowed){
+        cin >> ws;
+        getline(cin, job);
+        try{
+            allowed = managerDomain.checkValidJob(job);
+            job1 = job[0];
+        }
+        catch(InvalidInputException){
+            cout << "Invalid input, try again" << endl;
+        }
+    }
+    return job1;
 }
 
 void ManagerUI::printManLogo(){
