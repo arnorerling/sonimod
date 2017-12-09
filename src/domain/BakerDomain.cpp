@@ -15,17 +15,6 @@ void BakerDomain::toLowerCase(string &name) {
     }
 }
 
-bool BakerDomain::checkBranchAvaliability(string &branchName) {
-    vector<Branch> branches = getBranch();
-    for(unsigned int i = 0; i < branches.size(); i++){
-        if(branches[i].getName() == branchName) {
-            return true;
-        }
-    }
-    throw NotFoundException();
-}
-
-
 vector<Branch> BakerDomain::getBranch() {
     vector<Branch> branchList = bakerRep.getBranch();
     return branchList;
@@ -54,12 +43,58 @@ Order BakerDomain::getOneOrder(const string &number, const string &branch) {
     throw NotFoundException();
 }
 
-void BakerDomain::overWriteOrder(vector<Order> &order) {
-    bakerRep.ChangeOrderList(order);
+
+bool BakerDomain::markOrderInProcess(const Order &order) {
+    vector<Order> orderList = bakerRep.getOrders();
+    for (int i = 0; i < orderList.size(); i++) {
+        if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
+            if (orderList[i].getInProcess() == 1) {
+                throw AlreadyMarkedException();
+                return false;
+            }
+            else {
+                orderList[i].setInProcess(true);
+                bakerRep.changeOrderList(orderList);
+                return true;
+            }
+        }
+    }
 }
 
-void BakerDomain::markOrderAsReady(Order &order) {
-    bakerRep.addReadyOrder(order);
+bool BakerDomain::markOrderReady(const Order &order) {
+    vector<Order> orderList = bakerRep.getOrders();
+    vector<Order> newOrderList;
+    Order readyOrder;
+
+    for (int i = 0; i < orderList.size(); i++) {
+        if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
+            readyOrder = orderList[i];
+        }
+        else {
+            newOrderList.push_back(orderList[i]);
+        }
+    }
+
+    if (readyOrder.getInProcess() == 1) {
+        readyOrder.setReady(true);
+        bakerRep.addOrderReady(readyOrder);
+        bakerRep.changeOrderList(newOrderList);
+        return true;
+    }
+    else {
+        throw AlreadyMarkedException();
+        return false;
+    }
+}
+
+bool BakerDomain::checkBranchAvaliability(string &branchName) {
+    vector<Branch> branches = getBranch();
+    for(unsigned int i = 0; i < branches.size(); i++){
+        if(branches[i].getName() == branchName) {
+            return true;
+        }
+    }
+    throw NotFoundException();
 }
 
 bool BakerDomain::checkValidName(const string &name) {

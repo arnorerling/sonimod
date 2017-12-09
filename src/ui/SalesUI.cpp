@@ -14,6 +14,7 @@ void SalesUI::startUI() {
         select = '\0';
         cout << "------------------" << endl;
         cout << "1: Add Pizza" << endl;
+        cout << "2: Add pizza from menu" << endl;
         cout << "3: Add Sidedish" << endl;
         cout << "4: Add drink" << endl;
         cout << "5: Print order" << endl;
@@ -210,6 +211,7 @@ void SalesUI::addAddress(){
     }
     else {
         this->order.addCustomerAddress(address);
+        cout << order.getCustomerAddress() << endl;
     }
 
 }
@@ -219,10 +221,7 @@ void SalesUI::printPizzas(){
     salesDomain.getPizzas(pizzas);
     cout << "Pizza menu" << endl;
     for(unsigned int i = 0; i < pizzas.size(); i++){
-        cout << pizzas[i];
-        if(pizzas[i].getCrustSize() == 18) {
-                cout << endl;
-        }
+        cout << pizzas[i] << endl;
     }
 }
 

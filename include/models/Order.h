@@ -34,7 +34,6 @@ class Order {
         string getCustomerPhoneNumber() const;
         string getCustomerAddress() const;
         string getBranch() const;
-        bool getPickup();
 
         void addPizza(Pizza& pizza);
         void addSideDish(Sidedish& sidedish);
@@ -50,6 +49,12 @@ class Order {
         void setReady(bool ready);
         void setDeliverd(bool deliverd);
         void setPickup(bool pickup);
+
+        bool getPaidFor();
+        bool getInProcess();
+        bool getReady();
+        bool getDeliverd();
+        bool getPickup();
 
         friend ostream& operator << (ostream& out, Order& order);
         int getTotal();

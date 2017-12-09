@@ -67,6 +67,22 @@ string Order::getBranch() const{
     return this->branch;
 }
 
+bool Order::getPaidFor() {
+    return paidFor;
+}
+bool Order::getInProcess() {
+    return inProcess;
+}
+bool Order::getReady() {
+    return ready;
+}
+bool Order::getDeliverd() {
+    return deliverd;
+}
+bool Order::getPickup() {
+    return pickup;
+}
+
 
 ostream& operator << (ostream& out, Order& order){
     out << "------------------------------------------------------" << endl;
@@ -96,52 +112,46 @@ ostream& operator << (ostream& out, Order& order){
 
     out << "Order total: " << order.getTotal() << endl;
 
-
-    if(order.pickup){
-        out << "Send order, address: " << order.getCustomerAddress() << endl;
-    }
-    else {
-        out << "Order will be picked up." << endl;
-    }
-
-    cout << "Been paid for: ";
+    out << "Been paid for: ";
     if(order.paidFor) {
-        cout << "Yes!" << endl;
+        out << "Yes!" << endl;
     }
     else {
-        cout << "No!" << endl;
+        out << "No!" << endl;
     }
-    cout << "In process: ";
+    out << "In process: ";
     if (order.inProcess) {
-        cout << "Yes!" << endl;
+        out << "Yes!" << endl;
     }
     else {
-        cout << "No!" << endl;
+        out << "No!" << endl;
     }
-    cout << "Is ready: " << endl;
+    out << "Is ready: ";
     if (order.ready) {
-        cout << "Yes!" << endl;
+        out << "Yes!" << endl;
     }
     else {
-        cout << "No!" << endl;
+        out << "No!" << endl;
     }
-    cout << "Been ";
+    out << "Been ";
     if (order.pickup) {
-        cout << "picked up: ";
+        out << "picked up at ";
+        out << order.branch << ": ";
         if (order.deliverd) {
-            cout << "Yes!" << endl;
+            out << "Yes!" << endl;
         }
         else {
-            cout << "No!" << endl;
+            out << "No!" << endl;
         }
     }
     else {
-        cout << "delivered: ";
+        out << "delivered to address ";
+        out << order.customerAddress << ": ";
         if (order.deliverd) {
-            cout << "Yes!" << endl;
+            out << "Yes!" << endl;
         }
         else {
-            cout << "No!" << endl;
+            out << "No!" << endl;
         }
     }
     return out;
@@ -166,9 +176,11 @@ void Order::write(ofstream& fout) const {
     int strLen = customerName.length() + 1;
     fout.write((char*)(&strLen), sizeof(int));
     fout.write(customerName.c_str(), strLen);
+
     int strLen1 = phoneNumber.length() + 1;
     fout.write((char*)(&strLen1), sizeof(int));
     fout.write(phoneNumber.c_str(), strLen1);
+
     int strLen2 = branch.length() + 1;
     fout.write((char*)(&strLen2), sizeof(int));
     fout.write(branch.c_str(), strLen2);
@@ -195,12 +207,11 @@ void Order::write(ofstream& fout) const {
     }
 
     fout.write((char*)(&totalPrice), sizeof(int));
-
     fout.write((char*)(&paidFor), sizeof(char));
-
+    fout.write((char*)(&inProcess), sizeof(char));
     fout.write((char*)(&ready), sizeof(char));
-
     fout.write((char*)(&deliverd), sizeof(char));
+    fout.write((char*)(&pickup), sizeof(char));
 
 }
 
@@ -252,13 +263,11 @@ void Order::read(ifstream& fin) {
     }
 
     fin.read((char*)(&totalPrice), sizeof(int));
-
     fin.read((char*)(&paidFor), sizeof(char));
-
+    fin.read((char*)(&inProcess), sizeof(char));
     fin.read((char*)(&ready), sizeof(char));
-
     fin.read((char*)(&deliverd), sizeof(char));
-
+    fin.read((char*)(&pickup), sizeof(char));
 
     delete[] str;
     delete[] str1;

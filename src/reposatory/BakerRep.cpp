@@ -45,8 +45,7 @@ vector<Order> BakerRep::getOrders() {
     return orders;
 }
 
-void BakerRep::ChangeOrderList(vector<Order> &orders) {
-
+void BakerRep::changeOrderList(vector<Order> &orders) {
     ofstream fout;
     fout.open("Order_Binary.dat", ios::binary);
     if(fout.is_open()) {
@@ -60,10 +59,9 @@ void BakerRep::ChangeOrderList(vector<Order> &orders) {
     }
 }
 
-void BakerRep::addReadyOrder(Order &order) {
-
+void BakerRep::addOrderReady(Order &order) {
     ofstream fout;
-    fout.open("Ready_Order_Binary.dat", ios::binary|ios::app);
+    fout.open("OrderReady_Binary.dat", ios::binary|ios::app);
     if(fout.is_open()) {
         order.write(fout);
         fout.close();

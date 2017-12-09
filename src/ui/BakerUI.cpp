@@ -25,15 +25,28 @@ void BakerUI::startUI() {
             break;
             case '2': printOneOrder();
             break;
-            case '3': //markReady();
+            case '3': markInProcess();
             break;
-            case '4': //printRestaurants();
+            case '4': markReady();
             break;
             case '5': cout << endl;
             default: cout << "Invalid input" << endl;
         }
     }
+}
 
+void BakerUI::chooseRestaurant() {
+    bool available = false;
+    while(!available ){
+        cout << "Choose restaurant? ";
+        this->branch = checkName();
+        try{
+            available = bakerDomain.checkBranchAvaliability(branch);
+        }
+        catch(NotFoundException){
+            cout << "This restaurant is not available" << endl;
+        }
+    }
 }
 
 void BakerUI::printRestaurants() {
@@ -56,78 +69,59 @@ void BakerUI::printOrders() {
     cout << "-----------------------" << endl;
 }
 
-void BakerUI::printOneOrder() {
+void BakerUI:: printOneOrder() {
+    Order order = findOrder();
+    cout << order << endl;
+}
+
+
+void BakerUI::markInProcess() {
     bool available = false;
+    while (!available) {
+        Order order = findOrder();
+        try {
+            available = bakerDomain.markOrderInProcess(order);
+            cout << "Order has been marked in process" << endl;
+
+        }
+        catch(AlreadyMarkedException) {
+            cout << "This order is already in process" << endl;
+        }
+    }
+}
+
+void BakerUI::markReady() {
+    bool available = false;
+    while (!available) {
+        Order order = findOrder();
+        try {
+            available = bakerDomain.markOrderReady(order);
+            cout << "Order has been marked ready" << endl;
+
+        }
+        catch(AlreadyMarkedException) {
+            cout << "This order has go through \"in process\" ";
+            cout << "before it cant be marked as ready"<< endl;
+        }
+    }
+}
+
+Order BakerUI::findOrder() {
+    bool available = false;
+    Order order;
     while (!available) {
         cout << "Order #: ";
         string number = checkNumber();
         try {
-            Order order = bakerDomain.getOneOrder(number, branch);
-            cout << order << endl;
+            order = bakerDomain.getOneOrder(number, branch);
             available = true;
         }
         catch(NotFoundException) {
             cout << "This number is not on the list, try again" << endl;
         }
     }
+    return order;
 }
-
-void BakerUI::chooseRestaurant() {
-    bool available = false;
-    while(!available ){
-        cout << "Choose restaurant? ";
-        this->branch = checkName();
-        try{
-            available = bakerDomain.checkBranchAvaliability(branch);
-        }
-        catch(NotFoundException){
-            cout << "This restaurant is not available" << endl;
-        }
-    }
-}
-
-/*void BakerUI::initOrdersInBranch() {
-    ordersInBranch = 0;
-    bakerDomain.getOrder(orders);
-    for(unsigned int i = 0; i < orders.size(); i++){
-        if(orders[i].getBranch() == branch.getName()){
-            ordersInBranch++;
-        }
-    }
-}
-
-void BakerUI::orderOptions() {
-    int orderOptionChoice = 0;
-    while(orderOptionChoice != (ordersInBranch + 1) ) {
-        printOrderOptions();
-        cin >> orderOptionChoice;
-
-        if(orderOptionChoice != (ordersInBranch + 1) ) {
-            if(orderOptionChoice > 0 && orderOptionChoice <= ordersInBranch) {
-                int branchOrderCount = 0;
-                int totalOrderNumber = 0;
-                while(branchOrderCount < orderOptionChoice) {
-                    if(orders[totalOrderNumber].getBranch() == branch.getName()) {
-                        branchOrderCount++;
-                    }
-                    totalOrderNumber++;
-                }
-                orders[totalOrderNumber - 1].setReady(true);
-                bakerDomain.markOrderAsReady(orders[totalOrderNumber - 1]);
-                orders.erase(orders.begin() + totalOrderNumber);
-                bakerDomain.overWriteOrder(orders);
-                printOverwriteConfirmation(orderOptionChoice);
-            }
-            else {
-                cout << "Invalid input" << endl;
-            }
-        }
-    }
-}
-
-void BakerUI::printOverwriteConfirmation(int orderNumber) {
-    cout << "Order no. " << orderNumber << " overwritten" << endl;
-}*/
 
 string BakerUI::checkName() {
     string name = "";

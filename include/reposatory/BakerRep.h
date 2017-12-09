@@ -13,10 +13,9 @@ class BakerRep
         BakerRep();
         vector<Branch> getBranch();
         vector<Order> getOrders();
-        Order getOneOrder(const string &number, const string &branch);
-        void ChangeOrderList(vector<Order> &orders);
-        void addReadyOrder(Order &order);
 
+        void changeOrderList(vector<Order> &orders);
+        void addOrderReady(Order &order);
 };
 
 #endif // BAKERREP_H

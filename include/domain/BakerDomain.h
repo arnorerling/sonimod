@@ -5,6 +5,7 @@
 #include "Branch.h"
 #include "NotFoundException.h"
 #include "InvalidInputException.h"
+#include "AlreadyMarkedException.h"
 
 using namespace std;
 
@@ -21,16 +22,13 @@ class BakerDomain
         vector<Order> getOrders(const string &branch);
         Order getOneOrder(const string &number, const string &branch);
 
-        void overWriteOrder(vector<Order> &order);
-        void markOrderAsReady(Order &order);
-        bool checkBranchAvaliability(string &branchName);
+        bool markOrderInProcess(const Order &order);
+        bool markOrderReady(const Order &order);
 
+        bool checkBranchAvaliability(string &branchName);
         bool checkValidName(const string &name);
         bool checkValidInput(const string &input);
         bool isValidNumber(const string num);
-
-
-
 };
 
 #endif // BAKERDOMAIN_H

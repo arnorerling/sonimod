@@ -16,22 +16,15 @@ class BakerUI
 
         BakerUI();
         void startUI();
+        void chooseRestaurant();
 
         void printRestaurants();
         void printOrders();
         void printOneOrder();
+        Order findOrder();
 
-        void initOrdersInBranch();
-
-
-        void chooseRestaurant();
-
-        void bakerChoices();
-
-        void orderOptions();
-
-
-        void printOverwriteConfirmation(int orderNumber);
+        void markInProcess();
+        void markReady();
 
         string checkName();
         char checkInput();
