@@ -16,37 +16,44 @@ Order::Order()
 void Order::addPizza(Pizza& pizza){
     this->pizzas.push_back(pizza);
 }
-
 void Order::addSideDish(Sidedish& sidedish){
     this->sideDishes.push_back(sidedish);
 }
-
 void Order::addDrink(Drink& drink){
     this->drinks.push_back(drink);
 }
 
+
 void Order::addCustomerName(string name){
     this->customerName = name;
 }
-void Order::addBranch(string branch){
-    this->branch = branch;
-}
-
 void Order::addCustomerPhoneNum(string num){
     this->phoneNumber = num;
 }
 void Order::addCustomerAddress(string address){
     this->customerAddress = address;
 }
+void Order::addBranch(string branch){
+    this->branch = branch;
+}
+
+void Order::setPaidFor(bool paidFor) {
+    this->paidFor = paidFor;
+}
+void Order::setInProcess(bool inProcess) {
+    this->inProcess = inProcess;
+}
 void Order::setReady(bool ready) {
     this->ready = ready;
 }
-void Order::setAddress(string address){
-    this->customerAddress = address;
+void Order::setDeliverd(bool deliverd) {
+    this->deliverd = deliverd;
 }
-void Order::setPickup(bool pickup){
+void Order::setPickup(bool pickup) {
     this->pickup = pickup;
 }
+
+
 string Order::getCustomerName() const{
     return this->customerName;
 }
@@ -59,9 +66,8 @@ string Order::getCustomerAddress() const{
 string Order::getBranch() const{
     return this->branch;
 }
-bool Order::getPickup(){
-    return this->pickup;
-}
+
+
 ostream& operator << (ostream& out, Order& order){
     out << "------------------------------------------------------" << endl;
     out << "Customer Name: " << order.getCustomerName() << endl;
@@ -90,11 +96,53 @@ ostream& operator << (ostream& out, Order& order){
 
     out << "Order total: " << order.getTotal() << endl;
 
-    if(!order.getPickup()){
-        out << "Order will be picked up." << endl;
+
+    if(order.pickup){
+        out << "Send order, address: " << order.getCustomerAddress() << endl;
     }
     else {
-        out << "Send order, address: " << order.getCustomerAddress() << endl;
+        out << "Order will be picked up." << endl;
+    }
+
+    cout << "Been paid for: ";
+    if(order.paidFor) {
+        cout << "Yes!" << endl;
+    }
+    else {
+        cout << "No!" << endl;
+    }
+    cout << "In process: ";
+    if (order.inProcess) {
+        cout << "Yes!" << endl;
+    }
+    else {
+        cout << "No!" << endl;
+    }
+    cout << "Is ready: " << endl;
+    if (order.ready) {
+        cout << "Yes!" << endl;
+    }
+    else {
+        cout << "No!" << endl;
+    }
+    cout << "Been ";
+    if (order.pickup) {
+        cout << "picked up: ";
+        if (order.deliverd) {
+            cout << "Yes!" << endl;
+        }
+        else {
+            cout << "No!" << endl;
+        }
+    }
+    else {
+        cout << "delivered: ";
+        if (order.deliverd) {
+            cout << "Yes!" << endl;
+        }
+        else {
+            cout << "No!" << endl;
+        }
     }
     return out;
 }

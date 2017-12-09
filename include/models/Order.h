@@ -35,16 +35,22 @@ class Order {
         string getCustomerAddress() const;
         string getBranch() const;
         bool getPickup();
+
         void addPizza(Pizza& pizza);
         void addSideDish(Sidedish& sidedish);
         void addDrink(Drink& drink);
+
         void addCustomerName(string name);
         void addCustomerPhoneNum(string num);
         void addCustomerAddress(string address);
         void addBranch(string branch);
+
+        void setPaidFor(bool paidFor);
+        void setInProcess(bool inProcess);
         void setReady(bool ready);
+        void setDeliverd(bool deliverd);
         void setPickup(bool pickup);
-        void setAddress(string address);
+
         friend ostream& operator << (ostream& out, Order& order);
         int getTotal();
         void write(ofstream& fout) const;

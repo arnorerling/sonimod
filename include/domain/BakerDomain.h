@@ -29,6 +29,8 @@ class BakerDomain
         bool checkValidInput(const string &input);
         bool isValidNumber(const string num);
 
+
+
 };
 
 #endif // BAKERDOMAIN_H
