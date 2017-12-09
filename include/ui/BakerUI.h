@@ -10,8 +10,7 @@ class BakerUI
     private:
 
         BakerDomain bakerDomain;
-        Branch branch;
-        int ordersInBranch;
+        string branch;
 
     public:
 
@@ -19,6 +18,8 @@ class BakerUI
         void startUI();
 
         void printRestaurants();
+        void printOrders();
+        void printOneOrder();
 
         void initOrdersInBranch();
 
@@ -29,12 +30,12 @@ class BakerUI
 
         void orderOptions();
 
-        void printOrders();
 
         void printOverwriteConfirmation(int orderNumber);
 
         string checkName();
         char checkInput();
+        string checkNumber();
 
 };
 

@@ -16,14 +16,19 @@ class BakerDomain
     public:
         BakerDomain();
         void toLowerCase(string &name);
-        void getBranch(vector<Branch> &branch);
-        void getOrder(vector<Order> &order);
+
+        vector<Branch> getBranch();
+        vector<Order> getOrders(const string &branch);
+        Order getOneOrder(const string &number, const string &branch);
+
         void overWriteOrder(vector<Order> &order);
         void markOrderAsReady(Order &order);
         bool checkBranchAvaliability(string &branchName);
 
         bool checkValidName(const string &name);
         bool checkValidInput(const string &input);
+        bool isValidNumber(const string num);
+
 };
 
 #endif // BAKERDOMAIN_H

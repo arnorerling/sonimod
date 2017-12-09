@@ -16,8 +16,7 @@ void BakerDomain::toLowerCase(string &name) {
 }
 
 bool BakerDomain::checkBranchAvaliability(string &branchName) {
-    vector<Branch> branches;
-    this->getBranch(branches);
+    vector<Branch> branches = getBranch();
     for(unsigned int i = 0; i < branches.size(); i++){
         if(branches[i].getName() == branchName) {
             return true;
@@ -27,12 +26,32 @@ bool BakerDomain::checkBranchAvaliability(string &branchName) {
 }
 
 
-void BakerDomain::getBranch(vector<Branch> &branch) {
-    bakerRep.getBranch(branch);
+vector<Branch> BakerDomain::getBranch() {
+    vector<Branch> branchList = bakerRep.getBranch();
+    return branchList;
 }
 
-void BakerDomain::getOrder(vector<Order> &order) {
-    bakerRep.getOrder(order);
+vector<Order> BakerDomain::getOrders(const string &branch) {
+    vector<Order> orderList = bakerRep.getOrders();
+    vector<Order> branchOrderList;
+
+    for (int i = 0; i < orderList.size(); i++) {
+        if (orderList[i].getBranch() == branch) {
+            branchOrderList.push_back(orderList[i]);
+        }
+    }
+    return branchOrderList;
+}
+
+Order BakerDomain::getOneOrder(const string &number, const string &branch) {
+    vector<Order> orderList = bakerRep.getOrders();
+
+    for (int i = 0; i < orderList.size(); i++) {
+        if (orderList[i].getBranch() == branch && orderList[i].getCustomerPhoneNumber() == number) {
+            return orderList[i];
+        }
+    }
+    throw NotFoundException();
 }
 
 void BakerDomain::overWriteOrder(vector<Order> &order) {
@@ -61,3 +80,11 @@ bool BakerDomain::checkValidInput(const string &input) {
     return false;
 }
 
+bool BakerDomain::isValidNumber(const string num){
+    for(unsigned int i = 0; i < num.length(); i++){
+        if(!isdigit(num[i]) || num.length() != 7){
+             throw InvalidInputException();
+        }
+    }
+    return true;
+}

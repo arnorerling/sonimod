@@ -5,7 +5,8 @@ BakerRep::BakerRep()
     //ctor
 }
 
-void BakerRep::getBranch(vector<Branch> &branches) {
+vector<Branch> BakerRep::getBranch() {
+    vector<Branch> branches;
     ifstream fin;
     fin.open("Branch_Binary.dat", ios::binary);
     if(fin.is_open()) {
@@ -21,9 +22,11 @@ void BakerRep::getBranch(vector<Branch> &branches) {
     else {
         cout << "File not open" << endl;
     }
+    return branches;
 }
 
-void BakerRep::getOrder(vector<Order> &orders) {
+vector<Order> BakerRep::getOrders() {
+    vector<Order> orders;
     ifstream fin;
     fin.open("Order_Binary.dat", ios::binary);
     if(fin.is_open()) {
@@ -39,6 +42,7 @@ void BakerRep::getOrder(vector<Order> &orders) {
     else {
         cout << "File not open" << endl;
     }
+    return orders;
 }
 
 void BakerRep::ChangeOrderList(vector<Order> &orders) {
