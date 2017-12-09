@@ -5,35 +5,39 @@ BakerRep::BakerRep()
     //ctor
 }
 
-void BakerRep::getBranch(vector<Branch> &branch) {
-
+void BakerRep::getBranch(vector<Branch> &branches) {
     ifstream fin;
     fin.open("Branch_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
-            Branch currBranch;
-            currBranch.read(fin);
+            Branch branch;
+            branch.read(fin);
             if(!fin.eof()){
-            branch.push_back(currBranch);
+            branches.push_back(branch);
             }
         }
         fin.close();
     }
+    else {
+        cout << "File not open" << endl;
+    }
 }
 
-void BakerRep::getOrder(vector<Order> &order) {
-
+void BakerRep::getOrder(vector<Order> &orders) {
     ifstream fin;
     fin.open("Order_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
-            Order currOrder;
-            currOrder.read(fin);
+            Order order;
+            order.read(fin);
             if(!fin.eof()){
-            order.push_back(currOrder);
+            orders.push_back(order);
             }
         }
         fin.close();
+    }
+    else {
+        cout << "File not open" << endl;
     }
 }
 

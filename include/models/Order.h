@@ -23,6 +23,7 @@ class Order {
 
         int totalPrice;
         bool paidFor;
+        bool process;
         bool ready;
         bool deliverd;
 

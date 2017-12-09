@@ -11,8 +11,8 @@ class BakerRep
 
     public:
         BakerRep();
-        void getBranch(vector<Branch> &branch);
-        void getOrder(vector<Order> &order);
+        void getBranch(vector<Branch> &branches);
+        void getOrder(vector<Order> &orders);
         void ChangeOrderList(vector<Order> &orders);
         void addReadyOrder(Order &order);
 

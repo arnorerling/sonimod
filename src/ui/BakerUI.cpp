@@ -7,20 +7,33 @@ BakerUI::BakerUI() {
 }
 
 void BakerUI::startUI() {
-
     printRestaurants();
     chooseRestaurant();
-    bakerChoices();
-}
 
-void BakerUI::initOrdersInBranch() {
-    ordersInBranch = 0;
-    bakerDomain.getOrder(orders);
-    for(unsigned int i = 0; i < orders.size(); i++){
-        if(orders[i].getBranch() == branch.getName()){
-            ordersInBranch++;
+    char select = '\0';
+    while (select != '5') {
+        cout << "---------------------" << endl;
+        cout << "1: Print orderlist" << endl;
+        cout << "2: Choose order " << endl;
+        cout << "3: Mark order in process" << endl;
+        cout << "4: Myark order read" << endl;
+        cout << "5: Quit" << endl;
+        select = checkInput();
+
+        switch(select) {
+            case '1': //printOneOrder();
+            break;
+            case '2': //markInProcess();
+            break;
+            case '3': //markReady();
+            break;
+            case '4': //printRestaurants();
+            break;
+            case '5': cout << endl;
+            default: cout << "Invalid input" << endl;
         }
     }
+
 }
 
 void BakerUI::printRestaurants() {
@@ -34,18 +47,27 @@ void BakerUI::printRestaurants() {
     cout << "-----------------------" << endl;
 }
 
+void BakerUI::printOrders() {
+    cout << "----Order list----" << endl;
+    vector<Order> orderList;
+    bakerDomain.getOrder(orderList);
+    for(unsigned int i = 0; i < orderList.size(); i++){
+       if(orderList[i].getBranch() == this->branch.getName()) {
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
+            cout << "Name: " << orderList[i].getCustomerName() << endl;
+        }
+    }
+    cout << "-----------------------" << endl;
+}
+
 void BakerUI::chooseRestaurant() {
     bool available = false;
-    string name;
     while(!available ){
-        cout << "What restaurant would you like to choose? ";
-        cin >> ws;
-        getline(cin, name);
-
-        this->branch.setName(name);
-
+        cout << "Choose restaurant? ";
+        string name = checkName();
         try{
-            available = bakerDomain.checkBranchAvaliability(branch);
+            available = bakerDomain.checkBranchAvaliability(name);
+            this->branch.setName(name);
         }
         catch(NotFoundException){
             cout << "This restaurant is not available" << endl;
@@ -53,41 +75,14 @@ void BakerUI::chooseRestaurant() {
     }
 }
 
-void BakerUI::printChoices() {
-    cout << "What would you like to do?" << endl;
-    cout << "--------------------------" << endl;
-    cout << "1: View all orders" << endl;
-    cout << "2: Quit" << endl;
-
-}
-
-void BakerUI::bakerChoices() {
-    initOrdersInBranch();
-    char choice;
-    while(choice != '2') {
-        printChoices();
-        cin >> choice;
-        switch(choice) {
-        case '1':
-            if(ordersInBranch > 0) {
-                printOrders();
-                orderOptions();
-            }
-            else {
-                cout << "No orders" << endl;
-            }
-            break;
-        case '2':
-            break;
+/*void BakerUI::initOrdersInBranch() {
+    ordersInBranch = 0;
+    bakerDomain.getOrder(orders);
+    for(unsigned int i = 0; i < orders.size(); i++){
+        if(orders[i].getBranch() == branch.getName()){
+            ordersInBranch++;
         }
     }
-}
-
-void BakerUI::printOrderOptions() {
-    for(int i = 0; i < ordersInBranch; i++) {
-        cout << i + 1 << ": Mark order no. " << i + 1 << " as ready" << endl;
-    }
-    cout << ordersInBranch + 1 << ": Quit" << endl;
 }
 
 void BakerUI::orderOptions() {
@@ -119,17 +114,44 @@ void BakerUI::orderOptions() {
     }
 }
 
-void BakerUI::printOrders() {
-
-    cout << "----Order list----" << endl;
-    for(unsigned int i = 0; i < orders.size(); i++){
-        if(orders[i].getBranch() == branch.getName()){
-            cout << orders[i];
-        }
-    }
-    cout << "-----------------------" << endl;
-}
-
 void BakerUI::printOverwriteConfirmation(int orderNumber) {
     cout << "Order no. " << orderNumber << " overwritten" << endl;
+}*/
+
+string BakerUI::checkName() {
+    string name = "";
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Name: ";
+        cin >> ws;
+        getline(cin, name);
+        bakerDomain.toLowerCase(name);
+        try{
+            allowed = bakerDomain.checkValidName(name);
+        }
+        catch(InvalidInputException){
+            cout << "Name cant include numbers" << endl;
+        }
+    }
+    return name;
+}
+
+char BakerUI::checkInput() {
+    string input = "";
+    char input1 = '\0';
+    bool allowed = false;
+
+    while(!allowed){
+        cin >> ws;
+        getline(cin, input);
+        try{
+            allowed = bakerDomain.checkValidInput(input);
+            input1 = input[0];
+        }
+        catch(InvalidInputException){
+            cout << "Invalid input" << endl;
+        }
+    }
+    return input1;
 }
