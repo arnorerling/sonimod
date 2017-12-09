@@ -37,6 +37,7 @@ class Pizza {
         void addPizza();
 
         void setPrice();
+        void setName(string name);
         void setFixedPrice(int price);
         int getPrice();
         int getCrustSize() const;

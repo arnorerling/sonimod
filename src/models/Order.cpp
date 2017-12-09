@@ -3,7 +3,14 @@
 
 Order::Order()
 {
-    this->customerAddress="";
+    this->ready = false;
+    this->deliverd = false;
+    this->paidFor = false;
+    this->inProcess = false;
+    this->pickup = false;
+    this->branch = "";
+    this->customerAddress = "";
+
 }
 
 void Order::addPizza(Pizza& pizza){
@@ -28,27 +35,38 @@ void Order::addBranch(string branch){
 void Order::addCustomerPhoneNum(string num){
     this->phoneNumber = num;
 }
+void Order::addCustomerAddress(string address){
+    this->customerAddress = address;
+}
 void Order::setReady(bool ready) {
     this->ready = ready;
 }
-
 void Order::setAddress(string address){
     this->customerAddress = address;
 }
-string Order::getCustomerName(){
+void Order::setPickup(bool pickup){
+    this->pickup = pickup;
+}
+string Order::getCustomerName() const{
     return this->customerName;
 }
-string Order::getCustomerPhoneNumber(){
+string Order::getCustomerPhoneNumber() const{
     return this->phoneNumber;
 }
-string Order::getBranch(){
+string Order::getCustomerAddress() const{
+    return this->customerAddress;
+}
+string Order::getBranch() const{
     return this->branch;
 }
-
+bool Order::getPickup(){
+    return this->pickup;
+}
 ostream& operator << (ostream& out, Order& order){
     out << "------------------------------------------------------" << endl;
     out << "Customer Name: " << order.getCustomerName() << endl;
     out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
+
 
     if (order.pizzas.size() > 0) {
         out << "Pizzas: " << endl;
@@ -71,6 +89,13 @@ ostream& operator << (ostream& out, Order& order){
     }
 
     out << "Order total: " << order.getTotal() << endl;
+
+    if(!order.getPickup()){
+        out << "Order will be picked up." << endl;
+    }
+    else {
+        out << "Send order, address: " << order.getCustomerAddress() << endl;
+    }
     return out;
 }
 
