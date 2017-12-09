@@ -6,10 +6,10 @@ SalesRep::SalesRep()
 }
 
 void SalesRep::getPizzas(vector<Pizza>& pizzas) {
-    /*
+
     Pizza currPizza;
     ifstream fin;
-    fin.open("Pizza_Binary.dat", ios::binary);
+    fin.open("Pizzas_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
             currPizza.read(fin);
@@ -18,7 +18,9 @@ void SalesRep::getPizzas(vector<Pizza>& pizzas) {
             }
         }
         fin.close();
-    }*/
+    } else {
+        cout << "File not found" << endl;
+    }
 }
 
 void SalesRep::getDrinks(vector<Drink>& drinks) {

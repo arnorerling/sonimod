@@ -65,7 +65,7 @@ ostream& operator << (ostream& out,const Pizza& pizza) {
         out << pizza.toppings[i].getName() << ", ";
     }
     out << pizza.crust.getName();
-    out << pizza.price << "kr" << endl;
+    out << pizza.price << "kr" << "\t";
 
     return out;
 }
@@ -92,6 +92,10 @@ void Pizza::setPrice(){
         this->price += this->toppings[i].getPrice();
     }
     this->price += this->crust.getPrice();
+}
+
+void Pizza::setName(string name){
+    this->name = name;
 }
 
 void Pizza::setFixedPrice(int price){

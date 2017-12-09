@@ -27,6 +27,7 @@ class SalesDomain {
         bool isValidName(string name);
         bool isValidPhoneNumber(string num);
 
+        bool checkPizzaAvailability(string name, Pizza &pizza);
         bool checkDrinkAvailability(Drink& drink);
         bool checkSidedishAvailability(Sidedish& sidedish);
         void checkToppingAvailability(Topping& topping);

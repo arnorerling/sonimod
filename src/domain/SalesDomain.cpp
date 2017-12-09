@@ -44,6 +44,18 @@ bool SalesDomain::isValidPhoneNumber(string num){
     }
     return true;
 }
+
+bool SalesDomain::checkPizzaAvailability(string name, Pizza &pizza){
+    vector<Pizza> pizzas;
+    getPizzas(pizzas);
+    for(unsigned int i = 0; i < pizzas.size(); i++){
+        if(pizzas[i].getName() == name){
+            pizza.setFixedPrice(pizzas[i].getPrice());
+            return true;
+        }
+    }
+    throw NotFoundException();
+}
 bool SalesDomain::checkDrinkAvailability(Drink& drink){
     vector<Drink> drinks;
     getDrinks(drinks);

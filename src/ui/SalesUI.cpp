@@ -14,12 +14,12 @@ void SalesUI::startUI() {
         select = '\0';
         cout << "------------------" << endl;
         cout << "1: Add Pizza" << endl;
-        cout << "2: Add Sidedish" << endl;
-        cout << "3: Add drink" << endl;
-        cout << "4: Print order" << endl;
-        cout << "5: Get order total" << endl;
-        cout << "6: File order" << endl;
-        cout << "7: Quit" << endl;
+        cout << "3: Add Sidedish" << endl;
+        cout << "4: Add drink" << endl;
+        cout << "5: Print order" << endl;
+        cout << "6: Get order total" << endl;
+        cout << "7: File order" << endl;
+        cout << "8: Quit" << endl;
         cout << "------------------" << endl;
         cin >> select;
 
@@ -29,29 +29,34 @@ void SalesUI::startUI() {
                 break;
             }
             case '2': {
+                printPizzas();
+                addPizzaMenu();
+                break;
+            }
+            case '3': {
                 printSidedishes();
                 addSidedish();
                 break;
             }
-            case '3': {
+            case '4': {
                 printDrinks();
                 addDrink();
                 break;
             }
-            case '4': {
+            case '5': {
                 cout << this->order;
                 break;
             }
-            case '5': {
+            case '6': {
                 cout << "Order total: "<< this->order.getTotal() << endl;
                 break;
             }
-            case '6': {
+            case '7': {
                 fileOrder();
                 select = '7';
                 break;
             }
-            case '7': {
+            case '8': {
                 cout << endl;
                 break;
             }
@@ -71,11 +76,33 @@ void SalesUI::addCustomer(){
 
 void SalesUI::addPizza(){
     Pizza pizza;
-
     this->addCrust(pizza);
     this->addToppings(pizza);
     pizza.setPrice();
     order.addPizza(pizza);
+}
+
+void SalesUI::addPizzaMenu(){
+
+    Pizza pizza;
+    this->choosePizza(pizza);
+    this->addCrust(pizza);
+    order.addPizza(pizza);
+}
+
+void SalesUI::choosePizza(Pizza &pizza){
+    bool available = false;
+    while(!available) {
+        cout << "Pizza name: ";
+        string name = validName();
+        try{
+            available = salesDomain.checkPizzaAvailability(name, pizza);
+            pizza.setName(name);
+        }
+        catch(NotFoundException){
+            cout << "Pizza not available!" << endl;
+        }
+    }
 }
 
 void SalesUI::addCrust(Pizza &pizza){
@@ -157,14 +184,14 @@ void SalesUI::addSidedish(){
     }
 }
 
-void SalesUI::addBranch(Order &order){
+void SalesUI::addBranch(){
     bool found = false;
     while(!found){
         cout << "Restaurant name: ";
         string branch = validName();
         try{
         found = salesDomain.checkBranchAvailability(branch);
-        order.addBranch(branch);
+        this->order.addBranch(branch);
         }
         catch(NotFoundException){
             cout << "Branch not found" << endl;
@@ -172,14 +199,37 @@ void SalesUI::addBranch(Order &order){
     }
 }
 
+void SalesUI::addAddress(){
+    cout << "Customers address: ";
+    string address;
+    cin >> ws;
+    getline(cin, address);
+    salesDomain.toLowerCase(address);
+    if(address == ""){
+        this->order.setPickup(true);
+    }
+    else {
+        this->order.addCustomerAddress(address);
+    }
+
+}
+
 void SalesUI::printPizzas(){
-    cout << endl;
+    vector<Pizza> pizzas;
+    salesDomain.getPizzas(pizzas);
+    cout << "Pizza menu" << endl;
+    for(unsigned int i = 0; i < pizzas.size(); i++){
+        cout << pizzas[i];
+        if(pizzas[i].getCrustSize() == 18) {
+                cout << endl;
+        }
+    }
 }
 
 void SalesUI::printCrusts(){
     vector<Crust> crusts;
     salesDomain.getCrusts(crusts);
-    cout << "Crustslist" << endl;
+    cout << "Crust menu" << endl;
     for(unsigned int i = 0; i < crusts.size(); i++){
         cout << crusts[i];
     }
@@ -188,7 +238,7 @@ void SalesUI::printCrusts(){
 void SalesUI::printToppings(){
     vector<Topping> toppings;
     salesDomain.getToppings(toppings);
-    cout << "Toppingslist" << endl;
+    cout << "Toppings menu" << endl;
     for(unsigned int i = 0; i < toppings.size(); i++){
         cout << toppings[i];
     }
@@ -197,7 +247,7 @@ void SalesUI::printToppings(){
 void SalesUI::printDrinks() {
     vector<Drink> drinks;
     salesDomain.getDrinks(drinks);
-    cout << "Drinkslist" << endl;
+    cout << "Drink menu" << endl;
     for(unsigned int i = 0; i < drinks.size(); i++){
         cout << drinks[i];
     }
@@ -207,14 +257,15 @@ void SalesUI::printDrinks() {
 void SalesUI::printSidedishes() {
     vector<Sidedish> sidedishes;
     salesDomain.getSidedishes(sidedishes);
-    cout << "Sidedishlist" << endl;
+    cout << "Sidedish menu" << endl;
     for(unsigned int i = 0; i < sidedishes.size(); i++){
         cout << sidedishes[i];
     }
 }
 
 void SalesUI::fileOrder(){
-    addBranch(this->order);
+    addBranch();
+    addAddress();
     salesDomain.fileOrder(this->order);
     cout << "Order filed!" << endl;
 
@@ -272,7 +323,6 @@ int SalesUI::validNumber() {
         }
     }
     return number1;
-
 }
 
 char SalesUI::validAnswer() {
