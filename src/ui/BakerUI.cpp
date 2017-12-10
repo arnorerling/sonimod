@@ -7,6 +7,8 @@ BakerUI::BakerUI() {
 }
 
 void BakerUI::startUI() {
+    system("CLS");
+    printLogo();
     printRestaurants();
     chooseRestaurant();
 
@@ -16,7 +18,7 @@ void BakerUI::startUI() {
         cout << "1: Print orderlist" << endl;
         cout << "2: Choose order " << endl;
         cout << "3: Mark order in process" << endl;
-        cout << "4: Mark order read" << endl;
+        cout << "4: Mark order ready" << endl;
         cout << "5: Quit" << endl;
         select = checkInput();
 
@@ -71,18 +73,18 @@ void BakerUI::printOrders() {
 
 void BakerUI:: printOneOrder() {
     Order order = findOrder();
-    cout << order << endl;
+    if (order.getCustomerName() != "") {
+        cout << order << endl;
+    }
 }
 
 
 void BakerUI::markInProcess() {
-    bool available = false;
-    while (!available) {
-        Order order = findOrder();
+    Order order = findOrder();
+    if (order.getCustomerName() != "") {
         try {
-            available = bakerDomain.markOrderInProcess(order);
+            bakerDomain.markOrderInProcess(order);
             cout << "Order has been marked in process" << endl;
-
         }
         catch(MarkedInProcessException) {
             cout << "This order is already in process" << endl;
@@ -94,11 +96,10 @@ void BakerUI::markInProcess() {
 }
 
 void BakerUI::markReady() {
-    bool available = false;
-    while (!available) {
-        Order order = findOrder();
+    Order order = findOrder();
+    if (order.getCustomerName() != "") {
         try {
-            available = bakerDomain.markOrderReady(order);
+            bakerDomain.markOrderReady(order);
             cout << "Order has been marked ready" << endl;
         }
         catch(NotMarkedInProgressException) {
@@ -112,19 +113,15 @@ void BakerUI::markReady() {
 }
 
 Order BakerUI::findOrder() {
-    bool available = false;
     Order order;
-    while (!available) {
         cout << "Order #: ";
         string number = checkNumber();
         try {
             order = bakerDomain.getOneOrder(number, branch);
-            available = true;
         }
         catch(NotFoundException) {
-            cout << "This number is not on the list, try again" << endl;
+            cout << "This number is not on the list!" << endl;
         }
-    }
     return order;
 }
 
@@ -181,4 +178,10 @@ string BakerUI::checkNumber() {
         }
     }
     return number;
+}
+
+void BakerUI::printLogo() {
+cout << "___  ____ _  _ ____ ____ " << endl;
+cout << "|__] |__| |_/  |___ |__/ " << endl;
+cout << "|__] |  | | \\_ |___ |  \\ " << endl;
 }

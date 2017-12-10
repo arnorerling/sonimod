@@ -5,6 +5,7 @@ SalesUI::SalesUI(){
 
 }
 void SalesUI::startUI() {
+    system("CLS");
     printLogo();
     Order order;
     addCustomer();
@@ -344,7 +345,7 @@ char SalesUI::validAnswer() {
 }
 
 void SalesUI::printLogo() {
-cout <<" ___ ____ _    ____  ___ " << endl;
-cout <<"[__  |__| |    |___ [__  " << endl;
-cout <<"___] |  | |___ |___ ___] " << endl;
+cout << "____ ____ _    ____ ____ " << endl;
+cout << "[__  |__| |    |___ [__  " << endl;
+cout << "___] |  | |___ |___ ___] " << endl;
 }

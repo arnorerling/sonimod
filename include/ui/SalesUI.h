@@ -4,6 +4,7 @@
 #include "SalesDomain.h"
 #include <iostream>
 #include "Order.h"
+#include <cstdlib>
 
 using namespace std;
 

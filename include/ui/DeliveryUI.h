@@ -1,6 +1,7 @@
 #ifndef DELIVERYUI_H
 #define DELIVERYUI_H
 #include "DeliveryDomain.h"
+#include <cstdlib>
 
 class DeliveryUI
 {
@@ -25,6 +26,8 @@ class DeliveryUI
         char checkInput();
         string checkName();
         string checkNumber();
+
+        void printLogo();
 };
 
 #endif // DELIVERYUI_H

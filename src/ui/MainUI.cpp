@@ -65,8 +65,8 @@ void MainUI::mainMenu() {
         cout << "1: Mananger" << endl;
         cout << "2: Sales" << endl;
         cout << "3: Baker" << endl;
-        cout << "4: delivery" << endl;
-        cout << "5: quit" << endl;
+        cout << "4: Delivery" << endl;
+        cout << "5: Quit" << endl;
         cout << "---------------------" << endl;
         answer = checkInput();
         cout << answer << endl;

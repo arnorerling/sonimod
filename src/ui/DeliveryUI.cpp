@@ -5,7 +5,8 @@ DeliveryUI::DeliveryUI()
     //ctor
 }
 void DeliveryUI::startUI() {
-
+    system("CLS");
+    printLogo();
     printRestaurants();
     chooseRestaurant();
 
@@ -84,47 +85,49 @@ void DeliveryUI::printReadyOrders() {
 
 void DeliveryUI:: printOneOrder() {
     Order order = findOrder();
-    cout << order << endl;
+    if (order.getCustomerName() != "") {
+        cout << order << endl;
+    }
 }
 
 void DeliveryUI::markPaidFor() {
     Order order = findOrder();
-    try {
-        deliveryDomain.markOrderPaidFor(order);
-        cout << "Order has been paid for" << endl;
-    }
-    catch(MarkedPaidForException) {
-        cout << "This order has already been paid for" << endl;
+    if (order.getCustomerName() != "") {
+        try {
+            deliveryDomain.markOrderPaidFor(order);
+            cout << "Order has been paid for" << endl;
+        }
+        catch(MarkedPaidForException) {
+            cout << "This order has already been paid for" << endl;
+        }
     }
 }
 
 void DeliveryUI::markDelivered() {
     Order order = findOrder();
-    try {
-        deliveryDomain.markOrderDelivered(order);
-        cout << "Order has been delivered" << endl;
-    }
-    catch(NotMarkedReadyException) {
-        cout << "This order is not ready" << endl;
-    }
-    catch(NotMarkedPaidForException) {
-        cout << "This order has not been paid for" << endl;
+    if (order.getCustomerName() != "") {
+        try {
+            deliveryDomain.markOrderDelivered(order);
+            cout << "Order has been delivered" << endl;
+        }
+        catch(NotMarkedReadyException) {
+            cout << "This order is not ready" << endl;
+        }
+        catch(NotMarkedPaidForException) {
+            cout << "This order has not been paid for" << endl;
+        }
     }
 }
 
 Order DeliveryUI::findOrder() {
-    bool available = false;
     Order order;
-    while (!available) {
-        cout << "Order #: ";
-        string number = checkNumber();
-        try {
-            order = deliveryDomain.getOneOrder(number, branch);
-            available = true;
-        }
-        catch(NotFoundException) {
-            cout << "This number is not on the list, try again" << endl;
-        }
+    cout << "Order #: ";
+    string number = checkNumber();
+    try {
+        order = deliveryDomain.getOneOrder(number, branch);
+    }
+    catch(NotFoundException) {
+        cout << "This number is not on the list, try again" << endl;
     }
     return order;
 }
@@ -184,4 +187,12 @@ string DeliveryUI::checkNumber() {
     return number;
 }
 
+void DeliveryUI::printLogo() {
+
+cout << "___  ____ _    _ _  _ ____ ____ _   _ " << endl;
+cout << "|  \\ |___ |    | |  | |___ |__/  \_\/  " << endl;
+cout << "|__/ |___ |___ |  \\/  |___ |  \\   |   " << endl;
+
+
+}
 

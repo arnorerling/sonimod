@@ -4,6 +4,7 @@
 #include "BakerDomain.h"
 #include "Branch.h"
 #include <vector>
+#include <cstdlib>
 
 class BakerUI
 {
@@ -30,6 +31,7 @@ class BakerUI
         char checkInput();
         string checkNumber();
 
+        void printLogo();
 };
 
 #endif // BAKERUI_H
