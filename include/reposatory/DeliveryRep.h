@@ -1,6 +1,7 @@
 #ifndef DELIVERYREP_H
 #define DELIVERYREP_H
 #include "Branch.h"
+#include "Order.h"
 #include <fstream>
 #include <vector>
 
@@ -10,7 +11,8 @@ class DeliveryRep
 
     public:
         DeliveryRep();
-        void getBranch(vector<Branch> &branch);
+        vector<Branch> getBranch();
+        vector<Order> getOrder();
 
 };
 

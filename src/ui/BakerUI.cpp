@@ -84,8 +84,11 @@ void BakerUI::markInProcess() {
             cout << "Order has been marked in process" << endl;
 
         }
-        catch(AlreadyMarkedException) {
+        catch(MarkedInProcessException) {
             cout << "This order is already in process" << endl;
+        }
+        catch(MarkedReadyException) {
+            cout << "This order is already ready" << endl;
         }
     }
 }
@@ -99,9 +102,12 @@ void BakerUI::markReady() {
             cout << "Order has been marked ready" << endl;
 
         }
-        catch(AlreadyMarkedException) {
-            cout << "This order has go through \"in process\" ";
+        catch(NotMarkedInProgressException) {
+            cout << "This order has to go through \"in process\" ";
             cout << "before it cant be marked as ready"<< endl;
+        }
+        catch(MarkedReadyException) {
+            cout << "This order is already ready" << endl;
         }
     }
 }

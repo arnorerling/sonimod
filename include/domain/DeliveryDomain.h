@@ -3,6 +3,9 @@
 #include <iostream>
 #include "DeliveryRep.h"
 #include "Branch.h"
+#include "Order.h"
+#include "InvalidInputException.h"
+#include "NotFoundException.h"
 using namespace std;
 
 
@@ -13,8 +16,14 @@ class DeliveryDomain
 
     public:
         DeliveryDomain();
-        void getBranch(vector<Branch> &branch);
-        bool checkBranchAvaliability(vector<Branch> &branchList, Branch &branch);
+        vector<Branch> getBranch();
+        vector<Order> getReadyOrders();
+        bool checkBranchAvaliability(const string &branch);
+
+        bool checkValidName(const string &name);
+        bool checkValidInput(const string &input);
+        bool isValidNumber(const string num);
+        void toLowerCase(string &name);
 };
 
 #endif // DELIVERYDOMAIN_H

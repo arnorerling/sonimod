@@ -5,7 +5,10 @@
 #include "Branch.h"
 #include "NotFoundException.h"
 #include "InvalidInputException.h"
+#include "MarkedInProcessException.h"
+#include "MarkedReadyException.h"
 #include "AlreadyMarkedException.h"
+#include "NotMarkedInProgressException.h"
 
 using namespace std;
 

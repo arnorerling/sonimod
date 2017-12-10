@@ -48,9 +48,11 @@ bool BakerDomain::markOrderInProcess(const Order &order) {
     vector<Order> orderList = bakerRep.getOrders();
     for (int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
-            if (orderList[i].getInProcess() == 1) {
-                throw AlreadyMarkedException();
-                return false;
+            if(orderList[i].getReady() == 1) {
+                throw MarkedReadyException();
+            }
+            else if (orderList[i].getInProcess() == 1) {
+                throw NotMarkedInProgressException();
             }
             else {
                 orderList[i].setInProcess(true);
@@ -63,27 +65,22 @@ bool BakerDomain::markOrderInProcess(const Order &order) {
 
 bool BakerDomain::markOrderReady(const Order &order) {
     vector<Order> orderList = bakerRep.getOrders();
-    vector<Order> newOrderList;
-    Order readyOrder;
-
     for (int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
-            readyOrder = orderList[i];
+            if (orderList[i].getReady() == 1) {
+                throw MarkedReadyException();
+                return false;
+            }
+            else if (orderList[i].getInProcess() == 0) {
+                throw NotMarkedInProgressException();
+                return false;
+            }
+            else {
+                orderList[i] = order;
+                bakerRep.changeOrderList(orderList);
+                return true;
+            }
         }
-        else {
-            newOrderList.push_back(orderList[i]);
-        }
-    }
-
-    if (readyOrder.getInProcess() == 1) {
-        readyOrder.setReady(true);
-        bakerRep.addOrderReady(readyOrder);
-        bakerRep.changeOrderList(newOrderList);
-        return true;
-    }
-    else {
-        throw AlreadyMarkedException();
-        return false;
     }
 }
 

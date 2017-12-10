@@ -58,15 +58,3 @@ void BakerRep::changeOrderList(vector<Order> &orders) {
         cout << "File did not open" << endl;
     }
 }
-
-void BakerRep::addOrderReady(Order &order) {
-    ofstream fout;
-    fout.open("OrderReady_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        order.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
-}

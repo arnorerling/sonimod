@@ -4,21 +4,18 @@
 	"MainUI.h"
 	"ManagerUI.h"
 
-1512686363 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\mainui.h
+1512741282 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\mainui.h
 	"MainDomain.h"
 	"Username.h"
 
-1512737718 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
+1512743968 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
 	"ManagerDomain.h"
 
-1512737743 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
+1512744776 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
 	"ManagerRep.h"
 	"ItemChangedException.h"
 	"NotFoundException.h"
-	"BranchExistsException.h"
-	"InvalidNameException.h"
-	"InvalidPriceException.h"
-	"InvalidAnswerException.h"
+	"ItemExistsException.h"
 	"InvalidInputException.h"
 	"Pizza.h"
 	"Crust.h"
@@ -31,14 +28,14 @@
 	<vector>
 	<stdlib.h>
 
-1512690181 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\managerrep.h
+1512743068 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\managerrep.h
 	"Crust.h"
 	"Drink.h"
 	"Pizza.h"
 	"Topping.h"
 	"Sidedish.h"
 	"Branch.h"
-	"Username.h"
+	"User.h"
 	<vector>
 
 1512678959 c:\users\mustard\desktop\verklegt1\sonimod\include\models\crust.h
@@ -47,7 +44,7 @@
 	<fstream>
 	<string>
 
-1512680268 c:\users\mustard\desktop\verklegt1\sonimod\include\models\drink.h
+1512750522 c:\users\mustard\desktop\verklegt1\sonimod\include\models\drink.h
 	<iostream>
 	<string>
 	<fstream>
@@ -70,18 +67,16 @@
 	<iostream>
 	<fstream>
 
-1512738068 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\salesdomain.cpp
+1512841435 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\salesdomain.cpp
 	"SalesDomain.h"
 
-1512738068 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\salesdomain.h
-	"NotFoundException.h"
+1512841435 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\salesdomain.h
 	"SalesRep.h"
-	"InvalidNameException.h"
-	"InvalidPhoneNumberException.h"
 	"LengthNotRightException.h"
-	"NotAllowedYesOrNoException.h"
 	"NotFoundException.h"
+	"InvalidInputException.h"
 	<iostream>
+	<stdlib.h>
 
 1512666931 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\salesrep.h
 	<fstream>
@@ -93,7 +88,7 @@
 	"Pizza.h"
 	"Order.h"
 
-1512677039 c:\users\mustard\desktop\verklegt1\sonimod\include\models\pizza.h
+1512841435 c:\users\mustard\desktop\verklegt1\sonimod\include\models\pizza.h
 	"Topping.h"
 	"Crust.h"
 	<iostream>
@@ -106,14 +101,14 @@
 1512678959 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\crust.cpp
 	"Crust.h"
 
-1512680268 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
+1512750522 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
 	"Drink.h"
 
-1512672297 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
+1512856701 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
 	"Order.h"
 	"Sidedish.h"
 
-1512666931 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
+1512854406 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
 	<vector>
 	<iostream>
 	"Pizza.h"
@@ -121,7 +116,7 @@
 	"Sidedish.h"
 	"Branch.h"
 
-1512678610 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\pizza.cpp
+1512841435 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\pizza.cpp
 	"Pizza.h"
 
 1512525488 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\sidedish.cpp
@@ -130,40 +125,45 @@
 1512652982 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\topping.cpp
 	"Topping.h"
 
-1512691461 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\managerrep.cpp
+1512743067 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\managerrep.cpp
 	"ManagerRep.h"
 
-1512666931 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\salesrep.cpp
+1512841435 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\salesrep.cpp
 	"SalesRep.h"
 
-1512672510 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
+1512870949 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
 	"BakerUI.h"
 	<iostream>
 
-1512672465 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\bakerui.h
+1512858725 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\bakerui.h
 	"BakerDomain.h"
 	"Branch.h"
 	<vector>
 
-1512672297 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\bakerdomain.h
+1512870949 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\bakerdomain.h
 	<iostream>
 	"BakerRep.h"
 	"Branch.h"
-	"ResturantNotAvailableException.h"
+	"NotFoundException.h"
+	"InvalidInputException.h"
+	"MarkedInProcessException.h"
+	"MarkedReadyException.h"
+	"AlreadyMarkedException.h"
+	"NotMarkedInProgressException.h"
 
-1512672297 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\bakerrep.h
+1512871095 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\bakerrep.h
 	"Branch.h"
 	"Order.h"
 	<fstream>
 	<vector>
 
-1512428816 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\deliveryui.cpp
+1512868790 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 
-1512428794 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\deliveryui.h
+1512868527 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\deliveryui.h
 	"DeliveryDomain.h"
 
-1512692761 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
+1512742681 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
 	"MainUI.h"
 	"ManagerUI.h"
 	"SalesUI.h"
@@ -171,7 +171,7 @@
 	"DeliveryUI.h"
 	<iostream>
 
-1512691370 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
+1512744773 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
 	"ManagerDomain.h"
 	"ManagerUI.h"
 	"Crust.h"
@@ -187,38 +187,42 @@
 	<string.h>
 	<cstring>
 
-1512666931 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\salesui.h
+1512841435 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\salesui.h
 	"SalesDomain.h"
 	<iostream>
 	"Order.h"
 
-1512737766 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+1512744112 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
 	"ManagerUI.h"
 
-1512738068 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
+1512852757 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
 	"SalesUI.h"
 
-1512672297 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
+1512871047 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
 	"BakerDomain.h"
 	"Branch.h"
 
-1512672297 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\bakerrep.cpp
+1512866520 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\bakerrep.cpp
 	"BakerRep.h"
 
-1512428778 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\deliverydomain.cpp
+1512868699 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\deliverydomain.cpp
 	"DeliveryDomain.h"
 
-1512428756 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\deliverydomain.h
+1512868547 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\deliverydomain.h
 	<iostream>
 	"DeliveryRep.h"
 	"Branch.h"
+	"Order.h"
+	"InvalidInputException.h"
+	"NotFoundException.h"
 
-1512428770 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\deliveryrep.h
+1512868738 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\deliveryrep.h
 	"Branch.h"
+	"Order.h"
 	<fstream>
 	<vector>
 
-1512428740 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\deliveryrep.cpp
+1512868754 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\deliveryrep.cpp
 	"DeliveryRep.h"
 
 1512491884 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\branchexistsexception.h
@@ -1015,13 +1019,14 @@
 1512661277 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\invalidpriceexception.cpp
 	"InvalidPriceException.h"
 
-1512692204 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\maindomain.h
+1512741282 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\maindomain.h
 	"MainRep.h"
 	"InvalidInputException.h"
+	"NotFoundException.h"
 	<string>
-	"Username.h"
+	"User.h"
 
-1512692476 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\maindomain.cpp
+1512741282 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\maindomain.cpp
 	"MainDomain.h"
 
 1512665904 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\lengthnotrightexception.cpp
@@ -1033,9 +1038,9 @@
 1512662907 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\resturantnotavailableexception.cpp
 	"ResturantNotAvailableException.h"
 
-1512683659 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\invalidinputexception.h
+1512741282 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\invalidinputexception.h
 
-1512683659 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\invalidinputexception.cpp
+1512741282 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\invalidinputexception.cpp
 	"InvalidInputException.h"
 
 1512690235 c:\users\mustard\desktop\verklegt1\sonimod\include\models\username.h
@@ -1046,19 +1051,19 @@
 1512690373 source:c:\users\mustard\desktop\verklegt1\sonimod\src\username.cpp
 	"Username.h"
 
-1512692390 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\mainrep.h
-	"SideDishNotAvailableException.h"
+1512741282 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\mainrep.h
+	"NotFoundException.h"
 	"MainRep.h"
-	"Username.h"
+	"User.h"
 	<vector>
 	<string>
 
-1512692555 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\mainrep.cpp
+1512741282 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\mainrep.cpp
 	"MainRep.h"
 
-1512736913 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\itemchangedexception.h
+1512741282 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\itemchangedexception.h
 
-1512736915 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\itemchangedexception.cpp
+1512741282 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\itemchangedexception.cpp
 	"ItemChangedException.h"
 
 1512737512 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\notfoundexception.cpp
@@ -1161,4 +1166,48 @@
 	<string>
 	<iostream>
 	<fstream>
+
+1512744080 c:\users\mustard\desktop\verklegt1\sonimod\include\models\user.h
+	<string>
+	<iostream>
+	<fstream>
+	<string>
+
+1512741282 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\itemexistsexception.h
+
+1512741282 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\itemexistsexception.cpp
+	"ItemExistsException.h"
+
+1512744093 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\user.cpp
+	"User.h"
+
+1512854235 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\alreadymarkedexception.h
+
+1512854235 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\alreadymarkedexception.cpp
+	"AlreadyMarkedException.h"
+
+1512865830 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\markedinprocessexception.h
+
+1512865863 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\markedreadyexception.h
+
+1512865756 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\alreadymarkedinprocess.cpp
+	"AlreadyMarkedInProcess.h"
+
+1512865756 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\alreadymarkedinprocess.h
+
+1512865830 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\markedinprocessexception.cpp
+	"MarkedInProcessException.h"
+
+1512865863 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\markedreadyexception.cpp
+	"MarkedReadyException.h"
+
+1512870818 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\notmarkedinprogressexception.h
+
+1512870770 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\notmarkedinprogress.cpp
+	"NotMarkedInProgress.h"
+
+1512870770 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\notmarkedinprogress.h
+
+1512870818 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\notmarkedinprogressexception.cpp
+	"NotMarkedInProgressException.h"
 

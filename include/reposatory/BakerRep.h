@@ -15,7 +15,6 @@ class BakerRep
         vector<Order> getOrders();
 
         void changeOrderList(vector<Order> &orders);
-        void addOrderReady(Order &order);
 };
 
 #endif // BAKERREP_H
