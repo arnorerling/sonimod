@@ -11,12 +11,20 @@ class DeliveryUI
     public:
         DeliveryUI();
         void startUI();
-        void printRestaurants();
-        void printReadyOrders();
         void chooseRestaurant();
 
+        void printRestaurants();
+        void printOrders();
+        void printReadyOrders();
+        void printOneOrder();
+
+        void markPaidFor();
+        void markDelivered();
+
+        Order findOrder();
         char checkInput();
         string checkName();
+        string checkNumber();
 };
 
 #endif // DELIVERYUI_H

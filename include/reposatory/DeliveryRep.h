@@ -11,8 +11,11 @@ class DeliveryRep
 
     public:
         DeliveryRep();
-        vector<Branch> getBranch();
-        vector<Order> getOrder();
+        vector<Branch> getBranches();
+        vector<Order> getOrders();
+
+        void changeOrderList(vector<Order> &orders);
+        void addToLegacy(Order &order);
 
 };
 

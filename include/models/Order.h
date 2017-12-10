@@ -50,13 +50,15 @@ class Order {
         void setDeliverd(bool deliverd);
         void setPickup(bool pickup);
 
-        bool getPaidFor();
-        bool getInProcess();
-        bool getReady();
-        bool getDeliverd();
-        bool getPickup();
+        bool getPaidFor() const;
+        bool getInProcess() const;
+        bool getReady() const;
+        bool getDeliverd() const;
+        bool getPickup() const;
 
         friend ostream& operator << (ostream& out, Order& order);
+        friend bool operator == (const Order &left_order, const Order &right_order);
+        friend bool operator != (const Order &left_order, const Order &right_order);
         int getTotal();
         void write(ofstream& fout) const;
         void read(ifstream& fin);

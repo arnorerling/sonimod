@@ -6,6 +6,9 @@
 #include "Order.h"
 #include "InvalidInputException.h"
 #include "NotFoundException.h"
+#include "NotMarkedReadyException.h"
+#include "MarkedPaidForException.h"
+#include "NotMarkedPaidForException.h"
 using namespace std;
 
 
@@ -17,12 +20,17 @@ class DeliveryDomain
     public:
         DeliveryDomain();
         vector<Branch> getBranch();
-        vector<Order> getReadyOrders();
-        bool checkBranchAvaliability(const string &branch);
+        vector<Order> getOrders(const string &branch);
+        vector<Order> getReadyOrders(const string& branch);
+        Order getOneOrder(const string &number, const string &branch);
 
+        bool markOrderPaidFor(const Order &order);
+        bool markOrderDelivered(Order &order);
+
+        bool checkBranchAvaliability(const string &branch);
+        bool checkValidNumber(const string num);
         bool checkValidName(const string &name);
         bool checkValidInput(const string &input);
-        bool isValidNumber(const string num);
         void toLowerCase(string &name);
 };
 

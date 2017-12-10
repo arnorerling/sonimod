@@ -5,7 +5,7 @@ DeliveryRep::DeliveryRep()
     //ctor
 }
 
-vector<Branch> DeliveryRep::getBranch() {
+vector<Branch> DeliveryRep::getBranches() {
     vector<Branch> branches;
     ifstream fin;
     fin.open("Branch_Binary.dat", ios::binary);
@@ -22,7 +22,7 @@ vector<Branch> DeliveryRep::getBranch() {
     return branches;
 }
 
-vector<Order> DeliveryRep::getOrder() {
+vector<Order> DeliveryRep::getOrders() {
     vector<Order> orders;
     ifstream fin;
     fin.open("Order_Binary.dat", ios::binary);
@@ -37,4 +37,31 @@ vector<Order> DeliveryRep::getOrder() {
         fin.close();
     }
     return orders;
+}
+
+
+void DeliveryRep::changeOrderList(vector<Order> &orders) {
+    ofstream fout;
+    fout.open("Order_Binary.dat", ios::binary);
+    if(fout.is_open()) {
+        for (unsigned int i = 0; i < orders.size(); i++) {
+            orders[i].write(fout);
+        }
+        fout.close();
+    }
+    else {
+        cout << "File did not open" << endl;
+    }
+}
+
+void DeliveryRep::addToLegacy(Order &order) {
+    ofstream fout;
+    fout.open("LegacyOrder_Binary.dat", ios::binary|ios::app);
+    if(fout.is_open()) {
+        order.write(fout);
+        fout.close();
+    }
+    else {
+        cout << "File did not open" << endl;
+    }
 }

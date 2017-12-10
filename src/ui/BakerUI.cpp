@@ -100,7 +100,6 @@ void BakerUI::markReady() {
         try {
             available = bakerDomain.markOrderReady(order);
             cout << "Order has been marked ready" << endl;
-
         }
         catch(NotMarkedInProgressException) {
             cout << "This order has to go through \"in process\" ";

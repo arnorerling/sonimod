@@ -76,7 +76,7 @@ bool BakerDomain::markOrderReady(const Order &order) {
                 return false;
             }
             else {
-                orderList[i] = order;
+                orderList[i].setReady(true);
                 bakerRep.changeOrderList(orderList);
                 return true;
             }

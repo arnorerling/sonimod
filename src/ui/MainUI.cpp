@@ -30,7 +30,7 @@ void MainUI::start() {
 
 void MainUI::login() {
 
-    //User user = checkUser();
+    User user = checkUser();
     char answer = '\0';
     while (answer != '5') {
         char answer = '\0';

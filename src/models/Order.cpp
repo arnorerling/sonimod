@@ -67,19 +67,19 @@ string Order::getBranch() const{
     return this->branch;
 }
 
-bool Order::getPaidFor() {
+bool Order::getPaidFor() const {
     return paidFor;
 }
-bool Order::getInProcess() {
+bool Order::getInProcess() const{
     return inProcess;
 }
-bool Order::getReady() {
+bool Order::getReady() const{
     return ready;
 }
-bool Order::getDeliverd() {
+bool Order::getDeliverd() const{
     return deliverd;
 }
-bool Order::getPickup() {
+bool Order::getPickup() const{
     return pickup;
 }
 
@@ -169,6 +169,24 @@ int Order::getTotal(){
         total += this->drinks[i].getPrice();
     }
     return total;
+}
+
+bool operator == (const Order &left_order, const Order &right_order) {
+    if (left_order.phoneNumber == right_order.phoneNumber) {
+        if (left_order.branch == right_order.branch) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool operator != (const Order &left_order, const Order &right_order) {
+    if (left_order.phoneNumber == right_order.phoneNumber) {
+        if (left_order.branch == right_order.branch) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void Order::write(ofstream& fout) const {
