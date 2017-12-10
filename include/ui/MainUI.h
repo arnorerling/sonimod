@@ -11,9 +11,11 @@ class MainUI
         MainUI();
         void start();
         void login();
+        void mainMenu();
 
         char checkInput();
         User checkUser();
+        void printLogo();
 };
 
 #endif // MAINUI_H
