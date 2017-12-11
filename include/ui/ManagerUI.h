@@ -27,6 +27,7 @@ class ManagerUI
         void startUI();
         void addChangeMenu();
         void removeFromMenu();
+        void seeSaleFigures();
 
         void addCrust();
         void addTopping();
@@ -43,6 +44,8 @@ class ManagerUI
         void printSide();
         void printBranch();
         void printUser();
+
+        void printAllFigures();
 
         void removeCrust();
         void removeTopping();

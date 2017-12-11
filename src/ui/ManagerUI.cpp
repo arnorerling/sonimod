@@ -9,10 +9,11 @@ void ManagerUI::startUI() {
     system("CLS");
     printManLogo();
     char select = '\0';
-    while (select != '3') {
+    while (select != '4') {
         cout << "1: Add/Change menu" << endl;
         cout << "2: Remove from menu" << endl;
-        cout << "3: Quit" << endl;
+        cout << "3: Sale Figures" << endl;
+        cout << "4: Quit" << endl;
         select = checkInput();
 
         switch(select) {
@@ -20,7 +21,8 @@ void ManagerUI::startUI() {
             break;
             case '2': removeFromMenu();
             break;
-            case '3': cout << "GoodBye" << endl;
+            case '3': seeSaleFigures();
+            case '4': cout << "GoodBye" << endl;
             break;
             default: cout << "Invalid input" << endl;
         }
@@ -29,7 +31,6 @@ void ManagerUI::startUI() {
 
 void ManagerUI::addChangeMenu() {
     char select = '\0';
-    system("CLS");
     while (select != '8') {
         cout << endl;
         cout << "-----Add/Change-----" << endl;
@@ -83,7 +84,6 @@ void ManagerUI::addChangeMenu() {
 }
 
 void ManagerUI::removeFromMenu() {
-    system("CLS");
     char select = '\0';
     while (select != '8') {
         cout << endl;
@@ -128,6 +128,33 @@ void ManagerUI::removeFromMenu() {
                 removeUser();
                 break;
             case '8':
+                cout << endl;
+                break;
+            default:
+                cout << "Invalid input" << endl;
+        }
+    }
+}
+
+void ManagerUI::seeSaleFigures() {
+    char select = '\0';
+    while (select != '3') {
+        cout << endl;
+        cout << "-----Sale Figures-----" << endl;
+        cout << "1: Restaurant" << endl;
+        cout << "2: All" << endl;
+        cout << "3: Quit" << endl;
+        cout << "----------------------" << endl;
+        select = checkInput();
+        switch(select){
+            case '1':
+                //checkBranch();
+                //printBranchFigures();
+                break;
+            case '2':
+                printAllFigures();
+                break;
+            case '3':
                 cout << endl;
                 break;
             default:
@@ -337,6 +364,20 @@ void ManagerUI::printUser() {
      for (unsigned int i = 0; i < users.size(); i++) {
         cout << users[i];
     }
+    cout << "-------------------" << endl;
+}
+
+void ManagerUI::printAllFigures() {
+    cout << "-----All Sale Figures-----" << endl;
+    vector<Order> orders = managerDomain.printOrder();
+    int total = 0;
+    for (unsigned int i = 0; i < orders.size(); i++) {
+        cout << "Order time: " << orders[i].getTime();
+        cout << "\tPrice: " << orders[i].getTotal() << endl;
+        total += orders[i].getTotal();
+    }
+    cout << "-------------------" << endl;
+    cout << "Total: " << total << endl;
     cout << "-------------------" << endl;
 }
 

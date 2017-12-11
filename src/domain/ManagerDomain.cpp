@@ -151,6 +151,11 @@ vector<User> ManagerDomain::printUser() {
     return users;
 }
 
+vector<Order> ManagerDomain::printOrder() {
+    vector<Order>orders = managerRep.getOrder();
+    return orders;
+}
+
 bool ManagerDomain::removePizza(const Pizza &pizza) {
     vector<Pizza>pizzas = managerRep.getPizza();
     vector<Pizza>newPizzas;

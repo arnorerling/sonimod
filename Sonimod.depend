@@ -8,10 +8,10 @@
 	"MainDomain.h"
 	"Username.h"
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
+1513021391 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
 	"ManagerDomain.h"
 
-1513016587 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
+1513021391 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
 	"ManagerRep.h"
 	"ItemChangedException.h"
 	"NotFoundException.h"
@@ -23,12 +23,13 @@
 	"Drink.h"
 	"Sidedish.h"
 	"Branch.h"
-	"Username.h"
+	"User.h"
+	"Order.h"
 	<string>
 	<vector>
 	<stdlib.h>
 
-1513016588 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\managerrep.h
+1513021391 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\managerrep.h
 	"Crust.h"
 	"Drink.h"
 	"Pizza.h"
@@ -36,6 +37,7 @@
 	"Sidedish.h"
 	"Branch.h"
 	"User.h"
+	"Order.h"
 	<vector>
 
 1513016587 c:\users\mustard\desktop\verklegt1\sonimod\include\models\crust.h
@@ -105,12 +107,13 @@
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
 	"Drink.h"
 
-1513019378 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
+1513023411 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
 	"Order.h"
 	"Sidedish.h"
 
-1513016587 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
+1513023411 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
 	<vector>
+	<string>
 	<iostream>
 	<ctime>
 	"Pizza.h"
@@ -127,7 +130,7 @@
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\topping.cpp
 	"Topping.h"
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\managerrep.cpp
+1513021511 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\managerrep.cpp
 	"ManagerRep.h"
 
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\salesrep.cpp
@@ -173,7 +176,7 @@
 	"DeliveryUI.h"
 	<iostream>
 
-1513016588 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
+1513021511 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
 	"ManagerDomain.h"
 	"ManagerUI.h"
 	"Crust.h"
@@ -195,13 +198,13 @@
 	"Order.h"
 	<cstdlib>
 
-1513018506 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+1513023341 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
 	"ManagerUI.h"
 
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
 	"SalesUI.h"
 
-1513017675 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
+1513019633 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
 	"BakerDomain.h"
 	"Branch.h"
 

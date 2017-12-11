@@ -13,7 +13,9 @@
 #include "Drink.h"
 #include "Sidedish.h"
 #include "Branch.h"
-#include "Username.h"
+#include "User.h"
+#include "Order.h"
+
 #include <string>
 #include <vector>
 #include <stdlib.h>
@@ -44,6 +46,8 @@ class ManagerDomain
         vector<Sidedish> printSidedish();
         vector<Branch> printBranch();
         vector<User> printUser();
+
+        vector<Order> printOrder();
 
         bool removePizza(const Pizza &pizza);
         bool removeCrust(const Crust &crust);

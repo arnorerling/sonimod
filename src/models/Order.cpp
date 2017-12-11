@@ -56,6 +56,11 @@ void Order::setPickup(bool pickup) {
 void Order::setTime(){
     this->orderTime = time(0);
 }
+
+void Order::addTotalPrice(int price) {
+    this->totalPrice += price;
+}
+
 string Order::getCustomerName() const{
     return this->customerName;
 }
@@ -68,9 +73,13 @@ string Order::getCustomerAddress() const{
 string Order::getBranch() const{
     return this->branch;
 }
-time_t Order::getTime() const{
-    return this->orderTime;
+string Order::getTime() const{
+    time_t time = orderTime;
+    string timeString = asctime(localtime(&time));
+    timeString.erase(timeString.length()-1, 1);
+    return timeString;
 }
+
 bool Order::getPaidFor() const {
     return paidFor;
 }
@@ -85,6 +94,24 @@ bool Order::getDeliverd() const{
 }
 bool Order::getPickup() const{
     return pickup;
+}
+
+int Order::getTotal() const{
+    int total = 0;
+    for(unsigned int i = 0; i < this->pizzas.size(); i++){
+        total += this->pizzas[i].getPrice();
+    }
+    for(unsigned int i = 0; i < this->sideDishes.size(); i++){
+        total += this->sideDishes[i].getPrice();
+    }
+    for(unsigned int i = 0; i < this->drinks.size(); i++){
+        total += this->drinks[i].getPrice();
+    }
+    return total;
+}
+
+int Order::getTotalPrice() const {
+    return this->totalPrice;
 }
 
 void Order::cleanOrder(){
@@ -107,26 +134,10 @@ void Order::cleanOrder(){
     int totalPrice = 0;
 }
 
-int Order::getTotal() const{
-    int total = 0;
-    for(unsigned int i = 0; i < this->pizzas.size(); i++){
-        total += this->pizzas[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->sideDishes.size(); i++){
-        total += this->sideDishes[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->drinks.size(); i++){
-        total += this->drinks[i].getPrice();
-    }
-    return total;
-}
-
 
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
-    time_t time = order.getTime();
-    string timeString = asctime(localtime(&time));
-    out << "Order time: " << timeString << endl;
+    out << "Order time: " << order.getTime() << endl;
     if(order.ready){
         out << "Customer Name: " << order.getCustomerName() << endl;
         out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
