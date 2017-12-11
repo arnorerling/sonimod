@@ -190,7 +190,7 @@ string DeliveryUI::checkNumber() {
 void DeliveryUI::printLogo() {
 
 cout << "___  ____ _    _ _  _ ____ ____ _   _ " << endl;
-cout << "|  \\ |___ |    | |  | |___ |__/  \_\/  " << endl;
+cout << "|  \\ |___ |    | |  | |___ |__/  \\_/  " << endl;
 cout << "|__/ |___ |___ |  \\/  |___ |  \\   |   " << endl;
 
 

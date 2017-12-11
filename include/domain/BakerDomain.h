@@ -3,12 +3,11 @@
 #include <iostream>
 #include "BakerRep.h"
 #include "Branch.h"
-#include "NotFoundException.h"
+
 #include "InvalidInputException.h"
-#include "MarkedInProcessException.h"
-#include "MarkedReadyException.h"
-#include "AlreadyMarkedException.h"
+#include "NotFoundException.h"
 #include "NotMarkedInProgressException.h"
+#include "MarkedInProcessException.h"
 
 using namespace std;
 

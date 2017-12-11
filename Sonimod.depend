@@ -105,7 +105,7 @@
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
 	"Drink.h"
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
+1513018173 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
 	"Order.h"
 	"Sidedish.h"
 
@@ -133,7 +133,7 @@
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\salesrep.cpp
 	"SalesRep.h"
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
+1513017675 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
 	"BakerUI.h"
 	<iostream>
 
@@ -143,16 +143,14 @@
 	<vector>
 	<cstdlib>
 
-1513016587 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\bakerdomain.h
+1513017636 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\bakerdomain.h
 	<iostream>
 	"BakerRep.h"
 	"Branch.h"
-	"NotFoundException.h"
 	"InvalidInputException.h"
-	"MarkedInProcessException.h"
-	"MarkedReadyException.h"
-	"AlreadyMarkedException.h"
+	"NotFoundException.h"
 	"NotMarkedInProgressException.h"
+	"MarkedInProcessException.h"
 
 1513016587 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\bakerrep.h
 	"Branch.h"
@@ -160,7 +158,7 @@
 	<fstream>
 	<vector>
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\deliveryui.cpp
+1513017935 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 
 1513016588 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\deliveryui.h
@@ -197,13 +195,13 @@
 	"Order.h"
 	<cstdlib>
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+1513018506 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
 	"ManagerUI.h"
 
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
 	"SalesUI.h"
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
+1513017675 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
 	"BakerDomain.h"
 	"Branch.h"
 

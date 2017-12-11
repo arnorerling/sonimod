@@ -26,9 +26,7 @@ void Pizza::write(ofstream& fout) const {
     int tCount = toppings.size();
     fout.write((char*)(&tCount), sizeof(int));
 
-
     for (int i = 0; i < tCount; i++) {
-        Topping topping;
         toppings[i].write(fout);
     }
 

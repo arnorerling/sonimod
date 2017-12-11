@@ -124,14 +124,15 @@ int Order::getTotal() const{
 
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
+    time_t time = order.getTime();
+    string timeString = asctime(localtime(&time));
+    out << "Order time: " << timeString << endl;
     if(order.ready){
         out << "Customer Name: " << order.getCustomerName() << endl;
         out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
         out << "Customer adress: " << order.getCustomerAddress() << endl;
-        time_t time = order.getTime();
-        string timeString = asctime(localtime(&time));
-        out << "Order time" << timeString << endl;
     }
+
     if (order.pizzas.size() > 0) {
         out << "Pizzas: " << endl;
         for(unsigned int i = 0; i < order.pizzas.size(); i++){
@@ -151,53 +152,52 @@ ostream& operator << (ostream& out, const Order& order){
             out << order.drinks[i].getName() << endl;
         }
     }
-    out << endl;
     out << "Order total: " << order.getTotal() << endl;
     out << endl;
-    if(order.ready){
-        out << "Been paid for: ";
-        if(order.paidFor) {
+
+    out << "Been paid for: ";
+    if(order.paidFor) {
+        out << "Yes!" << endl;
+    }
+    else {
+        out << "No!" << endl;
+    }
+    out << "In process: ";
+    if (order.inProcess) {
+        out << "Yes!" << endl;
+    }
+    else {
+    out << "No!" << endl;
+    }
+    out << "Is ready: ";
+    if (order.ready) {
+        out << "Yes!" << endl;
+    }
+    else {
+        out << "No!" << endl;
+    }
+    out << "Been ";
+    if (order.pickup) {
+        out << "picked up at ";
+        out << order.getBranch() << ": ";
+        if (order.deliverd) {
             out << "Yes!" << endl;
         }
         else {
             out << "No!" << endl;
-        }
-        out << "In process: ";
-        if (order.inProcess) {
-            out << "Yes!" << endl;
-        }
-        else {
-            out << "No!" << endl;
-        }
-        out << "Is ready: ";
-        if (order.ready) {
-            out << "Yes!" << endl;
-        }
-        else {
-            out << "No!" << endl;
-        }
-        out << "Been ";
-        if (order.pickup) {
-            out << "picked up at ";
-            out << order.getBranch() << ": ";
-            if (order.deliverd) {
-                out << "Yes!" << endl;
-            }
-            else {
-                out << "No!" << endl;
-            }
-        }
-        else {
-            out << "delivered to address ";
-            out << order.getCustomerAddress() << ": ";
-            if (order.deliverd) {
-                out << "Yes!" << endl;
-            }
-            else {
-                out << "No!" << endl;
-            }
         }
     }
+    else {
+        out << "delivered to address ";
+        out << order.getCustomerAddress() << ": ";
+        if (order.deliverd) {
+            out << "Yes!" << endl;
+        }
+        else {
+            out << "No!" << endl;
+        }
+    }
+
     return out;
 }
 
@@ -302,8 +302,8 @@ void Order::read(ifstream& fin) {
     int tCount = 0;
     fin.read((char*)(&tCount), sizeof(int));
 
-    Pizza pizza;
     for (int i = 0; i < tCount; i++) {
+        Pizza pizza;
         pizza.read(fin);
         pizzas.push_back(pizza);
     }

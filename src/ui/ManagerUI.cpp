@@ -30,7 +30,7 @@ void ManagerUI::startUI() {
 void ManagerUI::addChangeMenu() {
     char select = '\0';
     system("CLS");
-    while (select != '7') {
+    while (select != '8') {
         cout << endl;
         cout << "-----Add/Change-----" << endl;
         cout << "1: Pizza crust" << endl;
@@ -85,7 +85,7 @@ void ManagerUI::addChangeMenu() {
 void ManagerUI::removeFromMenu() {
     system("CLS");
     char select = '\0';
-    while (select != '7') {
+    while (select != '8') {
         cout << endl;
         cout << "-----Remove-----" << endl;
         cout << "1: Pizza crust" << endl;
