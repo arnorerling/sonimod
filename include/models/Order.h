@@ -62,6 +62,7 @@ class Order {
         bool getDeliverd() const;
         bool getPickup() const;
 
+        void cleanOrder();
 
         friend ostream& operator << (ostream& out, const Order& order);
         friend bool operator == (const Order &left_order, const Order &right_order);

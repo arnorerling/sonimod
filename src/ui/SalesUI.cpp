@@ -11,7 +11,7 @@ void SalesUI::startUI() {
 
 
     char select = '\0';
-    while (select != '7') {
+    while (select != '8') {
         select = '\0';
         cout << "------------------" << endl;
         cout << "1: Add Pizza" << endl;
@@ -56,11 +56,10 @@ void SalesUI::startUI() {
             }
             case '7': {
                 fileOrder();
-                select = '7';
                 break;
             }
             case '8': {
-                cout << endl;
+                cout << "Have a good day!" << endl;
                 break;
             }
         }
@@ -270,10 +269,15 @@ void SalesUI::fileOrder(){
     addCustomer();
     addBranch();
     addAddress();
-    markPaidFor();
+    cout << "Mark as paid(y/n): ";
+    char paidFor = validAnswer();
+    if(paidFor == 'y'){
+        markPaidFor();
+    }
     this->order.setTime();
     salesDomain.fileOrder(this->order);
     cout << "Order filed!" << endl;
+    this->order.cleanOrder();
 
 }
 

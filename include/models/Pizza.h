@@ -36,6 +36,7 @@ class Pizza {
 
 
         string getName() const;
+        string getCrustName() const;
         int getPrice() const;
         int getCrustSize() const;
         Topping getTopping() const;

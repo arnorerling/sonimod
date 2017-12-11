@@ -3,6 +3,7 @@
 
 Order::Order()
 {
+    this->customerAddress = "";
     this->ready = false;
     this->deliverd = false;
     this->paidFor = false;
@@ -86,6 +87,25 @@ bool Order::getPickup() const{
     return pickup;
 }
 
+void Order::cleanOrder(){
+    this->pizzas.clear();
+    this->drinks.clear();
+    this->sideDishes.clear();
+
+    this->customerName = "";
+    this->phoneNumber = "";
+    this->customerAddress = "";
+    this->branch = "";
+
+    this->paidFor = false;
+    this->inProcess = false;
+    this->ready = false;
+    this->deliverd = false;
+    this->pickup = false;
+    this->orderTime = 0;
+
+    int totalPrice = 0;
+}
 
 int Order::getTotal() const{
     int total = 0;
@@ -104,12 +124,14 @@ int Order::getTotal() const{
 
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
-    out << "Customer Name: " << order.getCustomerName() << endl;
-    out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
-    out << "Customer adress: " << order.getCustomerAddress() << endl;
-    time_t time = order.getTime();
-    string timeString = asctime(localtime(&time));
-    out << "Order time" << timeString << endl;
+    if(order.ready){
+        out << "Customer Name: " << order.getCustomerName() << endl;
+        out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
+        out << "Customer adress: " << order.getCustomerAddress() << endl;
+        time_t time = order.getTime();
+        string timeString = asctime(localtime(&time));
+        out << "Order time" << timeString << endl;
+    }
     if (order.pizzas.size() > 0) {
         out << "Pizzas: " << endl;
         for(unsigned int i = 0; i < order.pizzas.size(); i++){
@@ -132,47 +154,48 @@ ostream& operator << (ostream& out, const Order& order){
     out << endl;
     out << "Order total: " << order.getTotal() << endl;
     out << endl;
-
-    out << "Been paid for: ";
-    if(order.paidFor) {
-        out << "Yes!" << endl;
-    }
-    else {
-        out << "No!" << endl;
-    }
-    out << "In process: ";
-    if (order.inProcess) {
-        out << "Yes!" << endl;
-    }
-    else {
-        out << "No!" << endl;
-    }
-    out << "Is ready: ";
-    if (order.ready) {
-        out << "Yes!" << endl;
-    }
-    else {
-        out << "No!" << endl;
-    }
-    out << "Been ";
-    if (order.pickup) {
-        out << "picked up at ";
-        out << order.getBranch() << ": ";
-        if (order.deliverd) {
+    if(order.ready){
+        out << "Been paid for: ";
+        if(order.paidFor) {
             out << "Yes!" << endl;
         }
         else {
             out << "No!" << endl;
         }
-    }
-    else {
-        out << "delivered to address ";
-        out << order.getCustomerAddress() << ": ";
-        if (order.deliverd) {
+        out << "In process: ";
+        if (order.inProcess) {
             out << "Yes!" << endl;
         }
         else {
             out << "No!" << endl;
+        }
+        out << "Is ready: ";
+        if (order.ready) {
+            out << "Yes!" << endl;
+        }
+        else {
+            out << "No!" << endl;
+        }
+        out << "Been ";
+        if (order.pickup) {
+            out << "picked up at ";
+            out << order.getBranch() << ": ";
+            if (order.deliverd) {
+                out << "Yes!" << endl;
+            }
+            else {
+                out << "No!" << endl;
+            }
+        }
+        else {
+            out << "delivered to address ";
+            out << order.getCustomerAddress() << ": ";
+            if (order.deliverd) {
+                out << "Yes!" << endl;
+            }
+            else {
+                out << "No!" << endl;
+            }
         }
     }
     return out;
