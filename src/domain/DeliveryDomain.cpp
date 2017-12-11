@@ -76,7 +76,7 @@ bool DeliveryDomain::markOrderDelivered(Order &order) {
      }
 
     for (int i = 0; i < orderList.size(); i++) {
-        if (orderList[i] == order) {
+        if (orderList[i] != order) {
             newOrderList.push_back(orderList[i]);
         }
         order.setPickup(true);

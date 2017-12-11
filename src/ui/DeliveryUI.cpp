@@ -18,7 +18,7 @@ void DeliveryUI::startUI() {
         cout << "3: Get order" << endl;
         cout << "4: Mark order paid" << endl;
         cout << "5: Mark order delivered/picked up" << endl;
-        cout << "5: Quit" << endl;
+        cout << "6: Quit" << endl;
         select = checkInput();
 
         switch(select) {
