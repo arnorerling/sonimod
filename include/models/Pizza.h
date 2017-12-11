@@ -40,6 +40,7 @@ class Pizza {
         int getPrice() const;
         int getCrustSize() const;
         Topping getTopping() const;
+        Crust getCrust() const;
 };
 
 #endif // PIZZA_H

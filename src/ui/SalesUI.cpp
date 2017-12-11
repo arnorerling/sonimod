@@ -32,7 +32,6 @@ void SalesUI::startUI() {
                 break;
             }
             case '2': {
-                printPizzas();
                 addPizzaMenu();
                 break;
             }
@@ -95,6 +94,7 @@ void SalesUI::addPizzaMenu(){
 }
 
 void SalesUI::choosePizza(Pizza &pizza, int &size){
+    printPizzas();
     bool available = false;
     while(!available) {
         cout << "Pizza name: ";

@@ -121,7 +121,6 @@ int Order::getTotal() const{
     return total;
 }
 
-
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
     if(order.ready){

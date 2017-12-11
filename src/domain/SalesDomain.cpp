@@ -47,11 +47,14 @@ bool SalesDomain::isValidPhoneNumber(string num){
 
 bool SalesDomain::checkPizzaAvailability(string name, int size, Pizza &pizza){
     vector<Pizza> pizzas;
+    Crust crust = pizza.getCrust();
     getPizzas(pizzas);
     for(unsigned int i = 0; i < pizzas.size(); i++){
         if(pizzas[i].getName() == name && pizzas[i].getCrustSize() == size){
             pizza = pizzas[i];
+            pizza.addCrust(crust);
             pizza.setFixedPrice(pizzas[i].getPrice());
+
             return true;
         }
     }

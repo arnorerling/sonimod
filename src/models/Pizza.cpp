@@ -111,6 +111,13 @@ int Pizza::getPrice() const {
 }
 
 int Pizza::getCrustSize() const {
-    return crust.getInches();
+    return this->crust.getInches();
 }
 
+string Pizza::getCrustName() const {
+    return this->crust.getName();
+}
+
+Crust Pizza::getCrust() const {
+    return this->crust;
+}
