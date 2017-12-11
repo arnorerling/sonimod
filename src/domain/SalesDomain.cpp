@@ -141,7 +141,7 @@ void SalesDomain::checkYesOrNo(string check){
 }
 
 int SalesDomain::isValidNumber(string &number) {
-    for (int i = 0; i < number.length(); i++) {
+    for (unsigned int i = 0; i < number.length(); i++) {
         if(!isdigit(number[i])) {
             throw InvalidInputException();
         }

@@ -14,7 +14,7 @@ vector<Order> DeliveryDomain::getOrders(const string &branch) {
     vector<Order> orderList = deliveryRep.getOrders();
     vector<Order> branchOrderList;
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch) {
             branchOrderList.push_back(orderList[i]);
         }
@@ -26,7 +26,7 @@ vector<Order> DeliveryDomain::getReadyOrders(const string &branch) {
     vector<Order> orderList = deliveryRep.getOrders();
     vector<Order> branchOrderList;
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getReady() == true) {
             branchOrderList.push_back(orderList[i]);
         }
@@ -37,7 +37,7 @@ vector<Order> DeliveryDomain::getReadyOrders(const string &branch) {
 Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
     vector<Order> orderList = deliveryRep.getOrders();
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getCustomerPhoneNumber() == number) {
             return orderList[i];
         }
@@ -47,7 +47,7 @@ Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
 
 bool DeliveryDomain::markOrderPaidFor(const Order &order) {
      vector<Order> orderList = deliveryRep.getOrders();
-     for (int i = 0; i < orderList.size(); i++) {
+     for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i] == order) {
             if (orderList[i].getPaidFor()) {
                 throw MarkedPaidForException();
@@ -75,7 +75,7 @@ bool DeliveryDomain::markOrderDelivered(Order &order) {
         return false;
      }
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i] != order) {
             newOrderList.push_back(orderList[i]);
         }

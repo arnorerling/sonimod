@@ -131,25 +131,8 @@ void Order::cleanOrder(){
     this->pickup = false;
     this->orderTime = 0;
 
-    int totalPrice = 0;
+    this->totalPrice = 0;
 }
-
-<<<<<<< HEAD
-int Order::getTotal() const{
-    int total = 0;
-    for(unsigned int i = 0; i < this->pizzas.size(); i++){
-        total += this->pizzas[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->sideDishes.size(); i++){
-        total += this->sideDishes[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->drinks.size(); i++){
-        total += this->drinks[i].getPrice();
-    }
-    return total;
-}
-=======
->>>>>>> ff1a1f2d9afe1c68e27bbbf7ddae932655caee63
 
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
