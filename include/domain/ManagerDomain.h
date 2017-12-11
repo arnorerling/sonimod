@@ -39,15 +39,15 @@ class ManagerDomain
         bool addBranch(const Branch &branch);
         bool addUser(const User &user);
 
-        vector<Pizza> printPizza();
-        vector<Crust> printCrust();
-        vector<Topping> printTopping();
-        vector<Drink> printDrink();
-        vector<Sidedish> printSidedish();
-        vector<Branch> printBranch();
-        vector<User> printUser();
+        vector<Pizza> getPizzas();
+        vector<Crust> getCrusts();
+        vector<Topping> getToppings();
+        vector<Drink> getDrinks();
+        vector<Sidedish> getSidedishes();
+        vector<Branch> getBranches();
+        vector<User> getUsers();
 
-        vector<Order> printOrder();
+        vector<Order> getOrders();
         vector<Order> getBranchOrders(const string &branch);
 
         bool removePizza(const Pizza &pizza);

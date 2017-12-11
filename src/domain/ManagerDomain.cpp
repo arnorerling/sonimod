@@ -116,42 +116,42 @@ bool ManagerDomain::addUser(const User &user) {
 }
 
 
-vector<Pizza> ManagerDomain::printPizza() {
+vector<Pizza> ManagerDomain::getPizzas() {
     vector<Pizza>pizzas = managerRep.getPizza();
     return pizzas;
 }
 
-vector<Crust> ManagerDomain::printCrust() {
+vector<Crust> ManagerDomain::getCrusts() {
     vector<Crust>crusts = managerRep.getCrust();
     return crusts;
 }
 
-vector<Topping> ManagerDomain::printTopping() {
+vector<Topping> ManagerDomain::getToppings() {
     vector<Topping>toppings = managerRep.getTopping();
     return toppings;
 }
 
-vector<Drink> ManagerDomain::printDrink() {
+vector<Drink> ManagerDomain::getDrinks() {
     vector<Drink>drinks = managerRep.getDrink();
     return drinks;
 }
 
-vector<Sidedish> ManagerDomain::printSidedish() {
+vector<Sidedish> ManagerDomain::getSidedishes() {
     vector<Sidedish>sidedishes = managerRep.getSidedish();
     return sidedishes;
 }
 
-vector<Branch> ManagerDomain::printBranch() {
+vector<Branch> ManagerDomain::getBranches() {
     vector<Branch>branches = managerRep.getBranch();
     return branches;
 }
 
-vector<User> ManagerDomain::printUser() {
+vector<User> ManagerDomain::getUsers() {
     vector<User>users = managerRep.getUser();
     return users;
 }
 
-vector<Order> ManagerDomain::printOrder() {
+vector<Order> ManagerDomain::getOrders() {
     vector<Order>orders = managerRep.getOrder();
     return orders;
 }

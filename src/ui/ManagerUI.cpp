@@ -305,9 +305,18 @@ void ManagerUI::addUser() {
     }
 }
 
+void ManagerUI::printPizza() {
+    cout << "----Pizza List----" << endl;
+    vector<Pizza> pizzas = managerDomain.getPizzas();
+    for (unsigned int i = 0; i < pizzas.size(); i++) {
+        cout << pizzas[i];
+    }
+    cout << "-------------------" << endl;
+}
+
 void ManagerUI::printCrust() {
     cout << "----Crusts List----" << endl;
-    vector<Crust> crusts = managerDomain.printCrust();
+    vector<Crust> crusts = managerDomain.getCrusts();
     for (unsigned int i = 0; i < crusts.size(); i++) {
         cout << crusts[i];
     }
@@ -316,24 +325,16 @@ void ManagerUI::printCrust() {
 
 void ManagerUI::printTopping() {
     cout << "----Toppings List----" << endl;
-    vector<Topping> toppings = managerDomain.printTopping();
+    vector<Topping> toppings = managerDomain.getToppings();
     for (unsigned int i = 0; i < toppings.size(); i++) {
         cout << toppings[i];
     }
     cout << "---------------------" << endl;
 }
-void ManagerUI::printPizza() {
-    cout << "----Pizza List----" << endl;
-    vector<Pizza> pizzas = managerDomain.printPizza();
-    for (unsigned int i = 0; i < pizzas.size(); i++) {
-        cout << pizzas[i];
-    }
-    cout << "-------------------" << endl;
-}
 
 void ManagerUI::printDrink() {
     cout << "----Drinks List----" << endl;
-    vector<Drink> drinks = managerDomain.printDrink();
+    vector<Drink> drinks = managerDomain.getDrinks();
     for (unsigned int i = 0; i < drinks.size(); i++) {
         cout << drinks[i];
     }
@@ -342,7 +343,7 @@ void ManagerUI::printDrink() {
 
 void ManagerUI::printSide() {
     cout << "----Sidedish List----" << endl;
-    vector<Sidedish> sidedishes = managerDomain.printSidedish();
+    vector<Sidedish> sidedishes = managerDomain.getSidedishes();
      for (unsigned int i = 0; i < sidedishes.size(); i++) {
         cout << sidedishes[i];
     }
@@ -351,7 +352,7 @@ void ManagerUI::printSide() {
 
 void ManagerUI::printBranch() {
     cout << "----Branch List----" << endl;
-    vector<Branch> branches = managerDomain.printBranch();
+    vector<Branch> branches = managerDomain.getBranches();
      for (unsigned int i = 0; i < branches.size(); i++) {
         cout << branches[i];
     }
@@ -360,7 +361,7 @@ void ManagerUI::printBranch() {
 
 void ManagerUI::printUser() {
     cout << "----Branch List----" << endl;
-    vector<User> users = managerDomain.printUser();
+    vector<User> users = managerDomain.getUsers();
      for (unsigned int i = 0; i < users.size(); i++) {
         cout << users[i];
     }
@@ -369,7 +370,7 @@ void ManagerUI::printUser() {
 
 void ManagerUI::printAllFigures() {
     cout << "-----All sale figures-----" << endl;
-    vector<Order> orders = managerDomain.printOrder();
+    vector<Order> orders = managerDomain.getOrders();
     int total = 0;
     for (unsigned int i = 0; i < orders.size(); i++) {
         cout << "Order time: " << orders[i].getTime();
@@ -395,6 +396,24 @@ void ManagerUI::printBranchFigures() {
     cout << "-------------------" << endl;
     cout << "Total: " << total << endl;
     cout << "-------------------" << endl;
+}
+
+
+void ManagerUI::removePizza() {
+    cout << "-----Remove Pizza-----" << endl;
+    string name = checkName();
+    Pizza pizza(name);
+
+    try {
+        managerDomain.removePizza(pizza);
+        cout << "\"" << pizza.getName();
+        cout << "\" pizza was removed" << endl;
+    }
+    catch(NotFoundException) {
+        cout << "This pizza \"" << pizza.getName();
+        cout << "\" is not on the list" << endl;
+    }
+
 }
 
 void ManagerUI::removeCrust() {
@@ -427,22 +446,6 @@ void ManagerUI::removeTopping() {
     }
 }
 
-void ManagerUI::removePizza() {
-    cout << "-----Remove Pizza-----" << endl;
-    string name = checkName();
-    Pizza pizza(name);
-
-    try {
-        managerDomain.removePizza(pizza);
-        cout << "\"" << pizza.getName();
-        cout << "\" pizza was removed" << endl;
-    }
-    catch(NotFoundException) {
-        cout << "This pizza \"" << pizza.getName();
-        cout << "\" is not on the list" << endl;
-    }
-
-}
 void ManagerUI::removeDrink() {
     cout << "-----Remove Drink-----" << endl;
     string name = checkName();
