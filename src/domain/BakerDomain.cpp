@@ -25,7 +25,7 @@ vector<Order> BakerDomain::getOrders(const string &branch) {
     vector<Order> branchOrderList;
 
     for (int i = 0; i < orderList.size(); i++) {
-        if (orderList[i].getBranch() == branch) {
+        if (orderList[i].getBranch() == branch && orderList[i].getReady() == false) {
             branchOrderList.push_back(orderList[i]);
         }
     }
