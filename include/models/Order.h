@@ -2,13 +2,13 @@
 #define ORDER_H
 
 #include <vector>
+#include <string>
 #include <iostream>
 #include <ctime>
 #include "Pizza.h"
 #include "Drink.h"
 #include "Sidedish.h"
 #include "Branch.h"
-
 using namespace std;
 
 class Order {
@@ -42,6 +42,7 @@ class Order {
         void addCustomerPhoneNum(const string &num);
         void addCustomerAddress(const string &address);
         void addBranch(const string &branch);
+        void addTotalPrice(int price);
 
         void setPaidFor(bool paidFor);
         void setInProcess(bool inProcess);
@@ -54,13 +55,16 @@ class Order {
         string getCustomerPhoneNumber() const;
         string getCustomerAddress() const;
         string getBranch() const;
-        time_t getTime() const;
-        int getTotal() const;
+        string getTime() const;
+
         bool getPaidFor() const;
         bool getInProcess() const;
         bool getReady() const;
         bool getDeliverd() const;
         bool getPickup() const;
+
+        int getTotal() const;
+        int getTotalPrice() const;
 
         void cleanOrder();
 

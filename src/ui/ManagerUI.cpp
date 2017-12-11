@@ -9,10 +9,11 @@ void ManagerUI::startUI() {
     system("CLS");
     printManLogo();
     char select = '\0';
-    while (select != '3') {
+    while (select != '4') {
         cout << "1: Add/Change menu" << endl;
         cout << "2: Remove from menu" << endl;
-        cout << "3: Quit" << endl;
+        cout << "3: Sale Figures" << endl;
+        cout << "4: Quit" << endl;
         select = checkInput();
 
         switch(select) {
@@ -20,7 +21,8 @@ void ManagerUI::startUI() {
             break;
             case '2': removeFromMenu();
             break;
-            case '3': cout << "GoodBye" << endl;
+            case '3': seeSaleFigures();
+            case '4': cout << "GoodBye" << endl;
             break;
             default: cout << "Invalid input" << endl;
         }
@@ -29,8 +31,7 @@ void ManagerUI::startUI() {
 
 void ManagerUI::addChangeMenu() {
     char select = '\0';
-    system("CLS");
-    while (select != '7') {
+    while (select != '8') {
         cout << endl;
         cout << "-----Add/Change-----" << endl;
         cout << "1: Pizza crust" << endl;
@@ -83,9 +84,8 @@ void ManagerUI::addChangeMenu() {
 }
 
 void ManagerUI::removeFromMenu() {
-    system("CLS");
     char select = '\0';
-    while (select != '7') {
+    while (select != '8') {
         cout << endl;
         cout << "-----Remove-----" << endl;
         cout << "1: Pizza crust" << endl;
@@ -136,6 +136,33 @@ void ManagerUI::removeFromMenu() {
     }
 }
 
+void ManagerUI::seeSaleFigures() {
+    char select = '\0';
+    while (select != '3') {
+        cout << endl;
+        cout << "-----Sale Figures-----" << endl;
+        cout << "1: Restaurant" << endl;
+        cout << "2: All" << endl;
+        cout << "3: Quit" << endl;
+        cout << "----------------------" << endl;
+        select = checkInput();
+        switch(select){
+            case '1':
+                printBranch();
+                printBranchFigures();
+                break;
+            case '2':
+                printAllFigures();
+                break;
+            case '3':
+                cout << endl;
+                break;
+            default:
+                cout << "Invalid input" << endl;
+        }
+    }
+}
+
 void ManagerUI::addPizza() {
     cout << "----Add Pizza----" << endl;
     int inches[3]= {14, 16, 18};
@@ -152,7 +179,7 @@ void ManagerUI::addPizza() {
         string toppingName = checkName();
         Topping topping(toppingName);
         try{
-            managerDomain.checkToppingAvaliability(topping);
+            managerDomain.checkTopping(topping);
             pizza.addTopping(topping);
             cout << "Add another topping? (y/n): ";
         }
@@ -278,9 +305,18 @@ void ManagerUI::addUser() {
     }
 }
 
+void ManagerUI::printPizza() {
+    cout << "----Pizza List----" << endl;
+    vector<Pizza> pizzas = managerDomain.getPizzas();
+    for (unsigned int i = 0; i < pizzas.size(); i++) {
+        cout << pizzas[i];
+    }
+    cout << "-------------------" << endl;
+}
+
 void ManagerUI::printCrust() {
     cout << "----Crusts List----" << endl;
-    vector<Crust> crusts = managerDomain.printCrust();
+    vector<Crust> crusts = managerDomain.getCrusts();
     for (unsigned int i = 0; i < crusts.size(); i++) {
         cout << crusts[i];
     }
@@ -289,24 +325,16 @@ void ManagerUI::printCrust() {
 
 void ManagerUI::printTopping() {
     cout << "----Toppings List----" << endl;
-    vector<Topping> toppings = managerDomain.printTopping();
+    vector<Topping> toppings = managerDomain.getToppings();
     for (unsigned int i = 0; i < toppings.size(); i++) {
         cout << toppings[i];
     }
     cout << "---------------------" << endl;
 }
-void ManagerUI::printPizza() {
-    cout << "----Pizza List----" << endl;
-    vector<Pizza> pizzas = managerDomain.printPizza();
-    for (unsigned int i = 0; i < pizzas.size(); i++) {
-        cout << pizzas[i];
-    }
-    cout << "-------------------" << endl;
-}
 
 void ManagerUI::printDrink() {
     cout << "----Drinks List----" << endl;
-    vector<Drink> drinks = managerDomain.printDrink();
+    vector<Drink> drinks = managerDomain.getDrinks();
     for (unsigned int i = 0; i < drinks.size(); i++) {
         cout << drinks[i];
     }
@@ -315,7 +343,7 @@ void ManagerUI::printDrink() {
 
 void ManagerUI::printSide() {
     cout << "----Sidedish List----" << endl;
-    vector<Sidedish> sidedishes = managerDomain.printSidedish();
+    vector<Sidedish> sidedishes = managerDomain.getSidedishes();
      for (unsigned int i = 0; i < sidedishes.size(); i++) {
         cout << sidedishes[i];
     }
@@ -324,7 +352,7 @@ void ManagerUI::printSide() {
 
 void ManagerUI::printBranch() {
     cout << "----Branch List----" << endl;
-    vector<Branch> branches = managerDomain.printBranch();
+    vector<Branch> branches = managerDomain.getBranches();
      for (unsigned int i = 0; i < branches.size(); i++) {
         cout << branches[i];
     }
@@ -333,11 +361,59 @@ void ManagerUI::printBranch() {
 
 void ManagerUI::printUser() {
     cout << "----Branch List----" << endl;
-    vector<User> users = managerDomain.printUser();
+    vector<User> users = managerDomain.getUsers();
      for (unsigned int i = 0; i < users.size(); i++) {
         cout << users[i];
     }
     cout << "-------------------" << endl;
+}
+
+void ManagerUI::printAllFigures() {
+    cout << "-----All sale figures-----" << endl;
+    vector<Order> orders = managerDomain.getOrders();
+    int total = 0;
+    for (unsigned int i = 0; i < orders.size(); i++) {
+        cout << "Order time: " << orders[i].getTime();
+        cout << "\tPrice: " << orders[i].getTotal() << endl;
+        total += orders[i].getTotal();
+    }
+    cout << "-------------------" << endl;
+    cout << "Total: " << total << endl;
+    cout << "-------------------" << endl;
+}
+
+void ManagerUI::printBranchFigures() {
+    string branch = checkBranch();
+    int total = 0;
+    cout << endl;
+    cout << "-----Sale figures for " << branch << "-----"  << endl;
+    vector<Order> orders = managerDomain.getBranchOrders(branch);
+    for (unsigned int i = 0; i < orders.size(); i++) {
+        cout << "Order time: " << orders[i].getTime();
+        cout << "\tPrice: " << orders[i].getTotal() << endl;
+        total += orders[i].getTotal();
+    }
+    cout << "-------------------" << endl;
+    cout << "Total: " << total << endl;
+    cout << "-------------------" << endl;
+}
+
+
+void ManagerUI::removePizza() {
+    cout << "-----Remove Pizza-----" << endl;
+    string name = checkName();
+    Pizza pizza(name);
+
+    try {
+        managerDomain.removePizza(pizza);
+        cout << "\"" << pizza.getName();
+        cout << "\" pizza was removed" << endl;
+    }
+    catch(NotFoundException) {
+        cout << "This pizza \"" << pizza.getName();
+        cout << "\" is not on the list" << endl;
+    }
+
 }
 
 void ManagerUI::removeCrust() {
@@ -370,22 +446,6 @@ void ManagerUI::removeTopping() {
     }
 }
 
-void ManagerUI::removePizza() {
-    cout << "-----Remove Pizza-----" << endl;
-    string name = checkName();
-    Pizza pizza(name);
-
-    try {
-        managerDomain.removePizza(pizza);
-        cout << "\"" << pizza.getName();
-        cout << "\" pizza was removed" << endl;
-    }
-    catch(NotFoundException) {
-        cout << "This pizza \"" << pizza.getName();
-        cout << "\" is not on the list" << endl;
-    }
-
-}
 void ManagerUI::removeDrink() {
     cout << "-----Remove Drink-----" << endl;
     string name = checkName();
@@ -582,6 +642,24 @@ char ManagerUI::checkJob() {
         }
     }
     return job1;
+}
+
+string ManagerUI::checkBranch() {
+    string branch = "";
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Restaurant: ";
+        cin >> ws;
+        getline(cin, branch);
+        try{
+            allowed = managerDomain.checkValidBranch(branch);
+        }
+        catch(NotFoundException){
+            cout << "This restaurant doesn't exist" << endl;
+        }
+    }
+    return branch;
 }
 
 void ManagerUI::printManLogo(){

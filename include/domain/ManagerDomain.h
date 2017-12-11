@@ -13,7 +13,9 @@
 #include "Drink.h"
 #include "Sidedish.h"
 #include "Branch.h"
-#include "Username.h"
+#include "User.h"
+#include "Order.h"
+
 #include <string>
 #include <vector>
 #include <stdlib.h>
@@ -37,13 +39,16 @@ class ManagerDomain
         bool addBranch(const Branch &branch);
         bool addUser(const User &user);
 
-        vector<Pizza> printPizza();
-        vector<Crust> printCrust();
-        vector<Topping> printTopping();
-        vector<Drink> printDrink();
-        vector<Sidedish> printSidedish();
-        vector<Branch> printBranch();
-        vector<User> printUser();
+        vector<Pizza> getPizzas();
+        vector<Crust> getCrusts();
+        vector<Topping> getToppings();
+        vector<Drink> getDrinks();
+        vector<Sidedish> getSidedishes();
+        vector<Branch> getBranches();
+        vector<User> getUsers();
+
+        vector<Order> getOrders();
+        vector<Order> getBranchOrders(const string &branch);
 
         bool removePizza(const Pizza &pizza);
         bool removeCrust(const Crust &crust);
@@ -53,7 +58,7 @@ class ManagerDomain
         bool removeBranch(const Branch &branch);
         bool removeUser(const User &user);
 
-        bool checkToppingAvaliability(const Topping &topping);
+        bool checkTopping(const Topping &topping);
         bool checkValidName(const string &name);
         int  checkValidPrice(const string &price);
         bool checkValidInput(const string &input);
@@ -61,6 +66,8 @@ class ManagerDomain
         bool checkValidUsername(const string &username);
         bool checkValidPassword(const string &password);
         bool checkValidJob(const string &job);
+        bool checkValidBranch(const string &branch);
+
 
 };
 

@@ -212,6 +212,23 @@ vector<User> ManagerRep::getUser() {
     return users;
 }
 
+vector<Order> ManagerRep::getOrder() {
+    vector <Order> orders;
+    ifstream fin;
+    fin.open("LegacyOrder_Binary.dat", ios::binary);
+    if(fin.is_open()) {
+        while(!fin.eof()){
+            Order order;
+            order.read(fin);
+            if(!fin.eof()){
+                orders.push_back(order);
+            }
+        }
+        fin.close();
+    }
+    return orders;
+}
+
 void ManagerRep::changePizzaList(vector<Pizza> &pizzas) {
 
     ofstream fout;

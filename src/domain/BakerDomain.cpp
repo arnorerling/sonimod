@@ -25,7 +25,7 @@ vector<Order> BakerDomain::getOrders(const string &branch) {
     vector<Order> branchOrderList;
 
     for (int i = 0; i < orderList.size(); i++) {
-        if (orderList[i].getBranch() == branch) {
+        if (orderList[i].getBranch() == branch && orderList[i].getReady() == false) {
             branchOrderList.push_back(orderList[i]);
         }
     }
@@ -37,7 +37,9 @@ Order BakerDomain::getOneOrder(const string &number, const string &branch) {
 
     for (int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getCustomerPhoneNumber() == number) {
-            return orderList[i];
+            if (orderList[i].getReady() == false) {
+                return orderList[i];
+            }
         }
     }
     throw NotFoundException();
@@ -48,11 +50,8 @@ bool BakerDomain::markOrderInProcess(const Order &order) {
     vector<Order> orderList = bakerRep.getOrders();
     for (int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
-            if(orderList[i].getReady() == 1) {
-                throw MarkedReadyException();
-            }
-            else if (orderList[i].getInProcess() == 1) {
-                throw NotMarkedInProgressException();
+            if (orderList[i].getInProcess() == 1) {
+                throw MarkedInProcessException();
             }
             else {
                 orderList[i].setInProcess(true);
@@ -67,11 +66,7 @@ bool BakerDomain::markOrderReady(const Order &order) {
     vector<Order> orderList = bakerRep.getOrders();
     for (int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
-            if (orderList[i].getReady() == 1) {
-                throw MarkedReadyException();
-                return false;
-            }
-            else if (orderList[i].getInProcess() == 0) {
+            if (orderList[i].getInProcess() == 0) {
                 throw NotMarkedInProgressException();
                 return false;
             }

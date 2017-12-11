@@ -116,39 +116,55 @@ bool ManagerDomain::addUser(const User &user) {
 }
 
 
-vector<Pizza> ManagerDomain::printPizza() {
+vector<Pizza> ManagerDomain::getPizzas() {
     vector<Pizza>pizzas = managerRep.getPizza();
     return pizzas;
 }
 
-vector<Crust> ManagerDomain::printCrust() {
+vector<Crust> ManagerDomain::getCrusts() {
     vector<Crust>crusts = managerRep.getCrust();
     return crusts;
 }
 
-vector<Topping> ManagerDomain::printTopping() {
+vector<Topping> ManagerDomain::getToppings() {
     vector<Topping>toppings = managerRep.getTopping();
     return toppings;
 }
 
-vector<Drink> ManagerDomain::printDrink() {
+vector<Drink> ManagerDomain::getDrinks() {
     vector<Drink>drinks = managerRep.getDrink();
     return drinks;
 }
 
-vector<Sidedish> ManagerDomain::printSidedish() {
+vector<Sidedish> ManagerDomain::getSidedishes() {
     vector<Sidedish>sidedishes = managerRep.getSidedish();
     return sidedishes;
 }
 
-vector<Branch> ManagerDomain::printBranch() {
+vector<Branch> ManagerDomain::getBranches() {
     vector<Branch>branches = managerRep.getBranch();
     return branches;
 }
 
-vector<User> ManagerDomain::printUser() {
+vector<User> ManagerDomain::getUsers() {
     vector<User>users = managerRep.getUser();
     return users;
+}
+
+vector<Order> ManagerDomain::getOrders() {
+    vector<Order>orders = managerRep.getOrder();
+    return orders;
+}
+
+vector<Order> ManagerDomain::getBranchOrders(const string &branch) {
+    vector<Order>orders = managerRep.getOrder();
+    vector<Order>branchOrders;
+    for (int i = 0; i < orders.size(); i++) {
+        if (orders[i].getBranch() == branch) {
+            branchOrders.push_back(orders[i]);
+        }
+    }
+    return branchOrders;
 }
 
 bool ManagerDomain::removePizza(const Pizza &pizza) {
@@ -283,7 +299,7 @@ bool ManagerDomain::removeUser(const User &user) {
 }
 
 
-bool ManagerDomain::checkToppingAvaliability(const Topping &topping) {
+bool ManagerDomain::checkTopping(const Topping &topping) {
     vector<Topping> toppings = managerRep.getTopping();
 
     for (int i = 0; i < toppings.size(); i++) {
@@ -370,5 +386,16 @@ bool ManagerDomain::checkValidJob(const string &job) {
     }
 
     throw InvalidInputException();
+    return false;
+}
+
+bool ManagerDomain::checkValidBranch(const string &branch) {
+    vector<Branch>branches = managerRep.getBranch();
+    for (int i = 0; i < branches.size(); i++) {
+        if (branches[i].getName() == branch) {
+            return true;
+        }
+    }
+    throw NotFoundException();
     return false;
 }

@@ -27,26 +27,30 @@ class ManagerUI
         void startUI();
         void addChangeMenu();
         void removeFromMenu();
+        void seeSaleFigures();
 
+        void addPizza();
         void addCrust();
         void addTopping();
-        void addPizza();
         void addDrink();
         void addSide();
         void addBranch();
         void addUser();
 
+        void printPizza();
         void printCrust();
         void printTopping();
-        void printPizza();
         void printDrink();
         void printSide();
         void printBranch();
         void printUser();
 
+        void printAllFigures();
+        void printBranchFigures();
+
+        void removePizza();
         void removeCrust();
         void removeTopping();
-        void removePizza();
         void removeDrink();
         void removeSide();
         void removeBranch();
@@ -59,6 +63,7 @@ class ManagerUI
         string checkUsername();
         string checkPassword();
         char checkJob();
+        string checkBranch();
 
         void printManLogo();
 };

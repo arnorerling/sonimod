@@ -7,6 +7,7 @@
 #include "Sidedish.h"
 #include "Branch.h"
 #include "User.h"
+#include "Order.h"
 #include <vector>
 
 class ManagerRep
@@ -28,6 +29,7 @@ class ManagerRep
         vector<Sidedish> getSidedish();
         vector<Branch> getBranch();
         vector<User> getUser();
+        vector<Order> getOrder();
 
         void changePizzaList(vector<Pizza> &pizzas);
         void changeCrustList(vector<Crust> &crusts);
