@@ -37,7 +37,9 @@ Order BakerDomain::getOneOrder(const string &number, const string &branch) {
 
     for (int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getCustomerPhoneNumber() == number) {
-            return orderList[i];
+            if (orderList[i].getReady() == false) {
+                return orderList[i];
+            }
         }
     }
     throw NotFoundException();

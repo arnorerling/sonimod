@@ -311,8 +311,8 @@ void Order::read(ifstream& fin) {
     int tCount1 = 0;
     fin.read((char*)(&tCount1), sizeof(int));
 
-    Drink drink;
     for (int i = 0; i < tCount1; i++) {
+        Drink drink;
         drink.read(fin);
         drinks.push_back(drink);
     }
@@ -320,8 +320,8 @@ void Order::read(ifstream& fin) {
     int tCount2 = 0;
     fin.read((char*)(&tCount2), sizeof(int));
 
-    Sidedish sidedish;
     for (int i = 0; i < tCount2; i++) {
+        Sidedish sidedish;
         sidedish.read(fin);
         sideDishes.push_back(sidedish);
     }
