@@ -23,6 +23,7 @@ class Pizza {
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 
+
         friend ostream& operator << (ostream& out, const Pizza& pizza);
         friend bool operator == (const Pizza &left_pizza, const Pizza &right_pizza);
 
@@ -33,9 +34,11 @@ class Pizza {
         void setFixedPrice(const int &price);
         void setPrice();
 
+
         string getName() const;
         int getPrice() const;
         int getCrustSize() const;
+        Topping getTopping() const;
 };
 
 #endif // PIZZA_H

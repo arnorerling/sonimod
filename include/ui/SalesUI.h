@@ -22,8 +22,8 @@ class SalesUI {
         void addCustomer();
         void addPizza();
         void addPizzaMenu();
-        void choosePizza(Pizza &pizza);
-        void addCrust(Pizza &pizza);
+        void choosePizza(Pizza &pizza, int& size);
+        void addCrust(Pizza &pizza, int& size);
         void addToppings(Pizza &pizza);
         void addSidedish();
         void addDrink();
@@ -42,6 +42,7 @@ class SalesUI {
         string validPhoneNumber();
         int validNumber();
         char validAnswer();
+        void markPaidFor();
 
         void printLogo();
 

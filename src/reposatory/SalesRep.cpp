@@ -7,11 +7,12 @@ SalesRep::SalesRep()
 
 void SalesRep::getPizzas(vector<Pizza>& pizzas) {
 
-    Pizza currPizza;
+
     ifstream fin;
     fin.open("Pizzas_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
+            Pizza currPizza;
             currPizza.read(fin);
             if(!fin.eof()){
                 pizzas.push_back(currPizza);

@@ -10,6 +10,7 @@ Order::Order()
     this->pickup = false;
     this->branch = "";
     this->customerAddress = "";
+    this->orderTime = time(0);
 }
 
 void Order::addPizza(Pizza& pizza){
@@ -51,7 +52,9 @@ void Order::setDeliverd(bool deliverd) {
 void Order::setPickup(bool pickup) {
     this->pickup = pickup;
 }
-
+void Order::setTime(){
+    this->orderTime = time(0);
+}
 string Order::getCustomerName() const{
     return this->customerName;
 }
@@ -64,7 +67,9 @@ string Order::getCustomerAddress() const{
 string Order::getBranch() const{
     return this->branch;
 }
-
+time_t Order::getTime() const{
+    return this->orderTime;
+}
 bool Order::getPaidFor() const {
     return paidFor;
 }
@@ -81,6 +86,7 @@ bool Order::getPickup() const{
     return pickup;
 }
 
+
 int Order::getTotal() const{
     int total = 0;
     for(unsigned int i = 0; i < this->pizzas.size(); i++){
@@ -95,12 +101,15 @@ int Order::getTotal() const{
     return total;
 }
 
+
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
     out << "Customer Name: " << order.getCustomerName() << endl;
     out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
     out << "Customer adress: " << order.getCustomerAddress() << endl;
-
+    time_t time = order.getTime();
+    string timeString = asctime(localtime(&time));
+    out << "Order time" << timeString << endl;
     if (order.pizzas.size() > 0) {
         out << "Pizzas: " << endl;
         for(unsigned int i = 0; i < order.pizzas.size(); i++){
@@ -232,6 +241,7 @@ void Order::write(ofstream& fout) const {
     fout.write((char*)(&ready), sizeof(char));
     fout.write((char*)(&deliverd), sizeof(char));
     fout.write((char*)(&pickup), sizeof(char));
+    fout.write((char*)(&orderTime), sizeof(long));
 
 }
 
@@ -299,4 +309,5 @@ void Order::read(ifstream& fin) {
     fin.read((char*)(&ready), sizeof(char));
     fin.read((char*)(&deliverd), sizeof(char));
     fin.read((char*)(&pickup), sizeof(char));
+    fin.read((char*)(&orderTime), sizeof(long));
 }

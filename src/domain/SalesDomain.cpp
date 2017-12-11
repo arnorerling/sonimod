@@ -45,11 +45,12 @@ bool SalesDomain::isValidPhoneNumber(string num){
     return true;
 }
 
-bool SalesDomain::checkPizzaAvailability(string name, Pizza &pizza){
+bool SalesDomain::checkPizzaAvailability(string name, int size, Pizza &pizza){
     vector<Pizza> pizzas;
     getPizzas(pizzas);
     for(unsigned int i = 0; i < pizzas.size(); i++){
-        if(pizzas[i].getName() == name){
+        if(pizzas[i].getName() == name && pizzas[i].getCrustSize() == size){
+            pizza = pizzas[i];
             pizza.setFixedPrice(pizzas[i].getPrice());
             return true;
         }
@@ -160,5 +161,15 @@ bool SalesDomain::checkValidAnswer(const string &answer) {
     }
     throw InvalidInputException();
     return false;
+}
+
+bool SalesDomain::markOrderPaidFor(Order &order) {
+    if (order.getPaidFor()) {
+        throw MarkedPaidForException();
+    }
+    else {
+        order.setPaidFor(true);
+        return true;
+    }
 }
 

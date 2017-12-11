@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <ctime>
 #include "Pizza.h"
 #include "Drink.h"
 #include "Sidedish.h"
@@ -26,6 +27,7 @@ class Order {
         bool ready;
         bool deliverd;
         bool pickup;
+        time_t orderTime;
 
         int totalPrice;
 
@@ -46,17 +48,20 @@ class Order {
         void setReady(bool ready);
         void setDeliverd(bool deliverd);
         void setPickup(bool pickup);
+        void setTime();
 
         string getCustomerName() const;
         string getCustomerPhoneNumber() const;
         string getCustomerAddress() const;
         string getBranch() const;
+        time_t getTime() const;
         int getTotal() const;
         bool getPaidFor() const;
         bool getInProcess() const;
         bool getReady() const;
         bool getDeliverd() const;
         bool getPickup() const;
+
 
         friend ostream& operator << (ostream& out, const Order& order);
         friend bool operator == (const Order &left_order, const Order &right_order);

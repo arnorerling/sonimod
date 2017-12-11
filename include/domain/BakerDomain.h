@@ -27,11 +27,13 @@ class BakerDomain
 
         bool markOrderInProcess(const Order &order);
         bool markOrderReady(const Order &order);
+        bool markOrderPaidFor(const Order &order);
 
         bool checkBranchAvaliability(string &branchName);
         bool checkValidName(const string &name);
         bool checkValidInput(const string &input);
         bool isValidNumber(const string num);
+
 };
 
 #endif // BAKERDOMAIN_H

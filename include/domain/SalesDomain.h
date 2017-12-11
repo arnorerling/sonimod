@@ -6,6 +6,7 @@
 #include "LengthNotRightException.h"
 #include "NotFoundException.h"
 #include "InvalidInputException.h"
+#include "MarkedPaidForException.h"
 #include <iostream>
 #include <stdlib.h>
 
@@ -27,7 +28,7 @@ class SalesDomain {
         bool isValidName(string name);
         bool isValidPhoneNumber(string num);
 
-        bool checkPizzaAvailability(string name, Pizza &pizza);
+        bool checkPizzaAvailability(string name, int size, Pizza &pizza);
         bool checkDrinkAvailability(Drink& drink);
         bool checkSidedishAvailability(Sidedish& sidedish);
         void checkToppingAvailability(Topping& topping);
@@ -40,6 +41,7 @@ class SalesDomain {
         int isValidNumber(string &number);
         void toLowerCase(string &str);
         bool checkValidAnswer(const string &answer);
+        bool markOrderPaidFor(Order &order);
 
 };
 

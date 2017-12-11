@@ -17,7 +17,6 @@ Pizza::Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price) 
     this->crust = crust;
     this->price = price;
 }
-
 void Pizza::write(ofstream& fout) const {
 
     int strLen = name.length() + 1;
@@ -27,8 +26,9 @@ void Pizza::write(ofstream& fout) const {
     int tCount = toppings.size();
     fout.write((char*)(&tCount), sizeof(int));
 
-    Topping topping;
+
     for (int i = 0; i < tCount; i++) {
+        Topping topping;
         toppings[i].write(fout);
     }
 
@@ -46,9 +46,9 @@ void Pizza::read(ifstream& fin) {
 
     int tCount = 0;
     fin.read((char*)(&tCount), sizeof(int));
-    Topping topping;
-    for (int i = 0; i < tCount; i++) {
 
+    for (int i = 0; i < tCount; i++) {
+        Topping topping;
         topping.read(fin);
         toppings.push_back(topping);
     }

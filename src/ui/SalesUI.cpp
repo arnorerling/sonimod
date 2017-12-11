@@ -8,7 +8,7 @@ void SalesUI::startUI() {
     system("CLS");
     printLogo();
     Order order;
-    addCustomer();
+
 
     char select = '\0';
     while (select != '7') {
@@ -27,6 +27,7 @@ void SalesUI::startUI() {
 
         switch(select){
             case '1': {
+
                 addPizza();
                 break;
             }
@@ -78,7 +79,8 @@ void SalesUI::addCustomer(){
 
 void SalesUI::addPizza(){
     Pizza pizza;
-    this->addCrust(pizza);
+    int size = 0;
+    this->addCrust(pizza, size);
     this->addToppings(pizza);
     pizza.setPrice();
     order.addPizza(pizza);
@@ -87,18 +89,19 @@ void SalesUI::addPizza(){
 void SalesUI::addPizzaMenu(){
 
     Pizza pizza;
-    this->choosePizza(pizza);
-    this->addCrust(pizza);
+    int size = 0;
+    this->addCrust(pizza, size);
+    this->choosePizza(pizza, size);
     order.addPizza(pizza);
 }
 
-void SalesUI::choosePizza(Pizza &pizza){
+void SalesUI::choosePizza(Pizza &pizza, int &size){
     bool available = false;
     while(!available) {
         cout << "Pizza name: ";
         string name = validName();
         try{
-            available = salesDomain.checkPizzaAvailability(name, pizza);
+            available = salesDomain.checkPizzaAvailability(name,size , pizza);
             pizza.setName(name);
         }
         catch(NotFoundException){
@@ -107,14 +110,14 @@ void SalesUI::choosePizza(Pizza &pizza){
     }
 }
 
-void SalesUI::addCrust(Pizza &pizza){
+void SalesUI::addCrust(Pizza &pizza, int &size){
     printCrusts();
     bool available = false;
     while(!available) {
         cout << "Crust name: ";
         string name = validName();
         cout << "Crust size: ";
-        int size = validNumber();
+        size = validNumber();
         Crust crust(name,size);
         try{
             available = salesDomain.checkCrustAvailability(crust);
@@ -264,8 +267,11 @@ void SalesUI::printSidedishes() {
 }
 
 void SalesUI::fileOrder(){
+    addCustomer();
     addBranch();
     addAddress();
+    markPaidFor();
+    this->order.setTime();
     salesDomain.fileOrder(this->order);
     cout << "Order filed!" << endl;
 
@@ -342,6 +348,18 @@ char SalesUI::validAnswer() {
         }
     }
     return answer1;
+}
+
+void SalesUI::markPaidFor() {
+    if (this->order.getCustomerName() != "") {
+        try {
+            salesDomain.markOrderPaidFor(this->order);
+            cout << "Order has been paid for" << endl;
+        }
+        catch(MarkedPaidForException) {
+            cout << "This order has already been paid for" << endl;
+        }
+    }
 }
 
 void SalesUI::printLogo() {
