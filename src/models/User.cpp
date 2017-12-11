@@ -2,7 +2,6 @@
 
 User::User()
 {
-    //ctor
 }
 
 User::User(string username, string password, char jobNumber) {
@@ -50,6 +49,19 @@ void User::read(ifstream& fin) {
     delete[] str1;
 }
 
+ostream& operator << (ostream &out, User &user) {
+    out << "Username: " << user.username;
+    out << " Job: " << user.getJob(user.jobNumber) << endl;
+    return out;
+}
+
+bool operator == (const User &left_user, const User &right_user) {
+    if (left_user.username == right_user.username) {
+        return true;
+    }
+    return false;
+}
+
 string User::getName() const {
     return this->username;
 }
@@ -62,7 +74,7 @@ char User::getJobNumber() const {
     return this->jobNumber;
 }
 
-string User::getJob(char &jobNumber) const{
+string User::getJob(const char &jobNumber) const{
     switch(jobNumber) {
         case '1': return "Mananger";
         break;
@@ -76,15 +88,12 @@ string User::getJob(char &jobNumber) const{
     }
 }
 
-ostream& operator << (ostream &out, User &user) {
-    out << "Username: " << user.username;
-    out << " Job: " << user.getJob(user.jobNumber) << endl;
-    return out;
+void User::setName(const string &name) {
+    this->username = name;
 }
-
-bool operator == (const User &left_user, const User &right_user) {
-    if (left_user.username == right_user.username) {
-        return true;
-    }
-    return false;
+void User::setPassword(const string &pw) {
+    this->password = pw;
+}
+void User::setJobNumber(const int &num) {
+    this->jobNumber = num;
 }

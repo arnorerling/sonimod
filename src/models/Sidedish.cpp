@@ -11,7 +11,6 @@ Sidedish::Sidedish(string name) {
     this->price = 0;
 }
 
-
 Sidedish::Sidedish(string name, int price) {
     this->name = name;
     this->price = price;
@@ -54,14 +53,18 @@ bool operator == (const Sidedish &left_side, const Sidedish &right_side) {
     return false;
 }
 
-int Sidedish::getPrice() const {
-    return this->price;
-}
-
 string Sidedish::getName() const {
     return this->name;
 }
 
-void Sidedish::setPrice(int price){
+int Sidedish::getPrice() const {
+    return this->price;
+}
+
+void Sidedish::setName(const string &name) {
+    this->name = name;
+}
+
+void Sidedish::setPrice(const int &price){
     this->price = price;
 }

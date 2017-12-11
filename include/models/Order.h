@@ -12,37 +12,34 @@ using namespace std;
 
 class Order {
     private:
+        vector<Pizza> pizzas;
+        vector<Drink> drinks;
+        vector<Sidedish> sideDishes;
+
         string customerName;
         string phoneNumber;
         string customerAddress;
         string branch;
 
-        vector<Pizza> pizzas;
-        vector<Drink> drinks;
-        vector<Sidedish> sideDishes;
-
-        int totalPrice;
         bool paidFor;
         bool inProcess;
         bool ready;
         bool deliverd;
         bool pickup;
 
+        int totalPrice;
+
     public:
         Order();
-        string getCustomerName() const;
-        string getCustomerPhoneNumber() const;
-        string getCustomerAddress() const;
-        string getBranch() const;
 
         void addPizza(Pizza& pizza);
         void addSideDish(Sidedish& sidedish);
         void addDrink(Drink& drink);
 
-        void addCustomerName(string name);
-        void addCustomerPhoneNum(string num);
-        void addCustomerAddress(string address);
-        void addBranch(string branch);
+        void addCustomerName(const string &name);
+        void addCustomerPhoneNum(const string &num);
+        void addCustomerAddress(const string &address);
+        void addBranch(const string &branch);
 
         void setPaidFor(bool paidFor);
         void setInProcess(bool inProcess);
@@ -50,21 +47,23 @@ class Order {
         void setDeliverd(bool deliverd);
         void setPickup(bool pickup);
 
+        string getCustomerName() const;
+        string getCustomerPhoneNumber() const;
+        string getCustomerAddress() const;
+        string getBranch() const;
+        int getTotal() const;
         bool getPaidFor() const;
         bool getInProcess() const;
         bool getReady() const;
         bool getDeliverd() const;
         bool getPickup() const;
 
-        friend ostream& operator << (ostream& out, Order& order);
+        friend ostream& operator << (ostream& out, const Order& order);
         friend bool operator == (const Order &left_order, const Order &right_order);
         friend bool operator != (const Order &left_order, const Order &right_order);
-        int getTotal();
+
         void write(ofstream& fout) const;
         void read(ifstream& fin);
-
-
-
 };
 
 #endif // ORDER_H

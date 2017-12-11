@@ -17,10 +17,11 @@ class Branch
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 
-        friend ostream& operator <<(ostream& out, Branch& branch);
+        friend ostream& operator << (ostream& out, const Branch& branch);
         friend bool operator == (const Branch &left_branch, const Branch &right_branch);
+
         string getName() const;
-        void setName(string name);
+        void setName(const string name);
 };
 
 #endif // BRANCH_H

@@ -38,31 +38,31 @@
 	"User.h"
 	<vector>
 
-1512678959 c:\users\mustard\desktop\verklegt1\sonimod\include\models\crust.h
+1512949223 c:\users\mustard\desktop\verklegt1\sonimod\include\models\crust.h
 	<string.h>
 	<iostream>
 	<fstream>
 	<string>
 
-1512750522 c:\users\mustard\desktop\verklegt1\sonimod\include\models\drink.h
+1512949451 c:\users\mustard\desktop\verklegt1\sonimod\include\models\drink.h
 	<iostream>
 	<string>
 	<fstream>
 	<string>
 
-1512523979 c:\users\mustard\desktop\verklegt1\sonimod\include\models\topping.h
+1512950272 c:\users\mustard\desktop\verklegt1\sonimod\include\models\topping.h
 	<string.h>
 	<iostream>
 	<fstream>
 	<string>
 
-1512525495 c:\users\mustard\desktop\verklegt1\sonimod\include\models\sidedish.h
+1512950128 c:\users\mustard\desktop\verklegt1\sonimod\include\models\sidedish.h
 	<iostream>
 	<iostream>
 	<fstream>
 	<string>
 
-1512662907 c:\users\mustard\desktop\verklegt1\sonimod\include\models\branch.h
+1512948921 c:\users\mustard\desktop\verklegt1\sonimod\include\models\branch.h
 	<string>
 	<iostream>
 	<fstream>
@@ -88,27 +88,27 @@
 	"Pizza.h"
 	"Order.h"
 
-1512841435 c:\users\mustard\desktop\verklegt1\sonimod\include\models\pizza.h
+1512949945 c:\users\mustard\desktop\verklegt1\sonimod\include\models\pizza.h
 	"Topping.h"
 	"Crust.h"
 	<iostream>
 	<vector>
 	<string>
 
-1512662907 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\branch.cpp
+1512948918 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\branch.cpp
 	"Branch.h"
 
-1512678959 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\crust.cpp
+1512949254 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\crust.cpp
 	"Crust.h"
 
-1512750522 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
+1512949451 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\drink.cpp
 	"Drink.h"
 
-1512936394 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
+1512951839 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\order.cpp
 	"Order.h"
 	"Sidedish.h"
 
-1512936319 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
+1512951818 c:\users\mustard\desktop\verklegt1\sonimod\include\models\order.h
 	<vector>
 	<iostream>
 	"Pizza.h"
@@ -116,13 +116,13 @@
 	"Sidedish.h"
 	"Branch.h"
 
-1512841435 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\pizza.cpp
+1512951252 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\pizza.cpp
 	"Pizza.h"
 
-1512525488 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\sidedish.cpp
+1512950148 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\sidedish.cpp
 	"Sidedish.h"
 
-1512652982 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\topping.cpp
+1512950274 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\topping.cpp
 	"Topping.h"
 
 1512743067 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\managerrep.cpp
@@ -165,7 +165,7 @@
 	"DeliveryDomain.h"
 	<cstdlib>
 
-1512939321 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
+1512946315 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
 	"MainUI.h"
 	"ManagerUI.h"
 	"SalesUI.h"
@@ -189,15 +189,16 @@
 	<string.h>
 	<cstring>
 
-1512841435 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\salesui.h
+1512946315 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\salesui.h
 	"SalesDomain.h"
 	<iostream>
 	"Order.h"
+	<cstdlib>
 
 1512744112 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
 	"ManagerUI.h"
 
-1512852757 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
+1512946315 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
 	"SalesUI.h"
 
 1512933918 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
@@ -1172,7 +1173,7 @@
 	<iostream>
 	<fstream>
 
-1512744080 c:\users\mustard\desktop\verklegt1\sonimod\include\models\user.h
+1512950452 c:\users\mustard\desktop\verklegt1\sonimod\include\models\user.h
 	<string>
 	<iostream>
 	<fstream>
@@ -1183,7 +1184,7 @@
 1512741282 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\itemexistsexception.cpp
 	"ItemExistsException.h"
 
-1512744093 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\user.cpp
+1512950547 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\user.cpp
 	"User.h"
 
 1512854235 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\alreadymarkedexception.h

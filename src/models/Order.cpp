@@ -10,7 +10,6 @@ Order::Order()
     this->pickup = false;
     this->branch = "";
     this->customerAddress = "";
-
 }
 
 void Order::addPizza(Pizza& pizza){
@@ -24,16 +23,16 @@ void Order::addDrink(Drink& drink){
 }
 
 
-void Order::addCustomerName(string name){
+void Order::addCustomerName(const string &name){
     this->customerName = name;
 }
-void Order::addCustomerPhoneNum(string num){
+void Order::addCustomerPhoneNum(const string &num){
     this->phoneNumber = num;
 }
-void Order::addCustomerAddress(string address){
+void Order::addCustomerAddress(const string &address){
     this->customerAddress = address;
 }
-void Order::addBranch(string branch){
+void Order::addBranch(const string &branch){
     this->branch = branch;
 }
 
@@ -52,7 +51,6 @@ void Order::setDeliverd(bool deliverd) {
 void Order::setPickup(bool pickup) {
     this->pickup = pickup;
 }
-
 
 string Order::getCustomerName() const{
     return this->customerName;
@@ -83,12 +81,25 @@ bool Order::getPickup() const{
     return pickup;
 }
 
+int Order::getTotal() const{
+    int total = 0;
+    for(unsigned int i = 0; i < this->pizzas.size(); i++){
+        total += this->pizzas[i].getPrice();
+    }
+    for(unsigned int i = 0; i < this->sideDishes.size(); i++){
+        total += this->sideDishes[i].getPrice();
+    }
+    for(unsigned int i = 0; i < this->drinks.size(); i++){
+        total += this->drinks[i].getPrice();
+    }
+    return total;
+}
 
-ostream& operator << (ostream& out, Order& order){
+ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
     out << "Customer Name: " << order.getCustomerName() << endl;
     out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
-
+    out << "Customer adress: " << order.getCustomerAddress() << endl;
 
     if (order.pizzas.size() > 0) {
         out << "Pizzas: " << endl;
@@ -109,8 +120,9 @@ ostream& operator << (ostream& out, Order& order){
             out << order.drinks[i].getName() << endl;
         }
     }
-
+    out << endl;
     out << "Order total: " << order.getTotal() << endl;
+    out << endl;
 
     out << "Been paid for: ";
     if(order.paidFor) {
@@ -136,7 +148,7 @@ ostream& operator << (ostream& out, Order& order){
     out << "Been ";
     if (order.pickup) {
         out << "picked up at ";
-        out << order.branch << ": ";
+        out << order.getBranch() << ": ";
         if (order.deliverd) {
             out << "Yes!" << endl;
         }
@@ -146,7 +158,7 @@ ostream& operator << (ostream& out, Order& order){
     }
     else {
         out << "delivered to address ";
-        out << order.customerAddress << ": ";
+        out << order.getCustomerAddress() << ": ";
         if (order.deliverd) {
             out << "Yes!" << endl;
         }
@@ -155,20 +167,6 @@ ostream& operator << (ostream& out, Order& order){
         }
     }
     return out;
-}
-
-int Order::getTotal(){
-    int total = 0;
-    for(unsigned int i = 0; i < this->pizzas.size(); i++){
-        total += this->pizzas[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->sideDishes.size(); i++){
-        total += this->sideDishes[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->drinks.size(); i++){
-        total += this->drinks[i].getPrice();
-    }
-    return total;
 }
 
 bool operator == (const Order &left_order, const Order &right_order) {
@@ -199,9 +197,13 @@ void Order::write(ofstream& fout) const {
     fout.write((char*)(&strLen1), sizeof(int));
     fout.write(phoneNumber.c_str(), strLen1);
 
-    int strLen2 = branch.length() + 1;
-    fout.write((char*)(&strLen2), sizeof(int));
-    fout.write(branch.c_str(), strLen2);
+    int strLen2 = customerAddress.length() + 1;
+     fout.write((char*)(&strLen2), sizeof(int));
+    fout.write(customerAddress.c_str(), strLen2);
+
+    int strLen3 = branch.length() + 1;
+    fout.write((char*)(&strLen3), sizeof(int));
+    fout.write(branch.c_str(), strLen3);
 
     int tCount = pizzas.size();
     fout.write((char*)(&tCount), sizeof(int));
@@ -238,6 +240,7 @@ void Order::read(ifstream& fin) {
     int strLen = 0;
     int strLen1 = 0;
     int strLen2 = 0;
+    int strLen3 = 0;
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
@@ -251,7 +254,17 @@ void Order::read(ifstream& fin) {
     fin.read((char*)(&strLen2), sizeof(int));
     char *str2 = new char[strLen2];
     fin.read(str2, strLen2);
-    branch = str2;
+    customerAddress = str2;
+
+    fin.read((char*)(&strLen3), sizeof(int));
+    char *str3 = new char[strLen3];
+    fin.read(str3, strLen3);
+    branch = str3;
+
+    delete[] str;
+    delete[] str1;
+    delete[] str2;
+    delete[] str3;
 
     int tCount = 0;
     fin.read((char*)(&tCount), sizeof(int));
@@ -286,8 +299,4 @@ void Order::read(ifstream& fin) {
     fin.read((char*)(&ready), sizeof(char));
     fin.read((char*)(&deliverd), sizeof(char));
     fin.read((char*)(&pickup), sizeof(char));
-
-    delete[] str;
-    delete[] str1;
-    delete[] str2;
 }

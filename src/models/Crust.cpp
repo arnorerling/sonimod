@@ -7,11 +7,6 @@ Crust::Crust() {
 	this->price = 0;
 }
 
-Crust::Crust(string name, int inches){
-	this->name = name;
-	this->inches = inches;
-	this->price = 0;
-}
 Crust::Crust(string name){
 	this->name = name;
 	this->inches = 0;
@@ -22,6 +17,12 @@ Crust::Crust(int inches) {
     this->name = "";
     this->inches = inches;
     this->price = 0;
+}
+
+Crust::Crust(string name, int inches){
+	this->name = name;
+	this->inches = inches;
+	this->price = 0;
 }
 
 Crust::Crust(string name, int inches, int price) {
@@ -45,7 +46,6 @@ void Crust::read(ifstream& fin) {
 
     int strLen = name.length();
     fin.read((char*)(&strLen), sizeof(int));
-
     char *str = new char[strLen];
     fin.read(str, strLen);
     name = str;
@@ -86,6 +86,14 @@ int Crust::getPrice() const {
     return this->price;
 }
 
-void Crust::setPrice(int price){
+void Crust::setName(const string name) {
+    this->name = name;
+}
+
+void Crust::setInches(const int inches) {
+    this->inches = inches;
+}
+
+void Crust::Crust::setPrice(const int price){
     this->price = price;
 }

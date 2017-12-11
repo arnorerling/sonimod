@@ -17,32 +17,25 @@ class Pizza {
 
     public:
         Pizza();
-        ///Basic constructor, sets all variables to 0
         Pizza(string &name);
         Pizza(string &name, vector<Topping> &toppings, Crust &crust, int &price);
 
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 
-        void addTopping(Topping topping);
-        ///Sets 'toppings[currentToppingNum]' to be the parameter 'topping'
-
-        void addCrust(const Crust &crust);
-
         friend ostream& operator << (ostream& out, const Pizza& pizza);
-        ///Overloads the '<<' operator to print the number of toppings, followed by
-        ///a list of the pizzas topping (and their corresponding prices)
         friend bool operator == (const Pizza &left_pizza, const Pizza &right_pizza);
 
-        void addPizza();
+        void addTopping(const Topping &topping);
+        void addCrust(const Crust &crust);
 
+        void setName(const string &name);
+        void setFixedPrice(const int &price);
         void setPrice();
-        void setName(string name);
-        void setFixedPrice(int price);
-        int getPrice();
-        int getCrustSize() const;
 
         string getName() const;
+        int getPrice() const;
+        int getCrustSize() const;
 };
 
 #endif // PIZZA_H

@@ -20,16 +20,18 @@ class Drink
         Drink(string name, int liter);
         Drink(string name, int liter, int price);
 
-        friend ostream& operator << (ostream& out, const Drink& drink);
-        friend bool operator == (const Drink &left_drink, const Drink &right_drink);
-
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 
-        string getName() const;
-        int getPrice() const;
-        int getLiter() const;
+        friend ostream& operator << (ostream& out, const Drink& drink);
+        friend bool operator == (const Drink &left_drink, const Drink &right_drink);
 
+        string getName() const;
+        int getLiter() const;
+        int getPrice() const;
+
+        void setName(const string name);
+        void setLiter(const int liter);
         void setPrice(const int price);
 };
 

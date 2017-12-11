@@ -23,7 +23,11 @@ class User {
         string getName() const;
         string getPassword() const;
         char getJobNumber() const;
-        string getJob(char &jobNumber) const;
+        string getJob(const char &jobNumber) const;
+
+        void setName(const string &name);
+        void setPassword(const string &pw);
+        void setJobNumber(const int &num);
 
         friend ostream& operator << (ostream &out, User &user);
         friend bool operator == (const User &left_user, const User &right_user);

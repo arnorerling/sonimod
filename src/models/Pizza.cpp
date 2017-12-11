@@ -64,8 +64,8 @@ ostream& operator << (ostream& out,const Pizza& pizza) {
     for(unsigned int i = 0; i < pizza.toppings.size(); i++) {
         out << pizza.toppings[i].getName() << ", ";
     }
-    out << pizza.crust.getName();
-    out << pizza.price << "kr" << "\t";
+    out << "Crust: " << pizza.crust.getName() << " ";
+    out << pizza.price << "kr" << endl;
 
     return out;
 }
@@ -79,12 +79,20 @@ bool operator == (const Pizza &left_pizza, const Pizza &right_pizza) {
     return false;
 }
 
-void Pizza::addTopping(Topping topping) {
+void Pizza::addTopping(const Topping &topping) {
     this->toppings.push_back(topping);
 }
 
 void Pizza::addCrust(const Crust &crust) {
     this->crust = crust;
+}
+
+void Pizza::setName(const string &name){
+    this->name = name;
+}
+
+void Pizza::setFixedPrice(const int &price){
+    this->price = price;
 }
 
 void Pizza::setPrice(){
@@ -94,19 +102,12 @@ void Pizza::setPrice(){
     this->price += this->crust.getPrice();
 }
 
-void Pizza::setName(string name){
-    this->name = name;
-}
-
-void Pizza::setFixedPrice(int price){
-    this->price = price;
-}
-int Pizza::getPrice(){
-    return this->price;
-}
-
-string Pizza::getName() const{
+string Pizza::getName() const {
     return this->name;
+}
+
+int Pizza::getPrice() const {
+    return this->price;
 }
 
 int Pizza::getCrustSize() const {

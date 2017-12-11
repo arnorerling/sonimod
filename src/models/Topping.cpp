@@ -6,13 +6,11 @@ Topping::Topping(){
 }
 
 Topping::Topping(string name){
-
 	this->name = name;
 	this->price = 0;
 }
 
 Topping::Topping(string name, int price){
-
 	this->name = name;
 	this->price = price;
 }
@@ -62,6 +60,10 @@ int Topping::getPrice() const {
 	return this->price;
 }
 
-void Topping::setPrice(int price){
+void Topping::setName(const string &name) {
+    this->name = name;
+}
+
+void Topping::setPrice(const int &price) {
     this->price = price;
 }
