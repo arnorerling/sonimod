@@ -148,8 +148,8 @@ void ManagerUI::seeSaleFigures() {
         select = checkInput();
         switch(select){
             case '1':
-                //checkBranch();
-                //printBranchFigures();
+                printBranch();
+                printBranchFigures();
                 break;
             case '2':
                 printAllFigures();
@@ -179,7 +179,7 @@ void ManagerUI::addPizza() {
         string toppingName = checkName();
         Topping topping(toppingName);
         try{
-            managerDomain.checkToppingAvaliability(topping);
+            managerDomain.checkTopping(topping);
             pizza.addTopping(topping);
             cout << "Add another topping? (y/n): ";
         }
@@ -368,9 +368,25 @@ void ManagerUI::printUser() {
 }
 
 void ManagerUI::printAllFigures() {
-    cout << "-----All Sale Figures-----" << endl;
+    cout << "-----All sale figures-----" << endl;
     vector<Order> orders = managerDomain.printOrder();
     int total = 0;
+    for (unsigned int i = 0; i < orders.size(); i++) {
+        cout << "Order time: " << orders[i].getTime();
+        cout << "\tPrice: " << orders[i].getTotal() << endl;
+        total += orders[i].getTotal();
+    }
+    cout << "-------------------" << endl;
+    cout << "Total: " << total << endl;
+    cout << "-------------------" << endl;
+}
+
+void ManagerUI::printBranchFigures() {
+    string branch = checkBranch();
+    int total = 0;
+    cout << endl;
+    cout << "-----Sale figures for " << branch << "-----"  << endl;
+    vector<Order> orders = managerDomain.getBranchOrders(branch);
     for (unsigned int i = 0; i < orders.size(); i++) {
         cout << "Order time: " << orders[i].getTime();
         cout << "\tPrice: " << orders[i].getTotal() << endl;
@@ -623,6 +639,24 @@ char ManagerUI::checkJob() {
         }
     }
     return job1;
+}
+
+string ManagerUI::checkBranch() {
+    string branch = "";
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Restaurant: ";
+        cin >> ws;
+        getline(cin, branch);
+        try{
+            allowed = managerDomain.checkValidBranch(branch);
+        }
+        catch(NotFoundException){
+            cout << "This restaurant doesn't exist" << endl;
+        }
+    }
+    return branch;
 }
 
 void ManagerUI::printManLogo(){

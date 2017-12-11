@@ -48,6 +48,7 @@ class ManagerDomain
         vector<User> printUser();
 
         vector<Order> printOrder();
+        vector<Order> getBranchOrders(const string &branch);
 
         bool removePizza(const Pizza &pizza);
         bool removeCrust(const Crust &crust);
@@ -57,7 +58,7 @@ class ManagerDomain
         bool removeBranch(const Branch &branch);
         bool removeUser(const User &user);
 
-        bool checkToppingAvaliability(const Topping &topping);
+        bool checkTopping(const Topping &topping);
         bool checkValidName(const string &name);
         int  checkValidPrice(const string &price);
         bool checkValidInput(const string &input);
@@ -65,6 +66,8 @@ class ManagerDomain
         bool checkValidUsername(const string &username);
         bool checkValidPassword(const string &password);
         bool checkValidJob(const string &job);
+        bool checkValidBranch(const string &branch);
+
 
 };
 

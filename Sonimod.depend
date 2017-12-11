@@ -8,10 +8,10 @@
 	"MainDomain.h"
 	"Username.h"
 
-1513021391 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
+1513024904 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\managerdomain.cpp
 	"ManagerDomain.h"
 
-1513021391 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
+1513024775 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\managerdomain.h
 	"ManagerRep.h"
 	"ItemChangedException.h"
 	"NotFoundException.h"
@@ -176,7 +176,7 @@
 	"DeliveryUI.h"
 	<iostream>
 
-1513021511 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
+1513024775 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\managerui.h
 	"ManagerDomain.h"
 	"ManagerUI.h"
 	"Crust.h"
@@ -198,7 +198,7 @@
 	"Order.h"
 	<cstdlib>
 
-1513023341 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+1513024999 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
 	"ManagerUI.h"
 
 1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp

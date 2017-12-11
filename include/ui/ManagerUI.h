@@ -46,6 +46,7 @@ class ManagerUI
         void printUser();
 
         void printAllFigures();
+        void printBranchFigures();
 
         void removeCrust();
         void removeTopping();
@@ -62,6 +63,7 @@ class ManagerUI
         string checkUsername();
         string checkPassword();
         char checkJob();
+        string checkBranch();
 
         void printManLogo();
 };

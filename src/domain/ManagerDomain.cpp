@@ -156,6 +156,17 @@ vector<Order> ManagerDomain::printOrder() {
     return orders;
 }
 
+vector<Order> ManagerDomain::getBranchOrders(const string &branch) {
+    vector<Order>orders = managerRep.getOrder();
+    vector<Order>branchOrders;
+    for (int i = 0; i < orders.size(); i++) {
+        if (orders[i].getBranch() == branch) {
+            branchOrders.push_back(orders[i]);
+        }
+    }
+    return branchOrders;
+}
+
 bool ManagerDomain::removePizza(const Pizza &pizza) {
     vector<Pizza>pizzas = managerRep.getPizza();
     vector<Pizza>newPizzas;
@@ -288,7 +299,7 @@ bool ManagerDomain::removeUser(const User &user) {
 }
 
 
-bool ManagerDomain::checkToppingAvaliability(const Topping &topping) {
+bool ManagerDomain::checkTopping(const Topping &topping) {
     vector<Topping> toppings = managerRep.getTopping();
 
     for (int i = 0; i < toppings.size(); i++) {
@@ -375,5 +386,16 @@ bool ManagerDomain::checkValidJob(const string &job) {
     }
 
     throw InvalidInputException();
+    return false;
+}
+
+bool ManagerDomain::checkValidBranch(const string &branch) {
+    vector<Branch>branches = managerRep.getBranch();
+    for (int i = 0; i < branches.size(); i++) {
+        if (branches[i].getName() == branch) {
+            return true;
+        }
+    }
+    throw NotFoundException();
     return false;
 }
