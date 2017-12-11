@@ -46,7 +46,7 @@ Order BakerDomain::getOneOrder(const string &number, const string &branch) {
 }
 
 
-bool BakerDomain::markOrderInProcess(const Order &order) {
+void BakerDomain::markOrderInProcess(const Order &order) {
     vector<Order> orderList = bakerRep.getOrders();
     for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
@@ -56,24 +56,21 @@ bool BakerDomain::markOrderInProcess(const Order &order) {
             else {
                 orderList[i].setInProcess(true);
                 bakerRep.changeOrderList(orderList);
-                return true;
             }
         }
     }
 }
 
-bool BakerDomain::markOrderReady(const Order &order) {
+void BakerDomain::markOrderReady(const Order &order) {
     vector<Order> orderList = bakerRep.getOrders();
     for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
             if (orderList[i].getInProcess() == 0) {
                 throw NotMarkedInProgressException();
-                return false;
             }
             else {
                 orderList[i].setReady(true);
                 bakerRep.changeOrderList(orderList);
-                return true;
             }
         }
     }

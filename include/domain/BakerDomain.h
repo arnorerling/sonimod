@@ -24,9 +24,8 @@ class BakerDomain
         vector<Order> getOrders(const string &branch);
         Order getOneOrder(const string &number, const string &branch);
 
-        bool markOrderInProcess(const Order &order);
-        bool markOrderReady(const Order &order);
-        bool markOrderPaidFor(const Order &order);
+        void markOrderInProcess(const Order &order);
+        void markOrderReady(const Order &order);
 
         bool checkBranchAvaliability(string &branchName);
         bool checkValidName(const string &name);

@@ -45,34 +45,30 @@ Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
     throw NotFoundException();
 }
 
-bool DeliveryDomain::markOrderPaidFor(const Order &order) {
+void DeliveryDomain::markOrderPaidFor(const Order &order) {
      vector<Order> orderList = deliveryRep.getOrders();
      for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i] == order) {
             if (orderList[i].getPaidFor()) {
                 throw MarkedPaidForException();
-                return false;
             }
             else
             {
                 orderList[i].setPaidFor(true);
                 deliveryRep.changeOrderList(orderList);
-                return true;
             }
         }
     }
 }
 
-bool DeliveryDomain::markOrderDelivered(Order &order) {
+void DeliveryDomain::markOrderDelivered(Order &order) {
     vector<Order> orderList = deliveryRep.getOrders();
     vector<Order> newOrderList;
     if (!order.getReady()) {
         throw NotMarkedReadyException();
-        return false;
      }
     else if (!order.getPaidFor()) {
         throw NotMarkedPaidForException();
-        return false;
      }
 
     for (unsigned int i = 0; i < orderList.size(); i++) {
