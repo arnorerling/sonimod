@@ -8,6 +8,7 @@
 #include "NotFoundException.h"
 #include "NotMarkedInProcessException.h"
 #include "MarkedInProcessException.h"
+#include "md5.h"
 
 using namespace std;
 

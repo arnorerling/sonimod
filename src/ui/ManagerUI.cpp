@@ -324,6 +324,7 @@ void ManagerUI::addUser() {
 
 
     User user(username, password, jobNumber);
+    cout << user.getPassword() << endl;
     try {
         managerDomain.addUser(user);
     }

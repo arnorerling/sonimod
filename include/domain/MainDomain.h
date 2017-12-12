@@ -11,6 +11,7 @@ class MainDomain
 {
     private:
         MainRep mainRep;
+        MD5 charmd5;
 
     public:
         MainDomain();

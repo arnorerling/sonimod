@@ -1,12 +1,16 @@
 #include "User.h"
 
-User::User()
-{
+User::User(){
+    this->password = "";
+    this->username = "";
+    this->jobNumber = '\0';
 }
 
 User::User(string username, string password, char jobNumber) {
     this->username = username;
-    this->password = password;
+    char *arrChar = const_cast<char*>(password.c_str());
+    arrChar = charmd5.digestString(arrChar);
+    this->password = arrChar;
     this->jobNumber = jobNumber;
 }
 

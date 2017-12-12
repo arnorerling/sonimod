@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <string>
+#include "md5.h"
+
 using namespace std;
 
 
@@ -12,6 +13,8 @@ class User {
         string username;
         string password;
         char jobNumber;
+        MD5 charmd5;
+
     public:
         User();
         User(string username);
