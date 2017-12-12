@@ -129,7 +129,7 @@ void Order::cleanOrder(){
     this->pickup = false;
     this->orderTime = 0;
 
-    int totalPrice = 0;
+    this->totalPrice = 0;
 }
 
 ostream& operator << (ostream& out, const Order& order){

@@ -17,7 +17,7 @@ void ManagerDomain::toLowerCase(string &name) {
 bool ManagerDomain::addPizza(const Pizza &pizza) {
     vector<Pizza> pizzas = managerRep.getPizza();
 
-    for (int i = 0; i < pizzas.size(); i++){
+    for (unsigned int i = 0; i < pizzas.size(); i++){
         if (pizzas[i].getName() == pizza.getName() && pizzas[i].getCrustSize() == pizza.getCrustSize()) {
             {
                 pizzas[i] = pizza;
@@ -33,7 +33,7 @@ bool ManagerDomain::addPizza(const Pizza &pizza) {
 bool ManagerDomain::addCrust(const Crust &crust) {
     vector<Crust>crusts = managerRep.getCrust();
 
-    for (int i = 0; i < crusts.size(); i++){
+    for (unsigned int i = 0; i < crusts.size(); i++){
         if (crusts[i].getName() == crust.getName()) {
             if(crusts[i].getInches() == crust.getInches()) {
                 crusts[i] = crust;
@@ -49,7 +49,7 @@ bool ManagerDomain::addCrust(const Crust &crust) {
 bool ManagerDomain::addTopping(const Topping &topping) {
     vector<Topping>toppings = managerRep.getTopping();
 
-    for (int i = 0; i < toppings.size(); i++){
+    for (unsigned int i = 0; i < toppings.size(); i++){
         if (toppings[i].getName() == topping.getName()) {
             toppings[i] = topping;
             managerRep.changeToppingList(toppings);
@@ -63,7 +63,7 @@ bool ManagerDomain::addTopping(const Topping &topping) {
 bool ManagerDomain::addDrink(const Drink &drink) {
     vector<Drink>drinks = managerRep.getDrink();
 
-    for (int i = 0; i < drinks.size(); i++){
+    for (unsigned int i = 0; i < drinks.size(); i++){
         if (drinks[i].getName() == drink.getName()) {
             if (drinks[i].getLiter() == drink.getLiter()){
                 drinks[i] = drink;
@@ -79,7 +79,7 @@ bool ManagerDomain::addDrink(const Drink &drink) {
 bool ManagerDomain::addSidedish(const Sidedish &sidedish) {
     vector<Sidedish> sidedishes = managerRep.getSidedish();
 
-    for (int i = 0; i < sidedishes.size(); i++){
+    for (unsigned int i = 0; i < sidedishes.size(); i++){
         if (sidedishes[i].getName() == sidedish.getName()) {
             sidedishes[i] = sidedish;
             managerRep.changeSidedishList(sidedishes);
@@ -92,7 +92,7 @@ bool ManagerDomain::addSidedish(const Sidedish &sidedish) {
 
 bool ManagerDomain::addBranch(const Branch &branch) {
     vector<Branch> branches = managerRep.getBranch();
-    for (int i = 0; i < branches.size(); i++) {
+    for (unsigned int i = 0; i < branches.size(); i++) {
         if (branches[i].getName() == branch.getName()) {
             throw ItemExistsException();
         }
@@ -104,7 +104,7 @@ bool ManagerDomain::addBranch(const Branch &branch) {
 bool ManagerDomain::addUser(const User &user) {
     vector<User> users = managerRep.getUser();
 
-    for (int i = 0; i < users.size(); i++){
+    for (unsigned int i = 0; i < users.size(); i++){
         if (users[i].getName() == user.getName()) {
             users[i] = user;
             managerRep.changeUsersList(users);
@@ -159,7 +159,7 @@ vector<Order> ManagerDomain::getOrders() {
 vector<Order> ManagerDomain::getBranchOrders(const string &branch) {
     vector<Order>orders = managerRep.getOrder();
     vector<Order>branchOrders;
-    for (int i = 0; i < orders.size(); i++) {
+    for (unsigned int i = 0; i < orders.size(); i++) {
         if (orders[i].getBranch() == branch) {
             branchOrders.push_back(orders[i]);
         }
@@ -171,7 +171,7 @@ bool ManagerDomain::removePizza(const Pizza &pizza) {
     vector<Pizza>pizzas = managerRep.getPizza();
     vector<Pizza>newPizzas;
 
-    for (int i = 0; i < pizzas.size(); i++){
+    for (unsigned int i = 0; i < pizzas.size(); i++){
         if (pizzas[i].getName() != pizza.getName()) {
             newPizzas.push_back(pizzas[i]);
         }
@@ -191,7 +191,7 @@ bool ManagerDomain::removeCrust(const Crust &crust) {
     vector<Crust>crusts = managerRep.getCrust();
     vector<Crust>newCrusts;
 
-    for (int i = 0; i < crusts.size(); i++){
+    for (unsigned int i = 0; i < crusts.size(); i++){
         if (crusts[i].getName() != crust.getName()) {
             newCrusts.push_back(crusts[i]);
         }
@@ -211,7 +211,7 @@ bool ManagerDomain::removeTopping(const Topping &topping) {
     vector<Topping>toppings = managerRep.getTopping();
     vector<Topping>newToppings;
 
-    for (int i = 0; i < toppings.size(); i++){
+    for (unsigned int i = 0; i < toppings.size(); i++){
         if (toppings[i].getName() != topping.getName()) {
             newToppings.push_back(toppings[i]);
         }
@@ -230,7 +230,7 @@ bool ManagerDomain::removeDrink(const Drink &drink) {
     vector<Drink>drinks = managerRep.getDrink();
     vector<Drink>newDrinks;
 
-    for (int i = 0; i < drinks.size(); i++){
+    for (unsigned int i = 0; i < drinks.size(); i++){
         if (drinks[i].getName() != drink.getName()) {
             newDrinks.push_back(drinks[i]);
         }
@@ -248,7 +248,7 @@ bool ManagerDomain::removeSidedish(const Sidedish &sidedish) {
     vector<Sidedish>sidedishes = managerRep.getSidedish();
     vector<Sidedish>newSidedishes;
 
-    for (int i = 0; i < sidedishes.size(); i++){
+    for (unsigned int i = 0; i < sidedishes.size(); i++){
         if (sidedishes[i].getName() != sidedish.getName()) {
             newSidedishes.push_back(sidedishes[i]);
         }
@@ -266,7 +266,7 @@ bool ManagerDomain::removeBranch(const Branch &branch) {
     vector<Branch>branches = managerRep.getBranch();
     vector<Branch>newBranches;
 
-    for (int i = 0; i < branches.size(); i++){
+    for (unsigned int i = 0; i < branches.size(); i++){
         if (branches[i].getName() != branch.getName()) {
             newBranches.push_back(branches[i]);
         }
@@ -284,7 +284,7 @@ bool ManagerDomain::removeUser(const User &user) {
     vector<User>users = managerRep.getUser();
     vector<User>newUsers;
 
-    for (int i = 0; i < users.size(); i++){
+    for (unsigned int i = 0; i < users.size(); i++){
         if (users[i].getName() != user.getName()) {
             newUsers.push_back(users[i]);
         }
@@ -302,7 +302,7 @@ bool ManagerDomain::removeUser(const User &user) {
 bool ManagerDomain::checkTopping(const Topping &topping) {
     vector<Topping> toppings = managerRep.getTopping();
 
-    for (int i = 0; i < toppings.size(); i++) {
+    for (unsigned int i = 0; i < toppings.size(); i++) {
         if (toppings[i].getName() == topping.getName()) {
             return true;
         }
@@ -391,7 +391,7 @@ bool ManagerDomain::checkValidJob(const string &job) {
 
 bool ManagerDomain::checkValidBranch(const string &branch) {
     vector<Branch>branches = managerRep.getBranch();
-    for (int i = 0; i < branches.size(); i++) {
+    for (unsigned int i = 0; i < branches.size(); i++) {
         if (branches[i].getName() == branch) {
             return true;
         }

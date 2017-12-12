@@ -234,7 +234,7 @@ void ManagerRep::changePizzaList(vector<Pizza> &pizzas) {
     ofstream fout;
     fout.open("Pizzas_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < pizzas.size(); i++) {
+        for (unsigned int i = 0; i < pizzas.size(); i++) {
             pizzas[i].write(fout);
         }
         fout.close();
@@ -249,7 +249,7 @@ void ManagerRep::changeCrustList(vector<Crust> &crusts) {
     ofstream fout;
     fout.open("Crust_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < crusts.size(); i++) {
+        for (unsigned int i = 0; i < crusts.size(); i++) {
             crusts[i].write(fout);
         }
         fout.close();
@@ -264,7 +264,7 @@ void ManagerRep::changeToppingList(vector<Topping> &toppings) {
     ofstream fout;
     fout.open("Topping_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < toppings.size(); i++) {
+        for (unsigned int i = 0; i < toppings.size(); i++) {
             toppings[i].write(fout);
         }
         fout.close();
@@ -279,7 +279,7 @@ void ManagerRep::changeDrinkList(vector<Drink> &drinks) {
     ofstream fout;
     fout.open("Drink_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < drinks.size(); i++) {
+        for (unsigned int i = 0; i < drinks.size(); i++) {
             drinks[i].write(fout);
         }
         fout.close();
@@ -294,7 +294,7 @@ void ManagerRep::changeSidedishList(vector<Sidedish> &sidedishes) {
     ofstream fout;
     fout.open("Sidedish_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < sidedishes.size(); i++) {
+        for (unsigned int i = 0; i < sidedishes.size(); i++) {
             sidedishes[i].write(fout);
         }
         fout.close();
@@ -309,7 +309,7 @@ void ManagerRep::changeSidedishList(vector<Sidedish> &sidedishes) {
     ofstream fout;
     fout.open("Branch_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < branches.size(); i++) {
+        for (unsigned int i = 0; i < branches.size(); i++) {
             branches[i].write(fout);
         }
         fout.close();
@@ -324,7 +324,7 @@ void ManagerRep::changeUsersList(vector<User> &users) {
     ofstream fout;
     fout.open("Users_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < users.size(); i++) {
+        for (unsigned int i = 0; i < users.size(); i++) {
             users[i].write(fout);
         }
         fout.close();

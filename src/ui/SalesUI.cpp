@@ -64,7 +64,6 @@ void SalesUI::startUI() {
 }
 
 void SalesUI::addCustomer(){
-    bool allowed = false;
     cout << "Customers's name: ";
     string name = validName();
     cout << "Customers's number: ";
@@ -150,7 +149,6 @@ void SalesUI::addToppings(Pizza &pizza){
 void SalesUI::addDrink(){
     bool available = false;
     string name;
-    int size = 0;
     while(!available){
         cout << "Drink name: ";
         string name = validName();
@@ -163,9 +161,6 @@ void SalesUI::addDrink(){
         }
         catch(NotFoundException){
             cout << "Drink not available!" << endl;
-        }
-        catch(NotFoundException){
-            cout << "Size not available!" << endl;
         }
     }
 }

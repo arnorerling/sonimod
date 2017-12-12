@@ -14,7 +14,7 @@ vector<Order> DeliveryDomain::getOrders(const string &branch) {
     vector<Order> orderList = deliveryRep.getOrders();
     vector<Order> branchOrderList;
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch) {
             branchOrderList.push_back(orderList[i]);
         }
@@ -26,7 +26,7 @@ vector<Order> DeliveryDomain::getReadyOrders(const string &branch) {
     vector<Order> orderList = deliveryRep.getOrders();
     vector<Order> branchOrderList;
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getReady() == true) {
             branchOrderList.push_back(orderList[i]);
         }
@@ -37,7 +37,7 @@ vector<Order> DeliveryDomain::getReadyOrders(const string &branch) {
 Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
     vector<Order> orderList = deliveryRep.getOrders();
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getCustomerPhoneNumber() == number) {
             return orderList[i];
         }
@@ -45,37 +45,33 @@ Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
     throw NotFoundException();
 }
 
-bool DeliveryDomain::markOrderPaidFor(const Order &order) {
+void DeliveryDomain::markOrderPaidFor(const Order &order) {
      vector<Order> orderList = deliveryRep.getOrders();
-     for (int i = 0; i < orderList.size(); i++) {
+     for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i] == order) {
             if (orderList[i].getPaidFor()) {
                 throw MarkedPaidForException();
-                return false;
             }
             else
             {
                 orderList[i].setPaidFor(true);
                 deliveryRep.changeOrderList(orderList);
-                return true;
             }
         }
     }
 }
 
-bool DeliveryDomain::markOrderDelivered(Order &order) {
+void DeliveryDomain::markOrderDelivered(Order &order) {
     vector<Order> orderList = deliveryRep.getOrders();
     vector<Order> newOrderList;
     if (!order.getReady()) {
         throw NotMarkedReadyException();
-        return false;
      }
     else if (!order.getPaidFor()) {
         throw NotMarkedPaidForException();
-        return false;
      }
 
-    for (int i = 0; i < orderList.size(); i++) {
+    for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i] != order) {
             newOrderList.push_back(orderList[i]);
         }

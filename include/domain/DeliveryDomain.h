@@ -24,8 +24,8 @@ class DeliveryDomain
         vector<Order> getReadyOrders(const string& branch);
         Order getOneOrder(const string &number, const string &branch);
 
-        bool markOrderPaidFor(const Order &order);
-        bool markOrderDelivered(Order &order);
+        void markOrderPaidFor(const Order &order);
+        void markOrderDelivered(Order &order);
 
         bool checkBranchAvaliability(const string &branch);
         bool checkValidNumber(const string num);

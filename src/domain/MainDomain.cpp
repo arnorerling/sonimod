@@ -16,7 +16,7 @@ bool MainDomain::checkValidInput(string &select) {
 User MainDomain::checkUser(string &name, string &password) {
     vector<User> userList = mainRep.getUsers();
 
-    for (int i = 0; i < userList.size(); i++){
+    for (unsigned int i = 0; i < userList.size(); i++){
         if (userList[i].getName() == name && userList[i].getPassword() == password) {
             return userList[i];
         }
