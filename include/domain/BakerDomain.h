@@ -6,7 +6,7 @@
 
 #include "InvalidInputException.h"
 #include "NotFoundException.h"
-#include "NotMarkedInProgressException.h"
+#include "NotMarkedInProcessException.h"
 #include "MarkedInProcessException.h"
 
 using namespace std;
@@ -26,6 +26,7 @@ class BakerDomain
 
         void markOrderInProcess(const Order &order);
         void markOrderReady(const Order &order);
+        void deleteOrder(const Order &order);
 
         bool checkBranchAvaliability(string &branchName);
         bool checkValidName(const string &name);

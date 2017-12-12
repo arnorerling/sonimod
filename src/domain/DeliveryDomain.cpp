@@ -81,6 +81,16 @@ void DeliveryDomain::markOrderDelivered(Order &order) {
      }
 }
 
+void DeliveryDomain::deleteOrder(const Order &order) {
+    vector<Order> orderList = deliveryRep.getOrders();
+    for (unsigned int i = 0; i < orderList.size(); i++) {
+        if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
+            orderList.erase(orderList.begin()+i);
+        }
+    }
+    deliveryRep.changeOrderList(orderList);
+}
+
 bool DeliveryDomain::checkBranchAvaliability(const string &branch) {
     vector<Branch> branches = getBranch();
     for(unsigned int i = 0; i < branches.size(); i++){

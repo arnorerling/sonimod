@@ -92,9 +92,20 @@ void DeliveryUI::printOrders() {
 void DeliveryUI::printReadyOrders() {
     cout << "----Order list for " << this->branch << "----" << endl;
     vector<Order> orderList = deliveryDomain.getReadyOrders(branch);
+    time_t time1 = time(0);
+    time_t orderTime;
     for(unsigned int i = 0; i < orderList.size(); i++){
-        cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-        cout << "Name: " << orderList[i].getCustomerName() << endl;
+        orderTime = orderList[i].getTime();
+        double diff = difftime(time1, orderTime);
+        if(diff > 7200){
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
+            cout << "Name: " << orderList[i].getCustomerName() << "Throw out order, older than 2 hours" << endl;
+            deleteOrder(orderList[i]);
+        }
+        else {
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
+            cout << "Name: " << orderList[i].getCustomerName() << endl;
+        }
     }
     cout << "-----------------------" << endl;
 }
@@ -104,6 +115,11 @@ void DeliveryUI:: printOneOrder() {
     if (order.getCustomerName() != "") {
         cout << order << endl;
     }
+}
+
+void DeliveryUI::deleteOrder(Order order){
+    deliveryDomain.deleteOrder(order);
+    cout << order.getCustomerPhoneNumber() << "has been deleted" << endl;
 }
 
 void DeliveryUI::markPaidFor() {
