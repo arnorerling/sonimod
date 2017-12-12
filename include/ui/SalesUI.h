@@ -4,6 +4,7 @@
 #include "SalesDomain.h"
 #include <iostream>
 #include "Order.h"
+#include "Output.h"
 #include <cstdlib>
 #include <iomanip>
 
@@ -14,6 +15,7 @@ class SalesUI {
 
     private:
         SalesDomain salesDomain;
+        Output output;
         Order order;
 
     public:

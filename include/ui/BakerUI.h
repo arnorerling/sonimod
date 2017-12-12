@@ -3,6 +3,7 @@
 
 #include "BakerDomain.h"
 #include "Branch.h"
+#include "Output.h"
 #include <vector>
 #include <cstdlib>
 
@@ -11,6 +12,7 @@ class BakerUI
     private:
 
         BakerDomain bakerDomain;
+        Output output;
         string branch;
 
     public:

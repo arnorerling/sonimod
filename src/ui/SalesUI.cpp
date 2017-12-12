@@ -5,12 +5,14 @@ SalesUI::SalesUI(){
 
 }
 void SalesUI::startUI() {
-    system("CLS");
-    printLogo();
     Order order;
+
 
     char select = '\0';
     while (select != '8') {
+        output.clean();
+        printLogo();
+
         select = '\0';
         cout << "------------------" << endl;
         cout << "1: Add Pizza" << endl;
@@ -26,36 +28,47 @@ void SalesUI::startUI() {
 
         switch(select){
             case '1': {
+                output.clean();
                 addPizza();
                 break;
             }
             case '2': {
+                output.clean();
                 addPizzaMenu();
                 break;
             }
             case '3': {
+                output.clean();
                 printSidedishes();
                 addSidedish();
                 break;
             }
             case '4': {
+                output.clean();
                 printDrinks();
                 addDrink();
                 break;
             }
             case '5': {
+                output.clean();
                 cout << this->order;
+                output.wait();
                 break;
             }
             case '6': {
+                output.clean();
                 cout << "Order total: "<< this->order.getTotal() << "kr" << endl;
+                output.wait();
+
                 break;
             }
             case '7': {
+                output.clean();
                 fileOrder();
                 break;
             }
             case '8': {
+                output.clean();
                 cout << "Have a good day!" << endl;
                 break;
             }
@@ -76,6 +89,7 @@ void SalesUI::addPizza(){
     Pizza pizza;
     int size = 0;
     this->addCrust(pizza, size);
+    output.clean();
     this->addToppings(pizza);
     pizza.setPrice();
     order.addPizza(pizza);
@@ -86,6 +100,7 @@ void SalesUI::addPizzaMenu(){
     Pizza pizza;
     int size = 0;
     this->addCrust(pizza, size);
+    output.clean();
     this->choosePizza(pizza, size);
     order.addPizza(pizza);
 }

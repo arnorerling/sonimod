@@ -1,7 +1,7 @@
 #ifndef MANAGERUI_H
 #define MANAGERUI_H
 #include "ManagerDomain.h"
-#include "ManagerUI.h"
+#include "Output.h"
 #include "Crust.h"
 #include "Topping.h"
 #include "Drink.h"
@@ -21,6 +21,7 @@ class ManagerUI
 {
     private:
         ManagerDomain managerDomain;
+        Output output;
 
     public:
         ManagerUI();

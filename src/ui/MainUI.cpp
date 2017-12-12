@@ -12,9 +12,10 @@ MainUI::MainUI()
 }
 
 void MainUI::start() {
+    output.clean();
     char answer = '\0';
-    while (answer != 2) {
-        system("CLS");
+    while (answer != '2') {
+
         printLogo();
         cout << "1: Login" << endl;
         cout << "2: Quit" << endl;
@@ -31,6 +32,7 @@ void MainUI::start() {
 }
 
 void MainUI::login() {
+    output.clean();
     User user = checkUser();
     switch(user.getJobNumber()) {
         case '1': {
@@ -60,7 +62,8 @@ void MainUI::mainMenu() {
 
     char answer = '\0';
     while (answer != '5') {
-        system("CLS");
+        output.clean();
+        printLogo();
         cout << "------Main Menu------" << endl;
         cout << "1: Mananger" << endl;
         cout << "2: Sales" << endl;

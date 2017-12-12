@@ -2,11 +2,13 @@
 #define MAINUI_H
 #include "MainDomain.h"
 #include "Username.h"
+#include "Output.h"
 
 class MainUI
 {
     private:
         MainDomain mainDomain;
+        Output output;
     public:
         MainUI();
         void start();

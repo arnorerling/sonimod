@@ -5,13 +5,15 @@ DeliveryUI::DeliveryUI()
     //ctor
 }
 void DeliveryUI::startUI() {
-    system("CLS");
+    output.clean();
     printLogo();
     printRestaurants();
     chooseRestaurant();
 
     char select = '\0';
     while (select != '6') {
+        output.clean();
+        printLogo();
         cout << "---------------------" << endl;
         cout << "1: Print all orders" << endl;
         cout << "2: Print ready orders" << endl;
@@ -22,19 +24,33 @@ void DeliveryUI::startUI() {
         select = checkInput();
 
         switch(select) {
-            case '1': printOrders();
+            case '1':
+                printOrders();
+                output.wait();
             break;
-            case '2': printReadyOrders();
+            case '2':
+                printReadyOrders();
+                output.wait();
             break;
-            case '3': printOneOrder();
+            case '3':
+                printOneOrder();
+                output.wait();
             break;
-            case '4': markPaidFor();
+            case '4':
+                markPaidFor();
+                output.wait();
             break;
-            case '5': markDelivered();
+            case '5':
+                markDelivered();
+                output.wait();
             break;
-            case '6': cout << endl;
+            case '6':
+                cout << "Goodbye" << endl;
+                output.wait();
             break;
-            default: cout << "Invalid input" << endl;
+            default:
+                cout << "Invalid input" << endl;
+                output.wait();
         }
     }
 }

@@ -7,13 +7,15 @@ BakerUI::BakerUI() {
 }
 
 void BakerUI::startUI() {
-    system("CLS");
+    output.clean();
     printLogo();
     printRestaurants();
     chooseRestaurant();
 
     char select = '\0';
     while (select != '5') {
+        output.clean();
+        printLogo();
         cout << "---------------------" << endl;
         cout << "1: Print orderlist" << endl;
         cout << "2: Choose order " << endl;
@@ -23,16 +25,26 @@ void BakerUI::startUI() {
         select = checkInput();
 
         switch(select) {
-            case '1': printOrders();
+            case '1':
+                printOrders();
+                output.wait();
             break;
-            case '2': printOneOrder();
+            case '2':
+                printOneOrder();
+                output.wait();
             break;
-            case '3': markInProcess();
+            case '3':
+                markInProcess();
+                output.wait();
             break;
-            case '4': markReady();
+            case '4':
+                markReady();
+                output.wait();
             break;
             case '5': cout << endl;
-            default: cout << "Invalid input" << endl;
+            default:
+                cout << "Invalid input" << endl;
+                output.wait();
         }
     }
 }

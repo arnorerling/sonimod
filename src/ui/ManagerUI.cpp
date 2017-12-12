@@ -7,10 +7,12 @@ ManagerUI::ManagerUI()
 }
 
 void ManagerUI::startUI() {
-    system("CLS");
+    output.clean();
     printManLogo();
     char select = '\0';
     while (select != '4') {
+        output.clean();
+        printManLogo();
         cout << "1: Add/Change" << endl;
         cout << "2: Remove" << endl;
         cout << "3: Sale Figures" << endl;
@@ -18,13 +20,18 @@ void ManagerUI::startUI() {
         select = checkInput();
 
         switch(select) {
-            case '1': addChangeMenu();
-            break;
-            case '2': removeFromMenu();
-            break;
-            case '3': seeSaleFigures();
-            case '4': cout << "GoodBye" << endl;
-            break;
+            case '1':
+                addChangeMenu();
+                break;
+            case '2':
+                removeFromMenu();
+                break;
+            case '3':
+                seeSaleFigures();
+                break;
+            case '4':
+                cout << "GoodBye" << endl;
+                break;
             default: cout << "Invalid input" << endl;
         }
     }
@@ -33,7 +40,8 @@ void ManagerUI::startUI() {
 void ManagerUI::addChangeMenu() {
     char select = '\0';
     while (select != '8') {
-        cout << endl;
+        output.clean();
+        printManLogo();
         cout << "-----Add/Change-----" << endl;
         cout << "1: Pizza crust" << endl;
         cout << "2: Pizza topping" << endl;
@@ -48,37 +56,46 @@ void ManagerUI::addChangeMenu() {
         select = checkInput();
         switch(select){
             case '1':
+                output.clean();
                 printCrust();
                 addCrust();
                 break;
             case '2':
+                output.clean();
                 printTopping();
                 addTopping();
                 break;
             case '3':
+                output.clean();
                 printPizza();
                 addPizza();
                 break;
             case '4':
+                output.clean();
                 printDrink();
                 addDrink();
                 break;
             case '5':
+                output.clean();
                 printSide();
                 addSide();
                 break;
             case '6':
+                output.clean();
                 printBranch();
                 addBranch();
                 break;
             case '7':
+                output.clean();
                 printUser();
                 addUser();
                 break;
             case '8':
+                output.clean();
                 cout << endl;
                 break;
             default:
+                output.clean();
                 cout << "Invalid input" << endl;
         }
     }
@@ -87,7 +104,8 @@ void ManagerUI::addChangeMenu() {
 void ManagerUI::removeFromMenu() {
     char select = '\0';
     while (select != '8') {
-        cout << endl;
+        output.clean();
+        printManLogo();
         cout << "-----Remove-----" << endl;
         cout << "1: Pizza crust" << endl;
         cout << "2: Pizza topping" << endl;
@@ -101,37 +119,46 @@ void ManagerUI::removeFromMenu() {
         select = checkInput();
         switch(select){
             case '1':
+                output.clean();
                 printCrust();
                 removeCrust();
                 break;
             case '2':
+                output.clean();
                 printTopping();
                 removeTopping();
                 break;
             case '3':
+                output.clean();
                 printPizza();
                 removePizza();
                 break;
             case '4':
+                output.clean();
                 printDrink();
                 removeDrink();
                 break;
             case '5':
+                output.clean();
                 printSide();
                 removeSide();
                 break;
             case '6':
+                output.clean();
                 printBranch();
                 removeBranch();
                 break;
             case '7':
+                output.clean();
                 printUser();
                 removeUser();
                 break;
             case '8':
+                output.clean();
                 cout << endl;
                 break;
             default:
+                output.clean();
                 cout << "Invalid input" << endl;
         }
     }
@@ -140,7 +167,8 @@ void ManagerUI::removeFromMenu() {
 void ManagerUI::seeSaleFigures() {
     char select = '\0';
     while (select != '3') {
-        cout << endl;
+        output.clean();
+        printManLogo();
         cout << "-----Sale Figures-----" << endl;
         cout << "1: Restaurant" << endl;
         cout << "2: All" << endl;
@@ -149,17 +177,24 @@ void ManagerUI::seeSaleFigures() {
         select = checkInput();
         switch(select){
             case '1':
+                output.clean();
                 printBranch();
                 printBranchFigures();
+                output.wait();
                 break;
             case '2':
+                output.clean();
                 printAllFigures();
+                output.wait();
                 break;
             case '3':
+                output.clean();
                 cout << endl;
                 break;
             default:
+                output.clean();
                 cout << "Invalid input" << endl;
+                output.clean();
         }
     }
 }
@@ -173,7 +208,9 @@ void ManagerUI::addPizza() {
 
     cout << "Would you like to add a topping? (y/n) :";
     char addTopping = checkAnswer();
+    output.clean();
     if(addTopping == 'y') {
+
         printTopping();
     }
     while(addTopping == 'y'){
@@ -294,6 +331,7 @@ void ManagerUI::addUser() {
     cout << "----Add Employee----" << endl;
     string username = checkUsername();
     string password = checkPassword();
+    output.clean();
     char jobNumber = checkJob();
 
 

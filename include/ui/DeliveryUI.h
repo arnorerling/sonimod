@@ -2,11 +2,13 @@
 #define DELIVERYUI_H
 #include "DeliveryDomain.h"
 #include <cstdlib>
+#include "Output.h"
 
 class DeliveryUI
 {
     private:
         DeliveryDomain deliveryDomain;
+        Output output;
         string branch;
 
     public:
