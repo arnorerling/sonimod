@@ -157,14 +157,85 @@ vector<Order> ManagerDomain::getOrders() {
 }
 
 vector<Order> ManagerDomain::getBranchOrders(const string &branch) {
+    cout << "Inside getBranchOrders" << endl;
     vector<Order>orders = managerRep.getOrder();
+    cout << "Outside manangerRep get order" << endl;
     vector<Order>branchOrders;
+    if (branch.empty()) {
+        return orders;
+    }
     for (unsigned int i = 0; i < orders.size(); i++) {
         if (orders[i].getBranch() == branch) {
             branchOrders.push_back(orders[i]);
         }
     }
     return branchOrders;
+}
+
+vector<Order> ManagerDomain::getDateFromOrders(const string &dateFrom, vector<Order> branchOrders) {
+    vector<Order>dateFromOrders;
+    if (dateFrom.empty()) {
+        return branchOrders;
+    }
+    char date[11];
+    time_t result = 0;
+    int year = 0, month = 0, day = 0;
+    strcpy(date, dateFrom.c_str());
+
+    if (sscanf(date, "%2d.%2d.%4d", &day, &month, &year) == 3) {
+       struct tm breakdown = {0};
+       breakdown.tm_year = year - 1900;
+       breakdown.tm_mon = month - 1;
+       breakdown.tm_mday = day;
+
+       if ((result = mktime(&breakdown)) == (time_t)-1) {
+          cout << "Error1" << endl;
+       }
+       puts(ctime(&result));
+    }
+    else {
+      cout << "Error2" << endl;
+    }
+
+    for (unsigned int i = 0; i < branchOrders.size(); i++) {
+        if (difftime( branchOrders[i].getTime(), result) > 0) {
+            dateFromOrders.push_back(branchOrders[i]);
+        }
+    }
+    return dateFromOrders;
+}
+vector<Order> ManagerDomain::getDateToOrders(const string &dateTo, vector<Order> dateFromOrders) {
+    vector<Order>dateToOrders;
+    if (dateTo.empty()) {
+        return dateFromOrders;
+    }
+
+    char date[11];
+    time_t result = 0;
+    int year = 0, month = 0, day = 0;
+    strcpy(date, dateTo.c_str());
+
+    if (sscanf(date, "%2d.%2d.%4d", &day, &month, &year) == 3) {
+       struct tm breakdown = {0};
+       breakdown.tm_year = year - 1900;
+       breakdown.tm_mon = month - 1;
+       breakdown.tm_mday = day;
+
+       if ((result = mktime(&breakdown)) == (time_t)-1) {
+          cout << "Error3" << endl;
+       }
+       puts(ctime(&result));
+    }
+    else {
+      cout << "Error4" << endl;
+    }
+
+    for (unsigned int i = 0; i < dateFromOrders.size(); i++) {
+        if (difftime( dateFromOrders[i].getTime(), result) < 0) {
+            dateToOrders.push_back(dateFromOrders[i]);
+        }
+    }
+    return dateToOrders;
 }
 
 bool ManagerDomain::removePizza(const Pizza &pizza) {
@@ -403,7 +474,7 @@ bool ManagerDomain::checkValidBranch(const string &branch) {
 bool ManagerDomain::checkValidDate(const char *date) {
     for (int i = 0; i < 10; i++) {
         if (i == 2 || i == 5) {
-            if (!date[i] == '.'){
+            if (date[i] != '.'){
                 throw InvalidInputException();
             }
         }

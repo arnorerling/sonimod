@@ -178,11 +178,8 @@ void ManagerUI::seeSaleFigures() {
     if (branch.empty() && dateFrom.empty() && dateTo.empty()) {
         printAllFigures();
     }
-    else if (dateFrom.empty() && dateTo.empty()) {
-        printBranchFigures(branch);
-    }
-    else if (branch.empty()) {
-        printDateFigures(dateFrom, dateTo);
+    else {
+        printDateBranchFigures(branch, dateFrom, dateTo);
     }
     output.wait();
 }
@@ -447,26 +444,34 @@ void ManagerUI::printAllFigures() {
     cout << "-------------------" << endl;
 }
 
-void ManagerUI::printBranchFigures(const string branch) {
+void ManagerUI::printDateBranchFigures(string branch, string dateFrom, string dateTo) {
     cout << endl;
-    cout << "-----Sale figures for " << branch << "-----"  << endl;
-    vector<Order> orders = managerDomain.getBranchOrders(branch);
+    cout << "-----Sale figures";
+    if (!dateFrom.empty()) {
+        cout << " from " << dateFrom;
+    }
+    if (!dateTo.empty()) {
+        cout << " to " << dateTo;
+    }
+    if (!branch.empty()) {
+        cout << " at " << branch;
+    }
+    cout << "-----"<< endl;
+    vector<Order> branchOrders = managerDomain.getBranchOrders(branch);
+    cout << "Out of getBranchOrders" << endl;
+    vector<Order> dateFromOrders = managerDomain.getDateFromOrders(dateFrom, branchOrders);
+    vector<Order> dateToOrders = managerDomain.getDateToOrders(dateTo, dateFromOrders);
+
     int total = 0;
-    for (unsigned int i = 0; i < orders.size(); i++) {
-        cout << "Order time: " << orders[i].getTimeString();
-        cout << "\tPrice: " << orders[i].getTotal() << endl;
-        total += orders[i].getTotal();
+    for (unsigned int i = 0; i < dateToOrders.size(); i++) {
+        cout << "Order time: " << dateToOrders[i].getTimeString();
+        cout << "\tPrice: " << dateToOrders[i].getTotal() << endl;
+        total += dateToOrders[i].getTotal();
     }
     cout << endl;
     cout << "\t\t\t\t\tTotal: " << total << endl;
     cout << "-------------------" << endl;
 }
-
-void ManagerUI::printDateFigures(const string dateFrom, const string dateTo) {
-    cout << endl;
-    cout << "---Sale figures from " << dateFrom << " to " << dateTo << "---";
-}
-
 
 void ManagerUI::removePizza() {
     cout << "-----Remove Pizza-----" << endl;

@@ -214,6 +214,7 @@ vector<User> ManagerRep::getUser() {
 
 vector<Order> ManagerRep::getOrder() {
     vector <Order> orders;
+    cout << "Inside get order rep" << endl;
     ifstream fin;
     fin.open("LegacyOrder_Binary.dat", ios::binary);
     if(fin.is_open()) {

@@ -49,6 +49,8 @@ class ManagerDomain
 
         vector<Order> getOrders();
         vector<Order> getBranchOrders(const string &branch);
+        vector<Order> getDateFromOrders(const string &dateFrom, vector<Order> branchOrders);
+        vector<Order> getDateToOrders(const string &dateTo, vector<Order> dateFromOrders);
 
         bool removePizza(const Pizza &pizza);
         bool removeCrust(const Crust &crust);
