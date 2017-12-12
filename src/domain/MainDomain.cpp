@@ -15,7 +15,9 @@ bool MainDomain::checkValidInput(string &select) {
 
 User MainDomain::checkUser(string &name, string &password) {
     vector<User> userList = mainRep.getUsers();
-
+    char *arrchar = const_cast<char*>(password.c_str());
+    arrchar = charmd5.digestString(arrchar);
+    password = arrchar;
     for (unsigned int i = 0; i < userList.size(); i++){
         if (userList[i].getName() == name && userList[i].getPassword() == password) {
             return userList[i];

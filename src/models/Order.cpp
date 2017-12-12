@@ -170,7 +170,7 @@ ostream& operator << (ostream& out, const Order& order){
         }
     }
     out << endl;
-    out << "Order total: " << order.getTotal() << endl;
+    out << "Order total: " << order.getTotal() << endl << endl;
     /*out << endl;
 
     out << "Been paid for: ";
@@ -197,24 +197,12 @@ ostream& operator << (ostream& out, const Order& order){
     out << "Been ";
     */
     if (order.pickup) {
-        out << "picked up at ";
-        out << order.getBranch() << ": ";
-        if (order.deliverd) {
-            out << "Yes!" << endl;
-        }
-        else {
-            out << "No!" << endl;
-        }
+        out << "Order will be picked up at ";
+        out << order.getBranch() << endl;
     }
     else {
-        out << "delivered to address ";
-        out << order.getCustomerAddress() << ": ";
-        if (order.deliverd) {
-            out << "Yes!" << endl;
-        }
-        else {
-            out << "No!" << endl;
-        }
+        out << "Deliver to address ";
+        out << order.getCustomerAddress() << endl;
     }
 
 
@@ -259,7 +247,7 @@ void Order::write(ofstream& fout) const {
 
     int strLen4 = comment.length() + 1;
     fout.write((char*)(&strLen4), sizeof(int));
-    fout.write(customerName.c_str(), strLen4);
+    fout.write(comment.c_str(), strLen4);
 
     int tCount = pizzas.size();
     fout.write((char*)(&tCount), sizeof(int));
