@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Order.h"
 #include <cstdlib>
+#include <iomanip>
 
 using namespace std;
 
@@ -45,7 +46,6 @@ class SalesUI {
         void markPaidFor();
 
         void printLogo();
-
 };
 
 #endif // SALESUI_H

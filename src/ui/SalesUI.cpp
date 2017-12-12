@@ -9,7 +9,6 @@ void SalesUI::startUI() {
     printLogo();
     Order order;
 
-
     char select = '\0';
     while (select != '8') {
         select = '\0';
@@ -27,7 +26,6 @@ void SalesUI::startUI() {
 
         switch(select){
             case '1': {
-
                 addPizza();
                 break;
             }
@@ -50,7 +48,7 @@ void SalesUI::startUI() {
                 break;
             }
             case '6': {
-                cout << "Order total: "<< this->order.getTotal() << endl;
+                cout << "Order total: "<< this->order.getTotal() << "kr" << endl;
                 break;
             }
             case '7': {
@@ -139,11 +137,11 @@ void SalesUI::addToppings(Pizza &pizza){
         try{
             salesDomain.checkToppingAvailability(topping);
             pizza.addTopping(topping);
-            cout << "Add another topping?" << endl;
+            cout << "Add another topping (y/n)?";
         }
         catch(NotFoundException){
             cout << "Topping not avaliable!" << endl;
-            cout << "Try another topping? " << endl;
+            cout << "Try another topping (y/n)? ";
         }
     addTopping = validAnswer();
     }
@@ -222,47 +220,87 @@ void SalesUI::addAddress(){
 void SalesUI::printPizzas(){
     vector<Pizza> pizzas;
     salesDomain.getPizzas(pizzas);
-    cout << "Pizza menu" << endl;
+     cout << "-------------------Pizza menu--------------------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "14\"";
+    cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
+    cout << "--------------------------------------------------" << endl;
     for(unsigned int i = 0; i < pizzas.size(); i++){
-        cout << pizzas[i] << endl;
+        if (i % 3 == 0){
+            if (i != 0) {
+                cout << endl;
+            }
+            cout << setw(15) << pizzas[i].getName();
+        }
+        cout << setw(8) << pizzas[i].getPrice() << "kr ";
     }
+    cout << endl;
+    cout << "---------------------------------------------------" << endl;
 }
 
 void SalesUI::printCrusts(){
     vector<Crust> crusts;
     salesDomain.getCrusts(crusts);
-    cout << "Crust menu" << endl;
+    cout << "--------------------Crust menu--------------------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "14\"";
+    cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
+    cout << "--------------------------------------------------" << endl;
     for(unsigned int i = 0; i < crusts.size(); i++){
-        cout << crusts[i];
+        if (i % 3 == 0){
+            if (i != 0) {
+                cout << endl;
+            }
+            cout << setw(15) << crusts[i].getName();
+        }
+        cout << setw(8) << crusts[i].getPrice() << "kr ";
     }
+    cout << endl;
+    cout << "---------------------------------------------------" << endl;
 }
 
 void SalesUI::printToppings(){
     vector<Topping> toppings;
     salesDomain.getToppings(toppings);
-    cout << "Toppings menu" << endl;
+    cout << "-----------Toppings menu-----------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "Price" << endl;
+    cout << "-----------------------------------" << endl;
     for(unsigned int i = 0; i < toppings.size(); i++){
-        cout << toppings[i];
+        cout << setw(15) << toppings[i].getName();
+        cout << setw(10) << toppings[i].getPrice() << endl;
     }
+    cout << "-----------------------------------" << endl;
 }
 
 void SalesUI::printDrinks() {
     vector<Drink> drinks;
     salesDomain.getDrinks(drinks);
-    cout << "Drink menu" << endl;
+    cout << "------------Drinks menu------------" << endl;
+    cout << setw(15) << "Name" << setw(8) << "1L" << setw(8) << "2L" << endl;
+    cout << "-----------------------------------" << endl;
     for(unsigned int i = 0; i < drinks.size(); i++){
-        cout << drinks[i];
+        if (i%2 == 0) {
+            if(i != 0) {
+                cout << endl;
+            }
+            cout << setw(15) << drinks[i].getName();
+        }
+        cout << setw(8) << drinks[i].getPrice();
     }
+    cout << endl;
+    cout << "-----------------------------------" << endl;
 
 }
 
 void SalesUI::printSidedishes() {
     vector<Sidedish> sidedishes;
     salesDomain.getSidedishes(sidedishes);
-    cout << "Sidedish menu" << endl;
+    cout << "-----------Sidedish menu-----------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "Price" << endl;
+    cout << "-----------------------------------" << endl;
     for(unsigned int i = 0; i < sidedishes.size(); i++){
-        cout << sidedishes[i];
+        cout << setw(15) << sidedishes[i].getName();
+        cout << setw(10) << sidedishes[i].getPrice() << endl;
     }
+    cout << "-----------------------------------" << endl;
 }
 
 void SalesUI::fileOrder(){

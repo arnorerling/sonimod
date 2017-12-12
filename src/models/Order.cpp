@@ -134,12 +134,13 @@ void Order::cleanOrder(){
 
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
-    out << "Order time: " << ctime(&order.orderTime) << endl;
+    out << "Order time: " << ctime(&order.orderTime);
     if(order.ready){
         out << "Customer Name: " << order.getCustomerName() << endl;
         out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
         out << "Customer adress: " << order.getCustomerAddress() << endl;
     }
+    out << endl;
 
     if (order.pizzas.size() > 0) {
         out << "Pizzas: " << endl;
@@ -160,8 +161,9 @@ ostream& operator << (ostream& out, const Order& order){
             out << order.drinks[i].getName() << endl;
         }
     }
-    out << "Order total: " << order.getTotal() << endl;
     out << endl;
+    out << "Order total: " << order.getTotal() << endl;
+    /*out << endl;
 
     out << "Been paid for: ";
     if(order.paidFor) {
@@ -205,6 +207,7 @@ ostream& operator << (ostream& out, const Order& order){
             out << "No!" << endl;
         }
     }
+    */
 
     return out;
 }
