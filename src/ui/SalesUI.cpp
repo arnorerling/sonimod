@@ -316,19 +316,34 @@ void SalesUI::printSidedishes() {
 void SalesUI::fileOrder(){
     addCustomer();
     addBranch();
-    addAddress();
+    this->order.setTime();
+    order.addComment(this->addComment());
     cout << "Mark as paid(y/n): ";
     char paidFor = validAnswer();
     if(paidFor == 'y'){
-        markPaidFor();
+        salesDomain.markOrderPaidFor(this->order);
+        cout << "Order marked as paid." << endl;
     }
-    this->order.setTime();
+    cout << "Pickup? (y/n): ";
+    char pickup = validAnswer();
+    if(pickup == 'y'){
+        order.setPickup(true);
+        cout << "Order marked as pickup order." << endl;
+    } else {
+        addAddress();
+    }
     salesDomain.fileOrder(this->order);
     cout << "Order filed!" << endl;
     this->order.cleanOrder();
 
 }
-
+string SalesUI::addComment(){
+    cout << "Add comment: ";
+    string comment;
+    cin >> ws;
+    getline(cin, comment);
+    return comment;
+}
 string SalesUI::validName() {
     string name = "";
     bool allowed = false;
@@ -402,17 +417,6 @@ char SalesUI::validAnswer() {
     return answer1;
 }
 
-void SalesUI::markPaidFor() {
-    if (this->order.getCustomerName() != "") {
-        try {
-            salesDomain.markOrderPaidFor(this->order);
-            cout << "Order has been paid for" << endl;
-        }
-        catch(MarkedPaidForException) {
-            cout << "This order has already been paid for" << endl;
-        }
-    }
-}
 
 void SalesUI::printLogo() {
 cout << "____ ____ _    ____ ____ " << endl;

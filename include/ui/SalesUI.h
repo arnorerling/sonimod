@@ -34,6 +34,7 @@ class SalesUI {
         void addDrink();
         void addBranch();
         void addAddress();
+        string addComment();
 
         // print functions
         void printPizzas();

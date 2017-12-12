@@ -21,6 +21,7 @@ class Order {
         string phoneNumber;
         string customerAddress;
         string branch;
+        string comment;
 
         bool paidFor;
         bool inProcess;
@@ -37,12 +38,12 @@ class Order {
         void addPizza(Pizza& pizza);
         void addSideDish(Sidedish& sidedish);
         void addDrink(Drink& drink);
-
         void addCustomerName(const string &name);
         void addCustomerPhoneNum(const string &num);
         void addCustomerAddress(const string &address);
         void addBranch(const string &branch);
         void addTotalPrice(int price);
+        void addComment(string comment);
 
         void setPaidFor(bool paidFor);
         void setInProcess(bool inProcess);
