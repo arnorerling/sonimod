@@ -18,7 +18,10 @@ class SalesRep
     private:
 
     public:
+        // Constructor
         SalesRep();
+
+        //takes vectors from the domain and filles them up
         void getDrinks(vector<Drink>& drinks);
         void getSidedishes(vector<Sidedish>& sidedishes);
         void getPizzas(vector<Pizza>& pizzas);
@@ -26,6 +29,7 @@ class SalesRep
         void getCrust(vector<Crust>& crusts);
         void getBranches(vector<Branch>& branches);
 
+        //writes the current order to orders_binary
         void fileOrder(Order& order);
 
 };

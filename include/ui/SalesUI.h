@@ -19,13 +19,15 @@ class SalesUI {
         Order order;
 
     public:
+
+        // Starts UI for sales, prints out menu
         SalesUI();
         void startUI();
 
+        // Add functions
         void addCustomer();
         void addPizza();
         void addPizzaMenu();
-        void choosePizza(Pizza &pizza, int& size);
         void addCrust(Pizza &pizza, int& size);
         void addToppings(Pizza &pizza);
         void addSidedish();
@@ -33,20 +35,25 @@ class SalesUI {
         void addBranch();
         void addAddress();
 
+        // print functions
         void printPizzas();
         void printCrusts();
         void printToppings();
         void printSidedishes();
         void printDrinks();
 
+        // File order sends the order to a binary file
         void fileOrder();
 
+        // functions that send parameters to domain, they also try and catch
         string validName();
         string validPhoneNumber();
         int validNumber();
         char validAnswer();
         void markPaidFor();
+        void choosePizza(Pizza &pizza, int& size);
 
+        // Prints logo
         void printLogo();
 };
 
