@@ -51,7 +51,7 @@ void User::read(ifstream& fin) {
 
 ostream& operator << (ostream &out, User &user) {
     out << "Username: " << user.username;
-    out << " Job: " << user.getJob(user.jobNumber) << endl;
+    out << " Job: " << user.getJob() << endl;
     return out;
 }
 
@@ -74,7 +74,7 @@ char User::getJobNumber() const {
     return this->jobNumber;
 }
 
-string User::getJob(const char &jobNumber) const{
+string User::getJob() const{
     switch(jobNumber) {
         case '1': return "Mananger";
         break;

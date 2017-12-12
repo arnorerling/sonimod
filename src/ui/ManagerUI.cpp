@@ -1,5 +1,6 @@
 #include "ManagerUI.h"
 
+
 ManagerUI::ManagerUI()
 {
     //ctor
@@ -10,8 +11,8 @@ void ManagerUI::startUI() {
     printManLogo();
     char select = '\0';
     while (select != '4') {
-        cout << "1: Add/Change menu" << endl;
-        cout << "2: Remove from menu" << endl;
+        cout << "1: Add/Change" << endl;
+        cout << "2: Remove" << endl;
         cout << "3: Sale Figures" << endl;
         cout << "4: Quit" << endl;
         select = checkInput();
@@ -36,7 +37,7 @@ void ManagerUI::addChangeMenu() {
         cout << "-----Add/Change-----" << endl;
         cout << "1: Pizza crust" << endl;
         cout << "2: Pizza topping" << endl;
-        cout << "3: Pizza menu" << endl;
+        cout << "3: Pizza from menu" << endl;
         cout << "4: Drink" << endl;
         cout << "5: Sidedish" << endl;
         cout << "6: Branch" << endl;
@@ -90,7 +91,7 @@ void ManagerUI::removeFromMenu() {
         cout << "-----Remove-----" << endl;
         cout << "1: Pizza crust" << endl;
         cout << "2: Pizza topping" << endl;
-        cout << "3: Pizza menu" << endl;
+        cout << "3: Pizza from menu" << endl;
         cout << "4: Drink" << endl;
         cout << "5: Sidedish" << endl;
         cout << "6: Branch" << endl;
@@ -306,48 +307,83 @@ void ManagerUI::addUser() {
 }
 
 void ManagerUI::printPizza() {
-    cout << "----Pizza List----" << endl;
     vector<Pizza> pizzas = managerDomain.getPizzas();
-    for (unsigned int i = 0; i < pizzas.size(); i++) {
-        cout << pizzas[i];
+    cout << "-------------------Pizza List--------------------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "14\"";
+    cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
+    cout << "--------------------------------------------------" << endl;
+    for(unsigned int i = 0; i < pizzas.size(); i++){
+        if (i % 3 == 0){
+            if (i != 0) {
+                cout << endl;
+            }
+            cout << setw(15) << pizzas[i].getName();
+        }
+        cout << setw(8) << pizzas[i].getPrice() << "kr ";
     }
-    cout << "-------------------" << endl;
+    cout << endl;
+    cout << "---------------------------------------------------" << endl;
 }
 
 void ManagerUI::printCrust() {
-    cout << "----Crusts List----" << endl;
     vector<Crust> crusts = managerDomain.getCrusts();
-    for (unsigned int i = 0; i < crusts.size(); i++) {
-        cout << crusts[i];
+    cout << "--------------------Crust List--------------------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "14\"";
+    cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
+    cout << "--------------------------------------------------" << endl;
+    for(unsigned int i = 0; i < crusts.size(); i++){
+        if (i % 3 == 0){
+            if (i != 0) {
+                cout << endl;
+            }
+            cout << setw(15) << crusts[i].getName();
+        }
+        cout << setw(8) << crusts[i].getPrice() << "kr ";
     }
-    cout << "-------------------" << endl;
+    cout << endl;
+    cout << "---------------------------------------------------" << endl;
 }
 
 void ManagerUI::printTopping() {
-    cout << "----Toppings List----" << endl;
     vector<Topping> toppings = managerDomain.getToppings();
-    for (unsigned int i = 0; i < toppings.size(); i++) {
-        cout << toppings[i];
+    cout << "-----------Toppings List-----------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "Price" << endl;
+    cout << "-----------------------------------" << endl;
+    for(unsigned int i = 0; i < toppings.size(); i++){
+        cout << setw(15) << toppings[i].getName();
+        cout << setw(10) << toppings[i].getPrice() << endl;
     }
-    cout << "---------------------" << endl;
+    cout << "-----------------------------------" << endl;
 }
 
 void ManagerUI::printDrink() {
-    cout << "----Drinks List----" << endl;
     vector<Drink> drinks = managerDomain.getDrinks();
-    for (unsigned int i = 0; i < drinks.size(); i++) {
-        cout << drinks[i];
+    cout << "------------Drinks List------------" << endl;
+    cout << setw(15) << "Name" << setw(8) << "1L" << setw(8) << "2L" << endl;
+    cout << "-----------------------------------" << endl;
+    for(unsigned int i = 0; i < drinks.size(); i++){
+        if (i%2 == 0) {
+            if(i != 0) {
+                cout << endl;
+            }
+            cout << setw(15) << drinks[i].getName();
+        }
+        cout << setw(8) << drinks[i].getPrice();
     }
-    cout << "-------------------" << endl;
+    cout << endl;
+    cout << "-----------------------------------" << endl;
 }
 
 void ManagerUI::printSide() {
-    cout << "----Sidedish List----" << endl;
     vector<Sidedish> sidedishes = managerDomain.getSidedishes();
-     for (unsigned int i = 0; i < sidedishes.size(); i++) {
-        cout << sidedishes[i];
+    cout << "-----------Sidedish List-----------" << endl;
+    cout << setw(15) << "Name" << setw(10) << "Price" << endl;
+    cout << "-----------------------------------" << endl;
+    for(unsigned int i = 0; i < sidedishes.size(); i++){
+        cout << setw(15) << sidedishes[i].getName();
+        cout << setw(10) << sidedishes[i].getPrice() << endl;
     }
-    cout << "---------------------" << endl;
+    cout << "-----------------------------------" << endl;
 }
 
 void ManagerUI::printBranch() {
@@ -360,12 +396,15 @@ void ManagerUI::printBranch() {
 }
 
 void ManagerUI::printUser() {
-    cout << "----Branch List----" << endl;
+    cout << "--------Employee List--------" << endl;
+    cout << setw(12) << "Name" << setw(15) << "Job" << endl;
+    cout << "------------------------------" << endl;
     vector<User> users = managerDomain.getUsers();
      for (unsigned int i = 0; i < users.size(); i++) {
-        cout << users[i];
+        cout << setw(12) << users[i].getName();
+        cout << setw(15) << users[i].getJob() << endl;
     }
-    cout << "-------------------" << endl;
+    cout << "-----------------------------" << endl;
 }
 
 void ManagerUI::printAllFigures() {

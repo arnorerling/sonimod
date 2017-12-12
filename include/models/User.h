@@ -23,7 +23,7 @@ class User {
         string getName() const;
         string getPassword() const;
         char getJobNumber() const;
-        string getJob(const char &jobNumber) const;
+        string getJob() const;
 
         void setName(const string &name);
         void setPassword(const string &pw);
