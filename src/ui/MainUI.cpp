@@ -112,7 +112,6 @@ User MainUI::checkUser() {
     cin >> ws;
     getline(cin, name);
     cout << "Password: " << endl;
-    //cin >> ws;
     SetStdinEcho(false);
     cin >> ws;
     getline(cin, password);
