@@ -73,11 +73,9 @@ string Order::getCustomerAddress() const{
 string Order::getBranch() const{
     return this->branch;
 }
-string Order::getTime() const{
-    time_t time = orderTime;
-    string timeString = asctime(localtime(&time));
-    timeString.erase(timeString.length()-1, 1);
-    return timeString;
+
+time_t Order::getTime() const{
+    return this->orderTime;
 }
 
 bool Order::getPaidFor() const {
@@ -134,26 +132,9 @@ void Order::cleanOrder(){
     int totalPrice = 0;
 }
 
-<<<<<<< HEAD
-int Order::getTotal() const{
-    int total = 0;
-    for(unsigned int i = 0; i < this->pizzas.size(); i++){
-        total += this->pizzas[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->sideDishes.size(); i++){
-        total += this->sideDishes[i].getPrice();
-    }
-    for(unsigned int i = 0; i < this->drinks.size(); i++){
-        total += this->drinks[i].getPrice();
-    }
-    return total;
-}
-=======
->>>>>>> ff1a1f2d9afe1c68e27bbbf7ddae932655caee63
-
 ostream& operator << (ostream& out, const Order& order){
     out << "------------------------------------------------------" << endl;
-    out << "Order time: " << order.getTime() << endl;
+    out << "Order time: " << ctime(&order.orderTime) << endl;
     if(order.ready){
         out << "Customer Name: " << order.getCustomerName() << endl;
         out << "Customer number: " << order.getCustomerPhoneNumber() << endl;

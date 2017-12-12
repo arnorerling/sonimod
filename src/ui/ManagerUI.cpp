@@ -377,8 +377,8 @@ void ManagerUI::printAllFigures() {
         cout << "\tPrice: " << orders[i].getTotal() << endl;
         total += orders[i].getTotal();
     }
-    cout << "-------------------" << endl;
-    cout << "Total: " << total << endl;
+    cout << endl;
+    cout << "\t\t\t\t\tTotal: " << total << endl;
     cout << "-------------------" << endl;
 }
 
@@ -393,11 +393,10 @@ void ManagerUI::printBranchFigures() {
         cout << "\tPrice: " << orders[i].getTotal() << endl;
         total += orders[i].getTotal();
     }
-    cout << "-------------------" << endl;
-    cout << "Total: " << total << endl;
+    cout << endl;
+    cout << "\t\t\t\t\tTotal: " << total << endl;
     cout << "-------------------" << endl;
 }
-
 
 void ManagerUI::removePizza() {
     cout << "-----Remove Pizza-----" << endl;

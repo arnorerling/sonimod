@@ -55,7 +55,7 @@ class Order {
         string getCustomerPhoneNumber() const;
         string getCustomerAddress() const;
         string getBranch() const;
-        string getTime() const;
+        time_t getTime() const;
 
         bool getPaidFor() const;
         bool getInProcess() const;
