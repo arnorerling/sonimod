@@ -37,7 +37,9 @@ void Order::addCustomerAddress(const string &address){
 void Order::addBranch(const string &branch){
     this->branch = branch;
 }
-
+void Order::addComment(string comment){
+    this->comment = comment;
+}
 void Order::setPaidFor(bool paidFor) {
     this->paidFor = paidFor;
 }
@@ -193,6 +195,7 @@ ostream& operator << (ostream& out, const Order& order){
         out << "No!" << endl;
     }
     out << "Been ";
+    */
     if (order.pickup) {
         out << "picked up at ";
         out << order.getBranch() << ": ";
@@ -213,7 +216,7 @@ ostream& operator << (ostream& out, const Order& order){
             out << "No!" << endl;
         }
     }
-    */
+
 
     return out;
 }
@@ -254,6 +257,10 @@ void Order::write(ofstream& fout) const {
     fout.write((char*)(&strLen3), sizeof(int));
     fout.write(branch.c_str(), strLen3);
 
+    int strLen4 = comment.length() + 1;
+    fout.write((char*)(&strLen4), sizeof(int));
+    fout.write(customerName.c_str(), strLen4);
+
     int tCount = pizzas.size();
     fout.write((char*)(&tCount), sizeof(int));
 
@@ -287,34 +294,37 @@ void Order::write(ofstream& fout) const {
 
 void Order::read(ifstream& fin) {
 
-    int strLen = 0;
-    int strLen1 = 0;
-    int strLen2 = 0;
-    int strLen3 = 0;
+    int strLen = 0, strLen1 = 0, strLen2 = 0, strLen3 = 0, strLen4 = 0;
     fin.read((char*)(&strLen), sizeof(int));
     char *str = new char[strLen];
     fin.read(str, strLen);
-    customerName = str;
+    this->customerName = str;
 
     fin.read((char*)(&strLen1), sizeof(int));
     char *str1 = new char[strLen1];
     fin.read(str1, strLen1);
-    phoneNumber = str1;
+    this->phoneNumber = str1;
 
     fin.read((char*)(&strLen2), sizeof(int));
     char *str2 = new char[strLen2];
     fin.read(str2, strLen2);
-    customerAddress = str2;
+    this->customerAddress = str2;
 
     fin.read((char*)(&strLen3), sizeof(int));
     char *str3 = new char[strLen3];
     fin.read(str3, strLen3);
-    branch = str3;
+    this->branch = str3;
+
+    fin.read((char*)(&strLen4), sizeof(int));
+    char *str4 = new char[strLen4];
+    fin.read(str4, strLen4);
+    this->comment = str4;
 
     delete[] str;
     delete[] str1;
     delete[] str2;
     delete[] str3;
+    delete[] str4;
 
     int tCount = 0;
     fin.read((char*)(&tCount), sizeof(int));

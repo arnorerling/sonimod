@@ -17,7 +17,11 @@ class SalesDomain {
         SalesRep salesRep;
 
     public:
+
+        // Constructor
         SalesDomain();
+
+        // Get functions that call functions in the repository to fill arrays
         void getDrinks(vector<Drink>& drinks);
         void getSidedishes(vector<Sidedish>& sidedishes);
         void getPizzas(vector<Pizza>& pizzas);
@@ -25,22 +29,26 @@ class SalesDomain {
         void getCrusts(vector<Crust>& crusts);
         void getBranches(vector<Branch>& branches);
 
+        // Functions that take parameters from the UI class and validates them
         bool isValidName(string name);
         bool isValidPhoneNumber(string num);
-
         bool checkPizzaAvailability(string name, int size, Pizza &pizza);
         bool checkDrinkAvailability(Drink& drink);
         bool checkSidedishAvailability(Sidedish& sidedish);
         void checkToppingAvailability(Topping& topping);
         bool checkCrustAvailability(Crust& crust);
         bool checkBranchAvailability(const string &branch);
-
         void checkYesOrNo(string check);
-
-        void fileOrder(Order &order);
         int isValidNumber(string &number);
-        void toLowerCase(string &str);
         bool checkValidAnswer(const string &answer);
+
+        // file order sends the order from the UI to the rep
+        void fileOrder(Order &order);
+
+        // takes in a string and makes it all lowercase
+        void toLowerCase(string &str);
+
+        // marks the order paid for
         bool markOrderPaidFor(Order &order);
 
 };

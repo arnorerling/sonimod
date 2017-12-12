@@ -42,7 +42,6 @@ void BakerUI::startUI() {
                 output.wait();
             break;
             case '5': cout << endl;
-            output.wait();
             break;
             default:
                 cout << "Invalid input" << endl;
@@ -85,20 +84,20 @@ void BakerUI::printOrders() {
         double diff = difftime(time1, orderTime);
         cout << diff << endl;
         if(diff < 1200 ){
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
             cout << "Name: " << orderList[i].getCustomerName() << endl;
         }
         else if(diff >= 1200 && diff < 1800 ){
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-            cout << "Name: " << orderList[i].getCustomerName() << " hurry up! Order is older than 20 minutes" << endl;
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
+            cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! Order is older than 20 minutes" << endl;
         }
         else if(diff >= 1800 && diff < 7200){
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-            cout << "Name: " << orderList[i].getCustomerName() << " hurry up! order older than 30 minutes" << endl;
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
+            cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 30 minutes" << endl;
         }
         else{
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-            cout << "Name: " << orderList[i].getCustomerName() << " hurry up! order older than 2 hours!" << endl;
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
+            cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 2 hours!" << endl;
         }
     }
     cout << "-----------------------" << endl;
