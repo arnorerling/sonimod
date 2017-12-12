@@ -67,6 +67,7 @@ class ManagerDomain
         bool checkValidPassword(const string &password);
         bool checkValidJob(const string &job);
         bool checkValidBranch(const string &branch);
+        bool checkValidDate(const char *date);
 
 
 };

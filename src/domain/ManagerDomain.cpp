@@ -399,3 +399,19 @@ bool ManagerDomain::checkValidBranch(const string &branch) {
     throw NotFoundException();
     return false;
 }
+
+bool ManagerDomain::checkValidDate(const char *date) {
+    for (int i = 0; i < 10; i++) {
+        if (i == 2 || i == 5) {
+            if (!date[i] == '.'){
+                throw InvalidInputException();
+            }
+        }
+        else {
+            if (!isdigit(date[i])) {
+                throw InvalidInputException();
+            }
+        }
+    }
+    return true;
+}

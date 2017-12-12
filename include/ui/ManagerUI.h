@@ -49,6 +49,7 @@ class ManagerUI
 
         void printAllFigures();
         void printBranchFigures(const string branch);
+        void printDateFigures(const string dateFrom, const string dateTo);
 
         void removePizza();
         void removeCrust();
@@ -66,6 +67,7 @@ class ManagerUI
         string checkPassword();
         char checkJob();
         string checkBranch();
+        string checkDate();
 
         void printManLogo();
 };

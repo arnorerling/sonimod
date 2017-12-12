@@ -170,11 +170,19 @@ void ManagerUI::seeSaleFigures() {
     cout << "-----Sale Figures-----" << endl;
     printBranch();
     string branch = checkBranch();
-    if (branch.empty()) {
+    cout << "Date from ";
+    string dateFrom = checkDate();
+    cout << "Date to ";
+    string dateTo = checkDate();
+
+    if (branch.empty() && dateFrom.empty() && dateTo.empty()) {
         printAllFigures();
     }
-    else {
+    else if (dateFrom.empty() && dateTo.empty()) {
         printBranchFigures(branch);
+    }
+    else if (branch.empty()) {
+        printDateFigures(dateFrom, dateTo);
     }
     output.wait();
 }
@@ -454,6 +462,12 @@ void ManagerUI::printBranchFigures(const string branch) {
     cout << "-------------------" << endl;
 }
 
+void ManagerUI::printDateFigures(const string dateFrom, const string dateTo) {
+    cout << endl;
+    cout << "---Sale figures from " << dateFrom << " to " << dateTo << "---";
+}
+
+
 void ManagerUI::removePizza() {
     cout << "-----Remove Pizza-----" << endl;
     string name = checkName();
@@ -717,6 +731,28 @@ string ManagerUI::checkBranch() {
         }
     }
     return branch;
+}
+
+string ManagerUI::checkDate() {
+    string date = "";
+    char date1[11] = {'\0'};
+    bool allowed = false;
+    cout << "(DD.MM.YYYY)(press enter for default): ";
+    while(!allowed){
+        getline(cin, date);
+        if (date.empty()) {
+            return date;
+        }
+        strcpy(date1, date.c_str());
+        try{
+            allowed = managerDomain.checkValidDate(date1);
+            cout << "Date is valid YAY" << endl;
+            return date;
+        }
+        catch(InvalidInputException){
+            cout << "Invalid date, please enter (DD.MM.YYYY) or press Enter" << endl;
+        }
+    }
 }
 
 void ManagerUI::printManLogo(){
