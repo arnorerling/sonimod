@@ -167,20 +167,14 @@ void ManagerUI::removeFromMenu() {
 void ManagerUI::seeSaleFigures() {
     output.clean();
     printManLogo();
-    cout << "-----Sale Figures-----" << endl;
     printBranch();
     string branch = checkBranch();
-    cout << "Date from ";
+    cout << "Select date from ";
     string dateFrom = checkDate();
-    cout << "Date to ";
+    cout << "Select date to ";
     string dateTo = checkDate();
 
-    if (branch.empty() && dateFrom.empty() && dateTo.empty()) {
-        printAllFigures();
-    }
-    else {
-        printDateBranchFigures(branch, dateFrom, dateTo);
-    }
+    printDateBranchFigures(branch, dateFrom, dateTo);
     output.wait();
 }
 
@@ -431,20 +425,6 @@ void ManagerUI::printUser() {
     cout << "-----------------------------" << endl;
 }
 
-void ManagerUI::printAllFigures() {
-    cout << "-----All sale figures-----" << endl;
-    vector<Order> orders = managerDomain.getOrders();
-    int total = 0;
-    for (unsigned int i = 0; i < orders.size(); i++) {
-        cout << "Order time: " << orders[i].getTimeString();
-        cout << "\tPrice: " << orders[i].getTotal() << endl;
-        total += orders[i].getTotal();
-    }
-    cout << endl;
-    cout << "\t\t\t\t\tTotal: " << total << endl;
-    cout << "-------------------" << endl;
-}
-
 void ManagerUI::printDateBranchFigures(string branch, string dateFrom, string dateTo) {
     cout << endl;
     cout << "-----Sale figures";
@@ -458,14 +438,14 @@ void ManagerUI::printDateBranchFigures(string branch, string dateFrom, string da
         cout << " at " << branch;
     }
     cout << "-----"<< endl;
+
     vector<Order> branchOrders = managerDomain.getBranchOrders(branch);
-    cout << "Out of getBranchOrders" << endl;
     vector<Order> dateFromOrders = managerDomain.getDateFromOrders(dateFrom, branchOrders);
     vector<Order> dateToOrders = managerDomain.getDateToOrders(dateTo, dateFromOrders);
 
     int total = 0;
     for (unsigned int i = 0; i < dateToOrders.size(); i++) {
-        cout << "Order time: " << dateToOrders[i].getTimeString();
+        cout << "Order time: " <<  dateToOrders[i].getTimeString();
         cout << "\tPrice: " << dateToOrders[i].getTotal() << endl;
         total += dateToOrders[i].getTotal();
     }
@@ -741,24 +721,26 @@ string ManagerUI::checkBranch() {
 
 string ManagerUI::checkDate() {
     string date = "";
-    char date1[11] = {'\0'};
     bool allowed = false;
-    cout << "(DD.MM.YYYY)(press enter for default): ";
+    cout << ", press enter for default" << endl;
+    cout << "(DD.MM.YYYY): ";
     while(!allowed){
         getline(cin, date);
         if (date.empty()) {
             return date;
         }
-        strcpy(date1, date.c_str());
         try{
-            allowed = managerDomain.checkValidDate(date1);
-            cout << "Date is valid YAY" << endl;
-            return date;
+            allowed = managerDomain.checkValidDate(date);
         }
-        catch(InvalidInputException){
-            cout << "Invalid date, please enter (DD.MM.YYYY) or press Enter" << endl;
+        catch(InvalidDateException){
+            cout << "Invalid date, year cant be less than 1970." << endl;
+            cout << "Please enter\"DD.MM.YYYY\" or press Enter: " << endl;
+        }
+        catch(InvalidInputException) {
+            cout << "Invalid date, please enter \"DD.MM.YYYY\" or press Enter" << endl;
         }
     }
+    return date;
 }
 
 void ManagerUI::printManLogo(){

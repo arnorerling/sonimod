@@ -157,9 +157,7 @@ vector<Order> ManagerDomain::getOrders() {
 }
 
 vector<Order> ManagerDomain::getBranchOrders(const string &branch) {
-    cout << "Inside getBranchOrders" << endl;
     vector<Order>orders = managerRep.getOrder();
-    cout << "Outside manangerRep get order" << endl;
     vector<Order>branchOrders;
     if (branch.empty()) {
         return orders;
@@ -177,25 +175,19 @@ vector<Order> ManagerDomain::getDateFromOrders(const string &dateFrom, vector<Or
     if (dateFrom.empty()) {
         return branchOrders;
     }
+
     char date[11];
     time_t result = 0;
     int year = 0, month = 0, day = 0;
     strcpy(date, dateFrom.c_str());
 
-    if (sscanf(date, "%2d.%2d.%4d", &day, &month, &year) == 3) {
-       struct tm breakdown = {0};
-       breakdown.tm_year = year - 1900;
-       breakdown.tm_mon = month - 1;
-       breakdown.tm_mday = day;
+    sscanf(date, "%2d.%2d.%4d", &day, &month, &year);
+    struct tm breakdown = {0};
+    breakdown.tm_year = year - 1900;
+    breakdown.tm_mon = month - 1;
+    breakdown.tm_mday = day;
 
-       if ((result = mktime(&breakdown)) == (time_t)-1) {
-          cout << "Error1" << endl;
-       }
-       puts(ctime(&result));
-    }
-    else {
-      cout << "Error2" << endl;
-    }
+    result = mktime(&breakdown);
 
     for (unsigned int i = 0; i < branchOrders.size(); i++) {
         if (difftime( branchOrders[i].getTime(), result) > 0) {
@@ -204,6 +196,7 @@ vector<Order> ManagerDomain::getDateFromOrders(const string &dateFrom, vector<Or
     }
     return dateFromOrders;
 }
+
 vector<Order> ManagerDomain::getDateToOrders(const string &dateTo, vector<Order> dateFromOrders) {
     vector<Order>dateToOrders;
     if (dateTo.empty()) {
@@ -215,20 +208,13 @@ vector<Order> ManagerDomain::getDateToOrders(const string &dateTo, vector<Order>
     int year = 0, month = 0, day = 0;
     strcpy(date, dateTo.c_str());
 
-    if (sscanf(date, "%2d.%2d.%4d", &day, &month, &year) == 3) {
-       struct tm breakdown = {0};
-       breakdown.tm_year = year - 1900;
-       breakdown.tm_mon = month - 1;
-       breakdown.tm_mday = day;
+    sscanf(date, "%2d.%2d.%4d", &day, &month, &year);
+    struct tm breakdown = {0};
+    breakdown.tm_year = year - 1900;
+    breakdown.tm_mon = month - 1;
+    breakdown.tm_mday = day;
 
-       if ((result = mktime(&breakdown)) == (time_t)-1) {
-          cout << "Error3" << endl;
-       }
-       puts(ctime(&result));
-    }
-    else {
-      cout << "Error4" << endl;
-    }
+    result = mktime(&breakdown);
 
     for (unsigned int i = 0; i < dateFromOrders.size(); i++) {
         if (difftime( dateFromOrders[i].getTime(), result) < 0) {
@@ -471,18 +457,32 @@ bool ManagerDomain::checkValidBranch(const string &branch) {
     return false;
 }
 
-bool ManagerDomain::checkValidDate(const char *date) {
-    for (int i = 0; i < 10; i++) {
-        if (i == 2 || i == 5) {
-            if (date[i] != '.'){
-                throw InvalidInputException();
-            }
-        }
-        else {
-            if (!isdigit(date[i])) {
-                throw InvalidInputException();
-            }
-        }
+bool ManagerDomain::checkValidDate(const string &date) {
+
+    if (date.length() != 10) {
+        throw LengthNotRightException();
     }
+    if (date[2] != '.' || date[5] != '.') {
+        throw InvalidInputException();
+    }
+    string d = (date.substr(0,2));
+    string m = (date.substr(3,2));
+    string y = (date.substr(6,4));
+
+    int day = atoi(d.c_str());
+    int month = atoi(m.c_str());
+    int year = atoi(y.c_str());
+
+    if (day < 1 || day > 31) {
+        throw InvalidInputException();
+    }
+    if (month < 1 || month > 12) {
+        throw InvalidInputException();
+
+    }
+    if (year < 1970) {
+        throw InvalidDateException();
+    }
+
     return true;
 }

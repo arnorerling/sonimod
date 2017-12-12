@@ -6,6 +6,8 @@
 #include "NotFoundException.h"
 #include "ItemExistsException.h"
 #include "InvalidInputException.h"
+#include "LengthNotRightException.h"
+#include "InvalidDateException.h"
 
 #include "Pizza.h"
 #include "Crust.h"
@@ -19,6 +21,7 @@
 #include <string>
 #include <vector>
 #include <stdlib.h>
+#include <stdio.h>
 using namespace std;
 
 class ManagerDomain
@@ -69,7 +72,7 @@ class ManagerDomain
         bool checkValidPassword(const string &password);
         bool checkValidJob(const string &job);
         bool checkValidBranch(const string &branch);
-        bool checkValidDate(const char *date);
+        bool checkValidDate(const string &date);
 
 
 };

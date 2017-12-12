@@ -12,10 +12,9 @@ MainUI::MainUI()
 }
 
 void MainUI::start() {
-    output.clean();
     char answer = '\0';
     while (answer != '2') {
-
+        output.clean();
         printLogo();
         cout << "1: Login" << endl;
         cout << "2: Quit" << endl;
@@ -32,7 +31,6 @@ void MainUI::start() {
 }
 
 void MainUI::login() {
-    output.clean();
     User user = checkUser();
     switch(user.getJobNumber()) {
         case '1': {
@@ -105,6 +103,8 @@ void MainUI::mainMenu() {
 }
 
 User MainUI::checkUser() {
+    output.clean();
+    printLogo();
     User user;
     string name = "";
     string password = "";
@@ -120,7 +120,9 @@ User MainUI::checkUser() {
         user = mainDomain.checkUser(name, password);
     }
     catch(NotFoundException){
+        output.clean();
         cout << "wrong password" << endl;
+        output.wait();
     }
     return user;
 }
