@@ -165,38 +165,18 @@ void ManagerUI::removeFromMenu() {
 }
 
 void ManagerUI::seeSaleFigures() {
-    char select = '\0';
-    while (select != '3') {
-        output.clean();
-        printManLogo();
-        cout << "-----Sale Figures-----" << endl;
-        cout << "1: Restaurant" << endl;
-        cout << "2: All" << endl;
-        cout << "3: Quit" << endl;
-        cout << "----------------------" << endl;
-        select = checkInput();
-        switch(select){
-            case '1':
-                output.clean();
-                printBranch();
-                printBranchFigures();
-                output.wait();
-                break;
-            case '2':
-                output.clean();
-                printAllFigures();
-                output.wait();
-                break;
-            case '3':
-                output.clean();
-                cout << endl;
-                break;
-            default:
-                output.clean();
-                cout << "Invalid input" << endl;
-                output.clean();
-        }
+    output.clean();
+    printManLogo();
+    cout << "-----Sale Figures-----" << endl;
+    printBranch();
+    string branch = checkBranch();
+    if (branch.empty()) {
+        printAllFigures();
     }
+    else {
+        printBranchFigures(branch);
+    }
+    output.wait();
 }
 
 void ManagerUI::addPizza() {
@@ -450,7 +430,7 @@ void ManagerUI::printAllFigures() {
     vector<Order> orders = managerDomain.getOrders();
     int total = 0;
     for (unsigned int i = 0; i < orders.size(); i++) {
-        cout << "Order time: " << orders[i].getTime();
+        cout << "Order time: " << orders[i].getTimeString();
         cout << "\tPrice: " << orders[i].getTotal() << endl;
         total += orders[i].getTotal();
     }
@@ -459,14 +439,13 @@ void ManagerUI::printAllFigures() {
     cout << "-------------------" << endl;
 }
 
-void ManagerUI::printBranchFigures() {
-    string branch = checkBranch();
-    int total = 0;
+void ManagerUI::printBranchFigures(const string branch) {
     cout << endl;
     cout << "-----Sale figures for " << branch << "-----"  << endl;
     vector<Order> orders = managerDomain.getBranchOrders(branch);
+    int total = 0;
     for (unsigned int i = 0; i < orders.size(); i++) {
-        cout << "Order time: " << orders[i].getTime();
+        cout << "Order time: " << orders[i].getTimeString();
         cout << "\tPrice: " << orders[i].getTotal() << endl;
         total += orders[i].getTotal();
     }
@@ -725,9 +704,11 @@ string ManagerUI::checkBranch() {
     bool allowed = false;
 
     while(!allowed){
-        cout << "Restaurant: ";
-        cin >> ws;
+        cout << "Restaurant (press enter for all): ";
         getline(cin, branch);
+        if (branch.empty()) {
+            return branch;
+        }
         try{
             allowed = managerDomain.checkValidBranch(branch);
         }

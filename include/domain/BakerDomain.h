@@ -6,7 +6,7 @@
 
 #include "InvalidInputException.h"
 #include "NotFoundException.h"
-#include "NotMarkedInProgressException.h"
+#include "NotMarkedInProcessException.h"
 #include "MarkedInProcessException.h"
 
 using namespace std;
