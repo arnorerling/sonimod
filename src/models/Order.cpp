@@ -74,6 +74,12 @@ string Order::getBranch() const{
     return this->branch;
 }
 
+string Order::getTimeString() const {
+    string timeString = ctime(&orderTime);
+    timeString.erase(timeString.size() - 1 );
+    return timeString;
+}
+
 time_t Order::getTime() const{
     return this->orderTime;
 }
