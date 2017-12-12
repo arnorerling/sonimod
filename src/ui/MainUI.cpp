@@ -114,7 +114,8 @@ User MainUI::checkUser() {
     cout << "Password: " << endl;
     //cin >> ws;
     SetStdinEcho(false);
-    cin >> password;
+    cin >> ws;
+    getline(cin, password);
     SetStdinEcho(true);
     try{
         user = mainDomain.checkUser(name, password);
