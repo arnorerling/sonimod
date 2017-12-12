@@ -247,7 +247,7 @@ void Order::write(ofstream& fout) const {
 
     int strLen4 = comment.length() + 1;
     fout.write((char*)(&strLen4), sizeof(int));
-    fout.write(customerName.c_str(), strLen4);
+    fout.write(comment.c_str(), strLen4);
 
     int tCount = pizzas.size();
     fout.write((char*)(&tCount), sizeof(int));
