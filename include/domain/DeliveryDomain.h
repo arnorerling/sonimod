@@ -26,6 +26,7 @@ class DeliveryDomain
 
         void markOrderPaidFor(const Order &order);
         void markOrderDelivered(Order &order);
+        void deleteOrder(const Order &order);
 
         bool checkBranchAvaliability(const string &branch);
         bool checkValidNumber(const string num);

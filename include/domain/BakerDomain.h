@@ -26,6 +26,7 @@ class BakerDomain
 
         void markOrderInProcess(const Order &order);
         void markOrderReady(const Order &order);
+        void deleteOrder(const Order &order);
 
         bool checkBranchAvaliability(string &branchName);
         bool checkValidName(const string &name);

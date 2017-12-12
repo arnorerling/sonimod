@@ -45,7 +45,6 @@ Order BakerDomain::getOneOrder(const string &number, const string &branch) {
     throw NotFoundException();
 }
 
-
 void BakerDomain::markOrderInProcess(const Order &order) {
     vector<Order> orderList = bakerRep.getOrders();
     for (unsigned int i = 0; i < orderList.size(); i++) {
@@ -55,10 +54,10 @@ void BakerDomain::markOrderInProcess(const Order &order) {
             }
             else {
                 orderList[i].setInProcess(true);
-                bakerRep.changeOrderList(orderList);
             }
         }
     }
+    bakerRep.changeOrderList(orderList);
 }
 
 void BakerDomain::markOrderReady(const Order &order) {

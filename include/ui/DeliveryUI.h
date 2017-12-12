@@ -23,6 +23,7 @@ class DeliveryUI
 
         void markPaidFor();
         void markDelivered();
+        void deleteOrder(Order order);
 
         Order findOrder();
         char checkInput();
