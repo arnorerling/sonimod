@@ -12,21 +12,26 @@ MainUI::MainUI()
 }
 
 void MainUI::start() {
-    char answer = '\0';
-    while (answer != '2') {
-        output.clean();
-        printLogo();
-        cout << "1: Login" << endl;
-        cout << "2: Quit" << endl;
-        answer = checkInput();
+    try{
+        char answer = '\0';
+        while (answer != '2') {
+            output.clean();
+            printLogo();
+            cout << "1: Login" << endl;
+            cout << "2: Quit" << endl;
+            answer = checkInput();
 
-        switch (answer) {
-            case '1': login();
-            break;
-            case '2': cout << endl;
-            break;
-            default: cout << "Invalid input" << endl;
+            switch (answer) {
+                case '1': login();
+                break;
+                case '2': cout << endl;
+                break;
+                default: cout << "Invalid input" << endl;
+            }
         }
+    }
+    catch(FileNotOpenException){
+        cout << "Contact admin, user file not found." << endl;
     }
 }
 

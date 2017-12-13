@@ -1,19 +1,20 @@
 #ifndef MAINREP_H
 #define MAINREP_H
 #include "NotFoundException.h"
+#include "FileNotOpenException.h"
 #include "MainRep.h"
 #include "User.h"
 #include <vector>
 #include <string>
-class MainRep
-{
+#include "md5.h"
+
+class MainRep {
+
+    private:
+        MD5 charmd5;
     public:
         MainRep();
         vector<User> getUsers();
-
-    protected:
-
-    private:
 };
 
 #endif // MAINREP_H
