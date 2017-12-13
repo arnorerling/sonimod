@@ -339,103 +339,138 @@ void ManagerUI::addUser() {
 
 void ManagerUI::printPizza() {
     vector<Pizza> pizzas = managerDomain.getPizzas();
-    cout << "-------------------Pizza List--------------------" << endl;
-    cout << setw(15) << "Name" << setw(10) << "14\"";
-    cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
-    cout << "--------------------------------------------------" << endl;
-    for(unsigned int i = 0; i < pizzas.size(); i++){
-        if (i % 3 == 0){
-            if (i != 0) {
-                cout << endl;
+    if (!pizzas.empty()){
+        cout << "-------------------Pizza List--------------------" << endl;
+        cout << setw(15) << "Name" << setw(10) << "14\"";
+        cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
+        cout << "--------------------------------------------------" << endl;
+        for(unsigned int i = 0; i < pizzas.size(); i++){
+            if (i % 3 == 0){
+                if (i != 0) {
+                    cout << endl;
+                }
+                cout << setw(15) << pizzas[i].getName();
             }
-            cout << setw(15) << pizzas[i].getName();
+            cout << setw(8) << pizzas[i].getPrice() << "kr ";
         }
-        cout << setw(8) << pizzas[i].getPrice() << "kr ";
+        cout << endl;
+        cout << "---------------------------------------------------" << endl;
     }
-    cout << endl;
-    cout << "---------------------------------------------------" << endl;
+    else {
+        cout << "Pizza list is empty" << endl;
+    }
 }
 
 void ManagerUI::printCrust() {
     vector<Crust> crusts = managerDomain.getCrusts();
-    cout << "--------------------Crust List--------------------" << endl;
-    cout << setw(15) << "Name" << setw(10) << "14\"";
-    cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
-    cout << "--------------------------------------------------" << endl;
-    for(unsigned int i = 0; i < crusts.size(); i++){
-        if (i % 3 == 0){
-            if (i != 0) {
-                cout << endl;
+    if (!crusts.empty()) {
+        cout << "--------------------Crust List--------------------" << endl;
+        cout << setw(15) << "Name" << setw(10) << "14\"";
+        cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
+        cout << "--------------------------------------------------" << endl;
+        for(unsigned int i = 0; i < crusts.size(); i++){
+            if (i % 3 == 0){
+                if (i != 0) {
+                    cout << endl;
+                }
+                cout << setw(15) << crusts[i].getName();
             }
-            cout << setw(15) << crusts[i].getName();
+            cout << setw(8) << crusts[i].getPrice() << "kr ";
         }
-        cout << setw(8) << crusts[i].getPrice() << "kr ";
+        cout << endl;
+        cout << "---------------------------------------------------" << endl;
     }
-    cout << endl;
-    cout << "---------------------------------------------------" << endl;
+    else {
+        cout << "Crust list is empty" << endl;
+    }
 }
 
 void ManagerUI::printTopping() {
     vector<Topping> toppings = managerDomain.getToppings();
-    cout << "-----------Toppings List-----------" << endl;
-    cout << setw(15) << "Name" << setw(10) << "Price" << endl;
-    cout << "-----------------------------------" << endl;
-    for(unsigned int i = 0; i < toppings.size(); i++){
-        cout << setw(15) << toppings[i].getName();
-        cout << setw(10) << toppings[i].getPrice() << endl;
+    if (!toppings.empty()) {
+        cout << "-----------Toppings List-----------" << endl;
+        cout << setw(15) << "Name" << setw(10) << "Price" << endl;
+        cout << "-----------------------------------" << endl;
+        for(unsigned int i = 0; i < toppings.size(); i++){
+            cout << setw(15) << toppings[i].getName();
+            cout << setw(10) << toppings[i].getPrice() << endl;
+        }
+        cout << "-----------------------------------" << endl;
     }
-    cout << "-----------------------------------" << endl;
+    else {
+        cout << "Topping list is empty" << endl;
+    }
 }
 
 void ManagerUI::printDrink() {
     vector<Drink> drinks = managerDomain.getDrinks();
-    cout << "------------Drinks List------------" << endl;
-    cout << setw(15) << "Name" << setw(8) << "1L" << setw(8) << "2L" << endl;
-    cout << "-----------------------------------" << endl;
-    for(unsigned int i = 0; i < drinks.size(); i++){
-        if (i%2 == 0) {
-            if(i != 0) {
-                cout << endl;
+    if (!drinks.empty()) {
+        cout << "------------Drinks List------------" << endl;
+        cout << setw(15) << "Name" << setw(8) << "1L" << setw(8) << "2L" << endl;
+        cout << "-----------------------------------" << endl;
+        for(unsigned int i = 0; i < drinks.size(); i++){
+            if (i%2 == 0) {
+                if(i != 0) {
+                    cout << endl;
+                }
+                cout << setw(15) << drinks[i].getName();
             }
-            cout << setw(15) << drinks[i].getName();
+            cout << setw(8) << drinks[i].getPrice();
         }
-        cout << setw(8) << drinks[i].getPrice();
+        cout << endl;
+        cout << "-----------------------------------" << endl;
     }
-    cout << endl;
-    cout << "-----------------------------------" << endl;
+    else {
+        cout << "Drinks list is empty" << endl;
+    }
 }
 
 void ManagerUI::printSide() {
     vector<Sidedish> sidedishes = managerDomain.getSidedishes();
-    cout << "-----------Sidedish List-----------" << endl;
-    cout << setw(18) << "Name" << setw(10) << "Price" << endl;
-    cout << "-----------------------------------" << endl;
-    for(unsigned int i = 0; i < sidedishes.size(); i++){
-        cout << setw(18) << sidedishes[i].getName();
-        cout << setw(10) << sidedishes[i].getPrice() << endl;
+    if (!sidedishes.empty()) {
+        cout << "-----------Sidedish List-----------" << endl;
+        cout << setw(18) << "Name" << setw(10) << "Price" << endl;
+        cout << "-----------------------------------" << endl;
+        for(unsigned int i = 0; i < sidedishes.size(); i++){
+            cout << setw(18) << sidedishes[i].getName();
+            cout << setw(10) << sidedishes[i].getPrice() << endl;
+        }
+        cout << "-----------------------------------" << endl;
     }
-    cout << "-----------------------------------" << endl;
+    else {
+        cout << "Sidedish list is empty" << endl;
+    }
 }
 
 void ManagerUI::printBranch() {
-    cout << "----Branch List----" << endl;
     vector<Branch> branches = managerDomain.getBranches();
-     for (unsigned int i = 0; i < branches.size(); i++) {
-        cout << branches[i];
+    if (!branches.empty()) {
+        cout << "----Branch List----" << endl;
+         for (unsigned int i = 0; i < branches.size(); i++) {
+            cout << branches[i];
+        }
+        cout << "-------------------" << endl;
     }
-    cout << "-------------------" << endl;
+    else {
+        cout << "Branch list is empty" << endl;
+    }
 }
 
 void ManagerUI::printUser() {
-    cout << "--------Employee List--------" << endl;
-    cout << setw(12) << "Name" << setw(15) << "Job" << endl;
-    cout << "------------------------------" << endl;
     vector<User> users = managerDomain.getUsers();
-     for (unsigned int i = 0; i < users.size(); i++) {
-        cout << setw(12) << users[i].getName();
-        cout << setw(15) << users[i].getJob() << endl;
+    if (!users.empty()) {
+        cout << "--------Employee List--------" << endl;
+        cout << setw(12) << "Name" << setw(15) << "Job" << endl;
+        cout << "------------------------------" << endl;
+         for (unsigned int i = 0; i < users.size(); i++) {
+            cout << setw(12) << users[i].getName();
+            cout << setw(15) << users[i].getJob() << endl;
+        }
+        cout << "-----------------------------" << endl;
     }
-    cout << "-----------------------------" << endl;
+    else {
+        cout << "User list is empty" << endl;
+    }
 }
 
 void ManagerUI::printFigures(string branch, string dateFrom, string dateTo) {

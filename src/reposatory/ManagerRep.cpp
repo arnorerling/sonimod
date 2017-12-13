@@ -59,7 +59,7 @@ vector<Pizza> ManagerRep::getPizza() {
     vector <Pizza> pizzas;
     ifstream fin;
     fin.open("Pizzas_Binary.dat", ios::binary);
-    if(fin.is_open()) {
+    if (fin.is_open()) {
         while(!fin.eof()){
             Pizza pizza;
             pizza.read(fin);
@@ -69,9 +69,6 @@ vector<Pizza> ManagerRep::getPizza() {
         }
         fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
     return pizzas;
 }
 
@@ -79,8 +76,8 @@ vector<Crust> ManagerRep::getCrust() {
     vector <Crust> crusts;
     ifstream fin;
     fin.open("Crust_Binary.dat", ios::binary);
-    if(fin.is_open()) {
-        Crust crust;
+    Crust crust;
+    if (fin.is_open()) {
         while(!fin.eof()){
             crust.read(fin);
             if(!fin.eof()){
@@ -89,9 +86,6 @@ vector<Crust> ManagerRep::getCrust() {
         }
         fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
     return crusts;
 }
 
@@ -99,8 +93,8 @@ vector<Topping> ManagerRep::getTopping() {
     vector <Topping> toppings;
     ifstream fin;
     fin.open("Topping_Binary.dat", ios::binary);
-    if(fin.is_open()) {
-        Topping topping;
+    Topping topping;
+    if (fin.is_open()) {
         while(!fin.eof()){
             topping.read(fin);
             if(!fin.eof()){
@@ -109,9 +103,6 @@ vector<Topping> ManagerRep::getTopping() {
         }
         fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
     return toppings;
 }
 
@@ -119,19 +110,16 @@ vector<Drink> ManagerRep::getDrink() {
     vector <Drink> drinks;
     ifstream fin;
     fin.open("Drink_Binary.dat", ios::binary);
-    if(fin.is_open()) {
-        Drink drink;
+    Drink drink;
+    if (fin.is_open()) {
         while(!fin.eof()){
             drink.read(fin);
             if(!fin.eof()){
                 drinks.push_back(drink);
             }
         }
-        fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
+    fin.close();
     return drinks;
 }
 
@@ -139,8 +127,8 @@ vector<Sidedish> ManagerRep::getSidedish() {
     vector <Sidedish> sidedishes;
     ifstream fin;
     fin.open("Sidedish_Binary.dat", ios::binary);
-    if(fin.is_open()) {
-        Sidedish sidedish;
+    Sidedish sidedish;
+    if (fin.is_open()) {
         while(!fin.eof()){
             sidedish.read(fin);
             if(!fin.eof()){
@@ -149,9 +137,6 @@ vector<Sidedish> ManagerRep::getSidedish() {
         }
         fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
     return sidedishes;
 }
 
@@ -159,19 +144,16 @@ vector<Branch> ManagerRep::getBranch() {
     vector <Branch> branches;
     ifstream fin;
     fin.open("Branch_Binary.dat", ios::binary);
-    if(fin.is_open()) {
-        Branch branch;
+    Branch branch;
+    if (fin.is_open()) {
         while(!fin.eof()){
             branch.read(fin);
             if(!fin.eof()){
                 branches.push_back(branch);
             }
         }
-        fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
+    fin.close();
     return branches;
 }
 
@@ -179,19 +161,16 @@ vector<User> ManagerRep::getUser() {
     vector <User> users;
     ifstream fin;
     fin.open("Users_Binary.dat", ios::binary);
-    if(fin.is_open()) {
-        User user;
+    User user;
+    if (fin.is_open()) {
         while(!fin.eof()){
             user.read(fin);
             if(!fin.eof()){
                 users.push_back(user);
             }
         }
-        fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
+    fin.close();
     return users;
 }
 
@@ -199,7 +178,7 @@ vector<Order> ManagerRep::getOrder() {
     vector <Order> orders;
     ifstream fin;
     fin.open("LegacyOrder_Binary.dat", ios::binary);
-    if(fin.is_open()) {
+    if (fin.is_open()) {
         while(!fin.eof()){
             Order order;
             order.read(fin);
@@ -208,9 +187,6 @@ vector<Order> ManagerRep::getOrder() {
             }
         }
         fin.close();
-    }
-    else {
-        throw FileNotOpenException();
     }
     return orders;
 }
