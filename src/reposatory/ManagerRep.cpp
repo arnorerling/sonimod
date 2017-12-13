@@ -9,85 +9,50 @@ void ManagerRep::addPizza(const Pizza &pizza) {
 
     ofstream fout;
     fout.open("Pizzas_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        pizza.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    pizza.write(fout);
+    fout.close();
 }
 
 void ManagerRep::addCrust(const Crust &crust) {
     ofstream fout;
     fout.open("Crust_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        crust.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    crust.write(fout);
+    fout.close();
 }
 
 void ManagerRep::addTopping(const Topping &topping) {
     ofstream fout;
     fout.open("Topping_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        topping.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    topping.write(fout);
+    fout.close();
 }
 
 void ManagerRep::addDrink(const Drink &drink) {
     ofstream fout;
     fout.open("Drink_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        drink.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    drink.write(fout);
+    fout.close();
 }
 
 void ManagerRep::addSidedish(const Sidedish &sidedish) {
     ofstream fout;
     fout.open("Sidedish_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        sidedish.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    sidedish.write(fout);
+    fout.close();
 }
 
 void ManagerRep::addBranch(const Branch &branch) {
     ofstream fout;
     fout.open("Branch_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        branch.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    branch.write(fout);
+    fout.close();
 }
 
 void ManagerRep::addUser(const User &user) {
     ofstream fout;
     fout.open("Users_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        user.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    user.write(fout);
+    fout.close();
 }
 
 vector<Pizza> ManagerRep::getPizza() {
@@ -103,8 +68,9 @@ vector<Pizza> ManagerRep::getPizza() {
             }
         }
         fin.close();
-    }else{
-    cout << "file not open" << endl;
+    }
+    else {
+        throw FileNotOpenException();
     }
     return pizzas;
 }
@@ -123,8 +89,10 @@ vector<Crust> ManagerRep::getCrust() {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
     return crusts;
-
 }
 
 vector<Topping> ManagerRep::getTopping() {
@@ -140,6 +108,9 @@ vector<Topping> ManagerRep::getTopping() {
             }
         }
         fin.close();
+    }
+    else {
+        throw FileNotOpenException();
     }
     return toppings;
 }
@@ -158,6 +129,9 @@ vector<Drink> ManagerRep::getDrink() {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
     return drinks;
 }
 
@@ -174,6 +148,9 @@ vector<Sidedish> ManagerRep::getSidedish() {
             }
         }
         fin.close();
+    }
+    else {
+        throw FileNotOpenException();
     }
     return sidedishes;
 }
@@ -192,6 +169,9 @@ vector<Branch> ManagerRep::getBranch() {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
     return branches;
 }
 
@@ -208,6 +188,9 @@ vector<User> ManagerRep::getUser() {
             }
         }
         fin.close();
+    }
+    else {
+        throw FileNotOpenException();
     }
     return users;
 }
@@ -226,6 +209,9 @@ vector<Order> ManagerRep::getOrder() {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
     return orders;
 }
 
@@ -233,103 +219,68 @@ void ManagerRep::changePizzaList(vector<Pizza> &pizzas) {
 
     ofstream fout;
     fout.open("Pizzas_Binary.dat", ios::binary);
-    if(fout.is_open()) {
-        for (unsigned int i = 0; i < pizzas.size(); i++) {
-            pizzas[i].write(fout);
-        }
-        fout.close();
+    for (unsigned int i = 0; i < pizzas.size(); i++) {
+        pizzas[i].write(fout);
     }
-    else {
-        cout << "File did not open" << endl;
-    }
+    fout.close();
 }
 
 void ManagerRep::changeCrustList(vector<Crust> &crusts) {
 
     ofstream fout;
     fout.open("Crust_Binary.dat", ios::binary);
-    if(fout.is_open()) {
-        for (unsigned int i = 0; i < crusts.size(); i++) {
-            crusts[i].write(fout);
-        }
-        fout.close();
+    for (unsigned int i = 0; i < crusts.size(); i++) {
+        crusts[i].write(fout);
     }
-    else {
-        cout << "File did not open" << endl;
-    }
+    fout.close();
 }
 
 void ManagerRep::changeToppingList(vector<Topping> &toppings) {
 
     ofstream fout;
     fout.open("Topping_Binary.dat", ios::binary);
-    if(fout.is_open()) {
-        for (unsigned int i = 0; i < toppings.size(); i++) {
-            toppings[i].write(fout);
-        }
-        fout.close();
+    for (unsigned int i = 0; i < toppings.size(); i++) {
+        toppings[i].write(fout);
     }
-    else {
-        cout << "File did not open" << endl;
-    }
+    fout.close();
  }
 
 void ManagerRep::changeDrinkList(vector<Drink> &drinks) {
 
     ofstream fout;
     fout.open("Drink_Binary.dat", ios::binary);
-    if(fout.is_open()) {
-        for (unsigned int i = 0; i < drinks.size(); i++) {
-            drinks[i].write(fout);
-        }
-        fout.close();
+    for (unsigned int i = 0; i < drinks.size(); i++) {
+        drinks[i].write(fout);
     }
-    else {
-        cout << "File did not open" << endl;
-    }
+    fout.close();
 }
 
 void ManagerRep::changeSidedishList(vector<Sidedish> &sidedishes) {
 
     ofstream fout;
     fout.open("Sidedish_Binary.dat", ios::binary);
-    if(fout.is_open()) {
-        for (unsigned int i = 0; i < sidedishes.size(); i++) {
-            sidedishes[i].write(fout);
-        }
-        fout.close();
+    for (unsigned int i = 0; i < sidedishes.size(); i++) {
+        sidedishes[i].write(fout);
     }
-    else {
-        cout << "File did not open" << endl;
-    }
+    fout.close();
 }
 
  void ManagerRep::changeBranchList(vector<Branch> &branches) {
 
     ofstream fout;
     fout.open("Branch_Binary.dat", ios::binary);
-    if(fout.is_open()) {
-        for (unsigned int i = 0; i < branches.size(); i++) {
-            branches[i].write(fout);
-        }
-        fout.close();
+    for (unsigned int i = 0; i < branches.size(); i++) {
+        branches[i].write(fout);
     }
-    else {
-        cout << "File did not open" << endl;
-    }
+    fout.close();
  }
 
 void ManagerRep::changeUsersList(vector<User> &users) {
 
     ofstream fout;
     fout.open("Users_Binary.dat", ios::binary);
-    if(fout.is_open()) {
-        for (unsigned int i = 0; i < users.size(); i++) {
-            users[i].write(fout);
-        }
-        fout.close();
+    for (unsigned int i = 0; i < users.size(); i++) {
+        users[i].write(fout);
     }
-    else {
-        cout << "File did not open" << endl;
-    }
+    fout.close();
 }

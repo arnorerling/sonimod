@@ -1,5 +1,6 @@
 #ifndef MANAGERREP_H
 #define MANAGERREP_H
+#include "FileNotOpenException.h"
 #include "Crust.h"
 #include "Drink.h"
 #include "Pizza.h"
