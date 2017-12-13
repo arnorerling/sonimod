@@ -1,5 +1,6 @@
 #ifndef BAKERREP_H
 #define BAKERREP_H
+#include "FileNotOpenException.h"
 #include "Branch.h"
 #include "Order.h"
 #include <fstream>

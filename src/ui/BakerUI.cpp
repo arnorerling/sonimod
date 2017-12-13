@@ -9,10 +9,15 @@ BakerUI::BakerUI() {
 void BakerUI::startUI() {
     output.clean();
     printLogo();
-    printRestaurants();
     chooseRestaurant();
 
-    char select = '\0';
+    char select;
+    if(branch == "") {
+        select = '5';
+    }
+    else {
+        select = '\0';
+    }
     while (select != '5') {
         output.clean();
         printLogo();
@@ -53,13 +58,20 @@ void BakerUI::startUI() {
 void BakerUI::chooseRestaurant() {
     bool available = false;
     while(!available ){
-        cout << "Choose restaurant? ";
-        this->branch = checkName();
         try{
+            printRestaurants();
+            cout << "Choose restaurant? ";
+            this->branch = checkName();
             available = bakerDomain.checkBranchAvaliability(branch);
         }
         catch(NotFoundException){
             cout << "This restaurant is not available" << endl;
+        }
+        catch(LengthNotRightException) {
+            cout << "Restaurant list empty" << endl;
+        }
+        catch(FileNotOpenException) {
+            cout << "Restaurant file not found" << endl;
         }
     }
 }
@@ -76,31 +88,40 @@ void BakerUI::printRestaurants() {
 
 void BakerUI::printOrders() {
     cout << "----Order list for " << this->branch << "----" << endl;
-    vector<Order> orderList = bakerDomain.getOrders(branch);
-    time_t time1 = time(0);
-    time_t orderTime;
-    for(unsigned int i = 0; i < orderList.size(); i++){
-        orderTime = orderList[i].getTime();
-        double diff = difftime(time1, orderTime);
-        cout << diff << endl;
-        if(diff < 1200 ){
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-            cout << "Name: " << orderList[i].getCustomerName() << endl;
+    vector<Order> orderList;
+    try {
+        orderList = bakerDomain.getOrders(branch);
+        time_t time1 = time(0);
+        time_t orderTime;
+        for(unsigned int i = 0; i < orderList.size(); i++){
+            orderTime = orderList[i].getTime();
+            double diff = difftime(time1, orderTime);
+            cout << diff << endl;
+            if(diff < 1200 ){
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
+                cout << "Name: " << orderList[i].getCustomerName() << endl;
+            }
+            else if(diff >= 1200 && diff < 1800 ){
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
+                cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! Order is older than 20 minutes" << endl;
+            }
+            else if(diff >= 1800 && diff < 7200){
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
+                cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 30 minutes" << endl;
+            }
+            else{
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
+                cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 2 hours!" << endl;
+            }
         }
-        else if(diff >= 1200 && diff < 1800 ){
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-            cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! Order is older than 20 minutes" << endl;
-        }
-        else if(diff >= 1800 && diff < 7200){
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-            cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 30 minutes" << endl;
-        }
-        else{
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-            cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 2 hours!" << endl;
-        }
+        cout << "-----------------------" << endl;
     }
-    cout << "-----------------------" << endl;
+    catch(LengthNotRightException) {
+        cout << "Order list empty" << endl;
+    }
+    catch(FileNotOpenException) {
+        cout << "Order file not found" << endl;
+    }
 }
 
 void BakerUI:: printOneOrder() {
@@ -141,14 +162,21 @@ void BakerUI::markReady() {
 
 Order BakerUI::findOrder() {
     Order order;
+    try {
+        vector<Order> sizeChecker = bakerDomain.getOrders(branch);
         cout << "Order #: ";
         string number = checkNumber();
-        try {
-            order = bakerDomain.getOneOrder(number, branch);
-        }
-        catch(NotFoundException) {
-            cout << "This number is not on the list!" << endl;
-        }
+        order = bakerDomain.getOneOrder(number, branch);
+    }
+    catch(FileNotOpenException) {
+        cout << "Order file not found" << endl;
+    }
+    catch(LengthNotRightException) {
+        cout << "Order list is empty" << endl;
+    }
+    catch(NotFoundException) {
+        cout << "This number is not on the list!" << endl;
+    }
     return order;
 }
 

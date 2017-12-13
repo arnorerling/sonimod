@@ -20,7 +20,7 @@ vector<Branch> BakerRep::getBranch() {
         fin.close();
     }
     else {
-        cout << "File not open" << endl;
+        throw FileNotOpenException();
     }
     return branches;
 }
@@ -40,7 +40,7 @@ vector<Order> BakerRep::getOrders() {
         fin.close();
     }
     else {
-        cout << "File not open" << endl;
+        throw FileNotOpenException();
     }
     return orders;
 }
@@ -53,8 +53,5 @@ void BakerRep::changeOrderList(vector<Order> &orders) {
             orders[i].write(fout);
         }
         fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
     }
 }
