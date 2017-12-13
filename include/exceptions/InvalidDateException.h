@@ -2,14 +2,6 @@
 #define INVALIDDATEEXCEPTION_H
 
 
-class InvalidDateException
-{
-    public:
-        InvalidDateException();
-
-    protected:
-
-    private:
-};
+class InvalidDateException { };
 
 #endif // INVALIDDATEEXCEPTION_H
