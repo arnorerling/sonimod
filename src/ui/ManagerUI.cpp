@@ -128,36 +128,43 @@ void ManagerUI::removeFromMenu() {
         switch(select){
             case '1':
                 output.clean();
+                printCrust();
                 removeCrust();
                 output.wait();
                 break;
             case '2':
                 output.clean();
+                printTopping();
                 removeTopping();
                 output.wait();
                 break;
             case '3':
                 output.clean();
+                printPizza();
                 removePizza();
                 output.wait();
                 break;
             case '4':
                 output.clean();
+                printDrink();
                 removeDrink();
                 output.wait();
                 break;
             case '5':
                 output.clean();
+                printSide();
                 removeSide();
                 output.wait();
                 break;
             case '6':
                 output.clean();
+                printBranch();
                 removeBranch();
                 output.wait();
                 break;
             case '7':
                 output.clean();
+                printUser();
                 removeUser();
                 output.wait();
                 break;
@@ -198,6 +205,7 @@ void ManagerUI::addPizza() {
     char addTopping = checkAnswer();
     output.clean();
     if(addTopping == 'y') {
+
         printTopping();
     }
     while(addTopping == 'y'){
@@ -211,9 +219,6 @@ void ManagerUI::addPizza() {
         catch(NotFoundException){
             cout << "Topping not avaliable!" << endl;
             cout << "Try another topping? (y/n): ";
-        }
-        catch(FileNotOpenException) {
-        cout << "Topping file could not be open" << endl;
         }
         addTopping = checkAnswer();
     }
@@ -413,8 +418,8 @@ void ManagerUI::printSide() {
 }
 
 void ManagerUI::printBranch() {
-    vector<Branch> branches = managerDomain.getBranches();
     cout << "----Branch List----" << endl;
+    vector<Branch> branches = managerDomain.getBranches();
      for (unsigned int i = 0; i < branches.size(); i++) {
         cout << branches[i];
     }
@@ -422,10 +427,10 @@ void ManagerUI::printBranch() {
 }
 
 void ManagerUI::printUser() {
-    vector<User> users = managerDomain.getUsers();
     cout << "--------Employee List--------" << endl;
     cout << setw(12) << "Name" << setw(15) << "Job" << endl;
     cout << "------------------------------" << endl;
+    vector<User> users = managerDomain.getUsers();
      for (unsigned int i = 0; i < users.size(); i++) {
         cout << setw(12) << users[i].getName();
         cout << setw(15) << users[i].getJob() << endl;
@@ -463,12 +468,11 @@ void ManagerUI::printFigures(string branch, string dateFrom, string dateTo) {
 }
 
 void ManagerUI::removePizza() {
-    Pizza pizza;
+    cout << "-----Remove Pizza-----" << endl;
+    string name = checkName();
+    Pizza pizza(name);
+
     try {
-        printPizza();
-        cout << "-----Remove Pizza-----" << endl;
-        string name = checkName();
-        pizza.setName(name);
         managerDomain.removePizza(pizza);
         cout << "\"" << pizza.getName();
         cout << "\" pizza was removed" << endl;
@@ -477,18 +481,15 @@ void ManagerUI::removePizza() {
         cout << "This pizza \"" << pizza.getName();
         cout << "\" is not on the list" << endl;
     }
-    catch(FileNotOpenException) {
-        cout << "Pizza file could not open" << endl;
-    }
+
 }
 
 void ManagerUI::removeCrust() {
-    Crust crust;
+    cout << "-----Remove Crust-----" << endl;
+    string name = checkName();
+    Crust crust(name);
+
     try {
-        printCrust();
-        cout << "-----Remove Crust-----" << endl;
-        string name = checkName();
-        crust.setName(name);
         managerDomain.removeCrust(crust);
         cout << "\"" << crust.getName() << "\" crust was removed" << endl;
     }
@@ -496,18 +497,14 @@ void ManagerUI::removeCrust() {
         cout << "This crust \"" << crust.getName();
         cout << "\" is not on the list" << endl;
     }
-    catch(FileNotOpenException) {
-        cout << "Crust file could not open" <<endl;
-    }
 }
 
 void ManagerUI::removeTopping() {
-    Topping topping;
+    cout << "-----Remove Topping-----" << endl;
+    string name = checkName();
+    Topping topping(name);
+
     try {
-        printTopping();
-        cout << "-----Remove Topping-----" << endl;
-        string name = checkName();
-        topping.setName(name);
         managerDomain.removeTopping(topping);
         cout << "\"" << topping.getName() << "\" topping was removed" << endl;
     }
@@ -515,19 +512,14 @@ void ManagerUI::removeTopping() {
         cout << "This topping \"" << topping.getName();
         cout << "\" is not on the list" << endl;
     }
-    catch(FileNotOpenException) {
-        cout << "Topping file could not open" <<endl;
-    }
-
 }
 
 void ManagerUI::removeDrink() {
-    Drink drink;
+    cout << "-----Remove Drink-----" << endl;
+    string name = checkName();
+    Drink drink(name);
+
     try {
-        printDrink();
-        cout << "-----Remove Drink-----" << endl;
-        string name = checkName();
-        Drink setName(name);
         managerDomain.removeDrink(drink);
         cout << "\"" << drink.getName();
         cout << "\" drink was removed" << endl;
@@ -536,18 +528,12 @@ void ManagerUI::removeDrink() {
         cout << "This drink \"" << drink.getName();
         cout << "\" is not on the list" << endl;
     }
-    catch(FileNotOpenException) {
-        cout << "Drink file could not open" <<endl;
-    }
 }
-
 void ManagerUI::removeSide() {
-    Sidedish sidedish;
+    cout << "-----Remove Sidedish-----" << endl;
+    string name = checkName();
+    Sidedish sidedish(name);
     try {
-        printSide();
-        cout << "-----Remove Sidedish-----" << endl;
-        string name = checkName();
-        sidedish.setName(name);
         managerDomain.removeSidedish(sidedish);
         cout << "\"" << sidedish.getName();
         cout << "\" sidedish was removed" << endl;
@@ -556,17 +542,13 @@ void ManagerUI::removeSide() {
         cout << "This sidedish \"" << sidedish.getName();
         cout << "\" is not on the list" << endl;
     }
-    catch(FileNotOpenException) {
-        cout << "Sidedish file could not open" <<endl;
-    }
 }
 void ManagerUI::removeBranch() {
-    Branch branch;
+    cout << "-----Remove Branch-----" << endl;
+    string name = checkName();
+    Branch branch(name);
+
     try {
-        printBranch();
-        cout << "-----Remove Branch-----" << endl;
-        string name = checkName();
-        branch.setName(name);
         managerDomain.removeBranch(branch);
         cout << "Restaurant at \"" << branch.getName();
         cout << "\" was removed" << endl;
@@ -575,18 +557,14 @@ void ManagerUI::removeBranch() {
         cout << "Restaurant at \"" << branch.getName();
         cout << "\" is not on the list" << endl;
     }
-    catch(FileNotOpenException) {
-        cout << "Branch file could not open" <<endl;
-    }
 }
 
 void ManagerUI::removeUser() {
-    User user;
+    cout << "-----Remove User-----" << endl;
+    string name = checkName();
+    User user(name);
+
     try {
-        printUser();
-        cout << "-----Remove User-----" << endl;
-        string name = checkName();
-        User user(name);
         managerDomain.removeUser(user);
         cout << "User \"" << user.getName();
         cout << "\" was removed" << endl;
@@ -594,9 +572,6 @@ void ManagerUI::removeUser() {
     catch(NotFoundException) {
         cout << "User \"" << user.getName();
         cout << "\" is not on the list" << endl;
-    }
-    catch(FileNotOpenException) {
-        cout << "Branch file could not open" <<endl;
     }
 }
 
@@ -749,9 +724,6 @@ string ManagerUI::checkBranch() {
         }
         try{
             allowed = managerDomain.checkValidBranch(branch);
-        }
-        catch (FileNotOpenException) {
-        cout << "Branch file could not be open" << endl;
         }
         catch(NotFoundException){
             cout << "This restaurant doesn't exist" << endl;

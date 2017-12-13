@@ -69,7 +69,7 @@ ostream& operator << (ostream& out,const Pizza& pizza) {
 
 bool operator == (const Pizza &left_pizza, const Pizza &right_pizza) {
     if (left_pizza.name == right_pizza.name) {
-        if (left_pizza.toppings == right_pizza.toppings) {
+        if (left_pizza.getCrustSize() == right_pizza.getCrustSize()) {
             return true;
         }
     }

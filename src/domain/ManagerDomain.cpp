@@ -15,90 +15,112 @@ void ManagerDomain::toLowerCase(string &name) {
 }
 
 bool ManagerDomain::addPizza(const Pizza &pizza) {
-    vector<Pizza> pizzas = managerRep.getPizza();
-
-    for (unsigned int i = 0; i < pizzas.size(); i++){
-        if (pizzas[i].getName() == pizza.getName() && pizzas[i].getCrustSize() == pizza.getCrustSize()) {
-            {
+    try {
+        vector<Pizza> pizzas = managerRep.getPizza();
+        for (unsigned int i = 0; i < pizzas.size(); i++){
+        if (pizzas[i] == pizza){
                 pizzas[i] = pizza;
                 managerRep.changePizzaList(pizzas);
                 throw ItemChangedException();
+                }
             }
+        managerRep.addPizza(pizza);
+        return true;
         }
+    catch (FileNotOpenException) {
+        managerRep.addPizza(pizza);
     }
-    managerRep.addPizza(pizza);
-    return true;
 }
 
 bool ManagerDomain::addCrust(const Crust &crust) {
-    vector<Crust>crusts = managerRep.getCrust();
-
-    for (unsigned int i = 0; i < crusts.size(); i++){
-        if (crusts[i].getName() == crust.getName()) {
-            if(crusts[i].getInches() == crust.getInches()) {
+    try {
+        vector<Crust>crusts = managerRep.getCrust();
+        for (unsigned int i = 0; i < crusts.size(); i++){
+            if (crusts[i] == crust) {
                 crusts[i] = crust;
                 managerRep.changeCrustList(crusts);
                 throw ItemChangedException();
             }
         }
+        managerRep.addCrust(crust);
+        return true;
     }
-    managerRep.addCrust(crust);
-    return true;
+    catch (FileNotOpenException) {
+        managerRep.addCrust(crust);
+    }
 }
 
 bool ManagerDomain::addTopping(const Topping &topping) {
-    vector<Topping>toppings = managerRep.getTopping();
-
-    for (unsigned int i = 0; i < toppings.size(); i++){
-        if (toppings[i].getName() == topping.getName()) {
-            toppings[i] = topping;
-            managerRep.changeToppingList(toppings);
-            throw ItemChangedException();
-        }
-    }
-    managerRep.addTopping(topping);
-    return true;
-}
-
-bool ManagerDomain::addDrink(const Drink &drink) {
-    vector<Drink>drinks = managerRep.getDrink();
-
-    for (unsigned int i = 0; i < drinks.size(); i++){
-        if (drinks[i].getName() == drink.getName()) {
-            if (drinks[i].getLiter() == drink.getLiter()){
-                drinks[i] = drink;
-                managerRep.changeDrinkList(drinks);
+    try {
+        vector<Topping>toppings = managerRep.getTopping();
+        for (unsigned int i = 0; i < toppings.size(); i++){
+            if (toppings[i].getName() == topping.getName()) {
+                toppings[i] = topping;
+                managerRep.changeToppingList(toppings);
                 throw ItemChangedException();
             }
         }
+        managerRep.addTopping(topping);
+        return true;
     }
-    managerRep.addDrink(drink);
-    return true;
+    catch (FileNotOpenException) {
+        managerRep.addTopping(topping);
+    }
+}
+
+bool ManagerDomain::addDrink(const Drink &drink) {
+    try {
+        vector<Drink>drinks = managerRep.getDrink();
+        for (unsigned int i = 0; i < drinks.size(); i++){
+            if (drinks[i].getName() == drink.getName()) {
+                if (drinks[i].getLiter() == drink.getLiter()){
+                    drinks[i] = drink;
+                    managerRep.changeDrinkList(drinks);
+                    throw ItemChangedException();
+                }
+            }
+        }
+        managerRep.addDrink(drink);
+        return true;
+    }
+    catch (FileNotOpenException) {
+        managerRep.addDrink(drink);
+    }
 }
 
 bool ManagerDomain::addSidedish(const Sidedish &sidedish) {
-    vector<Sidedish> sidedishes = managerRep.getSidedish();
+    try {
+        vector<Sidedish> sidedishes = managerRep.getSidedish();
 
-    for (unsigned int i = 0; i < sidedishes.size(); i++){
-        if (sidedishes[i].getName() == sidedish.getName()) {
-            sidedishes[i] = sidedish;
-            managerRep.changeSidedishList(sidedishes);
-            throw ItemChangedException();
+        for (unsigned int i = 0; i < sidedishes.size(); i++){
+            if (sidedishes[i].getName() == sidedish.getName()) {
+                sidedishes[i] = sidedish;
+                managerRep.changeSidedishList(sidedishes);
+                throw ItemChangedException();
+            }
         }
+        managerRep.addSidedish(sidedish);
+        return true;
     }
-    managerRep.addSidedish(sidedish);
-    return true;
+    catch (FileNotOpenException) {
+        managerRep.addSidedish(sidedish);
+    }
 }
 
 bool ManagerDomain::addBranch(const Branch &branch) {
-    vector<Branch> branches = managerRep.getBranch();
-    for (unsigned int i = 0; i < branches.size(); i++) {
-        if (branches[i].getName() == branch.getName()) {
-            throw ItemExistsException();
+    try {
+        vector<Branch> branches = managerRep.getBranch();
+        for (unsigned int i = 0; i < branches.size(); i++) {
+            if (branches[i].getName() == branch.getName()) {
+                throw ItemExistsException();
+            }
         }
+        managerRep.addBranch(branch);
+        return true;
     }
-    managerRep.addBranch(branch);
-    return true;
+    catch (FileNotOpenException) {
+        managerRep.addBranch(branch);
+    }
  }
 
 bool ManagerDomain::addUser(const User &user) {
