@@ -7,7 +7,7 @@
 using namespace std;
 
 MainUI::MainUI() {
-    //ctor
+
 }
 
 void MainUI::start() {

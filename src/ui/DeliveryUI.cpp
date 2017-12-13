@@ -1,9 +1,9 @@
 #include "DeliveryUI.h"
 
-DeliveryUI::DeliveryUI()
-{
-    //ctor
+DeliveryUI::DeliveryUI() {
+
 }
+
 void DeliveryUI::startUI() {
     output.clean();
     printLogo();

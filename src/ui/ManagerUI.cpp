@@ -2,7 +2,7 @@
 
 
 ManagerUI::ManagerUI() {
-    //ctor
+
 }
 
 void ManagerUI::startUI() {
