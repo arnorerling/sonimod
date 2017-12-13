@@ -48,6 +48,7 @@
 		<Unit filename="include/domain/MainDomain.h" />
 		<Unit filename="include/domain/ManagerDomain.h" />
 		<Unit filename="include/domain/SalesDomain.h" />
+		<Unit filename="include/exceptions/CrustFileNotFoundException.h" />
 		<Unit filename="include/exceptions/FileNotOpenException.h" />
 		<Unit filename="include/exceptions/InvalidDateException.h" />
 		<Unit filename="include/exceptions/InvalidInputException.h" />
@@ -87,6 +88,7 @@
 		<Unit filename="src/domain/MainDomain.cpp" />
 		<Unit filename="src/domain/ManagerDomain.cpp" />
 		<Unit filename="src/domain/SalesDomain.cpp" />
+		<Unit filename="src/exceptions/CrustFileNotFoundException.cpp" />
 		<Unit filename="src/exceptions/FileNotOpenException.cpp" />
 		<Unit filename="src/exceptions/InvalidDateException.cpp" />
 		<Unit filename="src/exceptions/InvalidInputException.cpp" />
