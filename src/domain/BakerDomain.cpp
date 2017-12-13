@@ -17,6 +17,9 @@ void BakerDomain::toLowerCase(string &name) {
 
 vector<Branch> BakerDomain::getBranch() {
     vector<Branch> branchList = bakerRep.getBranch();
+    if(branchList.size() == 0) {
+        throw LengthNotRightException();
+    }
     return branchList;
 }
 
@@ -29,11 +32,17 @@ vector<Order> BakerDomain::getOrders(const string &branch) {
             branchOrderList.push_back(orderList[i]);
         }
     }
+    if(branchOrderList.size() == 0) {
+        throw LengthNotRightException();
+    }
     return branchOrderList;
 }
 
 Order BakerDomain::getOneOrder(const string &number, const string &branch) {
     vector<Order> orderList = bakerRep.getOrders();
+    if(orderList.size() == 0) {
+        throw LengthNotRightException();
+    }
 
     for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getCustomerPhoneNumber() == number) {
@@ -77,6 +86,9 @@ void BakerDomain::markOrderReady(const Order &order) {
 
 bool BakerDomain::checkBranchAvaliability(string &branchName) {
     vector<Branch> branches = getBranch();
+    if(branches.size() == 0) {
+        throw LengthNotRightException();
+    }
     for(unsigned int i = 0; i < branches.size(); i++){
         if(branches[i].getName() == branchName) {
             return true;

@@ -4,6 +4,7 @@
 #include "BakerRep.h"
 #include "Branch.h"
 
+#include "LengthNotRightException.h"
 #include "InvalidInputException.h"
 #include "NotFoundException.h"
 #include "NotMarkedInProcessException.h"
