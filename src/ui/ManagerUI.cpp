@@ -752,6 +752,9 @@ string ManagerUI::checkDate() {
         catch(InvalidInputException) {
             cout << "Invalid date, please enter \"DD.MM.YYYY\" or press Enter" << endl;
         }
+        catch(LengthNotRightException) {
+            cout << "Length is wrong, please enter \"DD.MM.YYYY\" or press Enter" << endl;
+        }
     }
     return date;
 }
