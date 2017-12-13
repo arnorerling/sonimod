@@ -58,7 +58,7 @@ void BakerDomain::markOrderInProcess(const Order &order) {
     for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
             if (orderList[i].getInProcess() == 1) {
-                throw MarkedInProcessException();
+                throw AlreadyMarkedException();
             }
             else {
                 orderList[i].setInProcess(true);

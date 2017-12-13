@@ -134,7 +134,7 @@
 1513190926 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\salesrep.cpp
 	"SalesRep.h"
 
-1513197279 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
+1513200306 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\bakerui.cpp
 	"BakerUI.h"
 
 1513188243 c:\users\mustard\desktop\verklegt1\sonimod\include\ui\bakerui.h
@@ -143,13 +143,13 @@
 	"Output.h"
 	<cstdlib>
 
-1513190620 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\bakerdomain.h
+1513200306 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\bakerdomain.h
 	"BakerRep.h"
 	"LengthNotRightException.h"
 	"InvalidInputException.h"
 	"NotFoundException.h"
 	"NotMarkedInProcessException.h"
-	"MarkedInProcessException.h"
+	"AlreadyMarkedException.h"
 	"md5.h"
 
 1513188243 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\bakerrep.h
@@ -167,7 +167,7 @@
 	"Output.h"
 	<iostream>
 
-1513199338 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
+1513199565 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\mainui.cpp
 	"MainUI.h"
 	"ManagerUI.h"
 	"SalesUI.h"
@@ -187,29 +187,29 @@
 	"Output.h"
 	<iomanip>
 
-1513199192 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
+1513199565 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\managerui.cpp
 	"ManagerUI.h"
 
-1513190926 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
+1513199565 source:c:\users\mustard\desktop\verklegt1\sonimod\src\ui\salesui.cpp
 	"SalesUI.h"
 
-1513188244 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
+1513200321 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\bakerdomain.cpp
 	"BakerDomain.h"
 
 1513190926 source:c:\users\mustard\desktop\verklegt1\sonimod\src\reposatory\bakerrep.cpp
 	"BakerRep.h"
 
-1513188244 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\deliverydomain.cpp
+1513200332 source:c:\users\mustard\desktop\verklegt1\sonimod\src\domain\deliverydomain.cpp
 	"DeliveryDomain.h"
 
-1513188243 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\deliverydomain.h
+1513200252 c:\users\mustard\desktop\verklegt1\sonimod\include\domain\deliverydomain.h
 	"DeliveryRep.h"
 	"LengthNotRightException.h"
 	"InvalidInputException.h"
 	"NotFoundException.h"
 	"NotMarkedReadyException.h"
-	"MarkedPaidForException.h"
 	"NotMarkedPaidForException.h"
+	"AlreadyMarkedException.h"
 
 1513188243 c:\users\mustard\desktop\verklegt1\sonimod\include\reposatory\deliveryrep.h
 	"FileNotOpenException.h"
@@ -1177,9 +1177,9 @@
 1513190926 source:c:\users\mustard\desktop\verklegt1\sonimod\src\models\user.cpp
 	"User.h"
 
-1513016587 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\alreadymarkedexception.h
+1513200217 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\alreadymarkedexception.h
 
-1513016588 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\alreadymarkedexception.cpp
+1513200224 source:c:\users\mustard\desktop\verklegt1\sonimod\src\exceptions\alreadymarkedexception.cpp
 	"AlreadyMarkedException.h"
 
 1513016587 c:\users\mustard\desktop\verklegt1\sonimod\include\exceptions\markedinprocessexception.h

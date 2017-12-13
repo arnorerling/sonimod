@@ -1,0 +1,9 @@
+#ifndef ALREADYMARKEDEXCEPTION_H
+#define ALREADYMARKEDEXCEPTION_H
+
+
+class AlreadyMarkedException
+{
+};
+
+#endif // ALREADYMARKEDEXCEPTION_H

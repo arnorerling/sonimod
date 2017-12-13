@@ -99,8 +99,8 @@ void DeliveryUI::printOrders() {
     try {
         orderList = deliveryDomain.getOrders(branch);
         for(unsigned int i = 0; i < orderList.size(); i++) {
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-            cout << "Name: " << orderList[i].getCustomerName() << endl;
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber();
+            cout << " Name: " << orderList[i].getCustomerName() << endl;
         }
         cout << "-----------------------" << endl;
     }
@@ -123,13 +123,14 @@ void DeliveryUI::printReadyOrders() {
             orderTime = orderList[i].getTime();
             double diff = difftime(time1, orderTime);
             if(diff > 7200){
-                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-                cout << "Name: " << orderList[i].getCustomerName() << "Throw out order, older than 2 hours" << endl;
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber();
+                cout << " Name: " << orderList[i].getCustomerName();
+                cout << "Throw out order, older than 2 hours" << endl;
                 deleteOrder(orderList[i]);
             }
             else {
-                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-                cout << "Name: " << orderList[i].getCustomerName() << endl;
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber();
+                cout << " Name: " << orderList[i].getCustomerName() << endl;
             }
         }
         cout << "-----------------------" << endl;
@@ -140,8 +141,6 @@ void DeliveryUI::printReadyOrders() {
     catch(FileNotOpenException) {
         cout << "Order file not found" << endl;
     }
-
-
 }
 
 void DeliveryUI:: printOneOrder() {
@@ -163,7 +162,7 @@ void DeliveryUI::markPaidFor() {
             deliveryDomain.markOrderPaidFor(order);
             cout << "Order has been paid for" << endl;
         }
-        catch(MarkedPaidForException) {
+        catch(AlreadyMarkedException) {
             cout << "This order has already been paid for" << endl;
         }
     }

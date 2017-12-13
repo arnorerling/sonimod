@@ -62,7 +62,7 @@ void DeliveryDomain::markOrderPaidFor(const Order &order) {
      for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i] == order) {
             if (orderList[i].getPaidFor()) {
-                throw MarkedPaidForException();
+                throw AlreadyMarkedException();
             }
             else
             {

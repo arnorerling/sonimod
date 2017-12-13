@@ -98,20 +98,25 @@ void BakerUI::printOrders() {
             double diff = difftime(time1, orderTime);
             cout << diff << endl;
             if(diff < 1200 ) {
-                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-                cout << "Name: " << orderList[i].getCustomerName() << endl;
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber();
+                cout << " | Name: " << orderList[i].getCustomerName() << endl;
             }
             else if(diff >= 1200 && diff < 1800 ) {
-                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-                cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! Order is older than 20 minutes" << endl;
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber();
+                cout << " | Name: " << orderList[i].getCustomerName();
+                cout << " | hurry up! Order is older than 20 minutes" << endl;
+
             }
             else if(diff >= 1800 && diff < 7200) {
-                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-                cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 30 minutes" << endl;
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber();
+                cout << "Name: " << orderList[i].getCustomerName();
+                cout << " | hurry up! order older than 30 minutes" << endl;
+
             }
             else {
-                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
-                cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 2 hours!" << endl;
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber();
+                cout << " | Name: " << orderList[i].getCustomerName();
+                cout << " | hurry up! order older than 2 hours!" << endl;
             }
         }
         cout << "-----------------------" << endl;
@@ -138,7 +143,7 @@ void BakerUI::markInProcess() {
             bakerDomain.markOrderInProcess(order);
             cout << "Order has been marked in process" << endl;
         }
-        catch(MarkedInProcessException) {
+        catch(AlreadyMarkedException) {
             cout << "This order is already in process" << endl;
         }
     }
