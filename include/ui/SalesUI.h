@@ -18,11 +18,11 @@ class SalesUI {
 
     public:
 
-        // Starts UI for sales, prints out menu
+        //Starts UI for sales, prints out menu
         SalesUI();
         void startUI();
 
-        // Add functions
+        //Add functions
         void addCustomer();
         void addPizza();
         void addPizzaMenu();
@@ -34,7 +34,7 @@ class SalesUI {
         void addAddress();
         string addComment();
 
-        // print functions
+        //print functions
         void printPizzas();
         void printCrusts();
         void printToppings();

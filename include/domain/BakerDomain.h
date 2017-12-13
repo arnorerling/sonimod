@@ -1,16 +1,12 @@
 #ifndef BAKERDOMAIN_H
 #define BAKERDOMAIN_H
-
 #include "BakerRep.h"
-
 #include "LengthNotRightException.h"
 #include "InvalidInputException.h"
 #include "NotFoundException.h"
 #include "NotMarkedInProcessException.h"
 #include "MarkedInProcessException.h"
 #include "md5.h"
-
-
 
 class BakerDomain
 {
@@ -19,10 +15,12 @@ class BakerDomain
 
     public:
         BakerDomain();
+        //Turns uppercase to lowercase
         void toLowerCase(string &name);
 
         vector<Branch> getBranch();
         vector<Order> getOrders(const string &branch);
+
         Order getOneOrder(const string &number, const string &branch);
 
         void markOrderInProcess(const Order &order);

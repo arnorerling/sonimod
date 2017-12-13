@@ -61,23 +61,26 @@ void DeliveryUI::startUI() {
 
 void DeliveryUI::chooseRestaurant() {
     bool available = false;
-    while(!available ){
-        try{
+    try{
+        while(!available ){
             printRestaurants();
             cout << "Choose restaurant? ";
             this->branch = checkName();
             available = deliveryDomain.checkBranchAvaliability(branch);
         }
-        catch(NotFoundException){
-            cout << "This restaurant is not available" << endl;
-        }
-        catch(LengthNotRightException) {
-            cout << "Restaurant list empty" << endl;
-        }
-        catch(FileNotOpenException) {
-            cout << "Restaurant file not found" << endl;
-        }
     }
+    catch(NotFoundException){
+        cout << "This restaurant is not available" << endl;
+    }
+    catch(LengthNotRightException) {
+        cout << "Restaurant list empty" << endl;
+        output.wait();
+    }
+    catch(FileNotOpenException) {
+        cout << "Restaurant file not found" << endl;
+        output.wait();
+    }
+
 }
 
 void DeliveryUI::printRestaurants() {
