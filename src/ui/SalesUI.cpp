@@ -39,26 +39,24 @@ void SalesUI::startUI() {
             }
             case '3': {
                 output.clean();
-                printSidedishes();
                 addSidedish();
                 break;
             }
             case '4': {
                 output.clean();
-                printDrinks();
                 addDrink();
                 break;
             }
             case '5': {
                 output.clean();
                 cout << this->order;
-                output.wait();
+                output.salesWait();
                 break;
             }
             case '6': {
                 output.clean();
                 cout << "Order total: "<< this->order.getTotal() << "kr" << endl;
-                output.wait();
+                output.salesWait();
 
                 break;
             }
@@ -74,6 +72,7 @@ void SalesUI::startUI() {
             }
         }
     }
+
 }
 
 void SalesUI::addCustomer(){
@@ -86,32 +85,51 @@ void SalesUI::addCustomer(){
 }
 
 void SalesUI::addPizza(){
-    Pizza pizza;
-    int size = 0;
-    this->addCrust(pizza, size);
-    output.clean();
-    this->addToppings(pizza);
-    pizza.setPrice();
-    order.addPizza(pizza);
+    try{
+        Pizza pizza;
+        int size = 0;
+        this->addCrust(pizza, size);
+        output.clean();
+        this->addToppings(pizza);
+        pizza.setPrice();
+        order.addPizza(pizza);
+    }
+    catch(FileNotOpenException){
+        cout << "Adding a pizza not available!, topping file not found" << endl;
+        output.salesWait();
+    }
+    catch(CrustFileNotFoundException){
+        cout << "Adding a pizza not available!, crust file not found" << endl;
+        output.salesWait();
+    }
 }
 
 void SalesUI::addPizzaMenu(){
-
-    Pizza pizza;
-    int size = 0;
-    this->addCrust(pizza, size);
-    output.clean();
-    this->choosePizza(pizza, size);
-    order.addPizza(pizza);
+    try{
+        Pizza pizza;
+        int size = 0;
+        this->addCrust(pizza, size);
+        output.clean();
+        this->choosePizza(pizza, size);
+        order.addPizza(pizza);
+    }
+    catch(FileNotOpenException){
+        cout << "Adding a pizza not available!, pizza file not found" << endl;
+        output.salesWait();
+    }
+    catch(CrustFileNotFoundException){
+        cout << "Adding a pizza not available!, crust file not found" << endl;
+        output.salesWait();
+    }
 }
 
 void SalesUI::choosePizza(Pizza &pizza, int &size){
-    printPizzas();
     bool available = false;
     while(!available) {
-        cout << "Pizza name: ";
-        string name = validName();
         try{
+            printPizzas();
+            cout << "Pizza name: ";
+            string name = validName();
             available = salesDomain.checkPizzaAvailability(name,size , pizza);
             pizza.setName(name);
         }
@@ -122,15 +140,16 @@ void SalesUI::choosePizza(Pizza &pizza, int &size){
 }
 
 void SalesUI::addCrust(Pizza &pizza, int &size){
-    printCrusts();
+
     bool available = false;
     while(!available) {
-        cout << "Crust name: ";
-        string name = validName();
-        cout << "Crust size: ";
-        size = validNumber();
-        Crust crust(name,size);
         try{
+            printCrusts();
+            cout << "Crust name: ";
+            string name = validName();
+            cout << "Crust size: ";
+            size = validNumber();
+            Crust crust(name,size);
             available = salesDomain.checkCrustAvailability(crust);
             pizza.addCrust(crust);
         }
@@ -141,14 +160,15 @@ void SalesUI::addCrust(Pizza &pizza, int &size){
 }
 
 void SalesUI::addToppings(Pizza &pizza){
-    printToppings();
     string name;
     char addTopping = 'y';
     while(addTopping == 'y'){
+    try{
+        printToppings();
         cout << "Topping name: ";
         string name = validName();
         Topping topping(name);
-        try{
+
             salesDomain.checkToppingAvailability(topping);
             pizza.addTopping(topping);
             cout << "Add another topping (y/n)?";
@@ -157,7 +177,7 @@ void SalesUI::addToppings(Pizza &pizza){
             cout << "Topping not avaliable!" << endl;
             cout << "Try another topping (y/n)? ";
         }
-    addTopping = validAnswer();
+        addTopping = validAnswer();
     }
 }
 
@@ -165,33 +185,47 @@ void SalesUI::addDrink(){
     bool available = false;
     string name;
     while(!available){
-        cout << "Drink name: ";
-        string name = validName();
-        cout << "Size: ";
-        int size = validNumber();
-        Drink drink(name, size);
         try{
+            printDrinks();
+            cout << "Drink name: ";
+            string name = validName();
+            cout << "Size: ";
+            int size = validNumber();
+            Drink drink(name, size);
             available = salesDomain.checkDrinkAvailability(drink);
             this->order.addDrink(drink);
         }
         catch(NotFoundException){
             cout << "Drink not available!" << endl;
         }
+        catch(FileNotOpenException){
+            cout << "Drink file not found" << endl;
+            output.salesWait();
+            break;
+        }
     }
 }
 
 void SalesUI::addSidedish(){
+
     bool available = false;
     while(!available){
-        cout << "Sidedish name: ";
-        string name = validName();
-        Sidedish sidedish(name);
         try{
+            printSidedishes();
+            cout << "Sidedish name: ";
+            string name = validName();
+            Sidedish sidedish(name);
             available = salesDomain.checkSidedishAvailability(sidedish);
             this->order.addSideDish(sidedish);
         }
         catch(NotFoundException){
-            cout << "Sidesish not available!" << endl;
+            output.clean();
+            cout << "Sidedish not available!" << endl;
+        }
+        catch(FileNotOpenException){
+            cout << "Sidedish file not found" << endl;
+            output.salesWait();
+            break;
         }
     }
 }
@@ -199,9 +233,10 @@ void SalesUI::addSidedish(){
 void SalesUI::addBranch(){
     bool found = false;
     while(!found){
+        try{
         cout << "Restaurant name: ";
         string branch = validName();
-        try{
+
         found = salesDomain.checkBranchAvailability(branch);
         this->order.addBranch(branch);
         }
@@ -301,40 +336,53 @@ void SalesUI::printDrinks() {
 }
 
 void SalesUI::printSidedishes() {
-    vector<Sidedish> sidedishes;
-    salesDomain.getSidedishes(sidedishes);
-    cout << "-----------Sidedish menu-----------" << endl;
-    cout << setw(18) << "Name" << setw(10) << "Price" << endl;
-    cout << "-----------------------------------" << endl;
-    for(unsigned int i = 0; i < sidedishes.size(); i++){
-        cout << setw(18) << sidedishes[i].getName();
-        cout << setw(10) << sidedishes[i].getPrice() << endl;
-    }
-    cout << "-----------------------------------" << endl;
+        //try{
+            vector<Sidedish> sidedishes;
+            salesDomain.getSidedishes(sidedishes);
+            cout << "-----------Sidedish menu-----------" << endl;
+            cout << setw(18) << "Name" << setw(10) << "Price" << endl;
+            cout << "-----------------------------------" << endl;
+            for(unsigned int i = 0; i < sidedishes.size(); i++){
+                cout << setw(18) << sidedishes[i].getName();
+                cout << setw(10) << sidedishes[i].getPrice() << endl;
+            }
+            cout << "-----------------------------------" << endl;
+        /*}
+        catch(FileNotOpenException){
+            cout << "No side dish available!" << endl;
+        }*/
+
 }
 
 void SalesUI::fileOrder(){
-    addCustomer();
-    addBranch();
-    this->order.setTime();
-    order.addComment(this->addComment());
-    cout << "Mark as paid(y/n): ";
-    char paidFor = validAnswer();
-    if(paidFor == 'y'){
-        salesDomain.markOrderPaidFor(this->order);
-        cout << "Order marked as paid." << endl;
+    try{
+        addCustomer();
+        addBranch();
+        this->order.setTime();
+        order.addComment(this->addComment());
+        cout << "Mark as paid(y/n): ";
+        char paidFor = validAnswer();
+        if(paidFor == 'y'){
+            salesDomain.markOrderPaidFor(this->order);
+            cout << "Order marked as paid." << endl;
+        }
+        cout << "Pickup? (y/n): ";
+        char pickup = validAnswer();
+        if(pickup == 'y'){
+            order.setPickup(true);
+            cout << "Order marked as pickup order." << endl;
+        } else {
+            addAddress();
+        }
+        salesDomain.fileOrder(this->order);
+        cout << "Order filed!" << endl;
+        this->order.cleanOrder();
     }
-    cout << "Pickup? (y/n): ";
-    char pickup = validAnswer();
-    if(pickup == 'y'){
-        order.setPickup(true);
-        cout << "Order marked as pickup order." << endl;
-    } else {
-        addAddress();
+    catch(FileNotOpenException){
+        cout << "Branch file not found" << endl;
+        cout << "Please call IT, order can not be filed!" << endl;
+        output.salesWait();
     }
-    salesDomain.fileOrder(this->order);
-    cout << "Order filed!" << endl;
-    this->order.cleanOrder();
 
 }
 string SalesUI::addComment(){

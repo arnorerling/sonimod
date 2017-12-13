@@ -8,6 +8,7 @@ class Output{
         Output();
         void clean();
         void wait();
+        void salesWait();
 };
 
 #endif // OUTPUT_H

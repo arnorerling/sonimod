@@ -11,3 +11,9 @@ void Output::wait(){
     //cin.get();
     cout << "Screen is clean" << endl;
 }
+void Output::salesWait(){
+    cout << "Press enter to continue.." << endl;
+    cin.ignore();
+    cin.get();
+    cout << "Screen is clean" << endl;
+}
