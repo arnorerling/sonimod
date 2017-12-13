@@ -380,15 +380,16 @@ bool ManagerDomain::checkValidName(const string &name) {
 }
 
 int ManagerDomain::checkValidPrice(const string &price) {
+
     int price1 = 0;
     for(unsigned int i = 0; i < price.length(); i++){
         if(isalpha(price[i])){
             throw InvalidInputException();
         }
     }
-    price1 = atoi(price.c_str());
 
-    if(price1 < 0){
+    price1 = atoi(price.c_str());
+    if(price1 < 0 || price1 > 99999){
         throw InvalidInputException();
     }
     return price1;

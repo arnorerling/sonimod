@@ -48,7 +48,7 @@ class ManagerUI
         void printUser();
 
         void printAllFigures();
-        void printDateBranchFigures(string branch, string dateFrom, string dateTo);
+        void printFigures(string branch, string dateFrom, string dateTo);
 
         void removePizza();
         void removeCrust();
