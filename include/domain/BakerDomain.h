@@ -1,8 +1,7 @@
 #ifndef BAKERDOMAIN_H
 #define BAKERDOMAIN_H
-#include <iostream>
+
 #include "BakerRep.h"
-#include "Branch.h"
 
 #include "LengthNotRightException.h"
 #include "InvalidInputException.h"
@@ -11,7 +10,7 @@
 #include "MarkedInProcessException.h"
 #include "md5.h"
 
-using namespace std;
+
 
 class BakerDomain
 {

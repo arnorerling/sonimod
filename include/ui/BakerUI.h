@@ -1,11 +1,12 @@
 #ifndef BAKERUI_H
 #define BAKERUI_H
 
+#include <iostream>
 #include "BakerDomain.h"
-#include "Branch.h"
 #include "Output.h"
-#include <vector>
 #include <cstdlib>
+
+using namespace std;
 
 class BakerUI
 {
