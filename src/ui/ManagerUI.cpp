@@ -184,9 +184,11 @@ void ManagerUI::seeSaleFigures() {
     printManLogo();
     printBranch();
     string branch = checkBranch();
-    cout << "Select date FROM ";
+    cout << "------------Choose a date limit----------" << endl;
+    cout << "\"DD.MM.YYYY\" or press Enter for default" << endl;
+    cout << "Date limit from: ";
     string dateFrom = checkDate();
-    cout << "Select date TO ";
+    cout << "Date limit to: ";
     string dateTo = checkDate();
 
     printFigures(branch, dateFrom, dateTo);
@@ -771,8 +773,6 @@ string ManagerUI::checkBranch() {
 string ManagerUI::checkDate() {
     string date = "";
     bool allowed = false;
-    cout << "(DD.MM.YYYY)";
-    cout << " press enter for default: " << endl;
     while(!allowed){
         getline(cin, date);
         if (date.empty()) {

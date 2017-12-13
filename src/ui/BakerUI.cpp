@@ -1,7 +1,6 @@
 #include "BakerUI.h"
 
 BakerUI::BakerUI() {
-
 }
 
 void BakerUI::startUI() {

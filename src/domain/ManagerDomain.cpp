@@ -140,11 +140,6 @@ vector<User> ManagerDomain::getUsers() {
     return users;
 }
 
-vector<Order> ManagerDomain::getOrders() {
-    vector<Order>orders = managerRep.getOrder();
-    return orders;
-}
-
 vector<Order> ManagerDomain::getBranchOrders(const string &branch) {
     vector<Order>orders = managerRep.getOrder();
     vector<Order>branchOrders;
