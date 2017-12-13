@@ -9,6 +9,8 @@
 #include "Sidedish.h"
 #include "Pizza.h"
 #include "Order.h"
+#include "FileNotOpenException.h"
+#include "CrustFileNotFoundException.h"
 
 using namespace std;
 

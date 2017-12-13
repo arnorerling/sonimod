@@ -10,7 +10,6 @@ void SalesRep::getPizzas(vector<Pizza>& pizzas) {
 
     ifstream fin;
     fin.open("Pizzas_Binary.dat", ios::binary);
-
     if(fin.is_open()) {
         while(!fin.eof()){
             Pizza currPizza;
@@ -20,17 +19,18 @@ void SalesRep::getPizzas(vector<Pizza>& pizzas) {
             }
         }
         fin.close();
-    } else {
-        cout << "File not found" << endl;
+    }
+    else {
+        throw FileNotOpenException();
     }
 }
 
 void SalesRep::getDrinks(vector<Drink>& drinks) {
-    Drink currDrink;
     ifstream fin;
     fin.open("Drink_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
+            Drink currDrink;
             currDrink.read(fin);
             if(!fin.eof()){
                 drinks.push_back(currDrink);
@@ -38,14 +38,18 @@ void SalesRep::getDrinks(vector<Drink>& drinks) {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
 }
 
 void SalesRep::getSidedishes(vector<Sidedish>& sidedishes) {
-    Sidedish currSidedish;
+
     ifstream fin;
     fin.open("Sidedish_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
+            Sidedish currSidedish;
             currSidedish.read(fin);
             if(!fin.eof()){
                 sidedishes.push_back(currSidedish);
@@ -53,20 +57,26 @@ void SalesRep::getSidedishes(vector<Sidedish>& sidedishes) {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
 }
 
 void SalesRep::getToppings(vector<Topping>& toppings) {
-    Topping currTopping;
     ifstream fin;
     fin.open("Topping_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
+            Topping currTopping;
             currTopping.read(fin);
             if(!fin.eof()){
                 toppings.push_back(currTopping);
             }
         }
         fin.close();
+    }
+    else {
+        throw FileNotOpenException();
     }
 }
 
@@ -76,6 +86,7 @@ void SalesRep::getCrust(vector<Crust>& crusts) {
     fin.open("Crust_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
+            Crust currCrust;
             currCrust.read(fin);
             if(!fin.eof()){
                 crusts.push_back(currCrust);
@@ -83,14 +94,17 @@ void SalesRep::getCrust(vector<Crust>& crusts) {
         }
         fin.close();
     }
+    else {
+        throw CrustFileNotFoundException();
+    }
 }
 
 void SalesRep::getBranches(vector<Branch>& Branches) {
-    Branch currBranch;
     ifstream fin;
     fin.open("Branch_Binary.dat", ios::binary);
     if(fin.is_open()) {
         while(!fin.eof()){
+            Branch currBranch;
             currBranch.read(fin);
             if(!fin.eof()){
                 Branches.push_back(currBranch);
@@ -98,17 +112,16 @@ void SalesRep::getBranches(vector<Branch>& Branches) {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
 }
 
 void SalesRep::fileOrder(Order& order){
 
     ofstream fout;
     fout.open("Order_Binary.dat", ios::binary|ios::app);
-    if(fout.is_open()) {
-        order.write(fout);
-        fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
-    }
+    order.write(fout);
+    fout.close();
+
 }
