@@ -10,6 +10,7 @@ void SalesRep::getPizzas(vector<Pizza>& pizzas) {
 
     ifstream fin;
     fin.open("Pizzas_Binary.dat", ios::binary);
+
     if(fin.is_open()) {
         while(!fin.eof()){
             Pizza currPizza;

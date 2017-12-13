@@ -1,0 +1,7 @@
+#ifndef FILENOTOPENEXCEPTION_H
+#define FILENOTOPENEXCEPTION_H
+
+
+class FileNotOpenException { };
+
+#endif // FILENOTOPENEXCEPTION_H
