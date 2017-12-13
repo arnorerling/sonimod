@@ -1,19 +1,10 @@
 #ifndef MANAGERUI_H
 #define MANAGERUI_H
+
 #include "ManagerDomain.h"
+
 #include "Output.h"
-#include "Crust.h"
-#include "Topping.h"
-#include "Drink.h"
-#include "Sidedish.h"
-#include "Branch.h"
 #include <iostream>
-#include <vector>
-#include <string>
-#include <cstdlib>
-#include <stdio.h>
-#include <string.h>
-#include <cstring>
 #include <iomanip>
 using namespace std;
 

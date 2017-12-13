@@ -1,7 +1,6 @@
 #ifndef MAINUI_H
 #define MAINUI_H
 #include "MainDomain.h"
-#include "Username.h"
 #include "Output.h"
 
 #ifdef WIN32

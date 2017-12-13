@@ -3,8 +3,6 @@
 #include "MainRep.h"
 #include "InvalidInputException.h"
 #include "NotFoundException.h"
-#include <string>
-#include "User.h"
 using namespace std;
 
 class MainDomain

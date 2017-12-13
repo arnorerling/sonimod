@@ -1,5 +1,6 @@
 #ifndef MANAGERDOMAIN_H
 #define MANAGERDOMAIN_H
+
 #include "ManagerRep.h"
 
 #include "ItemChangedException.h"
@@ -9,19 +10,8 @@
 #include "LengthNotRightException.h"
 #include "InvalidDateException.h"
 
-#include "Pizza.h"
-#include "Crust.h"
-#include "Topping.h"
-#include "Drink.h"
-#include "Sidedish.h"
-#include "Branch.h"
-#include "User.h"
-#include "Order.h"
-
 #include <string>
-#include <vector>
 #include <stdlib.h>
-#include <stdio.h>
 using namespace std;
 
 class ManagerDomain

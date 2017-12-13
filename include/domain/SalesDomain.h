@@ -7,10 +7,7 @@
 #include "NotFoundException.h"
 #include "InvalidInputException.h"
 #include "MarkedPaidForException.h"
-#include <iostream>
 #include <stdlib.h>
-
-using namespace std;
 
 class SalesDomain {
     private:
