@@ -7,10 +7,15 @@ DeliveryUI::DeliveryUI()
 void DeliveryUI::startUI() {
     output.clean();
     printLogo();
-    printRestaurants();
     chooseRestaurant();
 
-    char select = '\0';
+    char select;
+    if(branch == "") {
+        select = '6';
+    }
+    else {
+        select = '\0';
+    }
     while (select != '6') {
         output.clean();
         printLogo();
@@ -45,8 +50,7 @@ void DeliveryUI::startUI() {
                 output.wait();
             break;
             case '6':
-                cout << "Goodbye" << endl;
-                output.wait();
+                cout << endl;
             break;
             default:
                 cout << "Invalid input" << endl;
@@ -58,13 +62,20 @@ void DeliveryUI::startUI() {
 void DeliveryUI::chooseRestaurant() {
     bool available = false;
     while(!available ){
-        cout << "Choose restaurant? ";
-        this->branch = checkName();
         try{
+            printRestaurants();
+            cout << "Choose restaurant? ";
+            this->branch = checkName();
             available = deliveryDomain.checkBranchAvaliability(branch);
         }
         catch(NotFoundException){
             cout << "This restaurant is not available" << endl;
+        }
+        catch(LengthNotRightException) {
+            cout << "Restaurant list empty" << endl;
+        }
+        catch(FileNotOpenException) {
+            cout << "Restaurant file not found" << endl;
         }
     }
 }
@@ -81,33 +92,53 @@ void DeliveryUI::printRestaurants() {
 
 void DeliveryUI::printOrders() {
     cout << "----Order list for " << this->branch << "----" << endl;
-    vector<Order> orderList = deliveryDomain.getOrders(branch);
-    for(unsigned int i = 0; i < orderList.size(); i++){
-        cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-        cout << "Name: " << orderList[i].getCustomerName() << endl;
+    vector<Order> orderList;
+    try {
+        orderList = deliveryDomain.getOrders(branch);
+        for(unsigned int i = 0; i < orderList.size(); i++){
+            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
+            cout << "Name: " << orderList[i].getCustomerName() << endl;
+        }
+        cout << "-----------------------" << endl;
     }
-    cout << "-----------------------" << endl;
+    catch(LengthNotRightException) {
+        cout << "Order list empty" << endl;
+    }
+    catch(FileNotOpenException) {
+        cout << "Order file not found" << endl;
+    }
 }
 
 void DeliveryUI::printReadyOrders() {
     cout << "----Order list for " << this->branch << "----" << endl;
-    vector<Order> orderList = deliveryDomain.getReadyOrders(branch);
-    time_t time1 = time(0);
-    time_t orderTime;
-    for(unsigned int i = 0; i < orderList.size(); i++){
-        orderTime = orderList[i].getTime();
-        double diff = difftime(time1, orderTime);
-        if(diff > 7200){
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-            cout << "Name: " << orderList[i].getCustomerName() << "Throw out order, older than 2 hours" << endl;
-            deleteOrder(orderList[i]);
+    vector<Order> orderList;
+    try {
+        orderList = deliveryDomain.getReadyOrders(branch);
+        time_t time1 = time(0);
+        time_t orderTime;
+        for(unsigned int i = 0; i < orderList.size(); i++){
+            orderTime = orderList[i].getTime();
+            double diff = difftime(time1, orderTime);
+            if(diff > 7200){
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
+                cout << "Name: " << orderList[i].getCustomerName() << "Throw out order, older than 2 hours" << endl;
+                deleteOrder(orderList[i]);
+            }
+            else {
+                cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
+                cout << "Name: " << orderList[i].getCustomerName() << endl;
+            }
         }
-        else {
-            cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
-            cout << "Name: " << orderList[i].getCustomerName() << endl;
-        }
+        cout << "-----------------------" << endl;
     }
-    cout << "-----------------------" << endl;
+    catch(LengthNotRightException) {
+        cout << "Order list empty" << endl;
+    }
+    catch(FileNotOpenException) {
+        cout << "Order file not found" << endl;
+    }
+
+
 }
 
 void DeliveryUI:: printOneOrder() {
@@ -153,10 +184,18 @@ void DeliveryUI::markDelivered() {
 
 Order DeliveryUI::findOrder() {
     Order order;
-    cout << "Order #: ";
-    string number = checkNumber();
+
     try {
+        vector <Order> sizeChecker = deliveryDomain.getOrders(branch);
+        cout << "Order #: ";
+        string number = checkNumber();
         order = deliveryDomain.getOneOrder(number, branch);
+    }
+    catch(FileNotOpenException) {
+        cout << "Order file not found" << endl;
+    }
+    catch(LengthNotRightException) {
+        cout << "Order list is empty" << endl;
     }
     catch(NotFoundException) {
         cout << "This number is not on the list, try again" << endl;

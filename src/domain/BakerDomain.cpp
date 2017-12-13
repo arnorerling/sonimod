@@ -1,5 +1,4 @@
 #include "BakerDomain.h"
-#include "Branch.h"
 
 BakerDomain::BakerDomain()
 {
