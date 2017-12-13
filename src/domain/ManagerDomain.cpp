@@ -323,6 +323,9 @@ bool ManagerDomain::removeBranch(const Branch &branch) {
 }
 
 bool ManagerDomain::removeUser(const User &user) {
+    if (user.getName() == "admin"){
+        throw CantDeleteException();
+    }
     vector<User>users = managerRep.getUser();
     vector<User>newUsers;
 

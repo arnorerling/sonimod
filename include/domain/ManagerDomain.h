@@ -9,6 +9,7 @@
 #include "InvalidInputException.h"
 #include "LengthNotRightException.h"
 #include "InvalidDateException.h"
+#include "CantDeleteException.h"
 
 #include <string>
 #include <stdlib.h>

@@ -184,9 +184,9 @@ void ManagerUI::seeSaleFigures() {
     printManLogo();
     printBranch();
     string branch = checkBranch();
-    cout << "Select date from ";
+    cout << "Select date FROM ";
     string dateFrom = checkDate();
-    cout << "Select date to ";
+    cout << "Select date TO ";
     string dateTo = checkDate();
 
     printFigures(branch, dateFrom, dateTo);
@@ -607,8 +607,10 @@ void ManagerUI::removeUser() {
         cout << "User \"" << user.getName();
         cout << "\" is not on the list" << endl;
     }
+    catch (CantDeleteException) {
+        cout << "Can't delete user admin" << endl;
+    }
 }
-
 
 string ManagerUI::checkName() {
     string name = "";
@@ -769,8 +771,8 @@ string ManagerUI::checkBranch() {
 string ManagerUI::checkDate() {
     string date = "";
     bool allowed = false;
-    cout << ", press enter for default" << endl;
-    cout << "(DD.MM.YYYY): ";
+    cout << "(DD.MM.YYYY)";
+    cout << " press enter for default: " << endl;
     while(!allowed){
         getline(cin, date);
         if (date.empty()) {
