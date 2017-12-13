@@ -48,6 +48,9 @@
 		<Unit filename="include/domain/MainDomain.h" />
 		<Unit filename="include/domain/ManagerDomain.h" />
 		<Unit filename="include/domain/SalesDomain.h" />
+		<Unit filename="include/exceptions/AlreadyMarkedException.h" />
+		<Unit filename="include/exceptions/CantDeleteAdmin.h" />
+		<Unit filename="include/exceptions/CantDeleteException.h" />
 		<Unit filename="include/exceptions/CrustFileNotFoundException.h" />
 		<Unit filename="include/exceptions/FileNotOpenException.h" />
 		<Unit filename="include/exceptions/InvalidDateException.h" />
@@ -88,6 +91,9 @@
 		<Unit filename="src/domain/MainDomain.cpp" />
 		<Unit filename="src/domain/ManagerDomain.cpp" />
 		<Unit filename="src/domain/SalesDomain.cpp" />
+		<Unit filename="src/exceptions/AlreadyMarkedException.cpp" />
+		<Unit filename="src/exceptions/CantDeleteAdmin.cpp" />
+		<Unit filename="src/exceptions/CantDeleteException.cpp" />
 		<Unit filename="src/exceptions/CrustFileNotFoundException.cpp" />
 		<Unit filename="src/exceptions/FileNotOpenException.cpp" />
 		<Unit filename="src/exceptions/InvalidDateException.cpp" />
