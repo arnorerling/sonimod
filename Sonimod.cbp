@@ -48,6 +48,7 @@
 		<Unit filename="include/domain/MainDomain.h" />
 		<Unit filename="include/domain/ManagerDomain.h" />
 		<Unit filename="include/domain/SalesDomain.h" />
+		<Unit filename="include/exceptions/AlreadyMarkedException.h" />
 		<Unit filename="include/exceptions/CrustFileNotFoundException.h" />
 		<Unit filename="include/exceptions/FileNotOpenException.h" />
 		<Unit filename="include/exceptions/InvalidDateException.h" />
@@ -55,9 +56,6 @@
 		<Unit filename="include/exceptions/ItemChangedException.h" />
 		<Unit filename="include/exceptions/ItemExistsException.h" />
 		<Unit filename="include/exceptions/LengthNotRightException.h" />
-		<Unit filename="include/exceptions/MarkedInProcessException.h" />
-		<Unit filename="include/exceptions/MarkedPaidForException.h" />
-		<Unit filename="include/exceptions/MarkedReadyException.h" />
 		<Unit filename="include/exceptions/NotFoundException.h" />
 		<Unit filename="include/exceptions/NotMarkedInProcessException.h" />
 		<Unit filename="include/exceptions/NotMarkedPaidForException.h" />
@@ -88,6 +86,7 @@
 		<Unit filename="src/domain/MainDomain.cpp" />
 		<Unit filename="src/domain/ManagerDomain.cpp" />
 		<Unit filename="src/domain/SalesDomain.cpp" />
+		<Unit filename="src/exceptions/AlreadyMarkedException.cpp" />
 		<Unit filename="src/exceptions/CrustFileNotFoundException.cpp" />
 		<Unit filename="src/exceptions/FileNotOpenException.cpp" />
 		<Unit filename="src/exceptions/InvalidDateException.cpp" />
@@ -95,9 +94,6 @@
 		<Unit filename="src/exceptions/ItemChangedException.cpp" />
 		<Unit filename="src/exceptions/ItemExistsException.cpp" />
 		<Unit filename="src/exceptions/LengthNotRightException.cpp" />
-		<Unit filename="src/exceptions/MarkedInProcessException.cpp" />
-		<Unit filename="src/exceptions/MarkedPaidForException.cpp" />
-		<Unit filename="src/exceptions/MarkedReadyException.cpp" />
 		<Unit filename="src/exceptions/NotFoundException.cpp" />
 		<Unit filename="src/exceptions/NotMarkedInProcessException.cpp" />
 		<Unit filename="src/exceptions/NotMarkedPaidForException.cpp" />

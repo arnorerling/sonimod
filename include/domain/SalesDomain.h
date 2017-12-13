@@ -6,7 +6,7 @@
 #include "LengthNotRightException.h"
 #include "NotFoundException.h"
 #include "InvalidInputException.h"
-#include "MarkedPaidForException.h"
+#include "AlreadyMarkedException.h"
 #include <stdlib.h>
 
 class SalesDomain {

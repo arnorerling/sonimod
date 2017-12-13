@@ -169,7 +169,7 @@ bool SalesDomain::checkValidAnswer(const string &answer) {
 
 bool SalesDomain::markOrderPaidFor(Order &order) {
     if (order.getPaidFor()) {
-        throw MarkedPaidForException();
+        throw AlreadyMarkedException();
     }
     else {
         order.setPaidFor(true);
