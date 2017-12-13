@@ -304,10 +304,10 @@ void SalesUI::printSidedishes() {
     vector<Sidedish> sidedishes;
     salesDomain.getSidedishes(sidedishes);
     cout << "-----------Sidedish menu-----------" << endl;
-    cout << setw(15) << "Name" << setw(10) << "Price" << endl;
+    cout << setw(18) << "Name" << setw(10) << "Price" << endl;
     cout << "-----------------------------------" << endl;
     for(unsigned int i = 0; i < sidedishes.size(); i++){
-        cout << setw(15) << sidedishes[i].getName();
+        cout << setw(18) << sidedishes[i].getName();
         cout << setw(10) << sidedishes[i].getPrice() << endl;
     }
     cout << "-----------------------------------" << endl;

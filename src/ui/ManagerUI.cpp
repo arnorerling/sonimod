@@ -59,36 +59,43 @@ void ManagerUI::addChangeMenu() {
                 output.clean();
                 printCrust();
                 addCrust();
+                output.wait();
                 break;
             case '2':
                 output.clean();
                 printTopping();
                 addTopping();
+                output.wait();
                 break;
             case '3':
                 output.clean();
                 printPizza();
                 addPizza();
+                output.wait();
                 break;
             case '4':
                 output.clean();
                 printDrink();
                 addDrink();
+                output.wait();
                 break;
             case '5':
                 output.clean();
                 printSide();
                 addSide();
+                output.wait();
                 break;
             case '6':
                 output.clean();
                 printBranch();
                 addBranch();
+                output.wait();
                 break;
             case '7':
                 output.clean();
                 printUser();
                 addUser();
+                output.wait();
                 break;
             case '8':
                 output.clean();
@@ -97,6 +104,7 @@ void ManagerUI::addChangeMenu() {
             default:
                 output.clean();
                 cout << "Invalid input" << endl;
+                output.wait();
         }
     }
 }
@@ -122,36 +130,43 @@ void ManagerUI::removeFromMenu() {
                 output.clean();
                 printCrust();
                 removeCrust();
+                output.wait();
                 break;
             case '2':
                 output.clean();
                 printTopping();
                 removeTopping();
+                output.wait();
                 break;
             case '3':
                 output.clean();
                 printPizza();
                 removePizza();
+                output.wait();
                 break;
             case '4':
                 output.clean();
                 printDrink();
                 removeDrink();
+                output.wait();
                 break;
             case '5':
                 output.clean();
                 printSide();
                 removeSide();
+                output.wait();
                 break;
             case '6':
                 output.clean();
                 printBranch();
                 removeBranch();
+                output.wait();
                 break;
             case '7':
                 output.clean();
                 printUser();
                 removeUser();
+                output.wait();
                 break;
             case '8':
                 output.clean();
@@ -160,6 +175,7 @@ void ManagerUI::removeFromMenu() {
             default:
                 output.clean();
                 cout << "Invalid input" << endl;
+                output.wait();
         }
     }
 }
@@ -310,12 +326,9 @@ void ManagerUI::addUser() {
     cout << "----Add Employee----" << endl;
     string username = checkUsername();
     string password = checkPassword();
-    output.clean();
     char jobNumber = checkJob();
 
-
     User user(username, password, jobNumber);
-    cout << user.getPassword() << endl;
     try {
         managerDomain.addUser(user);
     }
@@ -395,10 +408,10 @@ void ManagerUI::printDrink() {
 void ManagerUI::printSide() {
     vector<Sidedish> sidedishes = managerDomain.getSidedishes();
     cout << "-----------Sidedish List-----------" << endl;
-    cout << setw(15) << "Name" << setw(10) << "Price" << endl;
+    cout << setw(18) << "Name" << setw(10) << "Price" << endl;
     cout << "-----------------------------------" << endl;
     for(unsigned int i = 0; i < sidedishes.size(); i++){
-        cout << setw(15) << sidedishes[i].getName();
+        cout << setw(18) << sidedishes[i].getName();
         cout << setw(10) << sidedishes[i].getPrice() << endl;
     }
     cout << "-----------------------------------" << endl;

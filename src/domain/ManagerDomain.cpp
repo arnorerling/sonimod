@@ -215,6 +215,7 @@ vector<Order> ManagerDomain::getDateToOrders(const string &dateTo, vector<Order>
     breakdown.tm_mday = day;
 
     result = mktime(&breakdown);
+    result += 86399;     //add 23 hours, 59 minutes and 59 seconds
 
     for (unsigned int i = 0; i < dateFromOrders.size(); i++) {
         if (difftime( dateFromOrders[i].getTime(), result) < 0) {
