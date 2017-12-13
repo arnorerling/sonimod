@@ -1,16 +1,16 @@
 #include "Topping.h"
 
-Topping::Topping(){
+Topping::Topping() {
 	this->name[0] = '\0';
 	this->price = 0;
 }
 
-Topping::Topping(string name){
+Topping::Topping(string name) {
 	this->name = name;
 	this->price = 0;
 }
 
-Topping::Topping(string name, int price){
+Topping::Topping(string name, int price) {
 	this->name = name;
 	this->price = price;
 }
@@ -37,7 +37,7 @@ void Topping::read(ifstream& fin) {
     delete[] str;
 }
 
-ostream& operator << (ostream& out, const Topping& topping){
+ostream& operator << (ostream& out, const Topping& topping) {
 
     out << "Name: " << topping.name << " ";
     out << "Price: " << topping.price << endl;

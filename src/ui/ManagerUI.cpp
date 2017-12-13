@@ -1,8 +1,7 @@
 #include "ManagerUI.h"
 
 
-ManagerUI::ManagerUI()
-{
+ManagerUI::ManagerUI() {
     //ctor
 }
 
@@ -54,7 +53,7 @@ void ManagerUI::addChangeMenu() {
         cout << "--------------------" << endl;
 
         select = checkInput();
-        switch(select){
+        switch(select) {
             case '1':
                 output.clean();
                 printCrust();
@@ -125,7 +124,7 @@ void ManagerUI::removeFromMenu() {
         cout << "8: Quit" << endl;
         cout << "--------------------------" << endl;
         select = checkInput();
-        switch(select){
+        switch(select) {
             case '1':
                 output.clean();
                 printCrust();
@@ -208,10 +207,10 @@ void ManagerUI::addPizza() {
 
         printTopping();
     }
-    while(addTopping == 'y'){
+    while(addTopping == 'y') {
         string toppingName = checkName();
         Topping topping(toppingName);
-        try{
+        try {
             managerDomain.checkTopping(topping);
             pizza.addTopping(topping);
             cout << "Add another topping? (y/n): ";
@@ -339,7 +338,7 @@ void ManagerUI::addUser() {
 
 void ManagerUI::printPizza() {
     vector<Pizza> pizzas = managerDomain.getPizzas();
-    if (!pizzas.empty()){
+    if (!pizzas.empty()) {
         cout << "-------------------Pizza List--------------------" << endl;
         cout << setw(15) << "Name" << setw(10) << "14\"";
         cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
@@ -620,7 +619,7 @@ string ManagerUI::checkName() {
         cin >> ws;
         getline(cin, name);
         managerDomain.toLowerCase(name);
-        try{
+        try {
             allowed = managerDomain.checkValidName(name);
         }
         catch(InvalidInputException){
@@ -635,11 +634,11 @@ int ManagerUI::checkPrice() {
     int price1 = 0;
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cout << "Price: ";
         cin >> ws;
         getline(cin, price);
-        try{
+        try {
             price1 = managerDomain.checkValidPrice(price);
             allowed = true;
         }
@@ -655,10 +654,10 @@ char ManagerUI::checkInput() {
     char input1 = '\0';
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cin >> ws;
         getline(cin, input);
-        try{
+        try {
             allowed = managerDomain.checkValidInput(input);
             input1 = input[0];
         }
@@ -692,11 +691,11 @@ string ManagerUI::checkUsername() {
     string username = "";
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cout << "Username: ";
         cin >> ws;
         getline(cin, username);
-        try{
+        try {
             allowed = managerDomain.checkValidUsername(username);
         }
         catch(InvalidInputException){
@@ -710,14 +709,14 @@ string ManagerUI::checkPassword() {
     string pw = "";
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cout << "Password: ";
         cin >> ws;
         getline(cin, pw);
-        try{
+        try {
             allowed = managerDomain.checkValidPassword(pw);
         }
-        catch(InvalidInputException){
+        catch(InvalidInputException) {
             cout << "Password must be one word and include at least 2 numbers" << endl;
         }
     }
@@ -733,10 +732,10 @@ char ManagerUI::checkJob() {
     cout << "2: Sales" << endl;
     cout << "3: Baker" << endl;
     cout << "4: Delivery" << endl;
-    while(!allowed){
+    while(!allowed) {
         cin >> ws;
         getline(cin, job);
-        try{
+        try {
             allowed = managerDomain.checkValidJob(job);
             job1 = job[0];
         }
@@ -751,7 +750,7 @@ string ManagerUI::checkBranch() {
     string branch = "";
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cout << "Restaurant (press enter for all): ";
         getline(cin, branch);
         if (branch.empty()) {
@@ -760,7 +759,7 @@ string ManagerUI::checkBranch() {
         try{
             allowed = managerDomain.checkValidBranch(branch);
         }
-        catch(NotFoundException){
+        catch(NotFoundException) {
             cout << "This restaurant doesn't exist" << endl;
         }
     }
@@ -777,10 +776,10 @@ string ManagerUI::checkDate() {
         if (date.empty()) {
             return date;
         }
-        try{
+        try {
             allowed = managerDomain.checkValidDate(date);
         }
-        catch(InvalidDateException){
+        catch(InvalidDateException) {
             cout << "Invalid date, year cant be less than 1970." << endl;
             cout << "Please enter\"DD.MM.YYYY\" or press Enter: " << endl;
         }
@@ -794,7 +793,7 @@ string ManagerUI::checkDate() {
     return date;
 }
 
-void ManagerUI::printManLogo(){
+void ManagerUI::printManLogo() {
 cout << "_  _ ____ _  _ ____ ____ ____ ____" << endl;
 cout << "|\\/| |__| |\\ | |__| | __ |___ |__/" << endl;
 cout << "|  | |  | | \\| |  | |__] |___ |  \\" << endl;

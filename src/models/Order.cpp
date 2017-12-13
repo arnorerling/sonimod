@@ -1,8 +1,7 @@
 #include "Order.h"
 #include "Sidedish.h"
 
-Order::Order()
-{
+Order::Order() {
     this->customerAddress = "";
     this->ready = false;
     this->deliverd = false;
@@ -14,48 +13,59 @@ Order::Order()
     this->orderTime = time(0);
 }
 
-void Order::addPizza(Pizza& pizza){
+void Order::addPizza(Pizza& pizza) {
     this->pizzas.push_back(pizza);
 }
-void Order::addSideDish(Sidedish& sidedish){
+
+void Order::addSideDish(Sidedish& sidedish) {
     this->sideDishes.push_back(sidedish);
 }
-void Order::addDrink(Drink& drink){
+
+void Order::addDrink(Drink& drink) {
     this->drinks.push_back(drink);
 }
 
-
-void Order::addCustomerName(const string &name){
+void Order::addCustomerName(const string &name) {
     this->customerName = name;
 }
-void Order::addCustomerPhoneNum(const string &num){
+
+void Order::addCustomerPhoneNum(const string &num) {
     this->phoneNumber = num;
 }
-void Order::addCustomerAddress(const string &address){
+
+void Order::addCustomerAddress(const string &address) {
     this->customerAddress = address;
 }
-void Order::addBranch(const string &branch){
+
+void Order::addBranch(const string &branch) {
     this->branch = branch;
 }
-void Order::addComment(string comment){
+
+void Order::addComment(string comment) {
     this->comment = comment;
 }
+
 void Order::setPaidFor(bool paidFor) {
     this->paidFor = paidFor;
 }
+
 void Order::setInProcess(bool inProcess) {
     this->inProcess = inProcess;
 }
+
 void Order::setReady(bool ready) {
     this->ready = ready;
 }
+
 void Order::setDeliverd(bool deliverd) {
     this->deliverd = deliverd;
 }
+
 void Order::setPickup(bool pickup) {
     this->pickup = pickup;
 }
-void Order::setTime(){
+
+void Order::setTime() {
     this->orderTime = time(0);
 }
 
@@ -63,16 +73,19 @@ void Order::addTotalPrice(int price) {
     this->totalPrice += price;
 }
 
-string Order::getCustomerName() const{
+string Order::getCustomerName() const {
     return this->customerName;
 }
-string Order::getCustomerPhoneNumber() const{
+
+string Order::getCustomerPhoneNumber() const {
     return this->phoneNumber;
 }
-string Order::getCustomerAddress() const{
+
+string Order::getCustomerAddress() const {
     return this->customerAddress;
 }
-string Order::getBranch() const{
+
+string Order::getBranch() const {
     return this->branch;
 }
 
@@ -82,35 +95,39 @@ string Order::getTimeString() const {
     return timeString;
 }
 
-time_t Order::getTime() const{
+time_t Order::getTime() const {
     return this->orderTime;
 }
 
 bool Order::getPaidFor() const {
     return paidFor;
 }
-bool Order::getInProcess() const{
+
+bool Order::getInProcess() const {
     return inProcess;
 }
-bool Order::getReady() const{
+
+bool Order::getReady() const {
     return ready;
 }
-bool Order::getDeliverd() const{
+
+bool Order::getDeliverd() const {
     return deliverd;
 }
-bool Order::getPickup() const{
+
+bool Order::getPickup() const {
     return pickup;
 }
 
-int Order::getTotal() const{
+int Order::getTotal() const {
     int total = 0;
-    for(unsigned int i = 0; i < this->pizzas.size(); i++){
+    for(unsigned int i = 0; i < this->pizzas.size(); i++) {
         total += this->pizzas[i].getPrice();
     }
-    for(unsigned int i = 0; i < this->sideDishes.size(); i++){
+    for(unsigned int i = 0; i < this->sideDishes.size(); i++) {
         total += this->sideDishes[i].getPrice();
     }
-    for(unsigned int i = 0; i < this->drinks.size(); i++){
+    for(unsigned int i = 0; i < this->drinks.size(); i++) {
         total += this->drinks[i].getPrice();
     }
     return total;
@@ -120,7 +137,7 @@ int Order::getTotalPrice() const {
     return this->totalPrice;
 }
 
-void Order::cleanOrder(){
+void Order::cleanOrder() {
     this->pizzas.clear();
     this->drinks.clear();
     this->sideDishes.clear();
@@ -140,7 +157,7 @@ void Order::cleanOrder(){
     this->totalPrice = 0;
 }
 
-ostream& operator << (ostream& out, const Order& order){
+ostream& operator << (ostream& out, const Order& order) {
     out << "------------------------------------------------------" << endl;
     out << "Order time: " << ctime(&order.orderTime);
     if(order.ready){
@@ -149,23 +166,21 @@ ostream& operator << (ostream& out, const Order& order){
         out << "Customer adress: " << order.getCustomerAddress() << endl;
     }
     out << endl;
-
     if (order.pizzas.size() > 0) {
         out << "Pizzas: " << endl;
-        for(unsigned int i = 0; i < order.pizzas.size(); i++){
+        for(unsigned int i = 0; i < order.pizzas.size(); i++) {
             out << order.pizzas[i] << endl;
         }
     }
-
     if (order.sideDishes.size() > 0) {
         out << "Sidedishes: " << endl;
-        for(unsigned int i = 0; i < order.sideDishes.size(); i++){
+        for(unsigned int i = 0; i < order.sideDishes.size(); i++) {
             out << order.sideDishes[i].getName() << endl;
         }
     }
     if (order.drinks.size() > 0) {
         out << "Drinks: " << endl;
-        for(unsigned int i = 0; i < order.drinks.size(); i++){
+        for(unsigned int i = 0; i < order.drinks.size(); i++) {
             out << order.drinks[i].getName() << endl;
         }
     }
@@ -204,8 +219,6 @@ ostream& operator << (ostream& out, const Order& order){
         out << "Deliver to address ";
         out << order.getCustomerAddress() << endl;
     }
-
-
     return out;
 }
 
@@ -277,7 +290,6 @@ void Order::write(ofstream& fout) const {
     fout.write((char*)(&deliverd), sizeof(char));
     fout.write((char*)(&pickup), sizeof(char));
     fout.write((char*)(&orderTime), sizeof(long));
-
 }
 
 void Order::read(ifstream& fin) {

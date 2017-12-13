@@ -6,8 +6,7 @@
 #include <iostream>
 using namespace std;
 
-MainUI::MainUI()
-{
+MainUI::MainUI() {
     //ctor
 }
 
@@ -30,7 +29,7 @@ void MainUI::start() {
             }
         }
     }
-    catch(FileNotOpenException){
+    catch(FileNotOpenException) {
         cout << "Contact admin, user file not found." << endl;
     }
 }
@@ -121,7 +120,7 @@ User MainUI::checkUser() {
     cin >> ws;
     getline(cin, password);
     SetStdinEcho(true);
-    try{
+    try {
         user = mainDomain.checkUser(name, password);
     }
     catch(NotFoundException){
@@ -132,7 +131,7 @@ User MainUI::checkUser() {
     return user;
 }
 
-void MainUI::SetStdinEcho(bool enable = true){
+void MainUI::SetStdinEcho(bool enable = true) {
 #ifdef WIN32
     HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
     DWORD mode;

@@ -1,6 +1,6 @@
 #include "Drink.h"
 
-Drink::Drink(){
+Drink::Drink() {
 	this->name = "";
 	this->liter = 0;
 	this->price = 0;
@@ -18,7 +18,7 @@ Drink::Drink(string name, int liter){
 	this->price = 0;
 }
 
-Drink::Drink(string name, int size, int price){
+Drink::Drink(string name, int size, int price) {
 	this->name = name;
 	this->liter = size;
     this->price = price;
@@ -34,7 +34,7 @@ void Drink::write(ofstream& fout) const {
     fout.write((char*)(&liter), sizeof(int));
 }
 
-void Drink::read(ifstream& fin){
+void Drink::read(ifstream& fin) {
 
     int strLen = name.length();
     fin.read((char*)(&strLen), sizeof(int));
@@ -48,7 +48,7 @@ void Drink::read(ifstream& fin){
     delete[] str;
 }
 
-ostream& operator << (ostream& out, const Drink& drink){
+ostream& operator << (ostream& out, const Drink& drink) {
 
     out << "Name: " << drink.name << " ";
     out << "Size: " << drink.liter << " ";
@@ -84,6 +84,6 @@ void Drink::setLiter(const int liter) {
     this->liter = liter;
 }
 
-void Drink::setPrice(const int price){
+void Drink::setPrice(const int price) {
     this->price = price;
 }

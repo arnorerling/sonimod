@@ -63,7 +63,7 @@ void BakerUI::chooseRestaurant() {
             this->branch = checkName();
             available = bakerDomain.checkBranchAvaliability(branch);
         }
-        catch(NotFoundException){
+        catch(NotFoundException) {
             cout << "This restaurant is not available" << endl;
         }
         catch(LengthNotRightException) {
@@ -76,7 +76,6 @@ void BakerUI::chooseRestaurant() {
 }
 
 void BakerUI::printRestaurants() {
-
   cout << "----Restaurant list----" << endl;
     vector<Branch> branches = bakerDomain.getBranch();
     for(unsigned int i = 0; i < branches.size(); i++){
@@ -92,23 +91,23 @@ void BakerUI::printOrders() {
         orderList = bakerDomain.getOrders(branch);
         time_t time1 = time(0);
         time_t orderTime;
-        for(unsigned int i = 0; i < orderList.size(); i++){
+        for(unsigned int i = 0; i < orderList.size(); i++) {
             orderTime = orderList[i].getTime();
             double diff = difftime(time1, orderTime);
             cout << diff << endl;
-            if(diff < 1200 ){
+            if(diff < 1200 ) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
                 cout << "Name: " << orderList[i].getCustomerName() << endl;
             }
-            else if(diff >= 1200 && diff < 1800 ){
+            else if(diff >= 1200 && diff < 1800 ) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
                 cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! Order is older than 20 minutes" << endl;
             }
-            else if(diff >= 1800 && diff < 7200){
+            else if(diff >= 1800 && diff < 7200) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
                 cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 30 minutes" << endl;
             }
-            else{
+            else {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " | ";
                 cout << "Name: " << orderList[i].getCustomerName() << " | hurry up! order older than 2 hours!" << endl;
             }
@@ -182,15 +181,15 @@ string BakerUI::checkName() {
     string name = "";
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cout << "Name: ";
         cin >> ws;
         getline(cin, name);
         bakerDomain.toLowerCase(name);
-        try{
+        try {
             allowed = bakerDomain.checkValidName(name);
         }
-        catch(InvalidInputException){
+        catch(InvalidInputException) {
             cout << "Name cant include numbers" << endl;
         }
     }
@@ -202,14 +201,14 @@ char BakerUI::checkInput() {
     char input1 = '\0';
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cin >> ws;
         getline(cin, input);
         try{
             allowed = bakerDomain.checkValidInput(input);
             input1 = input[0];
         }
-        catch(InvalidInputException){
+        catch(InvalidInputException) {
             cout << "Invalid input" << endl;
         }
     }
@@ -223,7 +222,7 @@ string BakerUI::checkNumber() {
     while(!allowed) {
         cin >> ws;
         getline(cin, number);
-        try{
+        try {
             allowed = bakerDomain.isValidNumber(number);
         }
         catch(InvalidInputException){

@@ -117,8 +117,7 @@ void SalesRep::getBranches(vector<Branch>& Branches) {
     }
 }
 
-void SalesRep::fileOrder(Order& order){
-
+void SalesRep::fileOrder(Order& order) {
     ofstream fout;
     fout.open("Order_Binary.dat", ios::binary|ios::app);
     order.write(fout);

@@ -1,7 +1,6 @@
 #include "Sidedish.h"
 
-Sidedish::Sidedish()
-{
+Sidedish::Sidedish() {
     name = "";
     price = 0;
 }
@@ -65,6 +64,6 @@ void Sidedish::setName(const string &name) {
     this->name = name;
 }
 
-void Sidedish::setPrice(const int &price){
+void Sidedish::setPrice(const int &price) {
     this->price = price;
 }

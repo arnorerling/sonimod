@@ -1,6 +1,6 @@
 #include "User.h"
 
-User::User(){
+User::User() {
     this->password = "";
     this->username = "";
     this->jobNumber = '\0';
@@ -78,7 +78,7 @@ char User::getJobNumber() const {
     return this->jobNumber;
 }
 
-string User::getJob() const{
+string User::getJob() const {
     switch(jobNumber) {
         case '1': return "Mananger";
         break;

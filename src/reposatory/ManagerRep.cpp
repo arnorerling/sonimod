@@ -1,7 +1,6 @@
 #include "ManagerRep.h"
 
-ManagerRep::ManagerRep()
-{
+ManagerRep::ManagerRep() {
     //ctor
 }
 

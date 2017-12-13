@@ -2,6 +2,7 @@
 
 Branch::Branch()
 {
+
 }
 
 Branch::Branch(string name) {

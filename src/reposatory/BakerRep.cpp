@@ -1,7 +1,6 @@
 #include "BakerRep.h"
 
-BakerRep::BakerRep()
-{
+BakerRep::BakerRep() {
     //ctor
 }
 

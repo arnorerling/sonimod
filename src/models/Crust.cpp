@@ -7,7 +7,7 @@ Crust::Crust() {
 	this->price = 0;
 }
 
-Crust::Crust(string name){
+Crust::Crust(string name) {
 	this->name = name;
 	this->inches = 0;
 	this->price = 0;
@@ -19,7 +19,7 @@ Crust::Crust(int inches) {
     this->price = 0;
 }
 
-Crust::Crust(string name, int inches){
+Crust::Crust(string name, int inches) {
 	this->name = name;
 	this->inches = inches;
 	this->price = 0;

@@ -84,7 +84,7 @@ void DeliveryUI::printRestaurants() {
 
   cout << "----Restaurant list----" << endl;
     vector<Branch> branches = deliveryDomain.getBranch();
-    for(unsigned int i = 0; i < branches.size(); i++){
+    for(unsigned int i = 0; i < branches.size(); i++) {
         cout << branches[i];
     }
     cout << "-----------------------" << endl;
@@ -95,7 +95,7 @@ void DeliveryUI::printOrders() {
     vector<Order> orderList;
     try {
         orderList = deliveryDomain.getOrders(branch);
-        for(unsigned int i = 0; i < orderList.size(); i++){
+        for(unsigned int i = 0; i < orderList.size(); i++) {
             cout << "Number: " << orderList[i].getCustomerPhoneNumber() << " ";
             cout << "Name: " << orderList[i].getCustomerName() << endl;
         }
@@ -116,7 +116,7 @@ void DeliveryUI::printReadyOrders() {
         orderList = deliveryDomain.getReadyOrders(branch);
         time_t time1 = time(0);
         time_t orderTime;
-        for(unsigned int i = 0; i < orderList.size(); i++){
+        for(unsigned int i = 0; i < orderList.size(); i++) {
             orderTime = orderList[i].getTime();
             double diff = difftime(time1, orderTime);
             if(diff > 7200){
@@ -148,7 +148,7 @@ void DeliveryUI:: printOneOrder() {
     }
 }
 
-void DeliveryUI::deleteOrder(Order order){
+void DeliveryUI::deleteOrder(Order order) {
     deliveryDomain.deleteOrder(order);
     cout << order.getCustomerPhoneNumber() << "has been deleted" << endl;
 }
@@ -215,7 +215,7 @@ char DeliveryUI::checkInput() {
             allowed = deliveryDomain.checkValidInput(input);
             input1 = input[0];
         }
-        catch(InvalidInputException){
+        catch(InvalidInputException) {
             cout << "Invalid input" << endl;
         }
     }
@@ -226,7 +226,7 @@ string DeliveryUI::checkName() {
     string name = "";
     bool allowed = false;
 
-    while(!allowed){
+    while(!allowed) {
         cout << "Name: ";
         cin >> ws;
         getline(cin, name);
@@ -234,7 +234,7 @@ string DeliveryUI::checkName() {
         try{
             allowed = deliveryDomain.checkValidName(name);
         }
-        catch(InvalidInputException){
+        catch(InvalidInputException) {
             cout << "Name cant include numbers" << endl;
         }
     }

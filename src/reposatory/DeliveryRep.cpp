@@ -1,7 +1,6 @@
 #include "DeliveryRep.h"
 
-DeliveryRep::DeliveryRep()
-{
+DeliveryRep::DeliveryRep() {
     //ctor
 }
 

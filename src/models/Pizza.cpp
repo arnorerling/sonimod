@@ -6,7 +6,7 @@ Pizza::Pizza() {
     this->price = 0;
 }
 
-Pizza::Pizza(string &name){
+Pizza::Pizza(string &name) {
     this->name = name;
     this->price = 0;
 }
@@ -84,16 +84,16 @@ void Pizza::addCrust(const Crust &crust) {
     this->crust = crust;
 }
 
-void Pizza::setName(const string &name){
+void Pizza::setName(const string &name) {
     this->name = name;
 }
 
-void Pizza::setFixedPrice(const int &price){
+void Pizza::setFixedPrice(const int &price) {
     this->price = price;
 }
 
-void Pizza::setPrice(){
-    for(unsigned int i = 0;i < this->toppings.size(); i++){
+void Pizza::setPrice() {
+    for(unsigned int i = 0;i < this->toppings.size(); i++) {
         this->price += this->toppings[i].getPrice();
     }
     this->price += this->crust.getPrice();
