@@ -1,5 +1,7 @@
 #ifndef DELIVERYREP_H
 #define DELIVERYREP_H
+
+#include "FileNotOpenException.h"
 #include "Branch.h"
 #include "Order.h"
 #include <fstream>

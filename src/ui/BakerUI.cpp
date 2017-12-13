@@ -1,6 +1,4 @@
 #include "BakerUI.h"
-#include <iostream>
-using namespace std;
 
 BakerUI::BakerUI() {
 
@@ -46,7 +44,8 @@ void BakerUI::startUI() {
                 markReady();
                 output.wait();
             break;
-            case '5': cout << endl;
+            case '5':
+                cout << endl;
             break;
             default:
                 cout << "Invalid input" << endl;
@@ -130,7 +129,6 @@ void BakerUI:: printOneOrder() {
         cout << order << endl;
     }
 }
-
 
 void BakerUI::markInProcess() {
     Order order = findOrder();

@@ -7,6 +7,9 @@ DeliveryDomain::DeliveryDomain()
 
 vector<Branch> DeliveryDomain::getBranch() {
     vector<Branch> branchList = deliveryRep.getBranches();
+    if(branchList.size() == 0) {
+        throw LengthNotRightException();
+    }
     return branchList;
 }
 
@@ -18,6 +21,9 @@ vector<Order> DeliveryDomain::getOrders(const string &branch) {
         if (orderList[i].getBranch() == branch) {
             branchOrderList.push_back(orderList[i]);
         }
+    }
+    if(branchOrderList.size() == 0) {
+        throw LengthNotRightException();
     }
     return branchOrderList;
 }
@@ -31,11 +37,17 @@ vector<Order> DeliveryDomain::getReadyOrders(const string &branch) {
             branchOrderList.push_back(orderList[i]);
         }
     }
+    if(branchOrderList.size() == 0) {
+        throw LengthNotRightException();
+    }
     return branchOrderList;
 }
 
 Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
     vector<Order> orderList = deliveryRep.getOrders();
+    if(orderList.size() == 0) {
+        throw LengthNotRightException();
+    }
 
     for (unsigned int i = 0; i < orderList.size(); i++) {
         if (orderList[i].getBranch() == branch && orderList[i].getCustomerPhoneNumber() == number) {
@@ -93,6 +105,9 @@ void DeliveryDomain::deleteOrder(const Order &order) {
 
 bool DeliveryDomain::checkBranchAvaliability(const string &branch) {
     vector<Branch> branches = getBranch();
+    if(branches.size() == 0) {
+        throw LengthNotRightException();
+    }
     for(unsigned int i = 0; i < branches.size(); i++){
         if(branches[i].getName() == branch) {
             return true;

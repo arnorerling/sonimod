@@ -4,6 +4,7 @@
 
 #include "DeliveryRep.h"
 
+#include "LengthNotRightException.h"
 #include "InvalidInputException.h"
 #include "NotFoundException.h"
 #include "NotMarkedReadyException.h"

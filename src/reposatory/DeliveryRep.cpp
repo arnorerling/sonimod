@@ -19,6 +19,9 @@ vector<Branch> DeliveryRep::getBranches() {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
     return branches;
 }
 
@@ -36,6 +39,9 @@ vector<Order> DeliveryRep::getOrders() {
         }
         fin.close();
     }
+    else {
+        throw FileNotOpenException();
+    }
     return orders;
 }
 
@@ -49,9 +55,6 @@ void DeliveryRep::changeOrderList(vector<Order> &orders) {
         }
         fout.close();
     }
-    else {
-        cout << "File did not open" << endl;
-    }
 }
 
 void DeliveryRep::addToLegacy(Order &order) {
@@ -60,8 +63,5 @@ void DeliveryRep::addToLegacy(Order &order) {
     if(fout.is_open()) {
         order.write(fout);
         fout.close();
-    }
-    else {
-        cout << "File did not open" << endl;
     }
 }
