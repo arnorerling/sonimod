@@ -631,6 +631,9 @@ string ManagerUI::checkName() {
         catch(InvalidInputException){
             cout << "Name cant include numbers" << endl;
         }
+        catch(LengthNotRightException){
+            cout << "Name cant be longer than 15 characters" << endl;
+        }
     }
     return name;
 }

@@ -344,7 +344,9 @@ bool ManagerDomain::checkTopping(const Topping &topping) {
 
 
 bool ManagerDomain::checkValidName(const string &name) {
-
+    if(name.length() > 15) {
+        throw LengthNotRightException();
+    }
     for(unsigned int i = 0; i < name.length(); i++){
         if(isdigit(name[i])){
              throw InvalidInputException();
