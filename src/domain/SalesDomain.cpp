@@ -4,28 +4,34 @@ SalesDomain::SalesDomain() {
     //ctor
 }
 
-void SalesDomain::getDrinks(vector<Drink>& drinks) {
-    salesRep.getDrinks(drinks);
+vector<Drink> SalesDomain::getDrinks() {
+    vector<Drink> drinks = salesRep.getDrinks();
+    return drinks;
 }
 
-void SalesDomain::getSidedishes(vector<Sidedish>& sidedishes) {
-    salesRep.getSidedishes(sidedishes);
+vector<Sidedish> SalesDomain::getSidedishes() {
+    vector<Sidedish> sidedishes = salesRep.getSidedishes();
+    return sidedishes;
 }
 
-void SalesDomain::getPizzas(vector<Pizza>& pizzas) {
-    salesRep.getPizzas(pizzas);
+vector<Pizza> SalesDomain::getPizzas() {
+    vector<Pizza> pizzas = salesRep.getPizzas();
+    return pizzas;
 }
 
-void SalesDomain::getToppings(vector<Topping>& toppings) {
-    salesRep.getToppings(toppings);
+vector<Topping> SalesDomain::getToppings() {
+    vector<Topping> toppings = salesRep.getToppings();
+    return toppings;
 }
 
-void SalesDomain::getCrusts(vector<Crust>& crusts) {
-    salesRep.getCrust(crusts);
+vector<Crust> SalesDomain::getCrusts() {
+    vector<Crust> crusts = salesRep.getCrusts();
+    return crusts;
 }
 
-void SalesDomain::getBranches(vector<Branch>& branches) {
-    salesRep.getBranches(branches);
+vector<Branch> SalesDomain::getBranches() {
+    vector<Branch> branches = salesRep.getBranches();
+    return branches;
 }
 
 bool SalesDomain::isValidName(string name) {
@@ -47,9 +53,8 @@ bool SalesDomain::isValidPhoneNumber(string num) {
 }
 
 bool SalesDomain::checkPizzaAvailability(string name, int size, Pizza &pizza) {
-    vector<Pizza> pizzas;
+    vector<Pizza> pizzas = this->getPizzas();
     Crust crust = pizza.getCrust();
-    getPizzas(pizzas);
     for(unsigned int i = 0; i < pizzas.size(); i++) {
         if(pizzas[i].getName() == name && pizzas[i].getCrustSize() == size) {
             pizza = pizzas[i];
@@ -62,8 +67,7 @@ bool SalesDomain::checkPizzaAvailability(string name, int size, Pizza &pizza) {
 }
 
 bool SalesDomain::checkDrinkAvailability(Drink& drink) {
-    vector<Drink> drinks;
-    getDrinks(drinks);
+    vector<Drink> drinks = this->getDrinks();
     for(unsigned int i = 0; i < drinks.size(); i++) {
         if(drinks[i].getName() == drink.getName()) {
             for(unsigned int i = 0; i < drinks.size(); i++) {
@@ -79,8 +83,7 @@ bool SalesDomain::checkDrinkAvailability(Drink& drink) {
 }
 
 bool SalesDomain::checkSidedishAvailability(Sidedish& sidedish) {
-    vector<Sidedish> sidedishes;
-    getSidedishes(sidedishes);
+    vector<Sidedish> sidedishes = getSidedishes();
     for(unsigned int i = 0; i < sidedishes.size(); i++) {
         if(sidedishes[i].getName() == sidedish.getName()) {
             sidedish.setPrice(sidedishes[i].getPrice());
@@ -92,8 +95,7 @@ bool SalesDomain::checkSidedishAvailability(Sidedish& sidedish) {
 
 void SalesDomain::checkToppingAvailability(Topping& topping) {
     bool available = false;
-    vector<Topping> toppings;
-    getToppings(toppings);
+    vector<Topping> toppings = getToppings();
     for(unsigned int i = 0; i < toppings.size(); i++) {
         if(toppings[i].getName() == topping.getName()) {
             topping.setPrice(toppings[i].getPrice());
@@ -106,8 +108,7 @@ void SalesDomain::checkToppingAvailability(Topping& topping) {
 }
 
 bool SalesDomain::checkCrustAvailability(Crust& crust) {
-    vector<Crust> crusts;
-    getCrusts(crusts);
+    vector<Crust> crusts = getCrusts();
     for(unsigned int i = 0; i < crusts.size(); i++) {
         if(crusts[i].getName() == crust.getName() && crusts[i].getInches() == crust.getInches()) {
             crust.setPrice(crusts[i].getPrice());
@@ -118,8 +119,7 @@ bool SalesDomain::checkCrustAvailability(Crust& crust) {
 }
 
 bool SalesDomain::checkBranchAvailability(const string &branch) {
-    vector<Branch> branches;
-    getBranches(branches);
+    vector<Branch> branches = getBranches();
     for(unsigned int i = 0; i < branches.size(); i++) {
         if(branches[i].getName() == branch) {
             return true;

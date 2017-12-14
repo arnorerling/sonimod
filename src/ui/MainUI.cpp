@@ -175,7 +175,7 @@ char MainUI::checkInput() {
 }
 
 void MainUI::printLogo() {
-cout << " __                  " << endl;
-cout << "(_  _ __  o __  _  _|" << endl;
-cout << "__)(_)| | | |||(_)(_|" << endl;
+    cout << " __                  " << endl;
+    cout << "(_  _ __  o __  _  _|" << endl;
+    cout << "__)(_)| | | |||(_)(_|" << endl;
 }

@@ -116,7 +116,7 @@ void SalesUI::addPizzaMenu() {
     }
     catch(FileNotOpenException) {
         cout << "Adding a pizza not available!, pizza file not found" << endl;
-        output.salesWait();
+        output.wait();
     }
     catch(CrustFileNotFoundException) {
         cout << "Adding a pizza not available!, crust file not found" << endl;
@@ -263,8 +263,7 @@ void SalesUI::addAddress() {
 }
 
 void SalesUI::printPizzas() {
-    vector<Pizza> pizzas;
-    salesDomain.getPizzas(pizzas);
+    vector<Pizza> pizzas = salesDomain.getPizzas();
      cout << "-------------------Pizza menu--------------------" << endl;
     cout << setw(15) << "Name" << setw(10) << "14\"";
     cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
@@ -283,8 +282,7 @@ void SalesUI::printPizzas() {
 }
 
 void SalesUI::printCrusts() {
-    vector<Crust> crusts;
-    salesDomain.getCrusts(crusts);
+    vector<Crust> crusts = salesDomain.getCrusts();
     cout << "--------------------Crust menu--------------------" << endl;
     cout << setw(15) << "Name" << setw(10) << "14\"";
     cout << setw(10) << "16\"" << setw(10) << "18\"" << endl;
@@ -303,8 +301,7 @@ void SalesUI::printCrusts() {
 }
 
 void SalesUI::printToppings() {
-    vector<Topping> toppings;
-    salesDomain.getToppings(toppings);
+    vector<Topping> toppings = salesDomain.getToppings();
     cout << "-----------Toppings menu-----------" << endl;
     cout << setw(15) << "Name" << setw(10) << "Price" << endl;
     cout << "-----------------------------------" << endl;
@@ -316,8 +313,7 @@ void SalesUI::printToppings() {
 }
 
 void SalesUI::printDrinks() {
-    vector<Drink> drinks;
-    salesDomain.getDrinks(drinks);
+    vector<Drink> drinks = salesDomain.getDrinks();
     cout << "------------Drinks menu------------" << endl;
     cout << setw(15) << "Name" << setw(8) << "1L" << setw(8) << "2L" << endl;
     cout << "-----------------------------------" << endl;
@@ -336,8 +332,7 @@ void SalesUI::printDrinks() {
 }
 
 void SalesUI::printSidedishes() {
-    vector<Sidedish> sidedishes;
-    salesDomain.getSidedishes(sidedishes);
+    vector<Sidedish> sidedishes = salesDomain.getSidedishes();
     cout << "-----------Sidedish menu-----------" << endl;
     cout << setw(18) << "Name" << setw(10) << "Price" << endl;
     cout << "-----------------------------------" << endl;
@@ -466,7 +461,7 @@ char SalesUI::validAnswer() {
 }
 
 void SalesUI::printLogo() {
-cout << "____ ____ _    ____ ____ " << endl;
-cout << "[__  |__| |    |___ [__  " << endl;
-cout << "___] |  | |___ |___ ___] " << endl;
+    cout << "____ ____ _    ____ ____ " << endl;
+    cout << "[__  |__| |    |___ [__  " << endl;
+    cout << "___] |  | |___ |___ ___] " << endl;
 }

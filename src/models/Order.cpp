@@ -181,13 +181,13 @@ ostream& operator << (ostream& out, const Order& order) {
         if (order.sideDishes.size() > 0) {
             out << "Sidedishes: " << endl;
             for(unsigned int i = 0; i < order.sideDishes.size(); i++) {
-                out << order.sideDishes[i].getName() << endl;
+                out << order.sideDishes[i] << endl;
             }
         }
         if (order.drinks.size() > 0) {
             out << "Drinks: " << endl;
             for(unsigned int i = 0; i < order.drinks.size(); i++) {
-                out << order.drinks[i].getName() << endl;
+                out << order.drinks[i] << endl;
             }
         }
         out << endl;
@@ -205,7 +205,7 @@ ostream& operator << (ostream& out, const Order& order) {
         }
     }
     else {
-        out << "Nothing in order." << endl << endl;
+        out << "Nothing in order." << endl;
     }
     return out;
 }

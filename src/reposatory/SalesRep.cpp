@@ -1,13 +1,12 @@
 #include "SalesRep.h"
 
-SalesRep::SalesRep()
-{
+SalesRep::SalesRep() {
     //ctor
 }
 
-void SalesRep::getPizzas(vector<Pizza>& pizzas) {
+vector<Pizza> SalesRep::getPizzas() {
 
-
+    vector<Pizza> pizzas;
     ifstream fin;
     fin.open("Pizzas_Binary.dat", ios::binary);
     if(fin.is_open()) {
@@ -23,9 +22,11 @@ void SalesRep::getPizzas(vector<Pizza>& pizzas) {
     else {
         throw FileNotOpenException();
     }
+    return pizzas;
 }
 
-void SalesRep::getDrinks(vector<Drink>& drinks) {
+vector<Drink> SalesRep::getDrinks() {
+    vector<Drink> drinks;
     ifstream fin;
     fin.open("Drink_Binary.dat", ios::binary);
     if(fin.is_open()) {
@@ -41,10 +42,11 @@ void SalesRep::getDrinks(vector<Drink>& drinks) {
     else {
         throw FileNotOpenException();
     }
+    return drinks;
 }
 
-void SalesRep::getSidedishes(vector<Sidedish>& sidedishes) {
-
+vector<Sidedish> SalesRep::getSidedishes() {
+    vector<Sidedish> sidedishes;
     ifstream fin;
     fin.open("Sidedish_Binary.dat", ios::binary);
     if(fin.is_open()) {
@@ -60,9 +62,11 @@ void SalesRep::getSidedishes(vector<Sidedish>& sidedishes) {
     else {
         throw FileNotOpenException();
     }
+    return sidedishes;
 }
 
-void SalesRep::getToppings(vector<Topping>& toppings) {
+vector<Topping> SalesRep::getToppings() {
+    vector<Topping> toppings;
     ifstream fin;
     fin.open("Topping_Binary.dat", ios::binary);
     if(fin.is_open()) {
@@ -78,9 +82,11 @@ void SalesRep::getToppings(vector<Topping>& toppings) {
     else {
         throw FileNotOpenException();
     }
+    return toppings;
 }
 
-void SalesRep::getCrust(vector<Crust>& crusts) {
+vector<Crust> SalesRep::getCrusts() {
+    vector<Crust> crusts;
     Crust currCrust;
     ifstream fin;
     fin.open("Crust_Binary.dat", ios::binary);
@@ -97,9 +103,11 @@ void SalesRep::getCrust(vector<Crust>& crusts) {
     else {
         throw CrustFileNotFoundException();
     }
+    return crusts;
 }
 
-void SalesRep::getBranches(vector<Branch>& Branches) {
+vector<Branch> SalesRep::getBranches() {
+    vector<Branch> branches;
     ifstream fin;
     fin.open("Branch_Binary.dat", ios::binary);
     if(fin.is_open()) {
@@ -107,7 +115,7 @@ void SalesRep::getBranches(vector<Branch>& Branches) {
             Branch currBranch;
             currBranch.read(fin);
             if(!fin.eof()){
-                Branches.push_back(currBranch);
+                branches.push_back(currBranch);
             }
         }
         fin.close();
@@ -115,6 +123,7 @@ void SalesRep::getBranches(vector<Branch>& Branches) {
     else {
         throw FileNotOpenException();
     }
+    return branches;
 }
 
 void SalesRep::fileOrder(Order& order) {
