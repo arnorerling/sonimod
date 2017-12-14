@@ -126,7 +126,9 @@ void BakerUI::printOrders() {
 void BakerUI:: printOneOrder() {
     Order order = findOrder();
     if (order.getCustomerName() != "") {
+        output.clean();
         cout << order << endl;
+        cout << "-------------------------" << endl;
     }
 }
 

@@ -173,10 +173,27 @@ vector<User> ManagerRep::getUser() {
     return users;
 }
 
-vector<Order> ManagerRep::getOrder() {
+vector<Order> ManagerRep::getLegacyOrder() {
     vector <Order> orders;
     ifstream fin;
     fin.open("LegacyOrder_Binary.dat", ios::binary);
+    if (fin.is_open()) {
+        while(!fin.eof()){
+            Order order;
+            order.read(fin);
+            if(!fin.eof()){
+                orders.push_back(order);
+            }
+        }
+        fin.close();
+    }
+    return orders;
+}
+
+vector<Order> ManagerRep::getWaterlooOrder() {
+    vector <Order> orders;
+    ifstream fin;
+    fin.open("WaterlooOrder_Binary.dat", ios::binary);
     if (fin.is_open()) {
         while(!fin.eof()){
             Order order;

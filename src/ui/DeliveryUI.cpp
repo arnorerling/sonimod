@@ -160,9 +160,10 @@ void DeliveryUI::printReadyOrders() {
 void DeliveryUI:: printOneOrder() {
     Order order = findOrder();
     if (order.getCustomerName() != "") {
+        output.clean();
         cout << order;
+        cout << "----------------------------" << endl;
     }
-    cout << "----------------------------" << endl;
 }
 
 void DeliveryUI::markPaidFor() {

@@ -15,6 +15,7 @@ void ManagerUI::startUI() {
         cout << "1: Add/Change" << endl;
         cout << "2: Remove" << endl;
         cout << "3: Sale Figures" << endl;
+        cout << "4: Failed Orders" << endl;
         cout << "0: Quit" << endl;
         select = checkInput();
 
@@ -28,6 +29,8 @@ void ManagerUI::startUI() {
             case '3':
                 seeSaleFigures();
                 break;
+            case '4':
+                seeFailedOrders();
             case '0':
                 cout << "GoodBye" << endl;
                 break;
@@ -194,6 +197,22 @@ void ManagerUI::seeSaleFigures() {
     string dateTo = checkDate();
 
     printFigures(branch, dateFrom, dateTo);
+    output.wait();
+}
+
+void ManagerUI::seeFailedOrders() {
+    output.clean();
+    printManLogo();
+    printBranch();
+    string branch = checkBranch();
+    cout << "------------Choose a date limit----------" << endl;
+    cout << "\"DD.MM.YYYY\" or press Enter for default" << endl;
+    cout << "Date limit from: ";
+    string dateFrom = checkDate();
+    cout << "Date limit to: ";
+    string dateTo = checkDate();
+
+    printFailedOrders(branch, dateFrom, dateTo);
     output.wait();
 }
 
@@ -490,7 +509,36 @@ void ManagerUI::printFigures(string branch, string dateFrom, string dateTo) {
     }
     cout << "-----"<< endl;
 
-    vector<Order> branchOrders = managerDomain.getBranchOrders(branch);
+    vector<Order> branchOrders = managerDomain.getLegacyBranchOrders(branch);
+    vector<Order> dateFromOrders = managerDomain.getDateFromOrders(dateFrom, branchOrders);
+    vector<Order> dateToOrders = managerDomain.getDateToOrders(dateTo, dateFromOrders);
+
+    int total = 0;
+    for (unsigned int i = 0; i < dateToOrders.size(); i++) {
+        cout << "Order time: " <<  dateToOrders[i].getTimeString();
+        cout << "\tPrice: " << dateToOrders[i].getTotalPrice() << endl;
+        total += dateToOrders[i].getTotalPrice();
+    }
+    cout << endl;
+    cout << "\t\t\t\t\tTotal: " << total << endl;
+    cout << "-------------------" << endl;
+}
+
+void ManagerUI::printFailedOrders(string branch, string dateFrom, string dateTo) {
+        cout << endl;
+    cout << "-----Failed orders";
+    if (!dateFrom.empty()) {
+        cout << " from " << dateFrom;
+    }
+    if (!dateTo.empty()) {
+        cout << " to " << dateTo;
+    }
+    if (!branch.empty()) {
+        cout << " at " << branch;
+    }
+    cout << "-----"<< endl;
+
+    vector<Order> branchOrders = managerDomain.getFailedBranchOrders(branch);
     vector<Order> dateFromOrders = managerDomain.getDateFromOrders(dateFrom, branchOrders);
     vector<Order> dateToOrders = managerDomain.getDateToOrders(dateTo, dateFromOrders);
 

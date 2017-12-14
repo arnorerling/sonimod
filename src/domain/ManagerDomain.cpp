@@ -132,8 +132,22 @@ vector<User> ManagerDomain::getUsers() {
     return users;
 }
 
-vector<Order> ManagerDomain::getBranchOrders(const string &branch) {
-    vector<Order>orders = managerRep.getOrder();
+vector<Order> ManagerDomain::getLegacyBranchOrders(const string &branch) {
+    vector<Order>orders = managerRep.getLegacyOrder();
+    vector<Order>branchOrders;
+    if (branch.empty()) {
+        return orders;
+    }
+    for (unsigned int i = 0; i < orders.size(); i++) {
+        if (orders[i].getBranch() == branch) {
+            branchOrders.push_back(orders[i]);
+        }
+    }
+    return branchOrders;
+}
+
+vector<Order> ManagerDomain::getFailedBranchOrders(const string &branch) {
+    vector<Order>orders = managerRep.getWaterlooOrder();
     vector<Order>branchOrders;
     if (branch.empty()) {
         return orders;
