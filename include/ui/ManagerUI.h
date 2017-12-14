@@ -14,6 +14,8 @@ class ManagerUI
         ManagerDomain managerDomain;
         Output output;
 
+        void printManLogo();
+
     public:
         ManagerUI();
         //the menu for manager
@@ -90,9 +92,6 @@ class ManagerUI
         string checkBranch();
         //check if date is valid
         string checkDate();
-
-        //prints the manager logo
-        void printManLogo();
 };
 
 #endif // MANAGERUI_H

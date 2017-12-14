@@ -161,9 +161,9 @@ ostream& operator << (ostream& out, const Order& order) {
     out << "------------------------------------------------------" << endl;
     out << "Order time: " << ctime(&order.orderTime);
     if(order.ready){
-        out << "Customer Name: " << order.getCustomerName() << endl;
+        out << "Customer name: " << order.getCustomerName() << endl;
         out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
-        out << "Customer adress: " << order.getCustomerAddress() << endl;
+        out << "Customer address: " << order.getCustomerAddress() << endl;
     }
     out << endl;
     if (order.pizzas.size() > 0) {
@@ -186,31 +186,7 @@ ostream& operator << (ostream& out, const Order& order) {
     }
     out << endl;
     out << "Order total: " << order.getTotal() << endl << endl;
-    /*out << endl;
 
-    out << "Been paid for: ";
-    if(order.paidFor) {
-        out << "Yes!" << endl;
-    }
-    else {
-        out << "No!" << endl;
-    }
-    out << "In process: ";
-    if (order.inProcess) {
-        out << "Yes!" << endl;
-    }
-    else {
-    out << "No!" << endl;
-    }
-    out << "Is ready: ";
-    if (order.ready) {
-        out << "Yes!" << endl;
-    }
-    else {
-        out << "No!" << endl;
-    }
-    out << "Been ";
-    */
     if (order.pickup) {
         out << "Order will be picked up at ";
         out << order.getBranch() << endl;
@@ -219,6 +195,7 @@ ostream& operator << (ostream& out, const Order& order) {
         out << "Deliver to address ";
         out << order.getCustomerAddress() << endl;
     }
+        out << "Comments: " << order.comment << endl;
     return out;
 }
 

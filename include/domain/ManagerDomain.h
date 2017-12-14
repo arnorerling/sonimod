@@ -22,8 +22,6 @@ class ManagerDomain
 
     public:
         ManagerDomain();
-        //turns uppercase letters to lowercase
-        void toLowerCase(string &name);
 
         //adds pizza to list, if pizza name already exists,
         //the toppings, crust and price will change
@@ -99,6 +97,9 @@ class ManagerDomain
         bool checkValidBranch(const string &branch);
         //check if a certain date is valid. (Must be "DD.MM.YYYY" format)
         bool checkValidDate(const string &date);
+
+        //turns uppercase letters to lowercase
+        void toLowerCase(string &name);
 
 };
 

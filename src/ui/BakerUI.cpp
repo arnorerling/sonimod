@@ -96,26 +96,19 @@ void BakerUI::printOrders() {
             orderTime = orderList[i].getTime();
             double diff = difftime(time1, orderTime);
             cout << diff << endl;
-            if(diff < 1200 ) {
+            if(diff < 1800 ) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName() << endl;
             }
-            else if(diff >= 1200 && diff < 1800 ) {
+            else if (diff < 3600) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName();
-                cout << " | hurry up! Order is older than 20 minutes" << endl;
-
-            }
-            else if(diff >= 1800 && diff < 7200) {
-                cout << "Number: " << orderList[i].getCustomerPhoneNumber();
-                cout << "Name: " << orderList[i].getCustomerName();
-                cout << " | hurry up! order older than 30 minutes" << endl;
-
+                cout << " | hurry up! order older than 30 min!" << endl;
             }
             else {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName();
-                cout << " | hurry up! order older than 2 hours!" << endl;
+                cout << " | hurry up! order older than 1 hours!" << endl;
             }
         }
         cout << "-----------------------" << endl;

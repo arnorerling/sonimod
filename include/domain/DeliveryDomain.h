@@ -21,16 +21,24 @@ class DeliveryDomain
         vector<Branch> getBranch();
         vector<Order> getOrders(const string &branch);
         vector<Order> getReadyOrders(const string& branch);
+
+        //gets an order based on phone number and branch
         Order getOneOrder(const string &number, const string &branch);
 
+        //marks an order paid for
         void markOrderPaidFor(const Order &order);
+        //marks an order delivered and filed to legacy file
         void markOrderDelivered(Order &order);
+        //deletes an order
         void deleteOrder(const Order &order);
 
+        //checks if a branch is in a file
         bool checkBranchAvaliability(const string &branch);
+        //checks if a number is valid (7 digits)
         bool checkValidNumber(const string num);
-        bool checkValidName(const string &name);
+        //checks if input is valid (one digit)
         bool checkValidInput(const string &input);
+        //turns upper case into lower case letters
         void toLowerCase(string &name);
 };
 

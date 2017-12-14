@@ -11,12 +11,12 @@ void Output::clean() {
 void Output::wait() {
     cout << "Press enter to continue.." << endl;
     cin.ignore();
-    cout << "Screen is clean" << endl;
+    cout  << endl;
 }
 
 void Output::salesWait() {
     cout << "Press enter to continue.." << endl;
     cin.ignore();
     cin.get();
-    cout << "Screen is clean" << endl;
+    cout << endl;
 }

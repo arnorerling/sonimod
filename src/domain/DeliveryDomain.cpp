@@ -116,16 +116,6 @@ bool DeliveryDomain::checkBranchAvaliability(const string &branch) {
     throw NotFoundException();
 }
 
-bool DeliveryDomain::checkValidName(const string &name) {
-
-    for(unsigned int i = 0; i < name.length(); i++){
-        if(isdigit(name[i])){
-             throw InvalidInputException();
-        }
-    }
-    return true;
-}
-
 bool DeliveryDomain::checkValidNumber(const string num){
     for(unsigned int i = 0; i < num.length(); i++){
         if(!isdigit(num[i]) || num.length() != 7){

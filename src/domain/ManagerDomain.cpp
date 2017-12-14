@@ -5,14 +5,6 @@ ManagerDomain::ManagerDomain()
     //ctor
 }
 
-void ManagerDomain::toLowerCase(string &name) {
-    for (unsigned int i = 0; i < name.length(); i++) {
-        if(name[i] != ' ' && isupper(name[i])) {
-            name[i] = tolower(name[i]);
-        }
-    }
-}
-
 bool ManagerDomain::addPizza(const Pizza &pizza) {
     vector<Pizza> pizzas = managerRep.getPizza();
     for (unsigned int i = 0; i < pizzas.size(); i++) {
@@ -469,4 +461,12 @@ bool ManagerDomain::checkValidDate(const string &date) {
     }
 
     return true;
+}
+
+void ManagerDomain::toLowerCase(string &name) {
+    for (unsigned int i = 0; i < name.length(); i++) {
+        if(name[i] != ' ' && isupper(name[i])) {
+            name[i] = tolower(name[i]);
+        }
+    }
 }
