@@ -37,8 +37,6 @@ class DeliveryDomain
         void markOrderDelivered(Order &order);
         //marks an order failed and filed to waterloo file
         void markOrderFailed(Order &order);
-        //deletes an order
-        void deleteOrder(const Order &order);
 
         //checks if a branch is in a file
         bool checkBranchAvaliability(string &branch);

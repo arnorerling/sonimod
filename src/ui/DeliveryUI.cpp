@@ -143,7 +143,7 @@ void DeliveryUI::printReadyOrders() {
             else {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName();
-                cout << " | Order older than 2 hours! Will be thrown out" << endl;
+                cout << " | Order older than 2 hours! Order has failed!" << endl;
                 deliveryDomain.markOrderFailed(orderList[i]);
             }
         }
@@ -251,11 +251,6 @@ Order DeliveryUI::findOrder() {
         cout << "This number is not on the list, try again" << endl;
     }
     return order;
-}
-
-void DeliveryUI::deleteOrder(Order order) {
-    deliveryDomain.deleteOrder(order);
-    cout << order.getCustomerPhoneNumber() << "has been deleted" << endl;
 }
 
 void DeliveryUI::printLogo() {
