@@ -183,5 +183,13 @@ bool SalesDomain::markOrderPaidFor(Order &order) {
     }
 }
 
+bool SalesDomain::checkValidInput(const string &input) {
+    if (input.length() == 1) {
+      return true;
+    }
+    throw InvalidInputException();
+    return false;
+}
+
 
 

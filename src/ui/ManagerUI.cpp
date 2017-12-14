@@ -9,13 +9,13 @@ void ManagerUI::startUI() {
     output.clean();
     printManLogo();
     char select = '\0';
-    while (select != '4') {
+    while (select != '0') {
         output.clean();
         printManLogo();
         cout << "1: Add/Change" << endl;
         cout << "2: Remove" << endl;
         cout << "3: Sale Figures" << endl;
-        cout << "4: Quit" << endl;
+        cout << "0: Quit" << endl;
         select = checkInput();
 
         switch(select) {
@@ -28,7 +28,7 @@ void ManagerUI::startUI() {
             case '3':
                 seeSaleFigures();
                 break;
-            case '4':
+            case '0':
                 cout << "GoodBye" << endl;
                 break;
             default:
@@ -40,7 +40,7 @@ void ManagerUI::startUI() {
 
 void ManagerUI::addChangeMenu() {
     char select = '\0';
-    while (select != '8') {
+    while (select != '0') {
         output.clean();
         printManLogo();
         cout << "-----Add/Change-----" << endl;
@@ -51,7 +51,7 @@ void ManagerUI::addChangeMenu() {
         cout << "5: Sidedish" << endl;
         cout << "6: Branch" << endl;
         cout << "7: User" << endl;
-        cout << "8: Quit" << endl;
+        cout << "0: Quit" << endl;
         cout << "--------------------" << endl;
 
         select = checkInput();
@@ -98,7 +98,7 @@ void ManagerUI::addChangeMenu() {
                 addUser();
                 output.wait();
                 break;
-            case '8':
+            case '0':
                 output.clean();
                 cout << endl;
                 break;
@@ -112,7 +112,7 @@ void ManagerUI::addChangeMenu() {
 
 void ManagerUI::removeFromMenu() {
     char select = '\0';
-    while (select != '8') {
+    while (select != '0') {
         output.clean();
         printManLogo();
         cout << "-----Remove-----" << endl;
@@ -123,7 +123,7 @@ void ManagerUI::removeFromMenu() {
         cout << "5: Sidedish" << endl;
         cout << "6: Branch" << endl;
         cout << "7: User" << endl;
-        cout << "8: Quit" << endl;
+        cout << "0: Quit" << endl;
         cout << "--------------------------" << endl;
         select = checkInput();
         switch(select) {
@@ -169,7 +169,7 @@ void ManagerUI::removeFromMenu() {
                 removeUser();
                 output.wait();
                 break;
-            case '8':
+            case '0':
                 output.clean();
                 cout << endl;
                 break;

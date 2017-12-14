@@ -11,12 +11,12 @@ void DeliveryUI::startUI() {
 
     char select;
     if(branch == "") {
-        select = '6';
+        select = '0';
     }
     else {
         select = '\0';
     }
-    while (select != '6') {
+    while (select != '0') {
         output.clean();
         printLogo();
         cout << "---------------------" << endl;
@@ -25,7 +25,7 @@ void DeliveryUI::startUI() {
         cout << "3: Get order" << endl;
         cout << "4: Mark order paid" << endl;
         cout << "5: Mark order delivered/picked up" << endl;
-        cout << "6: Quit" << endl;
+        cout << "0: Quit" << endl;
         select = checkInput();
 
         switch(select) {
@@ -49,7 +49,7 @@ void DeliveryUI::startUI() {
                 markDelivered();
                 output.wait();
                 break;
-            case '6':
+            case '0':
                 cout << endl;
                 break;
             default:

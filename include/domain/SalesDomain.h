@@ -40,6 +40,7 @@ class SalesDomain {
         int isValidNumber(string &number);
         bool checkValidAnswer(const string &answer);
         void checkOrder(const Order &order);
+        bool checkValidInput(const string &input);
 
         // file order sends the order from the UI to the rep
         void fileOrder(Order &order);
