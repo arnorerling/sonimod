@@ -19,7 +19,7 @@ class BakerUI
         Order findOrder();
 
     public:
-
+        //Starts UI for sales, prints out menu
         BakerUI();
         //start menu for baker
         void startUI();
@@ -30,6 +30,7 @@ class BakerUI
         void printRestaurants();
         //prints all orders that are not ready
         //phone numbers and name
+        //tell baker to hurry up if order is older than 30min and 1hour
         void printOrders();
         //user chooses an order and the whole order will print out
         void printOneOrder();

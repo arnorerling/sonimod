@@ -13,7 +13,10 @@ class MainRep {
     private:
         MD5 charmd5;
     public:
+        // Constructor
         MainRep();
+
+        //gets users from a file
         vector<User> getUsers();
 };
 

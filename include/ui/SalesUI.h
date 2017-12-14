@@ -17,9 +17,9 @@ class SalesUI {
         Order order;
 
     public:
-
-        //Starts UI for sales, prints out menu
+        // Constructor
         SalesUI();
+        //Starts UI for sales, prints out menu
         void startUI();
 
         //Add functions

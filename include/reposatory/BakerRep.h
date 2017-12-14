@@ -12,7 +12,9 @@ class BakerRep
     private:
 
     public:
+        // Constructor
         BakerRep();
+
         //returns all branch classes from a file
         vector<Branch> getBranches();
         //returns all order classes from a file

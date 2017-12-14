@@ -16,14 +16,22 @@ class MainUI
         MainDomain mainDomain;
         Output output;
     public:
+        //Starts UI for sales, prints out menu
         MainUI();
+        //starts main menu
         void start();
-        void login();
-        void mainMenu();
-        void SetStdinEcho(bool enable);
 
+        //user can login
+        void login();
+        //if user is a manager he will go to mainMenu for all
+        void mainMenu();
+        //hides the input when bool parameter is false
+        void SetStdinEcho(bool enable);
+        //check input
         char checkInput();
+        //checks if user is in list
         User checkUser();
+        //prints Sonimod logo
         void printLogo();
 };
 

@@ -21,6 +21,7 @@ class ManagerDomain
         ManagerRep managerRep;
 
     public:
+        // Constructor
         ManagerDomain();
 
         //adds item to list.
