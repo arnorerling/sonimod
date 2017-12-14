@@ -124,14 +124,14 @@ void DeliveryUI::printReadyOrders() {
         for(unsigned int i = 0; i < orderList.size(); i++) {
             orderTime = orderList[i].getTime();
             double diff = difftime(time1, orderTime);
-            if(diff < 1200) {
+            if(diff < 1800) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName() << endl;
             }
-            else if(diff < 1800 ) {
+            else if(diff < 3600 ) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName();
-                cout << " | hurry up! Order is older than 20 minutes" << endl;
+                cout << " | hurry up! Order is older than 30 minutes" << endl;
 
             }
             else if(diff < 7200) {
