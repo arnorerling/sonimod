@@ -20,12 +20,12 @@ class SalesDomain {
         SalesDomain();
 
         // Get functions that call functions in the repository to fill arrays
-        void getDrinks(vector<Drink>& drinks);
-        void getSidedishes(vector<Sidedish>& sidedishes);
-        void getPizzas(vector<Pizza>& pizzas);
-        void getToppings(vector<Topping>& toppings);
-        void getCrusts(vector<Crust>& crusts);
-        void getBranches(vector<Branch>& branches);
+        vector<Drink> getDrinks();
+        vector<Sidedish> getSidedishes();
+        vector<Pizza> getPizzas();
+        vector<Topping> getToppings();
+        vector<Crust> getCrusts();
+        vector<Branch> getBranches();
 
         // Functions that take parameters from the UI class and validates them
         bool isValidName(string name);

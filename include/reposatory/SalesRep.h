@@ -23,12 +23,12 @@ class SalesRep
         SalesRep();
 
         //takes vectors from the domain and filles them up
-        void getDrinks(vector<Drink>& drinks);
-        void getSidedishes(vector<Sidedish>& sidedishes);
-        void getPizzas(vector<Pizza>& pizzas);
-        void getToppings(vector<Topping>& toppings);
-        void getCrust(vector<Crust>& crusts);
-        void getBranches(vector<Branch>& branches);
+        vector<Drink> getDrinks();
+        vector<Sidedish> getSidedishes();
+        vector<Pizza> getPizzas();
+        vector<Topping> getToppings();
+        vector<Crust> getCrusts();
+        vector<Branch> getBranches();
 
         //writes the current order to orders_binary
         void fileOrder(Order& order);
