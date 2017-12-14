@@ -128,6 +128,12 @@ bool SalesDomain::checkBranchAvailability(const string &branch) {
     throw NotFoundException();
 }
 
+void SalesDomain::checkOrder(const Order &order) {
+    if(order.getOrderSize() == 0) {
+        throw CantFileOrderException();
+    }
+}
+
 void SalesDomain::fileOrder(Order &order) {
     salesRep.fileOrder(order);
 }
@@ -176,4 +182,6 @@ bool SalesDomain::markOrderPaidFor(Order &order) {
         return true;
     }
 }
+
+
 

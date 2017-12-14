@@ -7,6 +7,7 @@
 #include "NotFoundException.h"
 #include "InvalidInputException.h"
 #include "AlreadyMarkedException.h"
+#include "CantFileOrderException.h"
 #include <stdlib.h>
 
 class SalesDomain {
@@ -38,6 +39,7 @@ class SalesDomain {
         void checkYesOrNo(string check);
         int isValidNumber(string &number);
         bool checkValidAnswer(const string &answer);
+        void checkOrder(const Order &order);
 
         // file order sends the order from the UI to the rep
         void fileOrder(Order &order);

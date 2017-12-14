@@ -20,7 +20,7 @@ void MainUI::start() {
         answer = checkInput();
 
         switch (answer) {
-            case '1': login();
+            case '1': mainMenu();
             break;
             case '2': cout << endl;
             break;

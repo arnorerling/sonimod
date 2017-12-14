@@ -67,6 +67,7 @@ class Order {
 
         int getTotal() const;
         int getTotalPrice() const;
+        int getOrderSize() const;
 
         void cleanOrder();
 

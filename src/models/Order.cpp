@@ -137,6 +137,14 @@ int Order::getTotalPrice() const {
     return this->totalPrice;
 }
 
+int Order::getOrderSize() const {
+    int size = 0;
+    size += pizzas.size();
+    size += sideDishes.size();
+    size += drinks.size();
+    return size;
+}
+
 void Order::cleanOrder() {
     this->pizzas.clear();
     this->drinks.clear();

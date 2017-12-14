@@ -349,7 +349,9 @@ void SalesUI::printSidedishes() {
 }
 
 void SalesUI::fileOrder(){
+
     try{
+        salesDomain.checkOrder(this->order);
         addCustomer();
         addBranch();
         this->order.setTime();
@@ -372,9 +374,13 @@ void SalesUI::fileOrder(){
         cout << "Order filed!" << endl;
         this->order.cleanOrder();
     }
-    catch(FileNotOpenException){
+    catch(FileNotOpenException) {
         cout << "Branch file not found" << endl;
         cout << "Please call IT, order can not be filed!" << endl;
+        output.salesWait();
+    }
+    catch(CantFileOrderException) {
+        cout << "There is nothing in the Order, Order wont be filed!" << endl;
         output.salesWait();
     }
 
