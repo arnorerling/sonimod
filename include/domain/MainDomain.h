@@ -13,6 +13,7 @@ class MainDomain
 
     public:
         MainDomain();
+        void checkUserList();
         bool checkValidInput(string &select);
         User checkUser(string &name, string &password);
 };

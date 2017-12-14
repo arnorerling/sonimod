@@ -12,7 +12,15 @@ MainUI::MainUI() {
 
 void MainUI::start() {
     char answer = '\0';
+    try {
+        mainDomain.checkUserList();
+    }
+    catch (FileNotOpenException) {
+        cout << "User list not found, only system admin can login" << endl;
+        output.wait();
+    }
     while (answer != '2') {
+
         output.clean();
         printLogo();
         cout << "1: Login" << endl;
@@ -20,7 +28,7 @@ void MainUI::start() {
         answer = checkInput();
 
         switch (answer) {
-            case '1': mainMenu();
+            case '1': login();
             break;
             case '2': cout << endl;
             break;
@@ -62,7 +70,7 @@ void MainUI::mainMenu() {
         output.clean();
         printLogo();
         cout << "------Main Menu------" << endl;
-        cout << "1: Mananger" << endl;
+        cout << "1: Manager" << endl;
         cout << "2: Sales" << endl;
         cout << "3: Baker" << endl;
         cout << "4: Delivery" << endl;

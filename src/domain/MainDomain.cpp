@@ -5,6 +5,9 @@ MainDomain::MainDomain()
     //ctor
 }
 
+void MainDomain::checkUserList() {
+    vector<User> userList = mainRep.getUsers();
+}
 bool MainDomain::checkValidInput(string &select) {
     if (select.length() == 1) {
         return true;
