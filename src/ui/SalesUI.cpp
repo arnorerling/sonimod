@@ -13,9 +13,9 @@ void SalesUI::startUI() {
         printLogo();
         select = '\0';
         cout << "------------------" << endl;
-        cout << "1: Add Pizza" << endl;
+        cout << "1: Add pizza" << endl;
         cout << "2: Add pizza from menu" << endl;
-        cout << "3: Add Sidedish" << endl;
+        cout << "3: Add sidedish" << endl;
         cout << "4: Add drink" << endl;
         cout << "5: Print order" << endl;
         cout << "6: Get order total" << endl;
@@ -200,10 +200,11 @@ void SalesUI::addDrink() {
         }
         catch(NotFoundException) {
             cout << "Drink not available!" << endl;
+            output.wait();
         }
         catch(FileNotOpenException) {
             cout << "Drink file not found" << endl;
-            output.salesWait();
+            output.wait();
             break;
         }
     }
@@ -224,10 +225,11 @@ void SalesUI::addSidedish() {
         catch(NotFoundException) {
             output.clean();
             cout << "Sidedish not available!" << endl;
+            output.wait();
         }
         catch(FileNotOpenException) {
             cout << "Sidedish file not found" << endl;
-            output.salesWait();
+            output.wait();
             break;
         }
     }
