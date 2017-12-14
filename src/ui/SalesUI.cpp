@@ -116,7 +116,7 @@ void SalesUI::addPizzaMenu() {
     }
     catch(FileNotOpenException) {
         cout << "Adding a pizza not available!, pizza file not found" << endl;
-        output.salesWait();
+        output.wait();
     }
     catch(CrustFileNotFoundException) {
         cout << "Adding a pizza not available!, crust file not found" << endl;
