@@ -48,13 +48,13 @@ void SalesUI::startUI() {
             case '5': {
                 output.clean();
                 cout << this->order;
-                output.salesWait();
+                output.wait();
                 break;
             }
             case '6': {
                 output.clean();
                 cout << "Order total: "<< this->order.getTotalPrice() << "kr" << endl;
-                output.salesWait();
+                output.wait();
 
                 break;
             }
@@ -104,6 +104,14 @@ void SalesUI::addPizza() {
         cout << "Adding a pizza not available!, crust file not found" << endl;
         output.salesWait();
     }
+    catch(LengthNotRightException) {
+        cout << "Crust file empty!" << endl;
+        output.wait();
+    }
+    catch(LengthNotRightException) {
+        cout << "Topping file empty" << endl;
+        output.wait();
+    }
 }
 
 void SalesUI::addPizzaMenu() {
@@ -123,6 +131,15 @@ void SalesUI::addPizzaMenu() {
         cout << "Adding a pizza not available!, crust file not found" << endl;
         output.salesWait();
     }
+    catch(LengthNotRightException) {
+        cout << "Pizza file empty!!" << endl;
+        output.wait();
+    }
+    catch(LengthNotRightException) {
+        cout << "Crust file empty!" << endl;
+        output.wait();
+    }
+
 }
 
 void SalesUI::choosePizza(Pizza &pizza, int &size) {
@@ -136,7 +153,8 @@ void SalesUI::choosePizza(Pizza &pizza, int &size) {
             pizza.setName(name);
         }
         catch(NotFoundException) {
-            cout << "Pizza not available!" << endl;
+            cout << "Pizza file not available!" << endl;
+            output.salesWait();
         }
     }
 }
@@ -207,6 +225,11 @@ void SalesUI::addDrink() {
             output.wait();
             break;
         }
+        catch(LengthNotRightException) {
+            cout << "Drink file empty" << endl;
+            output.wait();
+            break;
+        }
     }
 }
 
@@ -229,6 +252,11 @@ void SalesUI::addSidedish() {
         }
         catch(FileNotOpenException) {
             cout << "Sidedish file not found" << endl;
+            output.wait();
+            break;
+        }
+        catch(LengthNotRightException) {
+            cout << "Sidedish file empty" << endl;
             output.wait();
             break;
         }
@@ -349,7 +377,6 @@ void SalesUI::printSidedishes() {
 }
 
 void SalesUI::fileOrder(){
-
     try{
         salesDomain.checkOrder(this->order);
         this->addCustomer();
@@ -377,13 +404,16 @@ void SalesUI::fileOrder(){
     catch(FileNotOpenException) {
         cout << "Branch file not found" << endl;
         cout << "Please call IT, order can not be filed!" << endl;
-        output.salesWait();
+        output.wait();
     }
     catch(CantFileOrderException) {
         cout << "There is nothing in the Order, Order wont be filed!" << endl;
-        output.salesWait();
+        output.wait();
     }
-
+    catch(LengthNotRightException) {
+        cout << "Branch file empty call IT" << endl;
+        output.wait();
+    }
 }
 
 string SalesUI::addComment(){
