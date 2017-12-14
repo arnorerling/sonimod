@@ -18,4 +18,4 @@ Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum 
 
 ## Acknowledgments
 
-Við notuðum kóðabút frá * [Stackoverflow](https://stackoverflow.com/questions/1413445/reading-a-password-from-stdcin) til að fela passwordið þegar maður skrifar það inn (óháð stýrikerfi).
+Við notuðum kóðabút frá [Stackoverflow](https://stackoverflow.com/questions/1413445/reading-a-password-from-stdcin) til að fela passwordið þegar maður skrifar það inn (óháð stýrikerfi).
