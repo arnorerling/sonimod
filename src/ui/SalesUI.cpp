@@ -13,7 +13,6 @@ void SalesUI::startUI() {
     while (select != '8') {
         output.clean();
         printLogo();
-
         select = '\0';
         cout << "------------------" << endl;
         cout << "1: Add Pizza" << endl;
@@ -56,7 +55,7 @@ void SalesUI::startUI() {
             }
             case '6': {
                 output.clean();
-                cout << "Order total: "<< this->order.getTotal() << "kr" << endl;
+                cout << "Order total: "<< this->order.getTotalPrice() << "kr" << endl;
                 output.salesWait();
 
                 break;
@@ -72,6 +71,7 @@ void SalesUI::startUI() {
                 break;
             }
         }
+        this->order.setTotal();
     }
 
 }
