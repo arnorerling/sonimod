@@ -70,10 +70,6 @@ void Order::setTime() {
     this->orderTime = time(0);
 }
 
-void Order::addTotalPrice(int price) {
-    this->totalPrice += price;
-}
-
 string Order::getCustomerName() const {
     return this->customerName;
 }

@@ -35,6 +35,7 @@ class Order {
     public:
         Order();
 
+        //adds to private variables
         void addPizza(Pizza& pizza);
         void addSideDish(Sidedish& sidedish);
         void addDrink(Drink& drink);
@@ -42,9 +43,9 @@ class Order {
         void addCustomerPhoneNum(const string &num);
         void addCustomerAddress(const string &address);
         void addBranch(const string &branch);
-        void addTotalPrice(int price);
         void addComment(string comment);
 
+        //sets private variables
         void setPaidFor(bool paidFor);
         void setInProcess(bool inProcess);
         void setReady(bool ready);
@@ -53,6 +54,7 @@ class Order {
         void setTime();
         void setTotal();
 
+        //gets private variables
         string getCustomerName() const;
         string getCustomerPhoneNumber() const;
         string getCustomerAddress() const;
@@ -67,12 +69,16 @@ class Order {
         int getTotalPrice() const;
         int getOrderSize() const;
 
+        //deletes everything from order
         void cleanOrder();
-
+        //overwrites cout operator for order class
         friend ostream& operator << (ostream& out, const Order& order);
+        //checks if two orders have the same phone numbers and branch
         friend bool operator == (const Order &left_order, const Order &right_order);
+        //checks if two orders dont have the same phone number or branch
         friend bool operator != (const Order &left_order, const Order &right_order);
 
+        //reads and writes into files
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 };

@@ -16,23 +16,29 @@ class User {
         MD5 charmd5;
 
     public:
+        //constructors
         User();
         User(string username);
         User(string username, string password, char jobNumber);
 
+        //read and write into files
         void read(ifstream& fin);
         void write(ofstream& fout) const;
 
+        //gets private variables
         string getName() const;
         string getPassword() const;
         char getJobNumber() const;
         string getJob() const;
 
+        //sets private variables
         void setName(const string &name);
         void setPassword(const string &pw);
         void setJobNumber(const int &num);
 
+        //overwrites cout operator
         friend ostream& operator << (ostream &out, User &user);
+        //checks if two users have the same name
         friend bool operator == (const User &left_user, const User &right_user);
 };
 
