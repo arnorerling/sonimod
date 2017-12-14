@@ -11,6 +11,7 @@ Order::Order() {
     this->branch = "";
     this->customerAddress = "";
     this->orderTime = time(0);
+    this->totalPrice = 0;
 }
 
 void Order::addPizza(Pizza& pizza) {
@@ -119,7 +120,7 @@ bool Order::getPickup() const {
     return pickup;
 }
 
-int Order::getTotal() const {
+void Order::setTotal() {
     int total = 0;
     for(unsigned int i = 0; i < this->pizzas.size(); i++) {
         total += this->pizzas[i].getPrice();
@@ -130,7 +131,7 @@ int Order::getTotal() const {
     for(unsigned int i = 0; i < this->drinks.size(); i++) {
         total += this->drinks[i].getPrice();
     }
-    return total;
+    this->totalPrice = total;
 }
 
 int Order::getTotalPrice() const {
@@ -193,7 +194,7 @@ ostream& operator << (ostream& out, const Order& order) {
         }
     }
     out << endl;
-    out << "Order total: " << order.getTotal() << endl << endl;
+    out << "Order total: " << order.totalPrice << endl << endl;
 
     if (order.pickup) {
         out << "Order will be picked up at ";

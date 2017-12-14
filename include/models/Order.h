@@ -51,6 +51,7 @@ class Order {
         void setDeliverd(bool deliverd);
         void setPickup(bool pickup);
         void setTime();
+        void setTotal();
 
         string getCustomerName() const;
         string getCustomerPhoneNumber() const;
@@ -58,14 +59,11 @@ class Order {
         string getBranch() const;
         string getTimeString() const;
         time_t getTime() const;
-
         bool getPaidFor() const;
         bool getInProcess() const;
         bool getReady() const;
         bool getDeliverd() const;
         bool getPickup() const;
-
-        int getTotal() const;
         int getTotalPrice() const;
         int getOrderSize() const;
 

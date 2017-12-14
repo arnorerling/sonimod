@@ -495,8 +495,8 @@ void ManagerUI::printFigures(string branch, string dateFrom, string dateTo) {
     int total = 0;
     for (unsigned int i = 0; i < dateToOrders.size(); i++) {
         cout << "Order time: " <<  dateToOrders[i].getTimeString();
-        cout << "\tPrice: " << dateToOrders[i].getTotal() << endl;
-        total += dateToOrders[i].getTotal();
+        cout << "\tPrice: " << dateToOrders[i].getTotalPrice() << endl;
+        total += dateToOrders[i].getTotalPrice();
     }
     cout << endl;
     cout << "\t\t\t\t\tTotal: " << total << endl;
