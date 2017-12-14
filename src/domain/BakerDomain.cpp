@@ -86,9 +86,7 @@ void BakerDomain::markOrderReady(const Order &order) {
 
 bool BakerDomain::checkBranchAvaliability(string &branchName) {
     vector<Branch> branches = getBranch();
-    if(branches.size() == 0) {
-        throw LengthNotRightException();
-    }
+
     for(unsigned int i = 0; i < branches.size(); i++){
         if(branches[i].getName() == branchName) {
             return true;

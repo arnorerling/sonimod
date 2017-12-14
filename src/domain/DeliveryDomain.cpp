@@ -105,9 +105,7 @@ void DeliveryDomain::deleteOrder(const Order &order) {
 
 bool DeliveryDomain::checkBranchAvaliability(const string &branch) {
     vector<Branch> branches = getBranch();
-    if(branches.size() == 0) {
-        throw LengthNotRightException();
-    }
+
     for(unsigned int i = 0; i < branches.size(); i++){
         if(branches[i].getName() == branch) {
             return true;

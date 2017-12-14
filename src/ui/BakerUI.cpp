@@ -55,24 +55,27 @@ void BakerUI::startUI() {
 
 void BakerUI::chooseRestaurant() {
     bool available = false;
-    try{
-        while(!available ){
+    while(!available ){
+        try {
             printRestaurants();
-            cout << "Choose restaurant? ";
-            this->branch = checkName();
+            cout << "Choose restaurant branch? ";
+            cin >> ws;
+            getline(cin, this->branch);
             available = bakerDomain.checkBranchAvaliability(branch);
         }
-    }
-    catch(NotFoundException) {
-        cout << "This restaurant is not available" << endl;
-    }
-    catch(LengthNotRightException) {
-        cout << "Restaurant list empty" << endl;
-        output.wait();
-    }
-    catch(FileNotOpenException) {
-        cout << "Restaurant file not found" << endl;
-        output.wait();
+        catch(NotFoundException){
+            cout << "This branch is not on the list" << endl;
+        }
+        catch(LengthNotRightException) {
+            cout << "Branch list is empty" << endl;
+            output.wait();
+            break;
+        }
+        catch(FileNotOpenException) {
+            cout << "Branch file not found" << endl;
+            output.wait();
+            break;
+        }
     }
 }
 

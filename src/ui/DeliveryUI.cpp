@@ -61,9 +61,9 @@ void DeliveryUI::startUI() {
 
 void DeliveryUI::chooseRestaurant() {
     bool available = false;
-    printRestaurants();
     while(!available ){
         try {
+            printRestaurants();
             cout << "Choose restaurant branch? ";
             cin >> ws;
             getline(cin, this->branch);
