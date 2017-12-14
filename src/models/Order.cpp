@@ -209,7 +209,7 @@ ostream& operator << (ostream& out, const Order& order) {
         }
     }
     else {
-        out << "Nothing in order." << endl << endl;
+        out << "Nothing in order." << endl;
     }
     return out;
 }

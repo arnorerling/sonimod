@@ -62,7 +62,7 @@ ostream& operator << (ostream& out,const Pizza& pizza) {
     for(unsigned int i = 0; i < pizza.toppings.size(); i++) {
         out << pizza.toppings[i].getName() << ", ";
     }
-    out << "Crust: " << pizza.crust.getName() << " Price: "<< pizza.getPrice();
+    out << "Crust: " << pizza.crust.getName() << " Price: "<< pizza.getPrice() << endl;
 
     return out;
 }
