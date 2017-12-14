@@ -23,7 +23,7 @@ class DeliveryUI
 
         //starts the menu for delivery
         void startUI();
-        //lets the delivery choose a restaurant branch
+        //delivery chooses a restaurant branch
         void chooseRestaurant();
         //prints out all the restaurant branches
 

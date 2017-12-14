@@ -13,9 +13,12 @@ class BakerRep
 
     public:
         BakerRep();
-        vector<Branch> getBranch();
+        //returns all branch classes from a file
+        vector<Branch> getBranches();
+        //returns all order classes from a file
         vector<Order> getOrders();
 
+        //overwrites a file with a vector of order classes
         void changeOrderList(vector<Order> &orders);
 };
 

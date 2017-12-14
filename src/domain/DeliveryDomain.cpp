@@ -103,8 +103,9 @@ void DeliveryDomain::deleteOrder(const Order &order) {
     deliveryRep.changeOrderList(orderList);
 }
 
-bool DeliveryDomain::checkBranchAvaliability(const string &branch) {
+bool DeliveryDomain::checkBranchAvaliability(string &branch) {
     vector<Branch> branches = getBranch();
+    toLowerCase(branch);
 
     for(unsigned int i = 0; i < branches.size(); i++){
         if(branches[i].getName() == branch) {
@@ -114,7 +115,7 @@ bool DeliveryDomain::checkBranchAvaliability(const string &branch) {
     throw NotFoundException();
 }
 
-bool DeliveryDomain::checkValidNumber(const string num){
+bool DeliveryDomain::checkValidNumber(const string &num){
     for(unsigned int i = 0; i < num.length(); i++){
         if(!isdigit(num[i]) || num.length() != 7){
              throw InvalidInputException();
@@ -132,7 +133,6 @@ bool DeliveryDomain::checkValidInput(const string &input) {
 }
 
 void DeliveryDomain::toLowerCase(string &name) {
-
     for (unsigned int i = 0; i < name.length(); i++) {
         if(name[i] != ' ' && isupper(name[i])) {
             name[i] = tolower(name[i]);
