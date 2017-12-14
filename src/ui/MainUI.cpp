@@ -19,18 +19,18 @@ void MainUI::start() {
         cout << "User list not found, only system admin can login" << endl;
         output.wait();
     }
-    while (answer != '2') {
+    while (answer != '0') {
 
         output.clean();
         printLogo();
         cout << "1: Login" << endl;
-        cout << "2: Quit" << endl;
+        cout << "0: Quit" << endl;
         answer = checkInput();
 
         switch (answer) {
             case '1': login();
             break;
-            case '2': cout << endl;
+            case '0': cout << endl;
             break;
             default: cout << "Invalid input" << endl;
         }
@@ -66,7 +66,7 @@ void MainUI::login() {
 void MainUI::mainMenu() {
 
     char answer = '\0';
-    while (answer != '5') {
+    while (answer != '0') {
         output.clean();
         printLogo();
         cout << "------Main Menu------" << endl;
@@ -74,7 +74,7 @@ void MainUI::mainMenu() {
         cout << "2: Sales" << endl;
         cout << "3: Baker" << endl;
         cout << "4: Delivery" << endl;
-        cout << "5: Quit" << endl;
+        cout << "0: Quit" << endl;
         cout << "---------------------" << endl;
         answer = checkInput();
         cout << answer << endl;
@@ -100,7 +100,7 @@ void MainUI::mainMenu() {
                 deliveryui.startUI();
                 break;
             }
-            case '5': {
+            case '0': {
                 cout << endl;
                 break;
             }

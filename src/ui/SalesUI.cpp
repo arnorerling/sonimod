@@ -6,11 +6,9 @@ SalesUI::SalesUI() {
 }
 
 void SalesUI::startUI() {
-    Order order;
-
 
     char select = '\0';
-    while (select != '8') {
+    while (select != '0') {
         output.clean();
         printLogo();
         select = '\0';
@@ -22,29 +20,29 @@ void SalesUI::startUI() {
         cout << "5: Print order" << endl;
         cout << "6: Get order total" << endl;
         cout << "7: File order" << endl;
-        cout << "8: Quit" << endl;
+        cout << "0: Quit" << endl;
         cout << "------------------" << endl;
-        cin >> select;
+        select = checkInput();
 
         switch(select) {
             case '1': {
                 output.clean();
-                addPizza();
+                this->addPizza();
                 break;
             }
             case '2': {
                 output.clean();
-                addPizzaMenu();
+                this->addPizzaMenu();
                 break;
             }
             case '3': {
                 output.clean();
-                addSidedish();
+                this->addSidedish();
                 break;
             }
             case '4': {
                 output.clean();
-                addDrink();
+                this->addDrink();
                 break;
             }
             case '5': {
@@ -62,14 +60,17 @@ void SalesUI::startUI() {
             }
             case '7': {
                 output.clean();
-                fileOrder();
+                this->fileOrder();
                 break;
             }
-            case '8': {
+            case '0': {
                 output.clean();
                 cout << "Have a good day!" << endl;
                 break;
             }
+            default:
+                cout << "Invalid input" << endl;
+                output.wait();
         }
         this->order.setTotal();
     }
@@ -81,8 +82,8 @@ void SalesUI::addCustomer() {
     string name = validName();
     cout << "Customers's number: ";
     string phoneNumber = validPhoneNumber();
-    order.addCustomerName(name);
-    order.addCustomerPhoneNum(phoneNumber);
+    this->order.addCustomerName(name);
+    this->order.addCustomerPhoneNum(phoneNumber);
 }
 
 void SalesUI::addPizza() {
@@ -93,7 +94,7 @@ void SalesUI::addPizza() {
         output.clean();
         this->addToppings(pizza);
         pizza.setPrice();
-        order.addPizza(pizza);
+        this->order.addPizza(pizza);
     }
     catch(FileNotOpenException) {
         cout << "Adding a pizza not available!, topping file not found" << endl;
@@ -112,7 +113,7 @@ void SalesUI::addPizzaMenu() {
         this->addCrust(pizza, size);
         output.clean();
         this->choosePizza(pizza, size);
-        order.addPizza(pizza);
+        this->order.addPizza(pizza);
     }
     catch(FileNotOpenException) {
         cout << "Adding a pizza not available!, pizza file not found" << endl;
@@ -155,7 +156,9 @@ void SalesUI::addCrust(Pizza &pizza, int &size) {
         }
         catch(NotFoundException) {
             cout << "Crust not available!" << endl;
+            output.wait();
         }
+        output.clean();
     }
 }
 
@@ -168,16 +171,16 @@ void SalesUI::addToppings(Pizza &pizza) {
         cout << "Topping name: ";
         string name = validName();
         Topping topping(name);
-
-            salesDomain.checkToppingAvailability(topping);
-            pizza.addTopping(topping);
-            cout << "Add another topping (y/n)?";
+        salesDomain.checkToppingAvailability(topping);
+        pizza.addTopping(topping);
+        cout << "Add another topping (y/n)?";
         }
         catch(NotFoundException) {
             cout << "Topping not avaliable!" << endl;
             cout << "Try another topping (y/n)? ";
         }
         addTopping = validAnswer();
+        output.clean();
     }
 }
 
@@ -186,7 +189,7 @@ void SalesUI::addDrink() {
     string name;
     while(!available) {
         try {
-            printDrinks();
+            this->printDrinks();
             cout << "Drink name: ";
             string name = validName();
             cout << "Size: ";
@@ -211,7 +214,7 @@ void SalesUI::addSidedish() {
     bool available = false;
     while(!available) {
         try {
-            printSidedishes();
+            this->printSidedishes();
             cout << "Sidedish name: ";
             string name = validName();
             Sidedish sidedish(name);
@@ -257,7 +260,7 @@ void SalesUI::addAddress() {
     }
     else {
         this->order.addCustomerAddress(address);
-        cout << order.getCustomerAddress() << endl;
+        cout << this->order.getCustomerAddress() << endl;
     }
 
 }
@@ -347,8 +350,8 @@ void SalesUI::fileOrder(){
 
     try{
         salesDomain.checkOrder(this->order);
-        addCustomer();
-        addBranch();
+        this->addCustomer();
+        this->addBranch();
         this->order.setTime();
         order.addComment(this->addComment());
         cout << "Mark as paid(y/n): ";
@@ -380,6 +383,7 @@ void SalesUI::fileOrder(){
     }
 
 }
+
 string SalesUI::addComment(){
     cout << "Add comment: ";
     string comment;
@@ -387,6 +391,7 @@ string SalesUI::addComment(){
     getline(cin, comment);
     return comment;
 }
+
 string SalesUI::validName() {
     string name = "";
     bool allowed = false;
@@ -460,6 +465,24 @@ char SalesUI::validAnswer() {
     return answer1;
 }
 
+char SalesUI::checkInput() {
+    string input = "";
+    char input1 = '\0';
+    bool allowed = false;
+
+    while(!allowed) {
+        cin >> ws;
+        getline(cin, input);
+        try{
+            allowed = salesDomain.checkValidInput(input);
+            input1 = input[0];
+        }
+        catch(InvalidInputException) {
+            cout << "Invalid input" << endl;
+        }
+    }
+    return input1;
+}
 void SalesUI::printLogo() {
     cout << "____ ____ _    ____ ____ " << endl;
     cout << "[__  |__| |    |___ [__  " << endl;

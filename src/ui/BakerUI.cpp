@@ -10,12 +10,12 @@ void BakerUI::startUI() {
 
     char select;
     if(branch == "") {
-        select = '5';
+        select = '0';
     }
     else {
         select = '\0';
     }
-    while (select != '5') {
+    while (select != '0') {
         output.clean();
         printLogo();
         cout << "---------------------" << endl;
@@ -23,7 +23,7 @@ void BakerUI::startUI() {
         cout << "2: Choose order " << endl;
         cout << "3: Mark order in process" << endl;
         cout << "4: Mark order ready" << endl;
-        cout << "5: Quit" << endl;
+        cout << "0: Quit" << endl;
         select = checkInput();
 
         switch(select) {
@@ -43,7 +43,7 @@ void BakerUI::startUI() {
                 markReady();
                 output.wait();
             break;
-            case '5':
+            case '0':
                 cout << endl;
             break;
             default:
@@ -98,7 +98,6 @@ void BakerUI::printOrders() {
         for(unsigned int i = 0; i < orderList.size(); i++) {
             orderTime = orderList[i].getTime();
             double diff = difftime(time1, orderTime);
-            cout << diff << endl;
             if(diff < 1800 ) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName() << endl;

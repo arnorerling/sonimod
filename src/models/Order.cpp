@@ -175,19 +175,21 @@ ostream& operator << (ostream& out, const Order& order) {
         if (order.pizzas.size() > 0) {
             out << "Pizzas: " << endl;
             for(unsigned int i = 0; i < order.pizzas.size(); i++) {
-                out << order.pizzas[i] << endl;
+                out << order.pizzas[i];
             }
         }
+        out << endl;
         if (order.sideDishes.size() > 0) {
             out << "Sidedishes: " << endl;
             for(unsigned int i = 0; i < order.sideDishes.size(); i++) {
                 out << order.sideDishes[i] << endl;
             }
         }
+        out << endl;
         if (order.drinks.size() > 0) {
             out << "Drinks: " << endl;
             for(unsigned int i = 0; i < order.drinks.size(); i++) {
-                out << order.drinks[i] << endl;
+                out << order.drinks[i];
             }
         }
         out << endl;

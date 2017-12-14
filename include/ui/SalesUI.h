@@ -49,6 +49,7 @@ class SalesUI {
         string validPhoneNumber();
         int validNumber();
         char validAnswer();
+        char checkInput();
         void markPaidFor();
         void choosePizza(Pizza &pizza, int& size);
 
