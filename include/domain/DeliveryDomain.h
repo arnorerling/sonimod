@@ -18,7 +18,9 @@ class DeliveryDomain
         void toLowerCase(string &name);
 
     public:
+        // Constructor
         DeliveryDomain();
+
         //gets all restaurant branches
         vector<Branch> getBranch();
         //get all orders

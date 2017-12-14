@@ -14,7 +14,9 @@
 class ManagerRep
 {
     public:
+        // Constructor
         ManagerRep();
+
         //adds an item to file
         void addPizza(const Pizza &pizza);
         void addCrust(const Crust &crust);

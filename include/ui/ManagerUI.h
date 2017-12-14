@@ -17,9 +17,11 @@ class ManagerUI
         void printManLogo();
 
     public:
+        //Starts UI for sales, prints out menu
         ManagerUI();
         //the menu for manager
         void startUI();
+
         //the menu for add/change
         void addChangeMenu();
         //the menu for remove

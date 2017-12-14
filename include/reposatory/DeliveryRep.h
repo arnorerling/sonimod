@@ -12,7 +12,9 @@ class DeliveryRep
     private:
 
     public:
+        // Constructor
         DeliveryRep();
+
         //returns all branch classes from a file
         vector<Branch> getBranches();
         //returns all order classes from a file

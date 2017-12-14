@@ -19,8 +19,8 @@ class DeliveryUI
         void printLogo();
 
     public:
+        //Starts UI for sales, prints out menu
         DeliveryUI();
-
         //starts the menu for delivery
         void startUI();
         //delivery chooses a restaurant branch

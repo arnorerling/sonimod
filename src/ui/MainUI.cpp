@@ -13,7 +13,7 @@ MainUI::MainUI() {
 void MainUI::start() {
     char answer = '\0';
     try {
-        mainDomain.checkUserList();
+        mainDomain.checkUserFile();
     }
     catch (FileNotOpenException) {
         cout << "User list not found, only system admin can login" << endl;

@@ -15,7 +15,9 @@ class BakerDomain
         void toLowerCase(string &name);
 
     public:
+        // Constructor
         BakerDomain();
+
         //get all restaurant branches
         vector<Branch> getBranch();
         //gets all orders and returns the ones that aren't ready

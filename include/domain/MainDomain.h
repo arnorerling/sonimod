@@ -12,9 +12,14 @@ class MainDomain
         MD5 charmd5;
 
     public:
+        // Constructor
         MainDomain();
-        void checkUserList();
+
+        //checks if user file exists
+        void checkUserFile();
+        //check if input is valid (1 digit)
         bool checkValidInput(string &select);
+        //check if user is in file
         User checkUser(string &name, string &password);
 };
 
