@@ -77,6 +77,7 @@ void BakerDomain::markOrderReady(const Order &order) {
             }
             else {
                 orderList[i].setReady(true);
+                orderList[i].setTime();
                 bakerRep.changeOrderList(orderList);
             }
         }

@@ -137,7 +137,7 @@ void DeliveryUI::printReadyOrders() {
             else if(diff < 7200) {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << "Name: " << orderList[i].getCustomerName();
-                cout << " | hurry up! order older than 30 minutes" << endl;
+                cout << " | hurry up! order older than an hour" << endl;
 
             }
             else {
