@@ -6,31 +6,50 @@ SalesDomain::SalesDomain() {
 
 vector<Drink> SalesDomain::getDrinks() {
     vector<Drink> drinks = salesRep.getDrinks();
+    if(drinks.size() == 0){
+        throw LengthNotRightException();
+    }
     return drinks;
 }
 
 vector<Sidedish> SalesDomain::getSidedishes() {
     vector<Sidedish> sidedishes = salesRep.getSidedishes();
+    if(sidedishes.size() == 0){
+        throw LengthNotRightException();
+    }
     return sidedishes;
+
 }
 
 vector<Pizza> SalesDomain::getPizzas() {
     vector<Pizza> pizzas = salesRep.getPizzas();
+    if(pizzas.size() == 0){
+        throw LengthNotRightException();
+    }
     return pizzas;
 }
 
 vector<Topping> SalesDomain::getToppings() {
     vector<Topping> toppings = salesRep.getToppings();
+    if(toppings.size() == 0){
+        throw LengthNotRightException();
+    }
     return toppings;
 }
 
 vector<Crust> SalesDomain::getCrusts() {
     vector<Crust> crusts = salesRep.getCrusts();
+    if(crusts.size() == 0){
+        throw LengthNotRightException();
+    }
     return crusts;
 }
 
 vector<Branch> SalesDomain::getBranches() {
     vector<Branch> branches = salesRep.getBranches();
+    if(branches.size() == 0){
+        throw LengthNotRightException();
+    }
     return branches;
 }
 
