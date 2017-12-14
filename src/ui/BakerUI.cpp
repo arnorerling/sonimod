@@ -179,25 +179,6 @@ Order BakerUI::findOrder() {
     return order;
 }
 
-string BakerUI::checkName() {
-    string name = "";
-    bool allowed = false;
-
-    while(!allowed) {
-        cout << "Name: ";
-        cin >> ws;
-        getline(cin, name);
-        bakerDomain.toLowerCase(name);
-        try {
-            allowed = bakerDomain.checkValidName(name);
-        }
-        catch(InvalidInputException) {
-            cout << "Name cant include numbers" << endl;
-        }
-    }
-    return name;
-}
-
 char BakerUI::checkInput() {
     string input = "";
     char input1 = '\0';
@@ -225,7 +206,7 @@ string BakerUI::checkNumber() {
         cin >> ws;
         getline(cin, number);
         try {
-            allowed = bakerDomain.isValidNumber(number);
+            allowed = bakerDomain.checkValidNumber(number);
         }
         catch(InvalidInputException){
             cout << "Invalid phonenumber, try again!" << endl;

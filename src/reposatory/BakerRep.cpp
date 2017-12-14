@@ -4,7 +4,7 @@ BakerRep::BakerRep() {
     //ctor
 }
 
-vector<Branch> BakerRep::getBranch() {
+vector<Branch> BakerRep::getBranches() {
     vector<Branch> branches;
     ifstream fin;
     fin.open("Branch_Binary.dat", ios::binary);

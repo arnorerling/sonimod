@@ -15,11 +15,15 @@ class DeliveryDomain
 {
     private:
         DeliveryRep deliveryRep;
+        void toLowerCase(string &name);
 
     public:
         DeliveryDomain();
+        //gets all restaurant branches
         vector<Branch> getBranch();
+        //get all orders
         vector<Order> getOrders(const string &branch);
+        //get only ready orders
         vector<Order> getReadyOrders(const string& branch);
 
         //gets an order based on phone number and branch
@@ -33,13 +37,12 @@ class DeliveryDomain
         void deleteOrder(const Order &order);
 
         //checks if a branch is in a file
-        bool checkBranchAvaliability(const string &branch);
+        bool checkBranchAvaliability(string &branch);
         //checks if a number is valid (7 digits)
-        bool checkValidNumber(const string num);
+        bool checkValidNumber(const string &num);
         //checks if input is valid (one digit)
         bool checkValidInput(const string &input);
-        //turns upper case into lower case letters
-        void toLowerCase(string &name);
+
 };
 
 #endif // DELIVERYDOMAIN_H

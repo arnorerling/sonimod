@@ -5,17 +5,8 @@ BakerDomain::BakerDomain()
     //ctor
 }
 
-void BakerDomain::toLowerCase(string &name) {
-
-    for (unsigned int i = 0; i < name.length(); i++) {
-        if(name[i] != ' ' && isupper(name[i])) {
-            name[i] = tolower(name[i]);
-        }
-    }
-}
-
 vector<Branch> BakerDomain::getBranch() {
-    vector<Branch> branchList = bakerRep.getBranch();
+    vector<Branch> branchList = bakerRep.getBranches();
     if(branchList.size() == 0) {
         throw LengthNotRightException();
     }
@@ -84,25 +75,16 @@ void BakerDomain::markOrderReady(const Order &order) {
     }
 }
 
-bool BakerDomain::checkBranchAvaliability(string &branchName) {
+bool BakerDomain::checkBranchAvaliability(string &branch) {
     vector<Branch> branches = getBranch();
+    toLowerCase(branch);
 
     for(unsigned int i = 0; i < branches.size(); i++){
-        if(branches[i].getName() == branchName) {
+        if(branches[i].getName() == branch) {
             return true;
         }
     }
     throw NotFoundException();
-}
-
-bool BakerDomain::checkValidName(const string &name) {
-
-    for(unsigned int i = 0; i < name.length(); i++){
-        if(isdigit(name[i])){
-             throw InvalidInputException();
-        }
-    }
-    return true;
 }
 
 bool BakerDomain::checkValidInput(const string &input) {
@@ -113,11 +95,19 @@ bool BakerDomain::checkValidInput(const string &input) {
     return false;
 }
 
-bool BakerDomain::isValidNumber(const string num){
-    for(unsigned int i = 0; i < num.length(); i++){
-        if(!isdigit(num[i]) || num.length() != 7){
+bool BakerDomain::checkValidNumber(const string &num) {
+    for(unsigned int i = 0; i < num.length(); i++) {
+        if(!isdigit(num[i]) || num.length() != 7) {
              throw InvalidInputException();
         }
     }
     return true;
+}
+
+void BakerDomain::toLowerCase(string &name) {
+    for (unsigned int i = 0; i < name.length(); i++) {
+        if(name[i] != ' ' && isupper(name[i])) {
+            name[i] = tolower(name[i]);
+        }
+    }
 }
