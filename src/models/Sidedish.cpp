@@ -41,7 +41,7 @@ void Sidedish::read(ifstream& fin) {
 ostream& operator << (ostream& out, const Sidedish& sidedish) {
 
     out << "Name: " << sidedish.name << " ";
-    out << "Price: " << sidedish.price << endl;
+    out << "Price: " << sidedish.price;
     return out;
 }
 
