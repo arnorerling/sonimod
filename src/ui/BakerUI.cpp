@@ -216,7 +216,7 @@ string BakerUI::checkNumber() {
 }
 
 void BakerUI::printLogo() {
-cout << "___  ____ _  _ ____ ____ " << endl;
-cout << "|__] |__| |_/  |___ |__/ " << endl;
-cout << "|__] |  | | \\_ |___ |  \\ " << endl;
+    cout << "___  ____ _  _ ____ ____ " << endl;
+    cout << "|__] |__| |_/  |___ |__/ " << endl;
+    cout << "|__] |  | | \\_ |___ |  \\ " << endl;
 }
