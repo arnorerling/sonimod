@@ -167,44 +167,50 @@ void Order::cleanOrder() {
 }
 
 ostream& operator << (ostream& out, const Order& order) {
-    out << "------------------------------------------------------" << endl;
-    out << "Order time: " << ctime(&order.orderTime);
-    if(order.ready){
-        out << "Customer name: " << order.getCustomerName() << endl;
-        out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
-        out << "Customer address: " << order.getCustomerAddress() << endl;
-    }
-    out << endl;
-    if (order.pizzas.size() > 0) {
-        out << "Pizzas: " << endl;
-        for(unsigned int i = 0; i < order.pizzas.size(); i++) {
-            out << order.pizzas[i] << endl;
+    if(order.getOrderSize() != 0){
+        out << "------------------------------------------------------" << endl;
+        out << "Order time: " << ctime(&order.orderTime);
+        if(order.ready){
+            out << "Customer name: " << order.getCustomerName() << endl;
+            out << "Customer number: " << order.getCustomerPhoneNumber() << endl;
+            out << "Customer address: " << order.getCustomerAddress() << endl;
         }
-    }
-    if (order.sideDishes.size() > 0) {
-        out << "Sidedishes: " << endl;
-        for(unsigned int i = 0; i < order.sideDishes.size(); i++) {
-            out << order.sideDishes[i].getName() << endl;
+        out << endl;
+        if (order.pizzas.size() > 0) {
+            out << "Pizzas: " << endl;
+            for(unsigned int i = 0; i < order.pizzas.size(); i++) {
+                out << order.pizzas[i] << endl;
+            }
         }
-    }
-    if (order.drinks.size() > 0) {
-        out << "Drinks: " << endl;
-        for(unsigned int i = 0; i < order.drinks.size(); i++) {
-            out << order.drinks[i].getName() << endl;
+        if (order.sideDishes.size() > 0) {
+            out << "Sidedishes: " << endl;
+            for(unsigned int i = 0; i < order.sideDishes.size(); i++) {
+                out << order.sideDishes[i].getName() << endl;
+            }
         }
-    }
-    out << endl;
-    out << "Order total: " << order.totalPrice << endl << endl;
-
-    if (order.pickup) {
-        out << "Order will be picked up at ";
-        out << order.getBranch() << endl;
+        if (order.drinks.size() > 0) {
+            out << "Drinks: " << endl;
+            for(unsigned int i = 0; i < order.drinks.size(); i++) {
+                out << order.drinks[i].getName() << endl;
+            }
+        }
+        out << endl;
+        out << "Order total: " << order.totalPrice << endl << endl;
+        if(order.ready){
+            if (order.pickup) {
+                out << "Order will be picked up at ";
+                out << order.getBranch() << endl;
+            }
+            else {
+                out << "Deliver to address ";
+                out << order.getCustomerAddress() << endl;
+            }
+            out << "Comments: " << order.comment << endl;
+        }
     }
     else {
-        out << "Deliver to address ";
-        out << order.getCustomerAddress() << endl;
+        out << "Nothing in order." << endl << endl;
     }
-        out << "Comments: " << order.comment << endl;
     return out;
 }
 
