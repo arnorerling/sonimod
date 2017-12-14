@@ -15,7 +15,6 @@ class ManagerUI
         Output output;
 
         void printManLogo();
-
     public:
         //Starts UI for sales, prints out menu
         ManagerUI();

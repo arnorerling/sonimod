@@ -31,7 +31,9 @@ void ManagerUI::startUI() {
             case '4':
                 cout << "GoodBye" << endl;
                 break;
-            default: cout << "Invalid input" << endl;
+            default:
+                cout << "Invalid input" << endl;
+                output.wait();
         }
     }
 }
