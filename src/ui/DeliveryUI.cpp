@@ -144,7 +144,7 @@ void DeliveryUI::printReadyOrders() {
                 cout << "Number: " << orderList[i].getCustomerPhoneNumber();
                 cout << " | Name: " << orderList[i].getCustomerName();
                 cout << " | Order older than 2 hours! Will be thrown out" << endl;
-                deleteOrder(orderList[i]);
+                deliveryDomain.markOrderFailed(orderList[i]);
             }
         }
         cout << "-----------------------" << endl;

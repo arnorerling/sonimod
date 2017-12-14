@@ -93,6 +93,19 @@ void DeliveryDomain::markOrderDelivered(Order &order) {
      }
 }
 
+void DeliveryDomain::markOrderFailed(Order &order) {
+    vector<Order> orderList = deliveryRep.getOrders();
+    vector<Order> newOrderList;
+
+    for (unsigned int i = 0; i < orderList.size(); i++) {
+        if (orderList[i] != order) {
+            newOrderList.push_back(orderList[i]);
+        }
+        deliveryRep.addToWaterloo(order);
+        deliveryRep.changeOrderList(newOrderList);
+     }
+}
+
 void DeliveryDomain::deleteOrder(const Order &order) {
     vector<Order> orderList = deliveryRep.getOrders();
     for (unsigned int i = 0; i < orderList.size(); i++) {

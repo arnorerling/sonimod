@@ -64,3 +64,12 @@ void DeliveryRep::addToLegacy(Order &order) {
         fout.close();
     }
 }
+
+void DeliveryRep::addToWaterloo(Order &order) {
+    ofstream fout;
+    fout.open("WaterlooOrder_Binary.dat", ios::binary|ios::app);
+    if(fout.is_open()) {
+        order.write(fout);
+        fout.close();
+    }
+}

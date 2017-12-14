@@ -35,6 +35,8 @@ class DeliveryDomain
         void markOrderPaidFor(const Order &order);
         //marks an order delivered and filed to legacy file
         void markOrderDelivered(Order &order);
+        //marks an order failed and filed to waterloo file
+        void markOrderFailed(Order &order);
         //deletes an order
         void deleteOrder(const Order &order);
 
