@@ -20,5 +20,5 @@ Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum 
 
 ## Acknowledgments
 
-Við notuðum kóðabút frá [Stackoverflow](https://stackoverflow.com/a/1455007) til að fela passwordið þegar maður skrifar það inn (óháð stýrikerfi
+Þakkir til leiðbeinandans okkar sem svaraði öllum okkar spurningum sama hvað klukkan var.
 
