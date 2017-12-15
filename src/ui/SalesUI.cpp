@@ -404,7 +404,6 @@ void SalesUI::fileOrder(){
         salesDomain.fileOrder(this->order);
         output.clean();
         cout << "Order filed!" << endl;
-        output.clean();
         this->order.cleanOrder();
     }
     catch(FileNotOpenException) {

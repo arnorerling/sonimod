@@ -199,6 +199,8 @@ vector<Order> ManagerDomain::getDateToOrders(const string &dateTo, vector<Order>
     strcpy(date, dateTo.c_str());
 
     //////////////////////////////////////////
+    // Code referenced from this website
+    // https://cboard.cprogramming.com/c-programming/169114-how-convert-string-time_t.html
     sscanf(date, "%2d.%2d.%4d", &day, &month, &year);
     struct tm breakdown = {0};
     breakdown.tm_year = year - 1900;

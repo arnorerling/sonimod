@@ -137,7 +137,9 @@ User MainUI::checkUser() {
     }
     return user;
 }
-
+///////////////////////////////////////////////////
+// this function is taken from this website
+// https://stackoverflow.com/questions/1413445/reading-a-password-from-stdcin
 void MainUI::SetStdinEcho(bool enable = true) {
 #ifdef WIN32
     HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
@@ -162,6 +164,7 @@ void MainUI::SetStdinEcho(bool enable = true) {
     (void) tcsetattr(STDIN_FILENO, TCSANOW, &tty);
 #endif
 }
+/////////////////////////////////////////////////////
 
 char MainUI::checkInput() {
     string answer = "";
