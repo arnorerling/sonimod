@@ -414,11 +414,9 @@ void SalesUI::fileOrder(){
     }
     catch(CantFileOrderException) {
         cout << "There is nothing in the Order, Order wont be filed!" << endl;
-        output.wait();
     }
     catch(LengthNotRightException) {
         cout << "Branch file empty call IT" << endl;
-        output.wait();
     }
 }
 
