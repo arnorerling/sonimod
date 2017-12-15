@@ -27,19 +27,19 @@ void SalesUI::startUI() {
 
         switch(select) {
             case '1': {
-                this->addPizza();
+                addPizza();
                 break;
             }
             case '2': {
-                this->addPizzaMenu();
+                addPizzaMenu();
                 break;
             }
             case '3': {
-                this->addSidedish();
+                addSidedish();
                 break;
             }
             case '4': {
-                this->addDrink();
+                addDrink();
                 break;
             }
             case '5': {
@@ -54,7 +54,7 @@ void SalesUI::startUI() {
                 break;
             }
             case '7': {
-                this->fileOrder();
+                fileOrder();
                 output.wait();
                 break;
             }
@@ -84,19 +84,19 @@ void SalesUI::addPizza() {
     try{
         Pizza pizza;
         int size = 0;
-        this->addCrust(pizza, size);
+        addCrust(pizza, size);
         output.clean();
-        this->addToppings(pizza);
+        addToppings(pizza);
         pizza.setPrice();
         this->order.addPizza(pizza);
     }
     catch(FileNotOpenException) {
         cout << "Adding a pizza not available!, topping file not found" << endl;
-        output.salesWait();
+        output.wait();
     }
     catch(CrustFileNotFoundException) {
         cout << "Adding a pizza not available!, crust file not found" << endl;
-        output.salesWait();
+        output.wait();
     }
     catch(LengthNotRightException) {
         cout << "Crust file empty!" << endl;
@@ -123,7 +123,7 @@ void SalesUI::addPizzaMenu() {
     }
     catch(CrustFileNotFoundException) {
         cout << "Adding a pizza not available!, crust file not found" << endl;
-        output.salesWait();
+        output.wait();
     }
     catch(LengthNotRightException) {
         cout << "Pizza file empty!!" << endl;
@@ -148,7 +148,7 @@ void SalesUI::choosePizza(Pizza &pizza, int &size) {
         }
         catch(NotFoundException) {
             cout << "Pizza file not available!" << endl;
-            output.salesWait();
+            output.wait();
         }
     }
 }
@@ -201,7 +201,7 @@ void SalesUI::addDrink() {
     string name;
     while(!available) {
         try {
-            this->printDrinks();
+            printDrinks();
             cout << "Drink name: ";
             string name = validName();
             cout << "Size: ";
@@ -232,7 +232,7 @@ void SalesUI::addSidedish() {
     bool available = false;
     while(!available) {
         try {
-            this->printSidedishes();
+            printSidedishes();
             cout << "Sidedish name: ";
             string name = validName();
             Sidedish sidedish(name);
@@ -383,10 +383,10 @@ void SalesUI::printBranches() {
 void SalesUI::fileOrder(){
     try{
         salesDomain.checkOrder(this->order);
-        this->addBranch();
-        this->addCustomer();
+        addBranch();
+        addCustomer();
         this->order.setTime();
-        order.addComment(this->addComment());
+        this->order.addComment(addComment());
         cout << "Mark as paid(y/n): ";
         char paidFor = validAnswer();
         if(paidFor == 'y'){
@@ -396,7 +396,7 @@ void SalesUI::fileOrder(){
         cout << "Pickup? (y/n): ";
         char pickup = validAnswer();
         if(pickup == 'y'){
-            order.setPickup(true);
+            this->order.setPickup(true);
             cout << "Order marked as pickup order." << endl;
         } else {
             addAddress();

@@ -14,9 +14,9 @@ void Output::wait() {
     cout  << endl;
 }
 
-void Output::salesWait() {
+/*void Output::salesWait() {
     cout << "Press enter to continue.." << endl;
     cin.ignore();
     cin.get();
     cout << endl;
-}
+}*/

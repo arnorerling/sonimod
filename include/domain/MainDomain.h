@@ -18,9 +18,9 @@ class MainDomain
         //checks if user file exists
         void checkUserFile();
         //check if input is valid (1 digit)
-        bool checkValidInput(string &select);
+        bool checkValidInput(const string &select);
         //check if user is in file
-        User checkUser(string &name, string &password);
+        User checkUser(const string &name, string &password);
 };
 
 #endif // MAINDOMAIN_H
