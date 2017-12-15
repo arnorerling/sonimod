@@ -22,3 +22,16 @@ Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum 
 
 Þakkir til leiðbeinandans okkar sem svaraði öllum okkar spurningum sama hvað klukkan var.
 
+## Aukahlutir
+
+Frumkvæði
+Geta breytt og removeað allar skrár nema order
+Login kerfi með hashed lykilorð
+Tími á pöntun, segir þegar pizza er sein og ónýt.
+Þegar pizza er deliverd fer hún í legacy skrá
+Þegar pizza skemmist fer hún i waterloo skrá (eldri en 2klt).
+Binary skrár, góð nýting á skrám.
+Sölutölur, getur valið sölutölur frá stað eða öllum stöðum annað hvort á milli einhverja dagsetninga eða all time sales.
+Hraðvirkt og skýrt viðmót.
+Gott error handling.
+
