@@ -42,7 +42,7 @@ class SalesUI {
         //Functions that send parameters to domain for validation, they also try and catch
         string validName();
         string validPhoneNumber();
-        int validNumber();
+        int validSize();
         char validAnswer();
         char checkInput();
         void markPaidFor();

@@ -161,7 +161,7 @@ void SalesUI::addCrust(Pizza &pizza, int &size) {
             cout << "Crust name: ";
             string name = validName();
             cout << "Crust size: ";
-            size = validNumber();
+            size = validSize();
             Crust crust(name,size);
             available = salesDomain.checkCrustAvailability(crust);
             pizza.addCrust(crust);
@@ -205,7 +205,7 @@ void SalesUI::addDrink() {
             cout << "Drink name: ";
             string name = validName();
             cout << "Size: ";
-            int size = validNumber();
+            int size = validSize();
             Drink drink(name, size);
             available = salesDomain.checkDrinkAvailability(drink);
             this->order.addDrink(drink);
@@ -466,7 +466,7 @@ string SalesUI::validPhoneNumber() {
     return phoneNumber;
 }
 
-int SalesUI::validNumber() {
+int SalesUI::validSize() {
     string number = "";
     int number1 = 0;
     bool allowed = false;
@@ -475,7 +475,7 @@ int SalesUI::validNumber() {
         cin >> ws;
         getline(cin, number);
         try {
-            number1 = salesDomain.checkValidNumber(number);
+            number1 = salesDomain.checkValidSize(number);
             allowed = true;
         }
         catch(InvalidInputException) {

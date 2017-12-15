@@ -28,28 +28,38 @@ class SalesDomain {
         vector<Branch> getBranches();
 
 
-        bool checkPizzaAvailability(const string &name, int size, Pizza &pizza);
-        bool checkDrinkAvailability(Drink& drink);
-        bool checkSidedishAvailability(Sidedish& sidedish);
-        void checkToppingAvailability(Topping& topping);
-        bool checkCrustAvailability(Crust& crust);
-        bool checkBranchAvailability(const string &branch);
-        void checkYesOrNo(const string &check);
-        bool checkValidAnswer(const string &answer);
-        void checkOrder(const Order &order);
-        bool checkValidInput(const string &input);
-        bool checkValidName(const string &name);
-        bool checkValidPhoneNumber(const string &num);
-        int checkValidNumber(const string &number);
-
-        // file order sends the order from the UI to the rep
+        //file order sends the order from the UI to the rep
         void fileOrder(Order &order);
+        //marks the order paid for
+        bool markOrderPaidFor(Order &order);
 
+        //check if pizza is in a list
+        bool checkPizzaAvailability(const string &name, int size, Pizza &pizza);
+        //check if drink is in a list
+        bool checkDrinkAvailability(Drink& drink);
+        //check if sidedish is in a list
+        bool checkSidedishAvailability(Sidedish& sidedish);
+        //check if topping is in a list
+        void checkToppingAvailability(Topping& topping);
+        //check if crust is in a list
+        bool checkCrustAvailability(Crust& crust);
+        //check if restaurant branch is in a list
+        bool checkBranchAvailability(const string &branch);
+        //check if order is in a list
+        void checkOrder(const Order &order);
+
+        //check if answer is 'y' or 'n'
+        bool checkValidAnswer(const string &answer);
+        //check if name is valid (no digits)
+        bool checkValidName(const string &name);
+        //check if phone number is valid (7 digits)
+        bool checkValidPhoneNumber(const string &num);
+        //check if size is valid
+        int checkValidSize(const string &number);
+        //check if number is valid (1 digit)
+        bool checkValidInput(const string &input);
         // takes in a string and makes it all lowercase
         void toLowerCase(string &str);
-
-        // marks the order paid for
-        bool markOrderPaidFor(Order &order);
 
 };
 

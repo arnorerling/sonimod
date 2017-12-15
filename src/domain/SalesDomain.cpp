@@ -53,28 +53,18 @@ vector<Branch> SalesDomain::getBranches() {
     return branches;
 }
 
-bool SalesDomain::checkValidName(const string &name) {
-    for(unsigned int i = 0; i < name.length(); i++) {
-        if(isdigit(name[i])) {
-             throw InvalidInputException();
-        }
-    }
-    return true;
+void SalesDomain::fileOrder(Order &order) {
+    salesRep.fileOrder(order);
 }
 
-bool SalesDomain::checkValidPhoneNumber(const string &num) {
-    vector<Order> orders = salesRep.getOrders();
-    for(unsigned int i = 0; i < num.length(); i++) {
-        if(!isdigit(num[i]) || num.length() != 7) {
-             throw InvalidInputException();
-        }
+bool SalesDomain::markOrderPaidFor(Order &order) {
+    if (order.getPaidFor()) {
+        throw AlreadyMarkedException();
     }
-    for (unsigned int i = 0; i < orders.size(); i++) {
-        if (orders[i].getCustomerPhoneNumber() == num) {
-            throw AlreadyMarkedException();
-        }
+    else {
+        order.setPaidFor(true);
+        return true;
     }
-    return true;
 }
 
 bool SalesDomain::checkPizzaAvailability(const string &name, int size, Pizza &pizza) {
@@ -159,36 +149,6 @@ void SalesDomain::checkOrder(const Order &order) {
     }
 }
 
-void SalesDomain::fileOrder(Order &order) {
-    salesRep.fileOrder(order);
-}
-
-void SalesDomain::checkYesOrNo(const string &check) {
-    if(check.length() != 1) {
-        throw LengthNotRightException();
-    }
-    if(check != "y" && check != "n") {
-        throw InvalidInputException();
-    }
-}
-
-int SalesDomain::checkValidNumber(const string &number) {
-    for (unsigned int i = 0; i < number.length(); i++) {
-        if(!isdigit(number[i])) {
-            throw InvalidInputException();
-        }
-    }
-    int number1 = atoi(number.c_str());
-    return number1;
-}
-
-void SalesDomain::toLowerCase(string &str) {
-    for (unsigned int i = 0; i < str.length(); i++) {
-        if(str[i] != ' ' && isupper(str[i])) {
-            str[i] = tolower(str[i]);
-        }
-    }
-}
 
 bool SalesDomain::checkValidAnswer(const string &answer) {
     if(answer == "y" || answer == "n") {
@@ -198,14 +158,38 @@ bool SalesDomain::checkValidAnswer(const string &answer) {
     return false;
 }
 
-bool SalesDomain::markOrderPaidFor(Order &order) {
-    if (order.getPaidFor()) {
-        throw AlreadyMarkedException();
+bool SalesDomain::checkValidName(const string &name) {
+    for(unsigned int i = 0; i < name.length(); i++) {
+        if(isdigit(name[i])) {
+             throw InvalidInputException();
+        }
     }
-    else {
-        order.setPaidFor(true);
-        return true;
+    return true;
+}
+
+bool SalesDomain::checkValidPhoneNumber(const string &num) {
+    vector<Order> orders = salesRep.getOrders();
+    for(unsigned int i = 0; i < num.length(); i++) {
+        if(!isdigit(num[i]) || num.length() != 7) {
+             throw InvalidInputException();
+        }
     }
+    for (unsigned int i = 0; i < orders.size(); i++) {
+        if (orders[i].getCustomerPhoneNumber() == num) {
+            throw AlreadyMarkedException();
+        }
+    }
+    return true;
+}
+
+int SalesDomain::checkValidSize(const string &number) {
+    for (unsigned int i = 0; i < number.length(); i++) {
+        if(!isdigit(number[i])) {
+            throw InvalidInputException();
+        }
+    }
+    int number1 = atoi(number.c_str());
+    return number1;
 }
 
 bool SalesDomain::checkValidInput(const string &input) {
@@ -216,5 +200,10 @@ bool SalesDomain::checkValidInput(const string &input) {
     return false;
 }
 
-
-
+void SalesDomain::toLowerCase(string &str) {
+    for (unsigned int i = 0; i < str.length(); i++) {
+        if(str[i] != ' ' && isupper(str[i])) {
+            str[i] = tolower(str[i]);
+        }
+    }
+}
