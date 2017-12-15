@@ -6,11 +6,15 @@ Sonimod er þriggja laga console pizzuafgreiðslukerfi sem skrifað er í C++. K
 
 ### Installing
 
+Windows:
 Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum frameworks né libraries þarf að niðuhala sér. Þegar forritið er keyrt með .exe skránni verður sjálfkrafa til einn admin aðgangur. Notendanafnið og lykilorðið á þeim aðgangi er bæði "admin". Admin er "management" aðgangur og getur því búið til fleiri aðganga sem notandinn getur notað.
+
+Linux:
+Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum frameworks né libraries þarf að niðuhala sér. Þegar forritið er keyrt í terminal verður sjálfkrafa til einn admin aðgangur. Notendanafnið og lykilorðið á þeim aðgangi er bæði "admin". Admin er "management" aðgangur og getur því búið til fleiri aðganga sem notandinn getur notað.
 
 ### Start developing
 
-Forritið er skrifað í codeblocks, fyrsta skref er að setja upp codeblocks. svo þarf bara opna cbp file til að byrja.
+Forritið er skrifað í codeblocks, fyrsta skref er að setja upp codeblocks. svo þarf opna cbp file og rebuilda projectið.
 Smiður notaður er gcc.
 
 ## Built with
