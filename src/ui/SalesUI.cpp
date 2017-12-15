@@ -23,48 +23,42 @@ void SalesUI::startUI() {
         cout << "0: Quit" << endl;
         cout << "------------------" << endl;
         select = checkInput();
+        output.clean();
 
         switch(select) {
             case '1': {
-                output.clean();
                 this->addPizza();
                 break;
             }
             case '2': {
-                output.clean();
                 this->addPizzaMenu();
                 break;
             }
             case '3': {
-                output.clean();
                 this->addSidedish();
                 break;
             }
             case '4': {
-                output.clean();
                 this->addDrink();
                 break;
             }
             case '5': {
-                output.clean();
                 cout << this->order;
                 output.wait();
                 break;
             }
             case '6': {
-                output.clean();
                 cout << "Order total: "<< this->order.getTotalPrice() << "kr" << endl;
                 output.wait();
 
                 break;
             }
             case '7': {
-                output.clean();
                 this->fileOrder();
+                output.wait();
                 break;
             }
             case '0': {
-                output.clean();
                 cout << "Have a good day!" << endl;
                 break;
             }
@@ -398,6 +392,7 @@ void SalesUI::fileOrder(){
             addAddress();
         }
         salesDomain.fileOrder(this->order);
+        output.clean();
         cout << "Order filed!" << endl;
         this->order.cleanOrder();
     }
@@ -454,6 +449,9 @@ string SalesUI::validPhoneNumber() {
         }
         catch(InvalidInputException) {
             cout << "Invalid phonenumber, try again!" << endl;
+        }
+        catch(AlreadyMarkedException) {
+            cout << "This phonenumber already has an order, try again!" << endl;
         }
     }
     return phoneNumber;

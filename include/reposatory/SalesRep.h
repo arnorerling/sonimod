@@ -29,6 +29,7 @@ class SalesRep
         vector<Topping> getToppings();
         vector<Crust> getCrusts();
         vector<Branch> getBranches();
+        vector<Order> getOrders();
 
         //writes the current order to orders_binary
         void fileOrder(Order& order);

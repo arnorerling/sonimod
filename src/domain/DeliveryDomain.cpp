@@ -60,7 +60,7 @@ Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
 void DeliveryDomain::markOrderPaidFor(const Order &order) {
      vector<Order> orderList = deliveryRep.getOrders();
      for (unsigned int i = 0; i < orderList.size(); i++) {
-        if (orderList[i] == order) {
+        if (orderList[i] == order ) {
             if (orderList[i].getPaidFor()) {
                 throw AlreadyMarkedException();
             }
