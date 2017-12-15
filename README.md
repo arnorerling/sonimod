@@ -4,6 +4,8 @@ Sonimod er þriggja laga console pizzuafgreiðslukerfi sem skrifað er í C++. K
 
 ## Getting Started
 
+### Installing
+
 Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum frameworks né libraries þarf að niðuhala sér. Þegar forritið er keyrt með .exe skránni verður sjálfkrafa til einn admin aðgangur. Notendanafnið og lykilorðið á þeim aðgangi er bæði "admin". Admin er "management" aðgangur og getur því búið til fleiri aðganga sem notandinn getur notað.
 
 ## Built with
@@ -18,4 +20,5 @@ Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum 
 
 ## Acknowledgments
 
-Við notuðum kóðabút frá [Stackoverflow](https://stackoverflow.com/a/1455007) til að fela passwordið þegar maður skrifar það inn (óháð stýrikerfi).
+Við notuðum kóðabút frá [Stackoverflow](https://stackoverflow.com/a/1455007) til að fela passwordið þegar maður skrifar það inn (óháð stýrikerfi
+
