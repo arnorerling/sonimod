@@ -34,7 +34,8 @@ class ManagerRep
         vector<Sidedish> getSidedish();
         vector<Branch> getBranch();
         vector<User> getUser();
-        vector<Order> getOrder();
+        vector<Order> getLegacyOrder();
+        vector<Order> getWaterlooOrder();
 
         //overwrites a whole file with a vector of items
         void changePizzaList(vector<Pizza> &pizzas);

@@ -53,10 +53,11 @@ void BakerDomain::markOrderInProcess(const Order &order) {
             }
             else {
                 orderList[i].setInProcess(true);
+                bakerRep.changeOrderList(orderList);
+                break;
             }
         }
     }
-    bakerRep.changeOrderList(orderList);
 }
 
 void BakerDomain::markOrderReady(const Order &order) {
@@ -70,6 +71,7 @@ void BakerDomain::markOrderReady(const Order &order) {
                 orderList[i].setReady(true);
                 orderList[i].setTime();
                 bakerRep.changeOrderList(orderList);
+                break;
             }
         }
     }

@@ -126,6 +126,26 @@ vector<Branch> SalesRep::getBranches() {
     return branches;
 }
 
+vector<Order> SalesRep::getOrders() {
+    vector<Order> orders;
+    ifstream fin;
+    fin.open("Order_Binary.dat", ios::binary);
+    if(fin.is_open()) {
+        while(!fin.eof()){
+            Order currOrder;
+            currOrder.read(fin);
+            if(!fin.eof()){
+                orders.push_back(currOrder);
+            }
+        }
+        fin.close();
+    }
+    else {
+        throw FileNotOpenException();
+    }
+    return orders;
+}
+
 void SalesRep::fileOrder(Order& order) {
     ofstream fout;
     fout.open("Order_Binary.dat", ios::binary|ios::app);

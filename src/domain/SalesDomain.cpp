@@ -63,9 +63,15 @@ bool SalesDomain::isValidName(string name) {
 }
 
 bool SalesDomain::isValidPhoneNumber(string num) {
+    vector<Order> orders = salesRep.getOrders();
     for(unsigned int i = 0; i < num.length(); i++) {
         if(!isdigit(num[i]) || num.length() != 7) {
              throw InvalidInputException();
+        }
+    }
+    for (unsigned int i = 0; i < orders.size(); i++) {
+        if (orders[i].getCustomerPhoneNumber() == num) {
+            throw AlreadyMarkedException();
         }
     }
     return true;

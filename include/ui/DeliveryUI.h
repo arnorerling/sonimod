@@ -15,7 +15,6 @@ class DeliveryUI
         string branch;
 
         Order findOrder();
-        void deleteOrder(Order order);
         void printLogo();
 
     public:

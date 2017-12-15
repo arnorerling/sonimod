@@ -60,7 +60,7 @@ Order DeliveryDomain::getOneOrder(const string &number, const string &branch) {
 void DeliveryDomain::markOrderPaidFor(const Order &order) {
      vector<Order> orderList = deliveryRep.getOrders();
      for (unsigned int i = 0; i < orderList.size(); i++) {
-        if (orderList[i] == order) {
+        if (orderList[i] == order ) {
             if (orderList[i].getPaidFor()) {
                 throw AlreadyMarkedException();
             }
@@ -104,16 +104,6 @@ void DeliveryDomain::markOrderFailed(Order &order) {
         deliveryRep.addToWaterloo(order);
         deliveryRep.changeOrderList(newOrderList);
      }
-}
-
-void DeliveryDomain::deleteOrder(const Order &order) {
-    vector<Order> orderList = deliveryRep.getOrders();
-    for (unsigned int i = 0; i < orderList.size(); i++) {
-        if (orderList[i].getCustomerPhoneNumber() == order.getCustomerPhoneNumber()) {
-            orderList.erase(orderList.begin()+i);
-        }
-    }
-    deliveryRep.changeOrderList(orderList);
 }
 
 bool DeliveryDomain::checkBranchAvaliability(string &branch) {

@@ -43,8 +43,10 @@ class ManagerDomain
         vector<Branch> getBranches();
         vector<User> getUsers();
 
-        //returns orders with the same branch, if branch is not chosen it returns all
-        vector<Order> getBranchOrders(const string &branch);
+        //returns legacy orders with the same branch, if branch is not chosen it returns all
+        vector<Order> getLegacyBranchOrders(const string &branch);
+        //returns failed order withe the same branch, if branch is not chosen it returns all
+        vector<Order> getFailedBranchOrders(const string &branch);
         //returns orders after a specific date, if no date is chosen it returns all
         vector<Order> getDateFromOrders(const string &dateFrom, vector<Order> branchOrders);
         //returns orders before/with a specific date, if no date is chosen it returns all

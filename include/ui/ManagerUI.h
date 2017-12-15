@@ -27,6 +27,8 @@ class ManagerUI
         void removeFromMenu();
         //the menu to see sale figures
         void seeSaleFigures();
+        //the menu to see faled orders
+        void seeFailedOrders();
 
         //add or change item in list
         void addPizza();
@@ -46,8 +48,10 @@ class ManagerUI
         void printBranch();
         void printUser();
 
-        //prints all orders based on what branch and what date range.
+        //prints all orders based on branch and date range.
         void printFigures(string branch, string dateFrom, string dateTo);
+        //prints all failed orders based on branch and date range
+        void printFailedOrders(string branch, string dateFrom, string dateTo);
 
         //removes item from list
         void removePizza();
