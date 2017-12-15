@@ -15,6 +15,7 @@ Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum 
 ### Start developing
 
 Forritið er skrifað í codeblocks, fyrsta skref er að setja upp codeblocks. svo þarf opna cbp file og rebuilda projectið.
+Ef þú kemmst ekki inn með admin þarf að eyða userskránni þvi admin hefur verið gerður i öðru stýrikerfi.
 Smiður notaður er gcc.
 
 ## Built with
