@@ -261,6 +261,7 @@ void SalesUI::addBranch() {
     bool found = false;
     while(!found) {
         try {
+        printBranches();
         cout << "Restaurant name: ";
         string branch = validName();
 
@@ -370,11 +371,20 @@ void SalesUI::printSidedishes() {
     cout << "-----------------------------------" << endl;
 }
 
+void SalesUI::printBranches() {
+    vector<Branch> branches = salesDomain.getBranches();
+    cout << "--------------branches--------------" << endl;
+    for(unsigned int i = 0; i < branches.size(); i++){
+        cout << branches[i].getName() << endl;
+    }
+    cout << "------------------------------------" << endl;
+}
+
 void SalesUI::fileOrder(){
     try{
         salesDomain.checkOrder(this->order);
-        this->addCustomer();
         this->addBranch();
+        this->addCustomer();
         this->order.setTime();
         order.addComment(this->addComment());
         cout << "Mark as paid(y/n): ";
@@ -394,6 +404,7 @@ void SalesUI::fileOrder(){
         salesDomain.fileOrder(this->order);
         output.clean();
         cout << "Order filed!" << endl;
+        output.clean();
         this->order.cleanOrder();
     }
     catch(FileNotOpenException) {
@@ -403,11 +414,9 @@ void SalesUI::fileOrder(){
     }
     catch(CantFileOrderException) {
         cout << "There is nothing in the Order, Order wont be filed!" << endl;
-        output.wait();
     }
     catch(LengthNotRightException) {
         cout << "Branch file empty call IT" << endl;
-        output.wait();
     }
 }
 

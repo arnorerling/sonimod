@@ -34,6 +34,7 @@ class SalesUI {
         void printToppings();
         void printSidedishes();
         void printDrinks();
+        void printBranches();
 
         //File order sends the order to a binary file
         void fileOrder();
