@@ -140,9 +140,6 @@ vector<Order> SalesRep::getOrders() {
         }
         fin.close();
     }
-    else {
-        throw FileNotOpenException();
-    }
     return orders;
 }
 

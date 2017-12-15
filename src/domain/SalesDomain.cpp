@@ -53,7 +53,7 @@ vector<Branch> SalesDomain::getBranches() {
     return branches;
 }
 
-bool SalesDomain::isValidName(string name) {
+bool SalesDomain::checkValidName(const string &name) {
     for(unsigned int i = 0; i < name.length(); i++) {
         if(isdigit(name[i])) {
              throw InvalidInputException();
@@ -62,7 +62,7 @@ bool SalesDomain::isValidName(string name) {
     return true;
 }
 
-bool SalesDomain::isValidPhoneNumber(string num) {
+bool SalesDomain::checkValidPhoneNumber(const string &num) {
     vector<Order> orders = salesRep.getOrders();
     for(unsigned int i = 0; i < num.length(); i++) {
         if(!isdigit(num[i]) || num.length() != 7) {
@@ -77,7 +77,7 @@ bool SalesDomain::isValidPhoneNumber(string num) {
     return true;
 }
 
-bool SalesDomain::checkPizzaAvailability(string name, int size, Pizza &pizza) {
+bool SalesDomain::checkPizzaAvailability(const string &name, int size, Pizza &pizza) {
     vector<Pizza> pizzas = this->getPizzas();
     Crust crust = pizza.getCrust();
     for(unsigned int i = 0; i < pizzas.size(); i++) {
@@ -163,7 +163,7 @@ void SalesDomain::fileOrder(Order &order) {
     salesRep.fileOrder(order);
 }
 
-void SalesDomain::checkYesOrNo(string check) {
+void SalesDomain::checkYesOrNo(const string &check) {
     if(check.length() != 1) {
         throw LengthNotRightException();
     }
@@ -172,7 +172,7 @@ void SalesDomain::checkYesOrNo(string check) {
     }
 }
 
-int SalesDomain::isValidNumber(string &number) {
+int SalesDomain::checkValidNumber(const string &number) {
     for (unsigned int i = 0; i < number.length(); i++) {
         if(!isdigit(number[i])) {
             throw InvalidInputException();

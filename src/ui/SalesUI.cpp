@@ -437,7 +437,7 @@ string SalesUI::validName() {
         getline(cin, name);
         salesDomain.toLowerCase(name);
         try {
-            allowed = salesDomain.isValidName(name);
+            allowed = salesDomain.checkValidName(name);
         }
         catch(InvalidInputException) {
             cout << "Invalid name, try again!" << endl;
@@ -454,7 +454,7 @@ string SalesUI::validPhoneNumber() {
         cin >> ws;
         getline(cin, phoneNumber);
         try {
-            allowed = salesDomain.isValidPhoneNumber(phoneNumber);
+            allowed = salesDomain.checkValidPhoneNumber(phoneNumber);
         }
         catch(InvalidInputException) {
             cout << "Invalid phonenumber, try again!" << endl;
@@ -475,7 +475,7 @@ int SalesUI::validNumber() {
         cin >> ws;
         getline(cin, number);
         try {
-            number1 = salesDomain.isValidNumber(number);
+            number1 = salesDomain.checkValidNumber(number);
             allowed = true;
         }
         catch(InvalidInputException) {
