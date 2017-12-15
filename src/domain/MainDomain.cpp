@@ -9,7 +9,7 @@ void MainDomain::checkUserFile() {
     vector<User> userList = mainRep.getUsers();
 }
 
-bool MainDomain::checkValidInput(string &select) {
+bool MainDomain::checkValidInput(const string &select) {
     if (select.length() == 1) {
         return true;
     }
@@ -17,7 +17,7 @@ bool MainDomain::checkValidInput(string &select) {
     return false;
 }
 
-User MainDomain::checkUser(string &name, string &password) {
+User MainDomain::checkUser(const string &name, string &password) {
     vector<User> userList = mainRep.getUsers();
     char *arrchar = const_cast<char*>(password.c_str());
     arrchar = charmd5.digestString(arrchar);

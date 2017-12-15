@@ -29,8 +29,6 @@ class BakerDomain
         void markOrderInProcess(const Order &order);
         //mark and order ready
         void markOrderReady(const Order &order);
-        //deletes an order
-        void deleteOrder(const Order &order);
 
         //checks if restaurant branch is in the list
         bool checkBranchAvaliability(string &branch);
