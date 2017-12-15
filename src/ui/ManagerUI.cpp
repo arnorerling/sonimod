@@ -647,7 +647,7 @@ void ManagerUI::removeBranch() {
 
 void ManagerUI::removeUser() {
     cout << "-----Remove User-----" << endl;
-    string name = checkName();
+    string name = checkUsername();
     User user(name);
 
     try {
