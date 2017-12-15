@@ -36,9 +36,9 @@ class Drink
         int getPrice() const;
 
         //sets private variables
-        void setName(const string name);
-        void setLiter(const int liter);
-        void setPrice(const int price);
+        void setName(const string &name);
+        void setLiter(int liter);
+        void setPrice(int price);
 };
 
 #endif // DRINK_H

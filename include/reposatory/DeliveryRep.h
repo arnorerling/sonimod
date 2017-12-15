@@ -22,6 +22,7 @@ class DeliveryRep
 
         //overwrites a file with a vector of order classes
         void changeOrderList(vector<Order> &orders);
+
         //adds delivered orders to legacy file
         void addToLegacy(Order &order);
         //adds failed orders to waterloo file

@@ -16,13 +16,7 @@ class SalesUI {
         Output output;
         Order order;
 
-    public:
-        // Constructor
-        SalesUI();
-        //Starts UI for sales, prints out menu
-        void startUI();
-
-        //Add functions
+        //Add items to order
         void addCustomer();
         void addPizza();
         void addPizzaMenu();
@@ -34,17 +28,17 @@ class SalesUI {
         void addAddress();
         string addComment();
 
-        //print functions
+        //prints items from list
         void printPizzas();
         void printCrusts();
         void printToppings();
         void printSidedishes();
         void printDrinks();
 
-        // File order sends the order to a binary file
+        //File order sends the order to a binary file
         void fileOrder();
 
-        // functions that send parameters to domain, they also try and catch
+        //Functions that send parameters to domain for validation, they also try and catch
         string validName();
         string validPhoneNumber();
         int validNumber();
@@ -53,8 +47,14 @@ class SalesUI {
         void markPaidFor();
         void choosePizza(Pizza &pizza, int& size);
 
-        // Prints logo
+        //Prints sales logo
         void printLogo();
+
+    public:
+        //Constructor
+        SalesUI();
+        //Starts UI for sales, prints out menu
+        void startUI();
 };
 
 #endif // SALESUI_H

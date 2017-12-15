@@ -77,13 +77,13 @@ int Drink::getPrice() const {
     return this->price;
 }
 
-void Drink::setName(const string name) {
+void Drink::setName(const string &name) {
     this->name = name;
 }
-void Drink::setLiter(const int liter) {
+void Drink::setLiter(int liter) {
     this->liter = liter;
 }
 
-void Drink::setPrice(const int price) {
+void Drink::setPrice(int price) {
     this->price = price;
 }

@@ -16,13 +16,6 @@ class BakerUI
         Output output;
         string branch;
 
-        Order findOrder();
-
-    public:
-        //Starts UI for sales, prints out menu
-        BakerUI();
-        //start menu for baker
-        void startUI();
         //baker chooses a restaurant branch
         void chooseRestaurant();
 
@@ -40,12 +33,21 @@ class BakerUI
         //user chooses an order to mark ready
         void markReady();
 
+        //finds a specific order
+        Order findOrder();
         //checks if phone number is valid
         string checkNumber();
-        //check if input is valid (one digit)
+        //checks if input is valid
         char checkInput();
-        //prints out baker logo
+        //prints baker logo
         void printLogo();
+
+
+    public:
+        //Starts UI for sales, prints out menu
+        BakerUI();
+        //start menu for baker
+        void startUI();
 };
 
 #endif // BAKERUI_H

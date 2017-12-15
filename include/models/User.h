@@ -34,7 +34,7 @@ class User {
         //sets private variables
         void setName(const string &name);
         void setPassword(const string &pw);
-        void setJobNumber(const int &num);
+        void setJobNumber(int num);
 
         //overwrites cout operator
         friend ostream& operator << (ostream &out, User &user);

@@ -35,7 +35,7 @@ class Pizza {
         void addCrust(const Crust &crust);
         //sets private variables
         void setName(const string &name);
-        void setFixedPrice(const int &price);
+        void setFixedPrice(int price);
         void setPrice();
 
         //gets private variables

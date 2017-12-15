@@ -22,7 +22,7 @@ class SalesRep
         // Constructor
         SalesRep();
 
-        //takes vectors from the domain and filles them up
+        //gets all item classes from a file
         vector<Drink> getDrinks();
         vector<Sidedish> getSidedishes();
         vector<Pizza> getPizzas();

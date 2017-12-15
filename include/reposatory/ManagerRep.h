@@ -26,7 +26,7 @@ class ManagerRep
         void addBranch(const Branch &branch);
         void addUser(const User &user);
 
-        //gets all items classes from a file
+        //gets all item classes from a file
         vector<Pizza> getPizza();
         vector<Crust> getCrust();
         vector<Topping> getTopping();

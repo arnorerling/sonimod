@@ -88,7 +88,7 @@ void Pizza::setName(const string &name) {
     this->name = name;
 }
 
-void Pizza::setFixedPrice(const int &price) {
+void Pizza::setFixedPrice(int price) {
     this->price = price;
 }
 

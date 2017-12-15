@@ -38,9 +38,9 @@ class Crust {
 		int getPrice() const;
 
         //sets private variables
-        void setName(const string name);
-        void setInches(const int inches);
-		void setPrice(const int price);
+        void setName(const string &name);
+        void setInches(int inches);
+		void setPrice(int price);
 
 };
 

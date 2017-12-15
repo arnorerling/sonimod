@@ -36,14 +36,14 @@ class Order {
         Order();
 
         //adds to private variables
-        void addPizza(Pizza& pizza);
-        void addSideDish(Sidedish& sidedish);
-        void addDrink(Drink& drink);
+        void addPizza(const Pizza& pizza);
+        void addSideDish(const Sidedish& sidedish);
+        void addDrink(const Drink& drink);
         void addCustomerName(const string &name);
         void addCustomerPhoneNum(const string &num);
         void addCustomerAddress(const string &address);
         void addBranch(const string &branch);
-        void addComment(string comment);
+        void addComment(const string &comment);
 
         //sets private variables
         void setPaidFor(bool paidFor);

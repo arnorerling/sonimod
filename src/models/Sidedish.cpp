@@ -64,6 +64,6 @@ void Sidedish::setName(const string &name) {
     this->name = name;
 }
 
-void Sidedish::setPrice(const int &price) {
+void Sidedish::setPrice(int price) {
     this->price = price;
 }

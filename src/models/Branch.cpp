@@ -43,6 +43,6 @@ string Branch::getName()const {
     return this->name;
 }
 
-void Branch::setName(const string name) {
+void Branch::setName(const string &name) {
     this->name = name;
 }

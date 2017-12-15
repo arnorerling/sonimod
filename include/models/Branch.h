@@ -24,7 +24,7 @@ class Branch
         //functions that get private variables
         string getName() const;
         //functions that set private variables
-        void setName(const string name);
+        void setName(const string &name);
 };
 
 #endif // BRANCH_H

@@ -14,15 +14,15 @@ Order::Order() {
     this->totalPrice = 0;
 }
 
-void Order::addPizza(Pizza& pizza) {
+void Order::addPizza(const Pizza& pizza) {
     this->pizzas.push_back(pizza);
 }
 
-void Order::addSideDish(Sidedish& sidedish) {
+void Order::addSideDish(const Sidedish& sidedish) {
     this->sideDishes.push_back(sidedish);
 }
 
-void Order::addDrink(Drink& drink) {
+void Order::addDrink(const Drink& drink) {
     this->drinks.push_back(drink);
 }
 
@@ -42,7 +42,7 @@ void Order::addBranch(const string &branch) {
     this->branch = branch;
 }
 
-void Order::addComment(string comment) {
+void Order::addComment(const string &comment) {
     this->comment = comment;
 }
 

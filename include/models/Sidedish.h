@@ -35,7 +35,7 @@ class Sidedish {
 
         //sets private variables
         void setName(const string &name);
-        void setPrice(const int &price);
+        void setPrice(int price);
 };
 
 #endif // SIDEDISH_H

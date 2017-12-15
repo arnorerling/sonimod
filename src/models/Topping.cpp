@@ -64,6 +64,6 @@ void Topping::setName(const string &name) {
     this->name = name;
 }
 
-void Topping::setPrice(const int &price) {
+void Topping::setPrice(int price) {
     this->price = price;
 }

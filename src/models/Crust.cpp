@@ -86,14 +86,14 @@ int Crust::getPrice() const {
     return this->price;
 }
 
-void Crust::setName(const string name) {
+void Crust::setName(const string &name) {
     this->name = name;
 }
 
-void Crust::setInches(const int inches) {
+void Crust::setInches(int inches) {
     this->inches = inches;
 }
 
-void Crust::Crust::setPrice(const int price){
+void Crust::Crust::setPrice(int price){
     this->price = price;
 }

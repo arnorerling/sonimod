@@ -14,27 +14,19 @@ class DeliveryUI
         Output output;
         string branch;
 
-        Order findOrder();
-        void printLogo();
-
-    public:
-        //Starts UI for sales, prints out menu
-        DeliveryUI();
-        //starts the menu for delivery
-        void startUI();
-        //delivery chooses a restaurant branch
+        //users chooses a restaurant branch
         void chooseRestaurant();
-        //prints out all the restaurant branches
 
+        //prints out all the restaurant branches
         void printRestaurants();
         //prints out a list of all orders's
         //phone numbers and name
-        void printOrders();
-        //prints out a list with all ready order's phone numbers and name
-        //lets you know if order is older than 20min, 30min
-        //after 2 hours, order will be thrown out.
         void printReadyOrders();
         //user chooses an order and the whole order will print out
+        void printOrders();
+        //prints out a list with all ready order's phone numbers and name
+        //lets you know if order is older than 30min and 1 hour
+        //after 2 hours, order will be marked failed and put into waterloo file
         void printOneOrder();
 
         //user chooses an order to be marked paid for
@@ -43,10 +35,20 @@ class DeliveryUI
         //the order will be stored in legacy file after that.
         void markDelivered();
 
-        //checks if input is valid
-        char checkInput();
+        //finds a specific order
+        Order findOrder();
         //checks if phone number is valid
         string checkNumber();
+        //checks if input is valid
+        char checkInput();
+        //prints delivery logo
+        void printLogo();
+
+    public:
+        //Starts UI for sales, prints out menu
+        DeliveryUI();
+        //starts the menu for delivery
+        void startUI();
 };
 
 #endif // DELIVERYUI_H

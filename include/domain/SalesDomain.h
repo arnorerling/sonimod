@@ -27,20 +27,20 @@ class SalesDomain {
         vector<Crust> getCrusts();
         vector<Branch> getBranches();
 
-        // Functions that take parameters from the UI class and validates them
-        bool isValidName(string name);
-        bool isValidPhoneNumber(string num);
-        bool checkPizzaAvailability(string name, int size, Pizza &pizza);
+
+        bool checkPizzaAvailability(const string &name, int size, Pizza &pizza);
         bool checkDrinkAvailability(Drink& drink);
         bool checkSidedishAvailability(Sidedish& sidedish);
         void checkToppingAvailability(Topping& topping);
         bool checkCrustAvailability(Crust& crust);
         bool checkBranchAvailability(const string &branch);
-        void checkYesOrNo(string check);
-        int isValidNumber(string &number);
+        void checkYesOrNo(const string &check);
         bool checkValidAnswer(const string &answer);
         void checkOrder(const Order &order);
         bool checkValidInput(const string &input);
+        bool checkValidName(const string &name);
+        bool checkValidPhoneNumber(const string &num);
+        int checkValidNumber(const string &number);
 
         // file order sends the order from the UI to the rep
         void fileOrder(Order &order);

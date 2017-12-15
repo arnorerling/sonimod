@@ -98,6 +98,6 @@ void User::setName(const string &name) {
 void User::setPassword(const string &pw) {
     this->password = pw;
 }
-void User::setJobNumber(const int &num) {
+void User::setJobNumber(int num) {
     this->jobNumber = num;
 }
