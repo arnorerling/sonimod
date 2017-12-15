@@ -10,9 +10,10 @@ class Output{
         void clean();
         //waits for user to press a key to continue
         void wait();
+
         //waits for sales user to press a key to continue
         //dirty fix because for some reason wait function wont work sometimes for sales
-        void salesWait();
+        //void salesWait();
 };
 
 #endif // OUTPUT_H

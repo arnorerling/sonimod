@@ -87,10 +87,10 @@ void DeliveryDomain::markOrderDelivered(Order &order) {
         if (orderList[i] != order) {
             newOrderList.push_back(orderList[i]);
         }
-        order.setPickup(true);
-        deliveryRep.addToLegacy(order);
-        deliveryRep.changeOrderList(newOrderList);
      }
+    order.setPickup(true);
+    deliveryRep.addToLegacy(order);
+    deliveryRep.changeOrderList(newOrderList);
 }
 
 void DeliveryDomain::markOrderFailed(Order &order) {
@@ -101,9 +101,9 @@ void DeliveryDomain::markOrderFailed(Order &order) {
         if (orderList[i] != order) {
             newOrderList.push_back(orderList[i]);
         }
-        deliveryRep.addToWaterloo(order);
-        deliveryRep.changeOrderList(newOrderList);
      }
+    deliveryRep.addToWaterloo(order);
+    deliveryRep.changeOrderList(newOrderList);
 }
 
 bool DeliveryDomain::checkBranchAvaliability(string &branch) {

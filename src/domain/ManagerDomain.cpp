@@ -198,6 +198,7 @@ vector<Order> ManagerDomain::getDateToOrders(const string &dateTo, vector<Order>
     int year = 0, month = 0, day = 0;
     strcpy(date, dateTo.c_str());
 
+    //////////////////////////////////////////
     sscanf(date, "%2d.%2d.%4d", &day, &month, &year);
     struct tm breakdown = {0};
     breakdown.tm_year = year - 1900;
@@ -205,6 +206,7 @@ vector<Order> ManagerDomain::getDateToOrders(const string &dateTo, vector<Order>
     breakdown.tm_mday = day;
 
     result = mktime(&breakdown);
+    //////////////////////////////////////////
     result += 86399;     //add 23 hours, 59 minutes and 59 seconds
 
     for (unsigned int i = 0; i < dateFromOrders.size(); i++) {
