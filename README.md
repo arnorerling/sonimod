@@ -13,7 +13,7 @@ Linux:
 Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum frameworks né libraries þarf að niðuhala sér. Þegar forritið er keyrt í terminal verður sjálfkrafa til einn admin aðgangur. Notendanafnið og lykilorðið á þeim aðgangi er bæði "admin". Admin er "management" aðgangur og getur því búið til fleiri aðganga sem notandinn getur notað.
 
 //exeonly inniheldur bara exe skrá.
-//exeandfile inniheldur exe binaryskrám
+//exeandfile inniheldur exe og binary skrár
 
 ### Start developing
 
