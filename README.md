@@ -12,6 +12,9 @@ Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum 
 Linux:
 Hægt er að keyra forritið um leið og því hefur verið niðurhalað, engum frameworks né libraries þarf að niðuhala sér. Þegar forritið er keyrt í terminal verður sjálfkrafa til einn admin aðgangur. Notendanafnið og lykilorðið á þeim aðgangi er bæði "admin". Admin er "management" aðgangur og getur því búið til fleiri aðganga sem notandinn getur notað.
 
+//exeonly inniheldur bara exe skrá.
+//exeandfile inniheldur exe binaryskrám
+
 ### Start developing
 
 Forritið er skrifað í codeblocks, fyrsta skref er að setja upp codeblocks. svo þarf opna cbp file og rebuilda projectið.
@@ -35,10 +38,10 @@ Smiður notaður er gcc.
 ## Aukahlutir
 
 Frumkvæði
-Geta breytt og removeað allar skrár nema order
-Login kerfi með hashed lykilorð
+Geta breytt og removeað allar skrár nema order.
+Login kerfi með hashed lykilorð.
 Tími á pöntun, segir þegar pizza er sein og ónýt.
-Þegar pizza er deliverd fer hún í legacy skrá
+Þegar pizza er deliverd fer hún í legacy skrá.
 Þegar pizza skemmist fer hún i waterloo skrá (eldri en 2klt).
 Binary skrár, góð nýting á skrám.
 Sölutölur, getur valið sölutölur frá stað eða öllum stöðum annað hvort á milli einhverja dagsetninga eða all time sales.
